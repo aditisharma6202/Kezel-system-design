@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# kezel-system-design
 
-## Getting Started
+Monorepo for **kz-design-system** (React design system) and its documentation app.
 
-First, run the development server:
+## Structure
+
+- `packages/ui` — Published as **kz-design-system** (Button, Dialog, Tailwind-based styles).
+- `apps/docs` — Next.js App Router documentation and examples.
+
+## Setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Script       | Description                    |
+| ------------ | ------------------------------ |
+| `pnpm build` | Build all packages and apps    |
+| `pnpm typecheck` | Type-check all packages    |
+| `pnpm lint`  | Lint all packages             |
+| `pnpm format` | Format with Prettier          |
+| `pnpm changeset` | Add a changeset           |
+| `pnpm version` | Bump versions from changesets |
+| `pnpm publish` | Build and publish to npm  |
+| `pnpm size`  | Run bundle size limits (UI)   |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Using kz-design-system
 
-## Learn More
+```tsx
+import { Button } from "kz-design-system/button";
+import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "kz-design-system/dialog";
+import "kz-design-system/styles.css";
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Docs
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+From repo root:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+pnpm --filter docs dev
+```
 
-## Deploy on Vercel
+Open [http://localhost:3000](http://localhost:3000).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Publishing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Add a changeset: `pnpm changeset`
+2. Version: `pnpm version` (updates versions and changelogs)
+3. Commit and push
+4. CI (on push to `main`) runs typecheck, lint, build, size-limit, then **changesets/action** creates a version PR or publishes to npm using `NPM_TOKEN`.
+
+Ensure `NPM_TOKEN` is set in the repo secrets for publishing.
