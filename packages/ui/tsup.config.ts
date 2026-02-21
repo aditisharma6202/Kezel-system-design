@@ -2,8 +2,10 @@ import { defineConfig } from "tsup";
 
 export default defineConfig({
   entry: {
+    index: "src/index.ts",
     button: "src/button/index.ts",
     dialog: "src/dialog/index.ts",
+    theme: "src/theme/index.ts",
   },
   format: ["esm", "cjs"],
   dts: true,

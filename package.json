@@ -7,6 +7,9 @@
     "node": ">=18"
   },
   "scripts": {
+    "dev": "pnpm --filter docs run dev",
+    "storybook": "pnpm --filter docs run storybook",
+    "build-storybook": "pnpm --filter docs run build-storybook",
     "build": "turbo run build",
     "typecheck": "turbo run typecheck",
     "lint": "ESLINT_USE_FLAT_CONFIG=false eslint .",

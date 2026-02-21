@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "figma": {
+      "type": "streamableHttp",
+      "url": "https://mcp.figma.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${env:FIGMA_MCP_TOKEN}"
+      }
+    }
+  }
+}

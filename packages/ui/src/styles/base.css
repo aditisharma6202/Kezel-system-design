@@ -1,0 +1,110 @@
+@layer base {
+  /* =========================
+     Reset / Foundation
+  ========================== */
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    border-color: var(--kz-color-border-default);
+  }
+
+  html {
+    font-family: var(--kz-font-family-base);
+    font-size: var(--kz-font-size-md);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    background: var(--kz-color-surface-background);
+    color: var(--kz-color-text-primary);
+    line-height: var(--kz-line-height-md);
+    transition:
+      background var(--kz-motion-duration-normal)
+        var(--kz-motion-easing-standard),
+      color var(--kz-motion-duration-normal) var(--kz-motion-easing-standard);
+  }
+
+  /* =========================
+     Typography
+  ========================== */
+
+  h1 {
+    font-size: var(--kz-font-size-3xl);
+    font-weight: var(--kz-font-weight-medium);
+    line-height: var(--kz-line-height-lg);
+    margin: 0;
+  }
+
+  h2 {
+    font-size: var(--kz-font-size-2xl);
+    font-weight: var(--kz-font-weight-medium);
+    line-height: var(--kz-line-height-lg);
+    margin: 0;
+  }
+
+  h3 {
+    font-size: var(--kz-font-size-xl);
+    font-weight: var(--kz-font-weight-medium);
+    line-height: var(--kz-line-height-md);
+    margin: 0;
+  }
+
+  h4 {
+    font-size: var(--kz-font-size-lg);
+    font-weight: var(--kz-font-weight-medium);
+    line-height: var(--kz-line-height-md);
+    margin: 0;
+  }
+
+  p {
+    font-size: var(--kz-font-size-md);
+    font-weight: var(--kz-font-weight-regular);
+    line-height: var(--kz-line-height-md);
+    margin: 0;
+  }
+
+  label {
+    font-size: var(--kz-font-size-md);
+    font-weight: var(--kz-font-weight-medium);
+  }
+
+  /* =========================
+     Form Elements
+  ========================== */
+
+  button {
+    font-family: inherit;
+    font-size: var(--kz-font-size-md);
+    font-weight: var(--kz-font-weight-medium);
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+    font-size: var(--kz-font-size-md);
+    font-weight: var(--kz-font-weight-regular);
+    color: var(--kz-color-text-primary);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--kz-color-text-muted);
+  }
+
+  /* =========================
+     Focus Ring (Accessible)
+  ========================== */
+
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--kz-shadow-focus);
+  }
+}

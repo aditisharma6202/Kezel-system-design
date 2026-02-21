@@ -1,0 +1,44 @@
+/* Neumorphic — Light */
+:root[data-variant="neumorphic"][data-mode="light"] {
+  --kz-color-surface-background: #e9edf1;
+  --kz-color-surface-base: #e9edf1;
+  --kz-color-surface-sunken: #e0e5ea;
+
+  --kz-color-text-primary: oklch(0.145 0 0);
+  --kz-color-border-default: rgba(0, 0, 0, 0.1);
+
+  /* Neumorphic Shadow */
+  --kz-shadow-elevation-1:
+    6px 6px 12px rgba(0, 0, 0, 0.12), -6px -6px 12px rgba(255, 255, 255, 0.8);
+
+  --kz-shadow-elevation-2:
+    10px 10px 20px rgba(0, 0, 0, 0.14),
+    -10px -10px 20px rgba(255, 255, 255, 0.85);
+
+  --kz-shadow-inset-1:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.12),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+
+  /* Radius */
+  --kz-radius-md: 10px;
+
+  /* Component: Button — Accent (neumorphic, lighter brand) */
+  --kz-component-button-accent-bg: var(--kz-color-brand-accent, #26b8ae);
+  --kz-component-button-accent-text: #ffffff;
+  --kz-component-button-accent-shadow: 2px 2px 4px 0 #c3cad3, -2px -2px 4px 0 #fff;
+  --kz-component-button-accent-bg-hover: var(--kz-color-brand-accent-hover, #1fa399);
+  --kz-component-button-accent-bg-active: var(--kz-color-brand-accent-active, #198a81);
+  --kz-component-button-accent-text-active: #ffffff;
+  --kz-component-button-accent-shadow-inset: inset 2px 2px 4px 0 rgba(0, 0, 0, 0.12),
+    inset -2px -2px 4px 0 rgba(255, 255, 255, 0.6);
+
+  /* Component: Button — Primary (neumorphic light): raised default, inset when pressed */
+  --kz-component-button-primary-bg: #e9edf1;
+  --kz-component-button-primary-text: #2c3440;
+  --kz-component-button-primary-shadow: 2px 2px 4px 0 #c3cad3, -2px -2px 4px 0 #fff;
+  --kz-component-button-primary-bg-hover: #e0e5ea;
+  --kz-component-button-primary-bg-active: #d8dde3;
+  --kz-component-button-primary-text-active: #18ab9f;
+  --kz-component-button-primary-shadow-inset: inset 2px 2px 4px 0 #c3cad3,
+    inset -2px -2px 4px 0 #fff;
+}

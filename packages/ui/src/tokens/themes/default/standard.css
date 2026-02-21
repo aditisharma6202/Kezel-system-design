@@ -1,0 +1,218 @@
+/* Standard — Light (default when no theme set) */
+:root,
+:root[data-variant="standard"][data-mode="light"] {
+  /* BRAND */
+  --kz-color-brand-primary: #0066cc;
+  --kz-color-brand-primary-hover: #005bb5;
+  --kz-color-brand-primary-active: #004c99;
+  --kz-color-brand-secondary: #5a6b7a;
+  --kz-color-brand-accent: #00a89d;
+  --kz-color-brand-accent-hover: #00968d;
+  --kz-color-brand-accent-active: #007a73;
+  --kz-color-brand-inverse: #ffffff;
+
+  /* SURFACE */
+  --kz-color-surface-background: #f5f7fa;
+  --kz-color-surface-base: #ffffff;
+  --kz-color-surface-raised: #ffffff;
+  --kz-color-surface-sunken: #f0f2f5;
+  --kz-color-surface-overlay: rgba(0, 0, 0, 0.5);
+  --kz-color-surface-glass: rgba(255, 255, 255, 0.7);
+  --kz-color-surface-muted: #e9edf2;
+  --kz-color-surface-inverse: #1f2933;
+
+  /* TEXT */
+  --kz-color-text-primary: #1f2933;
+  --kz-color-text-secondary: #52606d;
+  --kz-color-text-tertiary: #7b8794;
+  --kz-color-text-muted: #9aa5b1;
+  --kz-color-text-disabled: #cbd2d9;
+  --kz-color-text-inverse: #ffffff;
+  --kz-color-text-link: #0066cc;
+  --kz-color-text-link-hover: #004c99;
+
+  /* BORDER */
+  --kz-color-border-subtle: #e4e7eb;
+  --kz-color-border-default: #cbd2d9;
+  --kz-color-border-strong: #9aa5b1;
+  --kz-color-border-focus: #0066cc;
+  --kz-color-border-inverse: rgba(255, 255, 255, 0.3);
+
+  /* STATUS */
+  --kz-color-status-success: #2f9e44;
+  --kz-color-status-success-bg: #e6f4ea;
+  --kz-color-status-success-border: #b7e4c7;
+  --kz-color-status-warning: #d97706;
+  --kz-color-status-warning-bg: #fef3c7;
+  --kz-color-status-warning-border: #fcd34d;
+  --kz-color-status-error: #d92d20;
+  --kz-color-status-error-bg: #fdecec;
+  --kz-color-status-error-border: #f5b5b0;
+  --kz-color-status-info: #2563eb;
+  --kz-color-status-info-bg: #e8f1fd;
+  --kz-color-status-info-border: #b6d4fe;
+
+  /* SHADOW */
+  --kz-shadow-elevation-0: none;
+  --kz-shadow-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --kz-shadow-elevation-2: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --kz-shadow-elevation-3: 0 4px 8px rgba(0, 0, 0, 0.12);
+  --kz-shadow-elevation-4: 0 8px 16px rgba(0, 0, 0, 0.16);
+  --kz-shadow-elevation-5: 0 12px 24px rgba(0, 0, 0, 0.2);
+  --kz-shadow-inset-1: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+  --kz-shadow-inset-2: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+  --kz-shadow-focus: 0 0 0 3px rgba(0, 102, 204, 0.25);
+  --kz-shadow-neumorphic-light: none;
+  --kz-shadow-neumorphic-dark: none;
+
+  /* RADIUS */
+  --kz-radius-none: 0;
+  --kz-radius-xs: 2px;
+  --kz-radius-sm: 4px;
+  --kz-radius-md: 8px;
+  --kz-radius-lg: 12px;
+  --kz-radius-xl: 16px;
+  --kz-radius-full: 9999px;
+
+  /* EFFECTS */
+  --kz-effect-blur-sm: 4px;
+  --kz-effect-blur-md: 8px;
+  --kz-effect-blur-lg: 16px;
+  --kz-effect-glass-opacity: 0.7;
+  --kz-effect-glass-border-opacity: 0.3;
+
+  /* TYPOGRAPHY */
+  --kz-font-family-base: Inter, system-ui, sans-serif;
+  --kz-font-family-mono: ui-monospace, SFMono-Regular, monospace;
+  --kz-font-size-xs: 12px;
+  --kz-font-size-sm: 14px;
+  --kz-font-size-md: 16px;
+  --kz-font-size-lg: 18px;
+  --kz-font-size-xl: 20px;
+  --kz-font-size-2xl: 24px;
+  --kz-font-size-3xl: 30px;
+  --kz-font-weight-regular: 400;
+  --kz-font-weight-medium: 500;
+  --kz-font-weight-semibold: 600;
+  --kz-font-weight-bold: 700;
+  --kz-line-height-sm: 1.4;
+  --kz-line-height-md: 1.5;
+  --kz-line-height-lg: 1.6;
+
+  /* MOTION */
+  --kz-motion-duration-fast: 120ms;
+  --kz-motion-duration-normal: 200ms;
+  --kz-motion-duration-slow: 300ms;
+  --kz-motion-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --kz-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+
+  /* SPACING (8pt base) */
+  --kz-space-0: 0;
+  --kz-space-1: 4px;
+  --kz-space-2: 8px;
+  --kz-space-3: 12px;
+  --kz-space-4: 16px;
+  --kz-space-5: 20px;
+  --kz-space-6: 24px;
+  --kz-space-8: 32px;
+  --kz-space-10: 40px;
+  --kz-space-12: 48px;
+  --kz-space-16: 64px;
+  --kz-space-20: 80px;
+  --kz-space-24: 96px;
+
+  /* Component: Button — Size (height, padding, text) */
+  --kz-component-button-height-sm: 2rem;
+  --kz-component-button-height-md: 2.5rem;
+  --kz-component-button-height-lg: 3rem;
+  --kz-component-button-px-sm: 0.75rem;
+  --kz-component-button-px-md: 1rem;
+  --kz-component-button-px-lg: 1.25rem;
+  --kz-component-button-text-sm: 0.875rem;
+  --kz-component-button-text-md: 0.875rem;
+  --kz-component-button-text-lg: 1rem;
+  --kz-component-button-icon-sm: 1rem;
+  --kz-component-button-icon-md: 1rem;
+  --kz-component-button-icon-lg: 1.25rem;
+
+  /* Component: Button — Primary (uses semantic tokens by default) */
+  --kz-component-button-primary-bg: var(--kz-color-brand-primary);
+  --kz-component-button-primary-bg-hover: var(--kz-color-brand-primary-hover);
+  --kz-component-button-primary-bg-active: var(--kz-color-brand-primary-active);
+  --kz-component-button-primary-text: #ffffff;
+  --kz-component-button-primary-text-active: #ffffff;
+  --kz-component-button-primary-shadow: var(--kz-shadow-elevation-1);
+  --kz-component-button-primary-shadow-inset: var(--kz-shadow-inset-1);
+
+  /* Component: Button — Secondary */
+  --kz-component-button-secondary-bg: #ffffff;
+  --kz-component-button-secondary-text: #1f2933;
+  --kz-component-button-secondary-border: #cbd2d9;
+
+  /* Component: Button — Danger */
+  --kz-component-button-danger-bg: #d92d20;
+  --kz-component-button-danger-text: #ffffff;
+
+  /* Component: Button — Accent (lighter brand) */
+  --kz-component-button-accent-bg: var(--kz-color-brand-accent);
+  --kz-component-button-accent-text: #ffffff;
+  --kz-component-button-accent-shadow: var(--kz-shadow-elevation-1);
+  --kz-component-button-accent-bg-hover: var(--kz-color-brand-accent-hover);
+  --kz-component-button-accent-bg-active: var(--kz-color-brand-accent-active);
+  --kz-component-button-accent-text-active: #ffffff;
+  --kz-component-button-accent-shadow-inset: var(--kz-shadow-inset-1);
+
+  /* Component: Button — Container (outline) */
+  --kz-component-button-container-bg: transparent;
+  --kz-component-button-container-text: var(--kz-color-brand-primary);
+  --kz-component-button-container-shadow: none;
+  --kz-component-button-container-bg-hover: rgba(0, 102, 204, 0.08);
+  --kz-component-button-container-bg-active: rgba(0, 102, 204, 0.12);
+  --kz-component-button-container-shadow-inset: none;
+
+  /* Component: Sidebar */
+  --kz-component-sidebar-bg: #ffffff;
+  --kz-component-sidebar-border: #e4e7eb;
+  --kz-component-sidebar-item-bg: transparent;
+  --kz-component-sidebar-item-bg-hover: #f0f2f5;
+  --kz-component-sidebar-item-bg-active: #e8f1fd;
+  --kz-component-sidebar-item-text: #1f2933;
+  --kz-component-sidebar-item-text-active: #0066cc;
+  --kz-component-sidebar-indicator: #0066cc;
+
+  /* Component: Header */
+  --kz-component-header-bg: #ffffff;
+  --kz-component-header-border: #e4e7eb;
+  --kz-component-header-text: #1f2933;
+
+  /* Component: Input */
+  --kz-component-input-bg: #ffffff;
+  --kz-component-input-border: #cbd2d9;
+  --kz-component-input-border-focus: #0066cc;
+  --kz-component-input-text: #1f2933;
+  --kz-component-input-placeholder: #9aa5b1;
+  --kz-component-input-shadow: var(--kz-shadow-inset-1);
+  --kz-component-input-radius: var(--kz-radius-sm);
+
+  /* Component: Card */
+  --kz-component-card-bg: #ffffff;
+  --kz-component-card-border: #e4e7eb;
+  --kz-component-card-shadow: var(--kz-shadow-elevation-1);
+  --kz-component-card-radius: var(--kz-radius-md);
+
+  /* Component: Canvas / Tile */
+  --kz-component-canvas-bg: #f5f7fa;
+  --kz-component-canvas-grid-line: #e4e7eb;
+  --kz-component-tile-bg: #ffffff;
+  --kz-component-tile-border: #e4e7eb;
+  --kz-component-tile-shadow: var(--kz-shadow-elevation-1);
+  --kz-component-tile-header-bg: #f9fafb;
+  --kz-component-tile-header-text: #1f2933;
+
+  /* Component: Filter panel */
+  --kz-component-filter-panel-bg: #ffffff;
+  --kz-component-filter-panel-border: #e4e7eb;
+  --kz-component-filter-label-text: #52606d;
+  --kz-component-filter-control-bg: #ffffff;
+  --kz-component-filter-control-border: #cbd2d9;
+}

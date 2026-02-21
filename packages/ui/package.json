@@ -4,6 +4,12 @@
   "description": "Production-ready React design system",
   "sideEffects": ["**/*.css"],
   "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
+    },
     "./button": {
       "types": "./dist/button.d.ts",
       "import": "./dist/button.mjs",
@@ -15,6 +21,12 @@
       "import": "./dist/dialog.mjs",
       "require": "./dist/dialog.cjs",
       "default": "./dist/dialog.mjs"
+    },
+    "./theme": {
+      "types": "./dist/theme.d.ts",
+      "import": "./dist/theme.mjs",
+      "require": "./dist/theme.cjs",
+      "default": "./dist/theme.mjs"
     },
     "./styles.css": "./dist/styles.css"
   },

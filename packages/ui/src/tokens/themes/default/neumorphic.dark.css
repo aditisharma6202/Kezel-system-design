@@ -1,0 +1,44 @@
+:root[data-variant="neumorphic"][data-mode="dark"],
+:root.dark[data-variant="neumorphic"] {
+  --kz-color-surface-background: #2c3440;
+  --kz-color-surface-base: #2c3440;
+  --kz-color-surface-sunken: #252b35;
+
+  --kz-color-text-primary: oklch(0.985 0 0);
+  --kz-color-border-default: oklch(0.269 0 0);
+
+  --kz-radius-md: 10px;
+
+  --kz-shadow-elevation-1:
+    6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(255, 255, 255, 0.06);
+
+  --kz-shadow-inset-1:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.55),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.06);
+
+  /* Component: Button — Primary (neumorphic dark): raised default, inset on hover/active */
+  --kz-component-button-primary-bg: #2c3440;
+  --kz-component-button-primary-text: #ffffff;
+  --kz-component-button-primary-shadow: 2px 2px 4px 0 rgba(20, 24, 32, 0.8),
+    -2px -2px 4px 0 rgba(72, 82, 98, 0.4);
+  --kz-component-button-primary-bg-hover: #3e4453;
+  --kz-component-button-primary-text-hover: #18ab9f;
+  --kz-component-button-primary-shadow-inset-hover: 2px 2px 4px 0 rgba(20, 24, 32, 0.8) inset,
+    -2px -2px 4px 0 rgba(72, 82, 98, 0.4) inset;
+  --kz-component-button-primary-bg-active: #e6eaee;
+  --kz-component-button-primary-text-active: #18ab9f;
+  --kz-component-button-primary-shadow-inset: inset 2px 2px 4px 0 #c3cad3,
+    inset -2px -2px 4px 0 #fff;
+
+  /* Component: Button — Accent (neumorphic dark) */
+  --kz-component-button-accent-bg: var(--kz-color-brand-accent, #26b8ae);
+  --kz-component-button-accent-text: #ffffff;
+  --kz-component-button-accent-shadow:
+    6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(255, 255, 255, 0.06);
+  --kz-component-button-accent-bg-hover: var(--kz-color-brand-accent-hover, #1fa399);
+  --kz-component-button-accent-bg-active: var(--kz-color-brand-accent-active, #198a81);
+  --kz-component-button-accent-text-active: #ffffff;
+  --kz-component-button-accent-shadow-inset:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.55),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.06);
+}

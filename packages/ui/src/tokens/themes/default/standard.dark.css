@@ -1,0 +1,27 @@
+:root[data-variant="standard"][data-mode="dark"],
+:root.dark[data-variant="standard"] {
+  /* Brand (same as light; can override for dark if needed) */
+  --kz-color-brand-primary: #00a99d;
+  --kz-color-brand-primary-hover: #008b81;
+  --kz-color-brand-primary-active: #006c64;
+  --kz-color-brand-accent: #26b8ae;
+  --kz-color-brand-accent-hover: #1fa399;
+  --kz-color-brand-accent-active: #198a81;
+
+  --kz-color-surface-background: #1f2933;
+  --kz-color-surface-base: #111827;
+  --kz-color-surface-raised: #1f2933;
+  --kz-color-surface-sunken: #374151;
+
+  --kz-color-text-primary: #f9fafb;
+  --kz-color-text-secondary: #d1d5db;
+  --kz-color-text-muted: #9ca3af;
+
+  --kz-color-border-default: #374151;
+  --kz-color-border-subtle: #2d3748;
+
+  --kz-shadow-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --kz-shadow-elevation-2: 0 2px 4px rgba(0, 0, 0, 0.45);
+
+  --kz-shadow-focus: 0 0 0 3px rgba(0, 169, 157, 0.35);
+}
