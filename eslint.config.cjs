@@ -26,18 +26,27 @@ const compat = new FlatCompat({
     allConfig: js.configs.all
 });
 
-module.exports = defineConfig([globalIgnores([
-    "**/dist",
-    "**/.next",
-    "**/node_modules",
-    "**/*.cjs",
-    "**/next-env.d.ts",
-    "**/storybook-static",
-    "**/storybook-static/**",
-    "**/.turbo",
-    "**/sb-addons",
-    "**/sb-addons/**",
-]), {
+module.exports = defineConfig([
+    globalIgnores([
+        "**/dist",
+        "**/.next",
+        "**/node_modules",
+        "**/*.cjs",
+        "**/next-env.d.ts",
+        "**/storybook-static",
+        "**/storybook-static/**",
+        "**/.turbo",
+        "**/sb-addons",
+        "**/sb-addons/**",
+    ]),
+    {
+        ignores: [
+            "**/storybook-static/**",
+            "**/sb-addons/**",
+            "apps/docs/storybook-static/**",
+        ],
+    },
+    {
     languageOptions: {
         globals: {
             ...globals.browser,
@@ -69,7 +78,8 @@ module.exports = defineConfig([globalIgnores([
             version: "detect",
         },
     },
-}, ...fixupConfigRules(compat.extends("next/core-web-vitals")).map((c) => ({
+    },
+    ...fixupConfigRules(compat.extends("next/core-web-vitals")).map((c) => ({
     ...c,
     files: ["apps/docs/**/*.{ts,tsx}"],
     settings: {
