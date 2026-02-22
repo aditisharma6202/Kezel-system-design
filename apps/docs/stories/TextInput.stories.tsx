@@ -63,16 +63,19 @@ export default meta;
 type Story = StoryObj<typeof TextInput>;
 
 export const Default: Story = {
-  render: (args) => (
-    <div style={{ width: 320 }}>
-      <Controlled
-        variant={TextInputVariant.Default}
-        size={TextInputSize.Md}
-        placeHolder="Placeholder"
-        {...args}
-      />
-    </div>
-  ),
+  render: (args) => {
+    const { placeHolder, variant, size, ...rest } = args;
+    return (
+      <div style={{ width: 320 }}>
+        <Controlled
+          {...rest}
+          variant={variant ?? TextInputVariant.Default}
+          size={size ?? TextInputSize.Md}
+          placeHolder={placeHolder ?? "Placeholder"}
+        />
+      </div>
+    );
+  },
 };
 
 export const Container: Story = {
