@@ -35,7 +35,7 @@ jobs:
         run: pnpm run typecheck
 
       - name: Lint
-        run: pnpm run lint
+        run: pnpm exec eslint packages apps/docs/app apps/docs/stories apps/docs/.storybook
 
       - name: Build
         run: pnpm run build
