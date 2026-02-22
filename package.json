@@ -12,7 +12,7 @@
     "build-storybook": "pnpm --filter docs run build-storybook",
     "build": "turbo run build",
     "typecheck": "turbo run typecheck",
-    "lint": "eslint .",
+    "lint": "eslint packages apps/docs/app apps/docs/stories apps/docs/.storybook",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "changeset": "changeset",
