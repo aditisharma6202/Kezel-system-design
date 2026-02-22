@@ -1,0 +1,10 @@
+/* Button loading spinner */
+@keyframes kz-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.kz-button-spinner {
+  animation: kz-spin 0.8s linear infinite;
+}

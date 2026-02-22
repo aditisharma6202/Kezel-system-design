@@ -15,7 +15,20 @@ import {
   KezelThemeProvider,
   KezelVariant,
   KezelMode,
+  type TokenKey,
 } from "kz-design-system";
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownContent,
+  DropdownItem,
+  DropdownSeparator,
+  DropdownLabel,
+  DropdownSub,
+  DropdownSubTrigger,
+  DropdownSubContent,
+  DropdownTriggerVariant,
+} from "kz-design-system/dropdown";
 
 export default function App() {
   const [mode, setMode] = React.useState<KezelMode>(KezelMode.Light);
@@ -26,9 +39,12 @@ export default function App() {
   const [successValue, setSuccessValue] = React.useState("valid@email.com");
   const [clearableValue, setClearableValue] = React.useState("Clear me");
   const [countValue, setCountValue] = React.useState("");
+  const [dropdownTokenOverrides, setDropdownTokenOverrides] = React.useState<
+    Partial<Record<TokenKey, string>> | undefined
+  >(undefined);
 
   return (
-    <KezelThemeProvider variant={variant} mode={mode}>
+    <KezelThemeProvider variant={variant} mode={mode} tokens={dropdownTokenOverrides}>
       <main
         className="min-h-screen flex flex-col items-center justify-center gap-12 p-8 transition-colors bg-[var(--kz-color-surface-background)]"
       >
@@ -97,16 +113,16 @@ export default function App() {
               Neumorphic
             </Button>
             <Button
-              variant={ButtonVariant.Container}
+              variant={ButtonVariant.Outline}
               size={ButtonSize.Sm}
               onClick={() => setMode(mode === KezelMode.Light ? KezelMode.Dark : KezelMode.Light)}
             >
               {mode === KezelMode.Light ? "Switch to dark" : "Switch to light"}
             </Button>
             <Button
-              variant={ButtonVariant.Container}
+              variant={ButtonVariant.Ghost}
               size={ButtonSize.Sm}
-              onClick={() => { }}
+              onClick={() => {}}
               asChild
             >
               <a href="https://www.google.com">Google</a>
@@ -114,18 +130,38 @@ export default function App() {
           </div>
         </section>
 
-        {/* Variants: Accent, Primary, Container */}
         <section className="flex flex-col items-center gap-4">
           <Typography variant={TypographyVariantEnum.H3}>Variants</Typography>
+          <Typography variant={TypographyVariantEnum.Caption}>
+            Primary, Secondary, Outline, Ghost, Success, Warning, Error. Disabled uses 0.5 opacity; Loading shows spinner.
+          </Typography>
           <div className="flex flex-wrap gap-3 justify-center">
-            <Button variant={ButtonVariant.Accent} size={ButtonSize.Md} onClick={() => { }}>
-              Accent
-            </Button>
-            <Button variant={ButtonVariant.Primary} size={ButtonSize.Md} onClick={() => { }}>
+            <Button variant={ButtonVariant.Primary} size={ButtonSize.Md} onClick={() => {}}>
               Primary
             </Button>
-            <Button variant={ButtonVariant.Container} size={ButtonSize.Md} onClick={() => { }}>
-              Container
+            <Button variant={ButtonVariant.Secondary} size={ButtonSize.Md} onClick={() => {}}>
+              Secondary
+            </Button>
+            <Button variant={ButtonVariant.Outline} size={ButtonSize.Md} onClick={() => {}}>
+              Outline
+            </Button>
+            <Button variant={ButtonVariant.Ghost} size={ButtonSize.Md} onClick={() => {}}>
+              Ghost
+            </Button>
+            <Button variant={ButtonVariant.Success} size={ButtonSize.Md} onClick={() => {}}>
+              Success
+            </Button>
+            <Button variant={ButtonVariant.Warning} size={ButtonSize.Md} onClick={() => {}}>
+              Warning
+            </Button>
+            <Button variant={ButtonVariant.Error} size={ButtonSize.Md} onClick={() => {}}>
+              Error
+            </Button>
+            <Button variant={ButtonVariant.Primary} size={ButtonSize.Md} disabled onClick={() => {}}>
+              Disabled
+            </Button>
+            <Button variant={ButtonVariant.Primary} size={ButtonSize.Md} loading onClick={() => {}}>
+              Loading
             </Button>
           </div>
         </section>
@@ -150,13 +186,22 @@ export default function App() {
         <section className="flex flex-col items-center gap-4">
           <Typography variant={TypographyVariantEnum.H3}>All combinations</Typography>
           <div className="flex flex-wrap gap-2 justify-center max-w-2xl">
-            {([ButtonVariant.Accent, ButtonVariant.Primary, ButtonVariant.Container] as const).map(
-              (v) =>
-                ([ButtonSize.Sm, ButtonSize.Md, ButtonSize.Lg] as const).map((s) => (
-                  <Button key={`${v}-${s}`} variant={v} size={s} onClick={() => { }}>
-                    {v} {s}
-                  </Button>
-                ))
+            {(
+              [
+                ButtonVariant.Primary,
+                ButtonVariant.Secondary,
+                ButtonVariant.Outline,
+                ButtonVariant.Ghost,
+                ButtonVariant.Success,
+                ButtonVariant.Warning,
+                ButtonVariant.Error,
+              ] as const
+            ).map((v) =>
+              ([ButtonSize.Sm, ButtonSize.Md, ButtonSize.Lg] as const).map((s) => (
+                <Button key={`${v}-${s}`} variant={v} size={s} onClick={() => {}}>
+                  {v} {s}
+                </Button>
+              ))
             )}
           </div>
         </section>
@@ -287,6 +332,77 @@ export default function App() {
               variant={TextInputVariant.Default}
             />
           </div>
+        </section>
+
+        {/* Dropdown with submenu — tokenized; override via KezelThemeProvider tokens */}
+        <section className="flex flex-col items-center gap-4 w-full max-w-md">
+          <Typography variant={TypographyVariantEnum.H2}>Dropdown</Typography>
+          <Typography variant={TypographyVariantEnum.Caption}>
+            Default, Ghost variant, and no-chevron. All styles use design tokens; override via{" "}
+            <code className="text-xs bg-black/10 dark:bg-white/10 px-1 rounded">
+              KezelThemeProvider tokens
+            </code>
+            .
+          </Typography>
+          <div className="flex flex-wrap gap-3 justify-center items-center">
+            <Dropdown>
+              <DropdownTrigger>Actions</DropdownTrigger>
+              <DropdownContent align="start" sideOffset={6}>
+                <DropdownLabel>Actions</DropdownLabel>
+                <DropdownSeparator />
+                <DropdownItem onSelect={() => {}}>New file</DropdownItem>
+                <DropdownItem onSelect={() => {}}>Copy link</DropdownItem>
+                <DropdownItem onSelect={() => {}}>Edit</DropdownItem>
+                <DropdownSeparator />
+                <DropdownSub>
+                  <DropdownSubTrigger>More options</DropdownSubTrigger>
+                  <DropdownSubContent>
+                    <DropdownItem onSelect={() => {}}>Sub option A</DropdownItem>
+                    <DropdownItem onSelect={() => {}}>Sub option B</DropdownItem>
+                  </DropdownSubContent>
+                </DropdownSub>
+              </DropdownContent>
+            </Dropdown>
+            <Dropdown>
+              <DropdownTrigger variant={DropdownTriggerVariant.Ghost}>
+                Ghost trigger
+              </DropdownTrigger>
+              <DropdownContent align="start" sideOffset={6}>
+                <DropdownItem onSelect={() => {}}>Item one</DropdownItem>
+                <DropdownItem onSelect={() => {}}>Item two</DropdownItem>
+              </DropdownContent>
+            </Dropdown>
+            <Dropdown>
+              <DropdownTrigger showChevron={false}>No chevron</DropdownTrigger>
+              <DropdownContent align="start" sideOffset={6}>
+                <DropdownItem onSelect={() => {}}>Option A</DropdownItem>
+                <DropdownItem onSelect={() => {}}>Option B</DropdownItem>
+              </DropdownContent>
+            </Dropdown>
+            <Button
+              variant={ButtonVariant.Outline}
+              size={ButtonSize.Sm}
+              onClick={() =>
+                setDropdownTokenOverrides((prev) =>
+                  prev
+                    ? undefined
+                    : ({
+                        "component.dropdown.trigger.bg": "#fef3c7",
+                        "component.dropdown.trigger.text": "#92400e",
+                        "component.dropdown.item.text.selected": "#b45309",
+                        "component.dropdown.item.bg.hover": "rgba(245, 158, 11, 0.15)",
+                      } as Partial<Record<TokenKey, string>>)
+                    )
+                }
+            >
+              {dropdownTokenOverrides ? "Reset dropdown tokens" : "Override dropdown tokens"}
+            </Button>
+          </div>
+          {dropdownTokenOverrides && (
+            <Typography variant={TypographyVariantEnum.Caption}>
+              Custom tokens applied: trigger bg/text, selected item color, item hover bg.
+            </Typography>
+          )}
         </section>
       </main>
     </KezelThemeProvider>

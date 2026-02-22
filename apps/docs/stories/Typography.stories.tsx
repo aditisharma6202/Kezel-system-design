@@ -95,7 +95,8 @@ export const AllVariants: Story = {
   parameters: {
     docs: {
       description: {
-        story: "All typography variants. Use the `variant` prop with `TypographyVariantEnum`.",
+        story:
+          "All typography variants. Use the toolbar above to switch **Variant** (Standard / Neumorphic) and **Mode** (Light / Dark) to see typography colors per theme.",
       },
     },
   },

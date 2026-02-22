@@ -1,66 +1,67 @@
 /* Typography — shared family, weight, primary/secondary color, line-height, letter-spacing; per-variant font-size only */
 
 .kz-typography-h1 {
-  color: var(--kz-typography-color-primary);
+  color: var(--kz-typography-h1-color, var(--kz-typography-color-primary));
   font-family: var(--kz-typography-font-family);
-  font-weight: var(--kz-typography-font-weight);
+  font-weight: var(--kz-typography-h1-font-weight, var(--kz-typography-font-weight));
   font-size: var(--kz-typography-h1-font-size);
-  line-height: var(--kz-typography-line-height-primary);
-  letter-spacing: var(--kz-typography-letter-spacing-primary);
+  line-height: var(--kz-typography-h1-line-height, var(--kz-typography-line-height-primary));
+  letter-spacing: var(--kz-typography-h1-letter-spacing, var(--kz-typography-letter-spacing-primary));
 }
 
 .kz-typography-h2 {
-  color: var(--kz-typography-color-primary);
+  color: var(--kz-typography-h2-color, var(--kz-typography-color-primary));
   font-family: var(--kz-typography-font-family);
-  font-weight: var(--kz-typography-font-weight);
+  font-weight: var(--kz-typography-h2-font-weight, var(--kz-typography-font-weight));
   font-size: var(--kz-typography-h2-font-size);
-  line-height: var(--kz-typography-line-height-primary);
-  letter-spacing: var(--kz-typography-letter-spacing-primary);
+  line-height: var(--kz-typography-h2-line-height, var(--kz-typography-line-height-primary));
+  letter-spacing: var(--kz-typography-h2-letter-spacing, var(--kz-typography-letter-spacing-primary));
 }
 
 .kz-typography-h3 {
-  color: var(--kz-typography-color-primary);
+  color: var(--kz-typography-h3-color, var(--kz-typography-color-primary));
   font-family: var(--kz-typography-font-family);
-  font-weight: var(--kz-typography-font-weight);
+  font-weight: var(--kz-typography-h3-font-weight, var(--kz-typography-font-weight));
   font-size: var(--kz-typography-h3-font-size);
-  line-height: var(--kz-typography-line-height-primary);
-  letter-spacing: var(--kz-typography-letter-spacing-primary);
+  line-height: var(--kz-typography-h3-line-height, var(--kz-typography-line-height-primary));
+  letter-spacing: var(--kz-typography-h3-letter-spacing, var(--kz-typography-letter-spacing-primary));
 }
 
 .kz-typography-body {
-  color: var(--kz-typography-color-primary);
+  color: var(--kz-typography-body-color, var(--kz-typography-color-primary));
   font-family: var(--kz-typography-font-family);
-  font-weight: var(--kz-typography-font-weight);
+  font-weight: var(--kz-typography-body-font-weight, var(--kz-typography-font-weight));
   font-size: var(--kz-typography-body-font-size);
-  line-height: var(--kz-typography-line-height-secondary);
-  letter-spacing: var(--kz-typography-letter-spacing-secondary);
+  line-height: var(--kz-typography-body-line-height, var(--kz-typography-line-height-secondary));
+  letter-spacing: var(--kz-typography-body-letter-spacing, var(--kz-typography-letter-spacing-secondary));
 }
 
 .kz-typography-small {
-  color: var(--kz-typography-color-primary);
+  color: var(--kz-typography-small-color, var(--kz-typography-color-primary));
   font-family: var(--kz-typography-font-family);
-  font-weight: var(--kz-typography-font-weight);
+  font-weight: var(--kz-typography-small-font-weight, var(--kz-typography-font-weight));
   font-size: var(--kz-typography-small-font-size);
-  line-height: var(--kz-typography-line-height-secondary);
-  letter-spacing: var(--kz-typography-letter-spacing-secondary);
+  line-height: var(--kz-typography-small-line-height, var(--kz-typography-line-height-secondary));
+  letter-spacing: var(--kz-typography-small-letter-spacing, var(--kz-typography-letter-spacing-secondary));
 }
 
 .kz-typography-caption {
-  color: var(--kz-typography-color-secondary);
+  color: var(--kz-typography-caption-color, var(--kz-typography-color-secondary));
   font-family: var(--kz-typography-font-family);
-  font-weight: var(--kz-typography-font-weight);
+  font-weight: var(--kz-typography-caption-font-weight, var(--kz-typography-font-weight));
   font-size: var(--kz-typography-caption-font-size);
-  line-height: var(--kz-typography-line-height-secondary);
-  letter-spacing: var(--kz-typography-letter-spacing-secondary);
+  line-height: var(--kz-typography-caption-line-height, var(--kz-typography-line-height-secondary));
+  letter-spacing: var(--kz-typography-caption-letter-spacing, var(--kz-typography-letter-spacing-secondary));
+  text-transform: var(--kz-typography-caption-text-transform, none);
 }
 
 .kz-typography-label {
-  color: var(--kz-typography-color-primary);
+  color: var(--kz-typography-label-color, var(--kz-typography-color-primary));
   font-family: var(--kz-typography-font-family);
-  font-weight: var(--kz-typography-font-weight);
+  font-weight: var(--kz-typography-label-font-weight, var(--kz-typography-font-weight));
   font-size: var(--kz-typography-label-font-size);
-  line-height: var(--kz-typography-line-height-secondary);
-  letter-spacing: var(--kz-typography-letter-spacing-secondary);
+  line-height: var(--kz-typography-label-line-height, var(--kz-typography-line-height-secondary));
+  letter-spacing: var(--kz-typography-label-letter-spacing, var(--kz-typography-letter-spacing-secondary));
 }
 
 .kz-typography-link {

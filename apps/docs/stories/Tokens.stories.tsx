@@ -148,8 +148,8 @@ export const ExampleOverride: StoryObj = {
           <Button variant={ButtonVariant.Primary} size={ButtonSize.Md} onClick={() => {}}>
             Primary
           </Button>
-          <Button variant={ButtonVariant.Accent} size={ButtonSize.Md} onClick={() => {}}>
-            Accent
+          <Button variant={ButtonVariant.Secondary} size={ButtonSize.Md} onClick={() => {}}>
+            Secondary
           </Button>
         </div>
       </div>

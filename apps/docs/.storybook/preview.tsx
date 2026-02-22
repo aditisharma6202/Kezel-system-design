@@ -1,7 +1,7 @@
 import React from "react";
 import type { Preview } from "@storybook/react";
 import { KezelThemeProvider, KezelVariant, KezelMode } from "kz-design-system";
-import "../../../packages/ui/dist/styles.css";
+import "kz-design-system/styles.css";
 
 function getThemeFromUrl(): { variant: "standard" | "neumorphic"; mode: "light" | "dark" } | null {
   if (typeof window === "undefined") return null;
@@ -21,6 +21,12 @@ const preview: Preview = {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i,
+      },
+    },
+    docs: {
+      description: {
+        component:
+          "Use the **Variant** (Standard / Neumorphic) and **Mode** (Light / Dark) toolbar controls above to switch themes and see component styles.",
       },
     },
   },

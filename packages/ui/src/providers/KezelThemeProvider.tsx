@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import type { TokenOverrides } from "../tokens/apply/applyTokenOverrides";
 import { applyTokenOverrides } from "../tokens/apply/applyTokenOverrides";
 import { KezelVariant, KezelMode, OverrideMode } from "../constants/enum";
@@ -22,7 +22,7 @@ export function KezelThemeProvider({
   tokens,
   validation = OverrideMode.Safe,
 }: KezelThemeProviderProps) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     const root = document.documentElement;
 
     root.dataset.variant = variant;

@@ -4,6 +4,8 @@
 @import "./tokens/themes/default/neumorphic.dark.css";
 @import "./styles/typography.css";
 @import "./styles/text-input.css";
+@import "./styles/button.css";
+@import "./styles/dropdown.css";
 
 @tailwind base;
 @tailwind components;

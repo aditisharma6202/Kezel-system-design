@@ -19,7 +19,7 @@ function categoryForToken(key: TokenKey): TokenCategory {
   if (key.startsWith("motion.duration.")) return TokenCategory.Duration;
   if (key.startsWith("motion.easing.")) return TokenCategory.Easing;
   if (key.startsWith("component.")) {
-    if (key.includes(".shadow")) return TokenCategory.Shadow;
+    if (key.includes(".shadow") || key.includes(".focus.ring")) return TokenCategory.Shadow;
     if (key.includes(".radius") || key.includes(".blur")) return TokenCategory.Length;
     if (key.includes("opacity")) return TokenCategory.Number;
     return TokenCategory.Color;

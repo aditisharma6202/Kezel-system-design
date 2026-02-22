@@ -7,23 +7,12 @@ import {
   TextInputState,
 } from "kz-design-system";
 
-function Controlled(props: {
-  value?: string;
-  placeHolder?: string;
-  variant?: TextInputVariant;
-  size?: TextInputSize;
-  state?: TextInputState;
-  label?: string;
-  description?: string;
-  helperText?: string;
-  errorText?: string;
-  successText?: string;
-  warningText?: string;
-  clearable?: boolean;
-  showCount?: boolean;
-  maxLength?: number;
-  disabled?: boolean;
-}) {
+function Controlled(
+  props: Omit<React.ComponentProps<typeof TextInput>, "value" | "onValueChange"> & {
+    value?: string;
+    placeHolder?: string;
+  }
+) {
   const [value, setValue] = React.useState(props.value ?? "");
   return (
     <TextInput
@@ -40,20 +29,112 @@ const meta: Meta<typeof TextInput> = {
   component: TextInput,
   parameters: {
     layout: "centered",
+    docs: {
+      description: {
+        component:
+          "Text input with label, description, validation states, adornments, clearable, and character count. Use the **Variant** and **Mode** toolbar to see theme-specific styles.",
+      },
+    },
   },
   tags: ["autodocs"],
+  args: {
+    value: "",
+    placeHolder: "Placeholder",
+    variant: TextInputVariant.Default,
+    size: TextInputSize.Md,
+    state: TextInputState.Default,
+    loading: false,
+    clearable: false,
+    showCount: false,
+    showStateIcon: true,
+  },
   argTypes: {
-    variant: {
-      control: "select",
-      options: Object.values(TextInputVariant),
-    },
     size: {
       control: "select",
       options: Object.values(TextInputSize),
+      description: "Height and padding: Sm, Md, or Lg.",
+    },
+    variant: {
+      control: "select",
+      options: Object.values(TextInputVariant),
+      description: "Visual style: Default, Container (transparent bg), or Ghost (border bottom only).",
+    },
+    label: {
+      control: "text",
+      description: "Label shown above the input.",
+    },
+    helperText: {
+      control: "text",
+      description: "Helper text below the input (generic).",
+    },
+    description: {
+      control: "text",
+      description: "Description text below the label.",
     },
     state: {
       control: "select",
       options: Object.values(TextInputState),
+      description: "Validation state: Default, Error, Success, or Warning. Shows state message and optional icon.",
+    },
+    errorText: {
+      control: "text",
+      description: "Message shown when state is Error.",
+    },
+    successText: {
+      control: "text",
+      description: "Message shown when state is Success.",
+    },
+    warningText: {
+      control: "text",
+      description: "Message shown when state is Warning.",
+    },
+    value: {
+      control: "text",
+      description: "Controlled input value.",
+    },
+    placeHolder: {
+      control: "text",
+      description: "Placeholder when value is empty.",
+    },
+    startAdornment: {
+      control: false,
+      description: "React node rendered at the start of the input (e.g. icon).",
+    },
+    endAdornment: {
+      control: false,
+      description: "React node rendered at the end of the input. Ignored when clearable and value is non-empty.",
+    },
+    loading: {
+      control: "boolean",
+      description: "When true, shows a loading indicator and disables the input.",
+    },
+    clearable: {
+      control: "boolean",
+      description: "When true, shows a clear button when the input has a value.",
+    },
+    showCount: {
+      control: "boolean",
+      description: "When true, shows character count. Requires maxLength.",
+    },
+    maxLength: {
+      control: { type: "number", min: 1, max: 500 },
+      description: "Max length; used with showCount and to enforce limit.",
+    },
+    containerClassName: {
+      control: "text",
+      description: "CSS class for the outer container (label + input + messages).",
+    },
+    inputClassName: {
+      control: "text",
+      description: "CSS class for the native input element.",
+    },
+    disabled: {
+      control: "boolean",
+      description: "Disables the input.",
+    },
+    showStateIcon: {
+      control: "boolean",
+      description: "When true, shows an icon for Error / Success / Warning state.",
     },
   },
 };
@@ -217,4 +298,12 @@ export const AllVariants: Story = {
       />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Default, Container, and Ghost variants. Use the toolbar to switch **Variant** (Standard / Neumorphic) and **Mode** (Light / Dark) to see input styles (e.g. neumorphic dark inset shadow).",
+      },
+    },
+  },
 };

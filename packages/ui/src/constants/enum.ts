@@ -21,9 +21,13 @@ export enum KezelMode {
 }
 
 export enum ButtonVariant {
-  Accent = "accent",
   Primary = "primary",
-  Container = "container",
+  Secondary = "secondary",
+  Outline = "outline",
+  Ghost = "ghost",
+  Success = "success",
+  Warning = "warning",
+  Error = "error",
 }
 
 export enum ButtonSize {
@@ -36,6 +40,11 @@ export enum ButtonType {
   Button = "button",
   Submit = "submit",
   Reset = "reset",
+}
+
+export enum DropdownTriggerVariant {
+  Default = "default",
+  Ghost = "ghost",
 }
 
 export enum TypographyVariant {

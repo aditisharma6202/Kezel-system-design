@@ -44,16 +44,51 @@
   --kz-typography-letter-spacing-primary: 0.07px;
   --kz-typography-letter-spacing-secondary: -0.15px;
 
-  --kz-typography-h1-font-size: 24px;
-  --kz-typography-h2-font-size: 20px;
-  --kz-typography-h3-font-size: 18px;
-  --kz-typography-body-font-size: 16px;
-  --kz-typography-small-font-size: 14px;
-  --kz-typography-caption-font-size: 14px;
-  --kz-typography-label-font-size: 16px;
+  --kz-typography-h1-color: #101828;
+  --kz-typography-h1-font-size: 30px;
+  --kz-typography-h1-font-weight: 700;
+  --kz-typography-h1-line-height: 36px;
+  --kz-typography-h1-letter-spacing: 0.396px;
 
-  --kz-typography-error-color: #fb2c36;
-  --kz-typography-success-color: #00c950;
+  --kz-typography-h2-color: #101828;
+  --kz-typography-h2-font-size: 24px;
+  --kz-typography-h2-font-weight: 600;
+  --kz-typography-h2-line-height: 32px;
+  --kz-typography-h2-letter-spacing: 0.07px;
+
+  --kz-typography-h3-color: #101828;
+  --kz-typography-h3-font-size: 20px;
+  --kz-typography-h3-font-weight: 600;
+  --kz-typography-h3-line-height: 28px;
+  --kz-typography-h3-letter-spacing: -0.449px;
+
+  --kz-typography-body-color: #364153;
+  --kz-typography-body-font-size: 16px;
+  --kz-typography-body-font-weight: 400;
+  --kz-typography-body-line-height: 24px;
+  --kz-typography-body-letter-spacing: -0.312px;
+
+  --kz-typography-small-color: #4a5565;
+  --kz-typography-small-font-size: 14px;
+  --kz-typography-small-font-weight: 400;
+  --kz-typography-small-line-height: 20px;
+  --kz-typography-small-letter-spacing: -0.15px;
+
+  --kz-typography-caption-color: #6a7282;
+  --kz-typography-caption-font-size: 12px;
+  --kz-typography-caption-font-weight: 400;
+  --kz-typography-caption-line-height: 16px;
+  --kz-typography-caption-letter-spacing: 0.6px;
+  --kz-typography-caption-text-transform: uppercase;
+
+  --kz-typography-label-color: #364153;
+  --kz-typography-label-font-size: 14px;
+  --kz-typography-label-font-weight: 500;
+  --kz-typography-label-line-height: 20px;
+  --kz-typography-label-letter-spacing: -0.15px;
+
+  --kz-typography-error-color: #e7000b;
+  --kz-typography-success-color: #00a63e;
   --kz-typography-warning-color: #f59e0b;
   --kz-typography-status-font-size: 12px;
   --kz-typography-status-line-height: 16px;
@@ -161,41 +196,41 @@
   --kz-component-button-icon-sm: 1rem;
   --kz-component-button-icon-md: 1rem;
   --kz-component-button-icon-lg: 1.25rem;
+  --kz-component-button-radius: 8px;
 
-  /* Component: Button — Primary (uses semantic tokens by default) */
-  --kz-component-button-primary-bg: var(--kz-color-brand-primary);
-  --kz-component-button-primary-bg-hover: var(--kz-color-brand-primary-hover);
-  --kz-component-button-primary-bg-active: var(--kz-color-brand-primary-active);
-  --kz-component-button-primary-text: #ffffff;
-  --kz-component-button-primary-text-active: #ffffff;
-  --kz-component-button-primary-shadow: var(--kz-shadow-elevation-1);
-  --kz-component-button-primary-shadow-inset: var(--kz-shadow-inset-1);
+  /* Component: Button — Primary */
+  --kz-component-button-primary-bg: #009689;
+  --kz-component-button-primary-bg-hover: #008a7e;
+  --kz-component-button-primary-bg-active: #007e73;
+  --kz-component-button-primary-text: #fff;
 
   /* Component: Button — Secondary */
-  --kz-component-button-secondary-bg: #ffffff;
-  --kz-component-button-secondary-text: #1f2933;
-  --kz-component-button-secondary-border: #cbd2d9;
+  --kz-component-button-secondary-bg: #f3f4f6;
+  --kz-component-button-secondary-bg-hover: #e5e7eb;
+  --kz-component-button-secondary-bg-active: #d1d5dc;
+  --kz-component-button-secondary-text: #101828;
 
-  /* Component: Button — Danger */
-  --kz-component-button-danger-bg: #d92d20;
-  --kz-component-button-danger-text: #ffffff;
+  /* Component: Button — Outline (light: #fff bg; hover 8% darker) */
+  --kz-component-button-outline-bg: #fff;
+  --kz-component-button-outline-bg-hover: #e8e8e8;
+  --kz-component-button-outline-border: #d1d5dc;
+  --kz-component-button-outline-text: #101828;
 
-  /* Component: Button — Accent (lighter brand) */
-  --kz-component-button-accent-bg: var(--kz-color-brand-accent);
-  --kz-component-button-accent-text: #ffffff;
-  --kz-component-button-accent-shadow: var(--kz-shadow-elevation-1);
-  --kz-component-button-accent-bg-hover: var(--kz-color-brand-accent-hover);
-  --kz-component-button-accent-bg-active: var(--kz-color-brand-accent-active);
-  --kz-component-button-accent-text-active: #ffffff;
-  --kz-component-button-accent-shadow-inset: var(--kz-shadow-inset-1);
+  /* Component: Button — Ghost */
+  --kz-component-button-ghost-bg: transparent;
+  --kz-component-button-ghost-text: #364153;
 
-  /* Component: Button — Container (outline) */
-  --kz-component-button-container-bg: transparent;
-  --kz-component-button-container-text: var(--kz-color-brand-primary);
-  --kz-component-button-container-shadow: none;
-  --kz-component-button-container-bg-hover: rgba(0, 102, 204, 0.08);
-  --kz-component-button-container-bg-active: rgba(0, 102, 204, 0.12);
-  --kz-component-button-container-shadow-inset: none;
+  /* Component: Button — Success, Warning, Error */
+  --kz-component-button-success-bg: #00a63e;
+  --kz-component-button-success-text: #fff;
+  --kz-component-button-warning-bg: #f59e0b;
+  --kz-component-button-warning-text: #fff;
+  --kz-component-button-error-bg: #e7000b;
+  --kz-component-button-error-text: #fff;
+
+  /* Component: Button — Disabled & Loading */
+  --kz-component-button-disabled-opacity: 0.5;
+  --kz-component-button-loading-opacity: 0.8;
 
   /* Component: Sidebar */
   --kz-component-sidebar-bg: #ffffff;
@@ -246,4 +281,22 @@
   --kz-component-filter-label-text: #52606d;
   --kz-component-filter-control-bg: #ffffff;
   --kz-component-filter-control-border: #cbd2d9;
+
+  /* Component: Dropdown (standard light) */
+  --kz-component-dropdown-trigger-bg: #ffffff;
+  --kz-component-dropdown-trigger-border: #d1d5dc;
+  --kz-component-dropdown-trigger-border-open: #d1d5dc;
+  --kz-component-dropdown-trigger-text: #364153;
+  --kz-component-dropdown-trigger-text-selected: #18AB9F;
+  --kz-component-dropdown-trigger-shadow: none;
+  --kz-component-dropdown-trigger-shadow-open: none;
+  --kz-component-dropdown-trigger-radius: 8px;
+  --kz-component-dropdown-trigger-focus-ring: 0 0 0 2px rgba(0, 150, 137, 0.25);
+  --kz-component-dropdown-content-bg: #ffffff;
+  --kz-component-dropdown-content-border: #d1d5dc;
+  --kz-component-dropdown-content-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --kz-component-dropdown-content-radius: 8px;
+  --kz-component-dropdown-item-text: #364153;
+  --kz-component-dropdown-item-text-selected: #18AB9F;
+  --kz-component-dropdown-item-bg-hover: rgba(0, 150, 137, 0.08);
 }

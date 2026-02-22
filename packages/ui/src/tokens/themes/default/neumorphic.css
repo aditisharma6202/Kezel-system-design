@@ -51,34 +51,62 @@
   /* Radius */
   --kz-radius-md: 10px;
 
-  /* Component: Button — Accent (neumorphic, lighter brand) */
-  --kz-component-button-accent-bg: var(--kz-color-brand-accent, #26b8ae);
-  --kz-component-button-accent-text: #ffffff;
-  --kz-component-button-accent-shadow:
-    2px 2px 4px 0 #c3cad3, -2px -2px 4px 0 #fff;
-  --kz-component-button-accent-bg-hover: var(
-    --kz-color-brand-accent-hover,
-    #1fa399
-  );
-  --kz-component-button-accent-bg-active: var(
-    --kz-color-brand-accent-active,
-    #198a81
-  );
-  --kz-component-button-accent-text-active: #ffffff;
-  --kz-component-button-accent-shadow-inset:
-    inset 2px 2px 4px 0 rgba(0, 0, 0, 0.12),
-    inset -2px -2px 4px 0 rgba(255, 255, 255, 0.6);
+  --kz-component-button-radius: 10px;
 
-  /* Component: Button — Primary (neumorphic light): raised default, inset when pressed */
-  --kz-component-button-primary-bg: #e9edf1;
-  --kz-component-button-primary-text: #2c3440;
+  /* Component: Button — Primary (neumorphic light) */
+  --kz-component-button-primary-bg: #18ab9f;
+  --kz-component-button-primary-text: #ffffff;
   --kz-component-button-primary-shadow:
-    2px 2px 4px 0 #c3cad3, -2px -2px 4px 0 #fff;
-  --kz-component-button-primary-bg-hover: #e0e5ea;
-  --kz-component-button-primary-bg-active: #d8dde3;
-  --kz-component-button-primary-text-active: #18ab9f;
-  --kz-component-button-primary-shadow-inset:
-    inset 2px 2px 4px 0 #c3cad3, inset -2px -2px 4px 0 #fff;
+    2px 2px 4px 0 rgba(163, 177, 198, 0.5), -2px -2px 4px 0 #fff;
+  --kz-component-button-primary-shadow-hover:
+    2px 2px 4px 0 rgba(0, 0, 0, 0.4) inset,
+    -2px -2px 4px 0 rgba(255, 255, 255, 0.06) inset;
+  --kz-component-button-primary-bg-hover: #148f85;
+  --kz-component-button-primary-bg-active: #148f85;
+
+  /* Component: Button — Secondary (neumorphic light) */
+  --kz-component-button-secondary-bg: #e9edf1;
+  --kz-component-button-secondary-text: #2e3440;
+  --kz-component-button-secondary-shadow: 2px 2px 4px 0 #c3cad3, -2px -2px 4px 0 #fff;
+  --kz-component-button-secondary-shadow-hover: 2px 2px 4px 0 #c3cad3 inset, -2px -2px 4px 0 #fff inset;
+  --kz-component-button-secondary-bg-hover: #e6eaee;
+  --kz-component-button-secondary-bg-active: #e0e5ea;
+
+  /* Component: Button — Outline (same as secondary in neumorphic) */
+  --kz-component-button-outline-bg: #e9edf1;
+  --kz-component-button-outline-bg-hover: #e6eaee;
+  --kz-component-button-outline-border: transparent;
+  --kz-component-button-outline-text: #2e3440;
+  --kz-component-button-outline-shadow: 2px 2px 4px 0 #c3cad3, -2px -2px 4px 0 #fff;
+  --kz-component-button-outline-shadow-hover: 2px 2px 4px 0 #c3cad3 inset, -2px -2px 4px 0 #fff inset;
+
+  /* Component: Button — Ghost (no border, bg, shadow; hover bg only) */
+  --kz-component-button-ghost-bg: transparent;
+  --kz-component-button-ghost-bg-hover: #0000000d;
+  --kz-component-button-ghost-text: var(--kz-color-text-primary);
+
+  /* Component: Button — Success, Warning, Error (neumorphic: raised default, inset on hover) */
+  --kz-component-button-success-bg: #22c55e;
+  --kz-component-button-success-bg-hover: #16a34a;
+  --kz-component-button-success-text: #fff;
+  --kz-component-button-success-shadow: 2px 2px 4px 0 rgba(163, 177, 198, 0.5), -2px -2px 4px 0 #fff;
+  --kz-component-button-success-shadow-hover: 2px 2px 4px 0 #c3cad3 inset, -2px -2px 4px 0 #fff inset;
+
+  --kz-component-button-warning-bg: #f59e0b;
+  --kz-component-button-warning-bg-hover: #d97706;
+  --kz-component-button-warning-text: #fff;
+  --kz-component-button-warning-shadow: 2px 2px 4px 0 rgba(163, 177, 198, 0.5), -2px -2px 4px 0 #fff;
+  --kz-component-button-warning-shadow-hover: 2px 2px 4px 0 #c3cad3 inset, -2px -2px 4px 0 #fff inset;
+
+  --kz-component-button-error-bg: #ef4444;
+  --kz-component-button-error-bg-hover: #dc2626;
+  --kz-component-button-error-text: #fff;
+  --kz-component-button-error-shadow: 2px 2px 4px 0 rgba(163, 177, 198, 0.5), -2px -2px 4px 0 #fff;
+  --kz-component-button-error-shadow-hover: 2px 2px 4px 0 #c3cad3 inset, -2px -2px 4px 0 #fff inset;
+
+  /* Component: Button — Disabled & Loading */
+  --kz-component-button-disabled-opacity: 0.4;
+  --kz-component-button-loading-opacity: 0.8;
 
   /* Component: Input (neumorphic light) */
   --kz-component-input-bg: #e4e9f0;
@@ -93,4 +121,22 @@
   --kz-component-input-radius: 10px;
   --kz-component-input-container-radius: 10px;
   --kz-component-input-container-border: var(--kz-color-border-default);
+
+  /* Component: Dropdown (neumorphic light) */
+  --kz-component-dropdown-trigger-bg: #e4e9f0;
+  --kz-component-dropdown-trigger-border: rgba(0, 0, 0, 0.06);
+  --kz-component-dropdown-trigger-border-open: rgba(0, 0, 0, 0.06);
+  --kz-component-dropdown-trigger-text: #2e3a59;
+  --kz-component-dropdown-trigger-text-selected: #18ab9f;
+  --kz-component-dropdown-trigger-shadow: 2px 2px 4px 0 rgba(163, 177, 198, 0.5), -2px -2px 4px 0 #fff;
+  --kz-component-dropdown-trigger-shadow-open: 2px 2px 4px 0 rgba(163, 177, 198, 0.5) inset, -2px -2px 4px 0 #fff inset;
+  --kz-component-dropdown-trigger-radius: 10px;
+  --kz-component-dropdown-trigger-focus-ring: 0 0 0 2px rgba(24, 171, 159, 0.2);
+  --kz-component-dropdown-content-bg: #e4e9f0;
+  --kz-component-dropdown-content-border: transparent;
+  --kz-component-dropdown-content-shadow: 4px 4px 8px 0 rgba(163, 177, 198, 0.5), -4px -4px 8px 0 #fff;
+  --kz-component-dropdown-content-radius: 10px;
+  --kz-component-dropdown-item-text: #2e3a59;
+  --kz-component-dropdown-item-text-selected: #18ab9f;
+  --kz-component-dropdown-item-bg-hover: rgba(0, 0, 0, 0.05);
 }

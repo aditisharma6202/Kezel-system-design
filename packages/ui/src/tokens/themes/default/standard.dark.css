@@ -8,7 +8,7 @@
   --kz-color-brand-accent-hover: #1fa399;
   --kz-color-brand-accent-active: #198a81;
 
-  --kz-color-surface-background: #1f2933;
+  --kz-color-surface-background: #0a0a0a;
   --kz-color-surface-base: #111827;
   --kz-color-surface-raised: #1f2933;
   --kz-color-surface-sunken: #374151;
@@ -28,6 +28,14 @@
   --kz-typography-line-height-secondary: 24px;
   --kz-typography-letter-spacing-primary: 0.07px;
   --kz-typography-letter-spacing-secondary: -0.15px;
+
+  --kz-typography-h1-color: #ffffff;
+  --kz-typography-h2-color: #ffffff;
+  --kz-typography-h3-color: #ffffff;
+  --kz-typography-body-color: #d1d5dc;
+  --kz-typography-small-color: #99a1af;
+  --kz-typography-caption-color: #6a7282;
+  --kz-typography-label-color: #d1d5dc;
 
   --kz-typography-h1-font-size: 24px;
   --kz-typography-h2-font-size: 20px;
@@ -60,4 +68,34 @@
   --kz-component-input-icon: #9ca3af;
   --kz-component-input-container-radius: 8px;
   --kz-component-input-container-border: #4b5563;
+
+  /* Component: Button — Secondary (standard dark) */
+  --kz-component-button-secondary-bg: #1e2939;
+  --kz-component-button-secondary-bg-hover: #263244;
+  --kz-component-button-secondary-bg-active: #2d3a4d;
+  --kz-component-button-secondary-text: #f9fafb;
+
+  /* Component: Button — Outline (standard dark: #101828 bg; hover 8% lighter) */
+  --kz-component-button-outline-bg: #101828;
+  --kz-component-button-outline-bg-hover: #1a2332;
+  --kz-component-button-outline-border: #364153;
+  --kz-component-button-outline-text: #f9fafb;
+
+  /* Component: Dropdown (standard dark) */
+  --kz-component-dropdown-trigger-bg: #101828;
+  --kz-component-dropdown-trigger-border: #364153;
+  --kz-component-dropdown-trigger-border-open: #364153;
+  --kz-component-dropdown-trigger-text: #99a1af;
+  --kz-component-dropdown-trigger-text-selected: #18AB9F;
+  --kz-component-dropdown-trigger-shadow: none;
+  --kz-component-dropdown-trigger-shadow-open: none;
+  --kz-component-dropdown-trigger-radius: 8px;
+  --kz-component-dropdown-trigger-focus-ring: 0 0 0 2px rgba(0, 150, 137, 0.35);
+  --kz-component-dropdown-content-bg: #101828;
+  --kz-component-dropdown-content-border: #364153;
+  --kz-component-dropdown-content-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --kz-component-dropdown-content-radius: 8px;
+  --kz-component-dropdown-item-text: #99a1af;
+  --kz-component-dropdown-item-text-selected: #18AB9F;
+  --kz-component-dropdown-item-bg-hover: rgba(0, 150, 137, 0.2);
 }
