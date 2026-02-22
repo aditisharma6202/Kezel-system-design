@@ -17,6 +17,32 @@
   --kz-color-text-secondary: #d1d5db;
   --kz-color-text-muted: #9ca3af;
 
+  --kz-color-icon-default: #ffffff;
+
+  /* TYPOGRAPHY (Standard dark) */
+  --kz-typography-font-family: Inter, system-ui, sans-serif;
+  --kz-typography-font-weight: 400;
+  --kz-typography-color-primary: var(--kz-color-text-primary);
+  --kz-typography-color-secondary: var(--kz-color-text-muted);
+  --kz-typography-line-height-primary: 32px;
+  --kz-typography-line-height-secondary: 24px;
+  --kz-typography-letter-spacing-primary: 0.07px;
+  --kz-typography-letter-spacing-secondary: -0.15px;
+
+  --kz-typography-h1-font-size: 24px;
+  --kz-typography-h2-font-size: 20px;
+  --kz-typography-h3-font-size: 18px;
+  --kz-typography-body-font-size: 16px;
+  --kz-typography-small-font-size: 14px;
+  --kz-typography-caption-font-size: 14px;
+  --kz-typography-label-font-size: 16px;
+
+  --kz-typography-error-color: var(--kz-color-status-error);
+  --kz-typography-success-color: var(--kz-color-status-success);
+  --kz-typography-warning-color: var(--kz-color-status-warning);
+  --kz-typography-status-font-size: 12px;
+  --kz-typography-status-line-height: 16px;
+
   --kz-color-border-default: #374151;
   --kz-color-border-subtle: #2d3748;
 
@@ -24,4 +50,14 @@
   --kz-shadow-elevation-2: 0 2px 4px rgba(0, 0, 0, 0.45);
 
   --kz-shadow-focus: 0 0 0 3px rgba(0, 169, 157, 0.35);
+
+  --kz-component-input-bg: #1f2933;
+  --kz-component-input-border: #374151;
+  --kz-component-input-border-focus: #00a99d;
+  --kz-component-input-border-disabled: #4b5563;
+  --kz-component-input-text: #f9fafb;
+  --kz-component-input-placeholder: #9ca3af;
+  --kz-component-input-icon: #9ca3af;
+  --kz-component-input-container-radius: 8px;
+  --kz-component-input-container-border: #4b5563;
 }

@@ -5,7 +5,36 @@
   --kz-color-surface-sunken: #e0e5ea;
 
   --kz-color-text-primary: oklch(0.145 0 0);
+  --kz-color-text-link: #18ab9f;
+  --kz-color-text-link-hover: #148f85;
   --kz-color-border-default: rgba(0, 0, 0, 0.1);
+
+  --kz-color-icon-default: #5c6675;
+
+  /* TYPOGRAPHY (Neumorphic light) — shared family, weight, primary/secondary colors */
+  --kz-typography-font-family: Inter, system-ui, sans-serif;
+  --kz-typography-font-weight: 400;
+  --kz-typography-color-primary: #2e3440;
+  --kz-typography-color-secondary: #8a94a6;
+  --kz-typography-line-height-primary: 32px;
+  --kz-typography-line-height-secondary: 24px;
+  --kz-typography-letter-spacing-primary: 0.07px;
+  --kz-typography-letter-spacing-secondary: -0.15px;
+
+  --kz-typography-h1-font-size: 24px;
+  --kz-typography-h2-font-size: 24px;
+  --kz-typography-h3-font-size: 24px;
+  --kz-typography-body-font-size: 16px;
+  --kz-typography-small-font-size: 14px;
+  --kz-typography-caption-font-size: 14px;
+  --kz-typography-label-font-size: 16px;
+
+  /* Status typography (error, success, warning) — 12px / 16px line-height; colors overridable via theme provider */
+  --kz-typography-error-color: #ef4444;
+  --kz-typography-success-color: #22c55e;
+  --kz-typography-warning-color: #f59e0b;
+  --kz-typography-status-font-size: 12px;
+  --kz-typography-status-line-height: 16px;
 
   /* Neumorphic Shadow */
   --kz-shadow-elevation-1:
@@ -25,20 +54,43 @@
   /* Component: Button — Accent (neumorphic, lighter brand) */
   --kz-component-button-accent-bg: var(--kz-color-brand-accent, #26b8ae);
   --kz-component-button-accent-text: #ffffff;
-  --kz-component-button-accent-shadow: 2px 2px 4px 0 #c3cad3, -2px -2px 4px 0 #fff;
-  --kz-component-button-accent-bg-hover: var(--kz-color-brand-accent-hover, #1fa399);
-  --kz-component-button-accent-bg-active: var(--kz-color-brand-accent-active, #198a81);
+  --kz-component-button-accent-shadow:
+    2px 2px 4px 0 #c3cad3, -2px -2px 4px 0 #fff;
+  --kz-component-button-accent-bg-hover: var(
+    --kz-color-brand-accent-hover,
+    #1fa399
+  );
+  --kz-component-button-accent-bg-active: var(
+    --kz-color-brand-accent-active,
+    #198a81
+  );
   --kz-component-button-accent-text-active: #ffffff;
-  --kz-component-button-accent-shadow-inset: inset 2px 2px 4px 0 rgba(0, 0, 0, 0.12),
+  --kz-component-button-accent-shadow-inset:
+    inset 2px 2px 4px 0 rgba(0, 0, 0, 0.12),
     inset -2px -2px 4px 0 rgba(255, 255, 255, 0.6);
 
   /* Component: Button — Primary (neumorphic light): raised default, inset when pressed */
   --kz-component-button-primary-bg: #e9edf1;
   --kz-component-button-primary-text: #2c3440;
-  --kz-component-button-primary-shadow: 2px 2px 4px 0 #c3cad3, -2px -2px 4px 0 #fff;
+  --kz-component-button-primary-shadow:
+    2px 2px 4px 0 #c3cad3, -2px -2px 4px 0 #fff;
   --kz-component-button-primary-bg-hover: #e0e5ea;
   --kz-component-button-primary-bg-active: #d8dde3;
   --kz-component-button-primary-text-active: #18ab9f;
-  --kz-component-button-primary-shadow-inset: inset 2px 2px 4px 0 #c3cad3,
-    inset -2px -2px 4px 0 #fff;
+  --kz-component-button-primary-shadow-inset:
+    inset 2px 2px 4px 0 #c3cad3, inset -2px -2px 4px 0 #fff;
+
+  /* Component: Input (neumorphic light) */
+  --kz-component-input-bg: #e4e9f0;
+  --kz-component-input-border: rgba(0, 0, 0, 0.06);
+  --kz-component-input-border-focus: rgba(0, 0, 0, 0.2);
+  --kz-component-input-border-disabled: rgba(0, 0, 0, 0.1);
+  --kz-component-input-text: var(--kz-typography-color-primary);
+  --kz-component-input-placeholder: var(--kz-typography-color-secondary);
+  --kz-component-input-icon: var(--kz-typography-color-secondary);
+  --kz-component-input-shadow: 2px 2px 4px 0 rgba(163, 177, 198, 0.5) inset,
+    -2px -2px 4px 0 #fff inset;
+  --kz-component-input-radius: 10px;
+  --kz-component-input-container-radius: 10px;
+  --kz-component-input-container-border: var(--kz-color-border-default);
 }

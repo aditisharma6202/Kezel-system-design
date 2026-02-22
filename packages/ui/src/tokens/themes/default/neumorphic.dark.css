@@ -5,7 +5,36 @@
   --kz-color-surface-sunken: #252b35;
 
   --kz-color-text-primary: oklch(0.985 0 0);
+  --kz-color-text-link: #18ab9f;
+  --kz-color-text-link-hover: #22c4b8;
   --kz-color-border-default: oklch(0.269 0 0);
+
+  /* ICON (Neumorphic dark) */
+  --kz-color-icon-default: #8a94a6;
+
+  /* TYPOGRAPHY (Neumorphic dark) */
+  --kz-typography-font-family: Inter, system-ui, sans-serif;
+  --kz-typography-font-weight: 400;
+  --kz-typography-color-primary: #e8ecf0;
+  --kz-typography-color-secondary: #8a94a6;
+  --kz-typography-line-height-primary: 32px;
+  --kz-typography-line-height-secondary: 24px;
+  --kz-typography-letter-spacing-primary: 0.07px;
+  --kz-typography-letter-spacing-secondary: -0.15px;
+
+  --kz-typography-h1-font-size: 24px;
+  --kz-typography-h2-font-size: 24px;
+  --kz-typography-h3-font-size: 24px;
+  --kz-typography-body-font-size: 16px;
+  --kz-typography-small-font-size: 14px;
+  --kz-typography-caption-font-size: 14px;
+  --kz-typography-label-font-size: 16px;
+
+  --kz-typography-error-color: #ef4444;
+  --kz-typography-success-color: #22c55e;
+  --kz-typography-warning-color: #f59e0b;
+  --kz-typography-status-font-size: 12px;
+  --kz-typography-status-line-height: 16px;
 
   --kz-radius-md: 10px;
 
@@ -19,26 +48,43 @@
   /* Component: Button — Primary (neumorphic dark): raised default, inset on hover/active */
   --kz-component-button-primary-bg: #2c3440;
   --kz-component-button-primary-text: #ffffff;
-  --kz-component-button-primary-shadow: 2px 2px 4px 0 rgba(20, 24, 32, 0.8),
-    -2px -2px 4px 0 rgba(72, 82, 98, 0.4);
+  --kz-component-button-primary-shadow:
+    2px 2px 4px 0 rgba(20, 24, 32, 0.8), -2px -2px 4px 0 rgba(72, 82, 98, 0.4);
   --kz-component-button-primary-bg-hover: #3e4453;
   --kz-component-button-primary-text-hover: #18ab9f;
-  --kz-component-button-primary-shadow-inset-hover: 2px 2px 4px 0 rgba(20, 24, 32, 0.8) inset,
+  --kz-component-button-primary-shadow-inset-hover:
+    2px 2px 4px 0 rgba(20, 24, 32, 0.8) inset,
     -2px -2px 4px 0 rgba(72, 82, 98, 0.4) inset;
   --kz-component-button-primary-bg-active: #e6eaee;
   --kz-component-button-primary-text-active: #18ab9f;
-  --kz-component-button-primary-shadow-inset: inset 2px 2px 4px 0 #c3cad3,
-    inset -2px -2px 4px 0 #fff;
+  --kz-component-button-primary-shadow-inset:
+    inset 2px 2px 4px 0 #c3cad3, inset -2px -2px 4px 0 #fff;
 
   /* Component: Button — Accent (neumorphic dark) */
   --kz-component-button-accent-bg: var(--kz-color-brand-accent, #26b8ae);
   --kz-component-button-accent-text: #ffffff;
   --kz-component-button-accent-shadow:
     6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(255, 255, 255, 0.06);
-  --kz-component-button-accent-bg-hover: var(--kz-color-brand-accent-hover, #1fa399);
-  --kz-component-button-accent-bg-active: var(--kz-color-brand-accent-active, #198a81);
+  --kz-component-button-accent-bg-hover: var(
+    --kz-color-brand-accent-hover,
+    #1fa399
+  );
+  --kz-component-button-accent-bg-active: var(
+    --kz-color-brand-accent-active,
+    #198a81
+  );
   --kz-component-button-accent-text-active: #ffffff;
   --kz-component-button-accent-shadow-inset:
     inset 4px 4px 8px rgba(0, 0, 0, 0.55),
     inset -4px -4px 8px rgba(255, 255, 255, 0.06);
+
+  --kz-component-input-bg: #2c3440;
+  --kz-component-input-border: oklch(0.269 0 0);
+  --kz-component-input-border-disabled: oklch(0.269 0 0);
+  --kz-component-input-text: var(--kz-typography-color-primary);
+  --kz-component-input-placeholder: var(--kz-typography-color-secondary);
+  --kz-component-input-icon: var(--kz-typography-color-secondary);
+  --kz-component-input-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.55),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.06);
+  --kz-component-input-container-border: var(--kz-color-border-default);
 }

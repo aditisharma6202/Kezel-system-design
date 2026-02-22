@@ -51,6 +51,7 @@ const groupOrder = [
   "color.text",
   "color.border",
   "color.status",
+  "typography",
   "shadow",
   "effect",
   "radius",
@@ -82,7 +83,9 @@ function TokenTable() {
           ? `Component — ${group.replace("component.", "").replace(".", " / ")}`
           : group.startsWith("color.")
             ? group.replace("color.", "Color — ").replace(".", " / ")
-            : group.charAt(0).toUpperCase() + group.slice(1);
+            : group === "typography"
+              ? "Typography (status colors — override error/success/warning)"
+              : group.charAt(0).toUpperCase() + group.slice(1);
         return (
           <div key={group} style={{ marginBottom: 32 }}>
             <h3 style={{ fontSize: 14, fontWeight: 600, marginBottom: 8, textTransform: "uppercase", letterSpacing: "0.05em" }}>

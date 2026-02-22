@@ -2,6 +2,8 @@
 @import "./tokens/themes/default/standard.dark.css";
 @import "./tokens/themes/default/neumorphic.css";
 @import "./tokens/themes/default/neumorphic.dark.css";
+@import "./styles/typography.css";
+@import "./styles/text-input.css";
 
 @tailwind base;
 @tailwind components;

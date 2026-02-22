@@ -150,10 +150,14 @@ export const TOKEN_KEYS = [
   "component.input.bg",
   "component.input.border",
   "component.input.border.focus",
+  "component.input.border.disabled",
   "component.input.text",
   "component.input.placeholder",
+  "component.input.icon",
   "component.input.shadow",
   "component.input.radius",
+  "component.input.container.radius",
+  "component.input.container.border",
 
   // Component — Card
   "component.card.bg",
@@ -176,6 +180,11 @@ export const TOKEN_KEYS = [
   "component.filter.label.text",
   "component.filter.control.bg",
   "component.filter.control.border",
+
+  // Typography status colors (overridable via KezelThemeProvider tokens)
+  "typography.error.color",
+  "typography.success.color",
+  "typography.warning.color",
 ] as const;
 
 export type TokenKey = (typeof TOKEN_KEYS)[number];

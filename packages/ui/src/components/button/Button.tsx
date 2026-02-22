@@ -1,14 +1,14 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { ButtonVariant, ButtonSize, ButtonType } from "../constants/enum";
+import { ButtonVariant, ButtonSize, ButtonType } from "../../constants/enum";
 import { buttonVariants, type ButtonVariants } from "./button.variants";
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
 
 export interface ButtonProps
   extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "children" | "onClick"> {
   variant: ButtonVariant;
   size: ButtonSize;
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   asChild?: boolean;
   children: React.ReactNode;
   type?: ButtonType;

@@ -137,10 +137,14 @@ export const tokenToCssVar: Record<TokenKey, `--kz-${string}`> = {
   "component.input.bg": "--kz-component-input-bg",
   "component.input.border": "--kz-component-input-border",
   "component.input.border.focus": "--kz-component-input-border-focus",
+  "component.input.border.disabled": "--kz-component-input-border-disabled",
   "component.input.text": "--kz-component-input-text",
   "component.input.placeholder": "--kz-component-input-placeholder",
+  "component.input.icon": "--kz-component-input-icon",
   "component.input.shadow": "--kz-component-input-shadow",
   "component.input.radius": "--kz-component-input-radius",
+  "component.input.container.radius": "--kz-component-input-container-radius",
+  "component.input.container.border": "--kz-component-input-container-border",
 
   "component.card.bg": "--kz-component-card-bg",
   "component.card.border": "--kz-component-card-border",
@@ -160,4 +164,8 @@ export const tokenToCssVar: Record<TokenKey, `--kz-${string}`> = {
   "component.filter.label.text": "--kz-component-filter-label-text",
   "component.filter.control.bg": "--kz-component-filter-control-bg",
   "component.filter.control.border": "--kz-component-filter-control-border",
+
+  "typography.error.color": "--kz-typography-error-color",
+  "typography.success.color": "--kz-typography-success-color",
+  "typography.warning.color": "--kz-typography-warning-color",
 };

@@ -3,6 +3,8 @@ import { TokenCategory } from "../../constants/enum";
 
 function categoryForToken(key: TokenKey): TokenCategory {
   if (key.startsWith("color.")) return TokenCategory.Color;
+  if (key.startsWith("typography.") && key.endsWith(".color"))
+    return TokenCategory.Color;
   if (key.startsWith("shadow.")) return TokenCategory.Shadow;
   if (
     key.startsWith("radius.") ||

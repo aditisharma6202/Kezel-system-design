@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from "class-variance-authority";
-import { ButtonVariant, ButtonSize } from "../constants/enum";
+import { ButtonVariant, ButtonSize } from "../../constants/enum";
 
 const base = [
   "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium",

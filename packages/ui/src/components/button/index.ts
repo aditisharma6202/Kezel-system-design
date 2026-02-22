@@ -4,4 +4,4 @@ export {
   type ButtonProps,
   type ButtonVariants,
 } from "./Button";
-export { ButtonVariant, ButtonSize, ButtonType } from "../constants/enum";
+export { ButtonVariant, ButtonSize, ButtonType } from "../../constants/enum";

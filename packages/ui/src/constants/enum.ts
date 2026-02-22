@@ -10,13 +10,11 @@ export enum ThemeStyle {
   Glassmorphic = "glassmorphic",
 }
 
-/** Token theme variant: standard (flat) or neumorphic. */
 export enum KezelVariant {
   Standard = "standard",
   Neumorphic = "neumorphic",
 }
 
-/** Token theme mode: light or dark. Use KezelMode.Light / KezelMode.Dark (not string "light"/"dark"). */
 export enum KezelMode {
   Light,
   Dark,
@@ -34,11 +32,46 @@ export enum ButtonSize {
   Lg = "lg",
 }
 
-/** Native button type attribute: button, submit, or reset. */
 export enum ButtonType {
   Button = "button",
   Submit = "submit",
   Reset = "reset",
+}
+
+export enum TypographyVariant {
+  H1 = "h1",
+  H2 = "h2",
+  H3 = "h3",
+  Body = "body",
+  Small = "small",
+  Caption = "caption",
+  Label = "label",
+  Link = "link",
+  Error = "error",
+  Success = "success",
+  Warning = "warning",
+}
+
+export enum TypographyTone {
+  Primary = "primary",
+  Secondary = "secondary",
+  Muted = "muted",
+  Disabled = "disabled",
+  Inverse = "inverse",
+  Link = "link",
+}
+
+export enum TypographyAlign {
+  Left = "left",
+  Center = "center",
+  Right = "right",
+}
+
+export enum TypographyWeight {
+  Regular = "regular",
+  Medium = "medium",
+  Semibold = "semibold",
+  Bold = "bold",
 }
 
 export enum TokenCategory {
@@ -53,8 +86,26 @@ export enum TokenCategory {
   Easing = "easing",
 }
 
-/** Token override validation: strict throws on invalid values, safe skips them. */
 export enum OverrideMode {
   Safe = "safe",
   Strict = "strict",
+}
+
+export enum TextInputVariant {
+  Default = "default",
+  Container = "container",
+  Ghost = "ghost",
+}
+
+export enum TextInputSize {
+  Sm = "sm",
+  Md = "md",
+  Lg = "lg",
+}
+
+export enum TextInputState {
+  Default = "default",
+  Error = "error",
+  Success = "success",
+  Warning = "warning",
 }

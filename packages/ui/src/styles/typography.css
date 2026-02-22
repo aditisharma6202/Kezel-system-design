@@ -1,0 +1,129 @@
+/* Typography — shared family, weight, primary/secondary color, line-height, letter-spacing; per-variant font-size only */
+
+.kz-typography-h1 {
+  color: var(--kz-typography-color-primary);
+  font-family: var(--kz-typography-font-family);
+  font-weight: var(--kz-typography-font-weight);
+  font-size: var(--kz-typography-h1-font-size);
+  line-height: var(--kz-typography-line-height-primary);
+  letter-spacing: var(--kz-typography-letter-spacing-primary);
+}
+
+.kz-typography-h2 {
+  color: var(--kz-typography-color-primary);
+  font-family: var(--kz-typography-font-family);
+  font-weight: var(--kz-typography-font-weight);
+  font-size: var(--kz-typography-h2-font-size);
+  line-height: var(--kz-typography-line-height-primary);
+  letter-spacing: var(--kz-typography-letter-spacing-primary);
+}
+
+.kz-typography-h3 {
+  color: var(--kz-typography-color-primary);
+  font-family: var(--kz-typography-font-family);
+  font-weight: var(--kz-typography-font-weight);
+  font-size: var(--kz-typography-h3-font-size);
+  line-height: var(--kz-typography-line-height-primary);
+  letter-spacing: var(--kz-typography-letter-spacing-primary);
+}
+
+.kz-typography-body {
+  color: var(--kz-typography-color-primary);
+  font-family: var(--kz-typography-font-family);
+  font-weight: var(--kz-typography-font-weight);
+  font-size: var(--kz-typography-body-font-size);
+  line-height: var(--kz-typography-line-height-secondary);
+  letter-spacing: var(--kz-typography-letter-spacing-secondary);
+}
+
+.kz-typography-small {
+  color: var(--kz-typography-color-primary);
+  font-family: var(--kz-typography-font-family);
+  font-weight: var(--kz-typography-font-weight);
+  font-size: var(--kz-typography-small-font-size);
+  line-height: var(--kz-typography-line-height-secondary);
+  letter-spacing: var(--kz-typography-letter-spacing-secondary);
+}
+
+.kz-typography-caption {
+  color: var(--kz-typography-color-secondary);
+  font-family: var(--kz-typography-font-family);
+  font-weight: var(--kz-typography-font-weight);
+  font-size: var(--kz-typography-caption-font-size);
+  line-height: var(--kz-typography-line-height-secondary);
+  letter-spacing: var(--kz-typography-letter-spacing-secondary);
+}
+
+.kz-typography-label {
+  color: var(--kz-typography-color-primary);
+  font-family: var(--kz-typography-font-family);
+  font-weight: var(--kz-typography-font-weight);
+  font-size: var(--kz-typography-label-font-size);
+  line-height: var(--kz-typography-line-height-secondary);
+  letter-spacing: var(--kz-typography-letter-spacing-secondary);
+}
+
+.kz-typography-link {
+  color: var(--kz-color-text-link);
+  font-family: var(--kz-typography-font-family);
+  font-weight: var(--kz-typography-font-weight);
+  font-size: var(--kz-typography-body-font-size);
+  line-height: var(--kz-typography-line-height-secondary);
+  letter-spacing: var(--kz-typography-letter-spacing-secondary);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.kz-typography-link:hover {
+  color: var(--kz-color-text-link-hover);
+}
+
+/* Tone overrides — semantic color mapping to theme tokens */
+.kz-typography-tone-primary {
+  color: var(--kz-color-text-primary);
+}
+.kz-typography-tone-secondary {
+  color: var(--kz-color-text-secondary);
+}
+.kz-typography-tone-muted {
+  color: var(--kz-color-text-muted);
+}
+.kz-typography-tone-disabled {
+  color: var(--kz-color-text-disabled);
+}
+.kz-typography-tone-inverse {
+  color: var(--kz-color-text-inverse);
+}
+.kz-typography-tone-link {
+  color: var(--kz-color-text-link);
+}
+.kz-typography-tone-link:hover {
+  color: var(--kz-color-text-link-hover);
+}
+
+/* Status typography variants — 12px, 16px line-height; colors overridable via theme provider tokens */
+.kz-typography-error {
+  color: var(--kz-typography-error-color);
+  font-family: var(--kz-typography-font-family);
+  font-weight: var(--kz-typography-font-weight);
+  font-size: var(--kz-typography-status-font-size);
+  line-height: var(--kz-typography-status-line-height);
+  letter-spacing: var(--kz-typography-letter-spacing-secondary);
+}
+
+.kz-typography-success {
+  color: var(--kz-typography-success-color);
+  font-family: var(--kz-typography-font-family);
+  font-weight: var(--kz-typography-font-weight);
+  font-size: var(--kz-typography-status-font-size);
+  line-height: var(--kz-typography-status-line-height);
+  letter-spacing: var(--kz-typography-letter-spacing-secondary);
+}
+
+.kz-typography-warning {
+  color: var(--kz-typography-warning-color);
+  font-family: var(--kz-typography-font-family);
+  font-weight: var(--kz-typography-font-weight);
+  font-size: var(--kz-typography-status-font-size);
+  line-height: var(--kz-typography-status-line-height);
+  letter-spacing: var(--kz-typography-letter-spacing-secondary);
+}

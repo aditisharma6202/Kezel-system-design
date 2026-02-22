@@ -31,6 +31,33 @@
   --kz-color-text-link: #0066cc;
   --kz-color-text-link-hover: #004c99;
 
+  /* ICON  */
+  --kz-color-icon-default: #000000;
+
+  /* TYPOGRAPHY (Standard light) */
+  --kz-typography-font-family: Inter, system-ui, sans-serif;
+  --kz-typography-font-weight: 400;
+  --kz-typography-color-primary: var(--kz-color-text-primary);
+  --kz-typography-color-secondary: var(--kz-color-text-secondary);
+  --kz-typography-line-height-primary: 32px;
+  --kz-typography-line-height-secondary: 24px;
+  --kz-typography-letter-spacing-primary: 0.07px;
+  --kz-typography-letter-spacing-secondary: -0.15px;
+
+  --kz-typography-h1-font-size: 24px;
+  --kz-typography-h2-font-size: 20px;
+  --kz-typography-h3-font-size: 18px;
+  --kz-typography-body-font-size: 16px;
+  --kz-typography-small-font-size: 14px;
+  --kz-typography-caption-font-size: 14px;
+  --kz-typography-label-font-size: 16px;
+
+  --kz-typography-error-color: #fb2c36;
+  --kz-typography-success-color: #00c950;
+  --kz-typography-warning-color: #f59e0b;
+  --kz-typography-status-font-size: 12px;
+  --kz-typography-status-line-height: 16px;
+
   /* BORDER */
   --kz-color-border-subtle: #e4e7eb;
   --kz-color-border-default: #cbd2d9;
@@ -39,15 +66,15 @@
   --kz-color-border-inverse: rgba(255, 255, 255, 0.3);
 
   /* STATUS */
-  --kz-color-status-success: #2f9e44;
+  --kz-color-status-success: #00c950;
   --kz-color-status-success-bg: #e6f4ea;
-  --kz-color-status-success-border: #b7e4c7;
-  --kz-color-status-warning: #d97706;
+  --kz-color-status-success-border: #00c950;
+  --kz-color-status-warning: #f59e0b;
   --kz-color-status-warning-bg: #fef3c7;
-  --kz-color-status-warning-border: #fcd34d;
-  --kz-color-status-error: #d92d20;
+  --kz-color-status-warning-border: #f59e0b;
+  --kz-color-status-error: #fb2c36;
   --kz-color-status-error-bg: #fdecec;
-  --kz-color-status-error-border: #f5b5b0;
+  --kz-color-status-error-border: #fb2c36;
   --kz-color-status-info: #2563eb;
   --kz-color-status-info-bg: #e8f1fd;
   --kz-color-status-info-border: #b6d4fe;
@@ -185,14 +212,18 @@
   --kz-component-header-border: #e4e7eb;
   --kz-component-header-text: #1f2933;
 
-  /* Component: Input */
-  --kz-component-input-bg: #ffffff;
-  --kz-component-input-border: #cbd2d9;
+  /* Component: Input (standard) */
+  --kz-component-input-bg: #f9fafb;
+  --kz-component-input-border: #e5e7eb;
   --kz-component-input-border-focus: #0066cc;
+  --kz-component-input-border-disabled: #d1d5dc;
   --kz-component-input-text: #1f2933;
-  --kz-component-input-placeholder: #9aa5b1;
-  --kz-component-input-shadow: var(--kz-shadow-inset-1);
-  --kz-component-input-radius: var(--kz-radius-sm);
+  --kz-component-input-placeholder: #99a1af;
+  --kz-component-input-icon: #99a1af;
+  --kz-component-input-shadow: none;
+  --kz-component-input-radius: 10px;
+  --kz-component-input-container-radius: 8px;
+  --kz-component-input-container-border: #d1d5dc;
 
   /* Component: Card */
   --kz-component-card-bg: #ffffff;
