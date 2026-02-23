@@ -8,3 +8,10 @@
 .kz-button-spinner {
   animation: kz-spin 0.8s linear infinite;
 }
+
+/* Button with 1:1 aspect ratio (square) */
+.kz-button--aspect-1-1 {
+  aspect-ratio: 1;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}

@@ -1,0 +1,98 @@
+[data-variant="neumorphic"] .kz-toggle-button-track--default,
+[data-variant="neumorphic"] .kz-toggle-button-track--primary {
+  border: none;
+  border-radius: 16777200px;
+  background: #e4e9f0;
+  box-shadow: 2px 2px 4px 0 rgba(163, 177, 198, 0.5) inset,
+    -2px -2px 4px 0 #fff inset;
+  transition: background 200ms ease-in-out, box-shadow 200ms ease-in-out,
+    transform 200ms ease-in-out;
+}
+
+[data-variant="neumorphic"] .group[data-state="on"] .kz-toggle-button-track--default,
+[data-variant="neumorphic"] .group[data-state="on"] .kz-toggle-button-track--primary {
+  background: #18ab9f;
+  box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.3) inset;
+}
+
+[data-variant="neumorphic"] .kz-toggle-button-thumb--default,
+[data-variant="neumorphic"] .kz-toggle-button-thumb--primary {
+  border-radius: 16777200px;
+  background: #e4e9f0;
+  box-shadow: 2px 2px 4px 0 rgba(163, 177, 198, 0.5), -2px -2px 4px 0 #fff;
+  transition: background 200ms ease-in-out, box-shadow 200ms ease-in-out,
+    transform 200ms ease-in-out;
+}
+
+[data-variant="neumorphic"] .group[data-state="on"] .kz-toggle-button-thumb--default,
+[data-variant="neumorphic"] .group[data-state="on"] .kz-toggle-button-thumb--primary {
+  background: #fff;
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+:root[data-variant="neumorphic"][data-mode="dark"] .kz-toggle-button-track--default,
+:root.dark[data-variant="neumorphic"] .kz-toggle-button-track--default,
+:root[data-variant="neumorphic"][data-mode="dark"] .kz-toggle-button-track--primary,
+:root.dark[data-variant="neumorphic"] .kz-toggle-button-track--primary {
+  border: none;
+  border-radius: 16777200px;
+  background: #2c3440;
+  box-shadow: 2px 2px 4px 0 rgba(20, 24, 32, 0.8) inset,
+    -2px -2px 4px 0 rgba(72, 82, 98, 0.4) inset;
+  transition: background 200ms ease-in-out, box-shadow 200ms ease-in-out,
+    transform 200ms ease-in-out;
+}
+
+:root[data-variant="neumorphic"][data-mode="dark"] .group[data-state="on"] .kz-toggle-button-track--default,
+:root.dark[data-variant="neumorphic"] .group[data-state="on"] .kz-toggle-button-track--default,
+:root[data-variant="neumorphic"][data-mode="dark"] .group[data-state="on"] .kz-toggle-button-track--primary,
+:root.dark[data-variant="neumorphic"] .group[data-state="on"] .kz-toggle-button-track--primary {
+  background: #18ab9f;
+  box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.3) inset;
+}
+
+:root[data-variant="neumorphic"][data-mode="dark"] .kz-toggle-button-thumb--default,
+:root.dark[data-variant="neumorphic"] .kz-toggle-button-thumb--default,
+:root[data-variant="neumorphic"][data-mode="dark"] .kz-toggle-button-thumb--primary,
+:root.dark[data-variant="neumorphic"] .kz-toggle-button-thumb--primary {
+  border-radius: 16777200px;
+  background: #2c3440;
+  box-shadow: 2px 2px 4px 0 rgba(20, 24, 32, 0.8),
+    -2px -2px 4px 0 rgba(72, 82, 98, 0.4);
+  transition: background 200ms ease-in-out, box-shadow 200ms ease-in-out,
+    transform 200ms ease-in-out;
+}
+
+:root[data-variant="neumorphic"][data-mode="dark"] .group[data-state="on"] .kz-toggle-button-thumb--default,
+:root.dark[data-variant="neumorphic"] .group[data-state="on"] .kz-toggle-button-thumb--default,
+:root[data-variant="neumorphic"][data-mode="dark"] .group[data-state="on"] .kz-toggle-button-thumb--primary,
+:root.dark[data-variant="neumorphic"] .group[data-state="on"] .kz-toggle-button-thumb--primary {
+  background: #fff;
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+[data-variant="standard"] .kz-toggle-button-track {
+  border: none;
+  border-radius: 16777200px;
+  background: var(--kz-component-toggle-button-track-off-bg);
+  box-shadow: none;
+  transition: background 200ms ease-in-out, box-shadow 200ms ease-in-out,
+    transform 200ms ease-in-out;
+}
+
+[data-variant="standard"] .group[data-state="on"] .kz-toggle-button-track {
+  background: var(--kz-component-toggle-button-track-on-bg);
+}
+
+[data-variant="standard"] .kz-toggle-button-thumb {
+  border-radius: 16777200px;
+  background: var(--kz-component-toggle-button-thumb-bg);
+  box-shadow: var(--kz-component-toggle-button-thumb-shadow);
+  transition: background 200ms ease-in-out, box-shadow 200ms ease-in-out,
+    transform 200ms ease-in-out;
+}
+
+[data-variant="standard"] .group[data-state="on"] .kz-toggle-button-thumb {
+  background: var(--kz-component-toggle-button-thumb-bg);
+  box-shadow: var(--kz-component-toggle-button-thumb-shadow);
+}

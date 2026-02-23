@@ -2,7 +2,7 @@ import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { Check, ChevronRight, Circle } from "lucide-react";
 import { cn } from "../utils/cn";
-import { Icon } from "../icon/Icon";
+import { Icon, IconName } from "../icon/Icon";
 import { DropdownTriggerVariant } from "../constants/enum";
 
 const Dropdown = DropdownMenuPrimitive.Root;
@@ -40,7 +40,7 @@ const DropdownTrigger = React.forwardRef<
         <>
           {children}
           <Icon
-            name="chevron-down"
+            name={IconName.ChevronDown}
             className="kz-dropdown-trigger-chevron"
             size="sm"
             aria-hidden

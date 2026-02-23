@@ -1,5 +1,5 @@
 import * as React from "react";
-import { iconRegistry, type IconName } from "./icon-registry";
+import { iconRegistry, IconName } from "./icon-registry";
 import { iconSize, type IconSizeKey } from "./icon-sizes";
 import { cn } from "../utils/cn";
 
@@ -7,11 +7,9 @@ export interface IconProps extends Omit<
   React.SVGAttributes<SVGSVGElement>,
   "color"
 > {
-  /** Icon name from registry (e.g. icon.search). */
+  /** Use IconName.* (e.g. IconName.Loader2) for discoverability. */
   name: IconName;
-  /** Size: preset key (sm, md, lg) or number in px. */
   size?: IconSizeKey | number;
-  /** CSS color (e.g. "var(--kz-color-text-primary)", "currentColor"). */
   color?: string;
   className?: string;
 }
@@ -36,6 +34,5 @@ const Icon = React.forwardRef<SVGSVGElement, IconProps>(
 
 Icon.displayName = "Icon";
 
-export { Icon, iconRegistry, iconSize };
-export type { IconName, IconSizeKey };
-export { icon } from "./icon-registry";
+export { Icon, iconRegistry, iconSize, IconName };
+export type { IconSizeKey };

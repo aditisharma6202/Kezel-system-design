@@ -5,6 +5,9 @@ import {
   ButtonVariant,
   ButtonSize,
   ButtonType,
+  ButtonAspectRatio,
+  Icon,
+  IconName,
 } from "kz-design-system";
 
 const meta: Meta<typeof Button> = {
@@ -29,6 +32,7 @@ const meta: Meta<typeof Button> = {
     loading: false,
     disabled: false,
     asChild: false,
+    aspectRatio: ButtonAspectRatio.Auto,
   },
   argTypes: {
     variant: {
@@ -72,6 +76,12 @@ const meta: Meta<typeof Button> = {
       control: "boolean",
       description:
         "When true, merges props onto the single child element instead of rendering a <button>. Use for links (e.g. <a>) that should look like a button. Child must be a single React element.",
+    },
+    aspectRatio: {
+      control: "select",
+      options: Object.values(ButtonAspectRatio),
+      description:
+        "When Square, button has 1:1 aspect ratio (equal width and height). Use for icon-only buttons.",
     },
     className: {
       control: "text",
@@ -297,6 +307,68 @@ export const AsChild: Story = {
       description: {
         story:
           "Render as a link using asChild. The single child receives button styles and props.",
+      },
+    },
+  },
+};
+
+export const AspectRatio1x1: Story = {
+  render: () => (
+    <div
+      style={{
+        display: "flex",
+        gap: 12,
+        alignItems: "center",
+        flexWrap: "wrap",
+      }}
+    >
+      <Button
+        variant={ButtonVariant.Primary}
+        size={ButtonSize.Sm}
+        aspectRatio={ButtonAspectRatio.Square}
+        onClick={() => {}}
+      >
+        <Icon name={IconName.ArrowLeft} size="sm" color="currentColor" />
+      </Button>
+      <Button
+        variant={ButtonVariant.Primary}
+        size={ButtonSize.Md}
+        aspectRatio={ButtonAspectRatio.Square}
+        onClick={() => {}}
+      >
+        <Icon name={IconName.ArrowLeft} size="sm" color="currentColor" />
+      </Button>
+      <Button
+        variant={ButtonVariant.Primary}
+        size={ButtonSize.Lg}
+        aspectRatio={ButtonAspectRatio.Square}
+        onClick={() => {}}
+      >
+        <Icon name={IconName.ArrowLeft} size="sm" color="currentColor" />
+      </Button>
+      <Button
+        variant={ButtonVariant.Outline}
+        size={ButtonSize.Md}
+        aspectRatio={ButtonAspectRatio.Square}
+        onClick={() => {}}
+      >
+        <Icon name={IconName.Search} size="sm" color="currentColor" />
+      </Button>
+      <Button
+        variant={ButtonVariant.Ghost}
+        size={ButtonSize.Md}
+        aspectRatio={ButtonAspectRatio.Square}
+        onClick={() => {}}
+      >
+        <Icon name={IconName.CheckCircle} size="sm" color="currentColor" />
+      </Button>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Use aspectRatio={ButtonAspectRatio.Square} for icon-only buttons so they render as a square (equal width and height).",
       },
     },
   },

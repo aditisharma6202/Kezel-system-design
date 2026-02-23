@@ -97,7 +97,7 @@
   --kz-color-border-subtle: #e4e7eb;
   --kz-color-border-default: #cbd2d9;
   --kz-color-border-strong: #9aa5b1;
-  --kz-color-border-focus: #0066cc;
+  --kz-color-border-focus: #009689;
   --kz-color-border-inverse: rgba(255, 255, 255, 0.3);
 
   /* STATUS */
@@ -234,6 +234,88 @@
   /* Component: Button — Disabled & Loading */
   --kz-component-button-disabled-opacity: 0.5;
   --kz-component-button-loading-opacity: 0.8;
+
+  /* Component: Toggle button (standard light) */
+  --kz-component-toggle-button-track-off-bg: #99a1af;
+  --kz-component-toggle-button-track-on-bg: #009689;
+  --kz-component-toggle-button-thumb-bg: #fff;
+  --kz-component-toggle-button-thumb-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --kz-component-toggle-button-default-bg: var(--kz-component-button-secondary-bg);
+  --kz-component-toggle-button-default-bg-pressed: var(--kz-component-button-secondary-bg-active);
+  --kz-component-toggle-button-default-text: var(--kz-component-button-secondary-text);
+  --kz-component-toggle-button-default-text-pressed: var(--kz-component-button-secondary-text);
+  --kz-component-toggle-button-primary-bg: var(--kz-component-button-secondary-bg);
+  --kz-component-toggle-button-primary-bg-pressed: var(--kz-component-button-primary-bg);
+  --kz-component-toggle-button-primary-text: var(--kz-component-button-secondary-text);
+  --kz-component-toggle-button-primary-text-pressed: var(--kz-component-button-primary-text);
+  --kz-component-toggle-button-container-bg: var(--kz-component-toggle-button-track-off-bg);
+  --kz-component-toggle-button-container-bg-pressed: var(--kz-component-toggle-button-track-on-bg);
+  --kz-component-toggle-button-container-text: var(--kz-component-button-outline-text);
+  --kz-component-toggle-button-container-text-pressed: var(--kz-component-button-outline-text);
+  --kz-component-toggle-button-radius: var(--kz-component-button-radius);
+  --kz-component-toggle-button-disabled-opacity: 0.5;
+  --kz-component-toggle-button-loading-opacity: var(--kz-component-button-loading-opacity);
+
+  /* Component: Checkbox (standard light) */
+  --kz-component-checkbox-size-sm: 16px;
+  --kz-component-checkbox-size-md: 20px;
+  --kz-component-checkbox-size-lg: 24px;
+  --kz-component-checkbox-radius: 4px;
+  --kz-component-checkbox-off-bg: #fff;
+  --kz-component-checkbox-off-border: 2px solid #d1d5dc;
+  --kz-component-checkbox-off-shadow: none;
+  --kz-component-checkbox-on-bg: #009689;
+  --kz-component-checkbox-on-border: 2px solid #009689;
+  --kz-component-checkbox-on-shadow: none;
+  --kz-component-checkbox-icon-color: #fff;
+  --kz-component-checkbox-disabled-opacity: 0.5;
+  --kz-component-checkbox-container-off-bg: var(--kz-component-checkbox-off-bg);
+  --kz-component-checkbox-container-off-border: var(--kz-component-checkbox-off-border);
+  --kz-component-checkbox-container-off-shadow: var(--kz-component-checkbox-off-shadow);
+  --kz-component-checkbox-container-on-bg: var(--kz-component-checkbox-on-bg);
+  --kz-component-checkbox-container-on-border: var(--kz-component-checkbox-on-border);
+  --kz-component-checkbox-container-on-shadow: var(--kz-component-checkbox-on-shadow);
+
+  /* Component: Radio (standard light) */
+  --kz-component-radio-size-sm: 16px;
+  --kz-component-radio-size-md: 20px;
+  --kz-component-radio-size-lg: 24px;
+  --kz-component-radio-radius: 50%;
+  --kz-component-radio-off-bg: #fff;
+  --kz-component-radio-off-border: 2px solid #d1d5dc;
+  --kz-component-radio-off-shadow: none;
+  --kz-component-radio-on-bg: #fff;
+  --kz-component-radio-on-border: 2px solid #009689;
+  --kz-component-radio-on-shadow: none;
+  --kz-component-radio-dot-bg: #009689;
+  --kz-component-radio-dot-shadow: none;
+  --kz-component-radio-disabled-opacity: 0.5;
+
+  /* Component: Tabs (standard light) */
+  --kz-component-tabs-list-bg: var(--kz-color-surface-muted);
+  --kz-component-tabs-list-radius: 10px;
+  --kz-component-tabs-list-shadow: none;
+  --kz-component-tabs-list-pill-bg: rgba(0, 0, 0, 0.05);
+  --kz-component-tabs-trigger-text: var(--kz-color-text-secondary);
+  --kz-component-tabs-trigger-selected-text: #009689;
+  --kz-component-tabs-trigger-selected-underline: #009689;
+  --kz-component-tabs-trigger-selected-bg: var(--kz-color-surface-base);
+  --kz-component-tabs-trigger-selected-shadow: none;
+  --kz-component-tabs-trigger-radius: 8px;
+  --kz-component-tabs-content-padding: 16px;
+
+  --kz-component-table-surface: var(--kz-color-surface-base);
+  --kz-component-table-header-bg: var(--kz-color-surface-muted);
+  --kz-component-table-header-border: var(--kz-color-border-default);
+  --kz-component-table-row-border: var(--kz-color-border-default);
+  --kz-component-table-row-hover-bg: var(--kz-color-surface-sunken);
+  --kz-component-table-sticky-row-top: 40px;
+  --kz-component-table-footer-bg: #0000001a;
+  --kz-component-table-pagination-bg: #0000001a;
+  --kz-component-table-pagination-active-bg: var(--kz-color-surface-muted);
+  --kz-component-table-pagination-active-shadow: none;
+  --kz-component-table-pagination-hover-shadow: none;
 
   /* Component: Sidebar */
   --kz-component-sidebar-bg: #ffffff;

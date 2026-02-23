@@ -42,6 +42,11 @@ export enum ButtonType {
   Reset = "reset",
 }
 
+export enum ButtonAspectRatio {
+  Auto = "auto",
+  Square = "square",
+}
+
 export enum DropdownTriggerVariant {
   Default = "default",
   Ghost = "ghost",
@@ -144,4 +149,33 @@ export enum TooltipColor {
   Success = "success",
   Warning = "warning",
   Error = "error",
+}
+
+export enum ToggleButtonVariant {
+  Default = "default",
+  Primary = "primary",
+  Container = "container",
+}
+
+export enum ToggleButtonSize {
+  Sm = "sm",
+  Md = "md",
+  Lg = "lg",
+}
+
+export enum CheckboxSize {
+  Sm = "sm",
+  Md = "md",
+  Lg = "lg",
+}
+
+export enum CheckboxVariant {
+  Default = "default",
+  Container = "container",
+}
+
+export enum RadioSize {
+  Sm = "sm",
+  Md = "md",
+  Lg = "lg",
 }

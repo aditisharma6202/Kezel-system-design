@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { SideMenu } from "kz-design-system";
+import { SideMenu, IconName } from "kz-design-system";
 import type { SideMenuNode } from "kz-design-system";
 
 const defaultData: SideMenuNode[] = [
@@ -13,14 +13,14 @@ const defaultData: SideMenuNode[] = [
         type: "link",
         id: "dashboard",
         label: "Dashboard",
-        icon: "bar-chart-2",
+        icon: IconName.BarChart2,
         href: "#dashboard",
       },
       {
         type: "group",
         id: "analytics",
         label: "Analytics",
-        icon: "bar-chart-2",
+        icon: IconName.BarChart2,
         items: [
           {
             id: "overview",
@@ -46,14 +46,14 @@ const defaultData: SideMenuNode[] = [
         type: "link",
         id: "security",
         label: "Security",
-        icon: "shield",
+        icon: IconName.Shield,
         href: "#security",
       },
       {
         type: "link",
         id: "settings",
         label: "Settings",
-        icon: "check-circle",
+        icon: IconName.CheckCircle,
         href: "#settings",
       },
     ],

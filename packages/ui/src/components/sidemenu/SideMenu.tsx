@@ -21,7 +21,7 @@ function resolveIcon(
 ): React.ReactNode {
   if (icon == null) return null;
   if (typeof icon === "string") {
-    return <Icon name={icon} size={14} color="currentColor" className={className} />;
+    return <Icon name={icon as IconName} size={14} color="currentColor" className={className} />;
   }
   return icon;
 }

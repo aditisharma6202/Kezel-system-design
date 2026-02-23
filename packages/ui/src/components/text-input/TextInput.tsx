@@ -8,8 +8,7 @@ import {
 import { Typography } from "../typography";
 import { TypographyVariantEnum } from "../typography/typography-variants";
 import { TypographyAlignEnum } from "../typography";
-import { Icon } from "../../icon";
-import { icon } from "../../icon/icon-registry";
+import { Icon, IconName } from "../../icon";
 
 export interface TextInputProps extends Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -46,11 +45,11 @@ export interface TextInputProps extends Omit<
 
 const stateIcon: Record<
   TextInputState.Error | TextInputState.Success | TextInputState.Warning,
-  keyof typeof icon
+  IconName
 > = {
-  [TextInputState.Error]: "circle-alert",
-  [TextInputState.Success]: "check-circle",
-  [TextInputState.Warning]: "triangle-alert",
+  [TextInputState.Error]: IconName.CircleAlert,
+  [TextInputState.Success]: IconName.CheckCircle,
+  [TextInputState.Warning]: IconName.TriangleAlert,
 };
 
 const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
@@ -176,7 +175,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
               aria-hidden
             >
               <Icon
-                name={stateIcon[state as keyof typeof stateIcon]}
+                name={stateIcon[state as TextInputState.Error | TextInputState.Success | TextInputState.Warning]}
                 size={size === TextInputSize.Sm ? 14 : 16}
                 color={
                   state === TextInputState.Error

@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Sidesheet, NavButton, Icon } from "kz-design-system";
+import { Sidesheet, NavButton, Icon, IconName } from "kz-design-system";
 
 const meta: Meta<typeof Sidesheet> = {
   title: "Design System/Sidesheet",
@@ -54,7 +54,7 @@ export const Default: Story = {
       <>
         <NavButton
           type="dropdown"
-          icon={<Icon name="bar-chart-2" size="sm" color="currentColor" />}
+          icon={<Icon name={IconName.BarChart2} size="sm" color="currentColor" />}
           label="Analytics"
           menuOptions={[
             { label: "Trends", onClick: () => {} },
@@ -63,7 +63,7 @@ export const Default: Story = {
         />
         <NavButton
           type="link"
-          icon={<Icon name="shield" size="sm" color="currentColor" />}
+          icon={<Icon name={IconName.Shield} size="sm" color="currentColor" />}
           label="Security"
           selected={false}
           onClick={() => {}}
@@ -86,7 +86,7 @@ export const WithNavButtons: Story = {
     <Sidesheet>
       <NavButton
         type="dropdown"
-        icon={<Icon name="bar-chart-2" size="sm" color="currentColor" />}
+        icon={<Icon name={IconName.BarChart2} size="sm" color="currentColor" />}
         label="Analytics"
         menuOptions={[
           {
@@ -101,14 +101,14 @@ export const WithNavButtons: Story = {
       />
       <NavButton
         type="link"
-        icon={<Icon name="shield" size="sm" color="currentColor" />}
+        icon={<Icon name={IconName.Shield} size="sm" color="currentColor" />}
         label="Security"
         selected
         onClick={() => {}}
       />
       <NavButton
         type="link"
-        icon={<Icon name="check-circle" size="sm" color="currentColor" />}
+        icon={<Icon name={IconName.CheckCircle} size="sm" color="currentColor" />}
         label="Settings"
         onClick={() => {}}
       />

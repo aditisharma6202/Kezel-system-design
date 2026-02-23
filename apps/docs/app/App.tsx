@@ -5,6 +5,15 @@ import {
   Button,
   ButtonVariant,
   ButtonSize,
+  ButtonAspectRatio,
+  ToggleButton,
+  ToggleButtonVariant,
+  ToggleButtonSize,
+  Checkbox,
+  CheckboxSize,
+  CheckboxVariant,
+  RadioButton,
+  RadioSize,
   Typography,
   TypographyVariantEnum,
   TypographyAlignEnum,
@@ -18,22 +27,32 @@ import {
   NavButton,
   Sidesheet,
   SideMenu,
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+  Table,
   Icon,
+  IconName,
   type TokenKey,
   type SideMenuNode,
 } from "kz-design-system";
 import {
-  Dropdown,
-  DropdownTrigger,
-  DropdownContent,
-  DropdownItem,
-  DropdownSeparator,
-  DropdownLabel,
-  DropdownSub,
-  DropdownSubTrigger,
-  DropdownSubContent,
-  DropdownTriggerVariant,
+  DropdownButton,
+  type DropdownButtonItem,
 } from "kz-design-system/dropdown";
+
+type TableRow = { id: string; name: string; role: string; status: string };
+const TABLE_DATA: TableRow[] = [
+  { id: "1", name: "Alice", role: "Admin", status: "Active" },
+  { id: "2", name: "Bob", role: "Editor", status: "Active" },
+  { id: "3", name: "Carol", role: "Viewer", status: "Inactive" },
+  { id: "4", name: "Dave", role: "Editor", status: "Active" },
+  { id: "5", name: "Eve", role: "Admin", status: "Active" },
+  { id: "6", name: "Frank", role: "Viewer", status: "Inactive" },
+  { id: "7", name: "Grace", role: "Editor", status: "Active" },
+  { id: "8", name: "Henry", role: "Viewer", status: "Active" },
+];
 
 export default function App() {
   const [mode, setMode] = React.useState<KezelMode>(KezelMode.Light);
@@ -49,6 +68,23 @@ export default function App() {
   const [dropdownTokenOverrides, setDropdownTokenOverrides] = React.useState<
     Partial<Record<TokenKey, string>> | undefined
   >(undefined);
+  const actionsDropdownItems: DropdownButtonItem[] = [
+    { type: "label", key: "l1", label: "Actions" },
+    { type: "separator", key: "s1" },
+    { key: "new", label: "New file", onSelect: () => { } },
+    { key: "copy", label: "Copy link", onSelect: () => { } },
+    { key: "edit", label: "Edit", onSelect: () => { } },
+    { type: "separator", key: "s2" },
+    {
+      type: "submenu",
+      key: "more",
+      label: "More options",
+      items: [
+        { key: "subA", label: "Sub option A", onSelect: () => { } },
+        { key: "subB", label: "Sub option B", onSelect: () => { } },
+      ],
+    },
+  ];
   const [navSelected, setNavSelected] = React.useState<
     "analytics" | "security" | null
   >("analytics");
@@ -56,6 +92,61 @@ export default function App() {
     string | undefined
   >(undefined);
   const [sidemenuCollapsed, setSidemenuCollapsed] = React.useState(false);
+  const [radioValue, setRadioValue] = React.useState<string>("a");
+  const [tableSearchValue, setTableSearchValue] = React.useState("");
+  const [tableSelectedRowIds, setTableSelectedRowIds] = React.useState<
+    Record<string, boolean>
+  >({});
+  const [tableSort, setTableSort] = React.useState<{
+    key: string;
+    direction: "asc" | "desc" | null;
+  } | null>(null);
+  const [tablePagination, setTablePagination] = React.useState({
+    page: 1,
+    pageSize: 5,
+    total: 0,
+  });
+
+  const tableColumns = [
+    {
+      key: "name",
+      header: "Name",
+      accessor: (row: TableRow) => row.name,
+      sortable: true,
+    },
+    {
+      key: "role",
+      header: "Role",
+      accessor: (row: TableRow) => row.role,
+      sortable: true,
+    },
+    {
+      key: "status",
+      header: "Status",
+      accessor: (row: TableRow) => row.status,
+    },
+  ];
+  const filteredTableData = React.useMemo(() => {
+    if (!tableSearchValue.trim()) return TABLE_DATA;
+    const q = tableSearchValue.toLowerCase();
+    return TABLE_DATA.filter(
+      (r) =>
+        r.name.toLowerCase().includes(q) ||
+        r.role.toLowerCase().includes(q) ||
+        r.status.toLowerCase().includes(q)
+    );
+  }, [tableSearchValue]);
+  const paginatedTableData = React.useMemo(() => {
+    const start = (tablePagination.page - 1) * tablePagination.pageSize;
+    return filteredTableData.slice(start, start + tablePagination.pageSize);
+  }, [filteredTableData, tablePagination.page, tablePagination.pageSize]);
+  const tablePaginationState = React.useMemo(
+    () => ({
+      ...tablePagination,
+      total: filteredTableData.length,
+    }),
+    [tablePagination, filteredTableData.length]
+  );
 
   const sidemenuData: SideMenuNode[] = [
     {
@@ -67,14 +158,14 @@ export default function App() {
           type: "link",
           id: "dashboard",
           label: "Dashboard",
-          icon: "bar-chart-2",
+          icon: IconName.BarChart2,
           href: "#dashboard",
         },
         {
           type: "group",
           id: "analytics",
           label: "Analytics",
-          icon: "bar-chart-2",
+          icon: IconName.BarChart2,
           items: [
             {
               id: "overview",
@@ -100,14 +191,14 @@ export default function App() {
           type: "link",
           id: "security",
           label: "Security",
-          icon: "shield",
+          icon: IconName.Shield,
           href: "#security",
         },
         {
           type: "link",
           id: "settings",
           label: "Settings",
-          icon: "check-circle",
+          icon: IconName.CheckCircle,
           href: "#settings",
         },
       ],
@@ -299,9 +390,10 @@ export default function App() {
             <Button
               variant={ButtonVariant.Primary}
               size={ButtonSize.Sm}
+              aspectRatio={ButtonAspectRatio.Square}
               onClick={() => { }}
             >
-              Small
+              <Icon name={IconName.BarChart2} size="sm" color="currentColor" />
             </Button>
             <Button
               variant={ButtonVariant.Primary}
@@ -350,6 +442,417 @@ export default function App() {
                 )
               )
             )}
+          </div>
+        </section>
+
+        {/* Toggle button */}
+        <section className="flex flex-col items-center gap-4">
+          <Typography variant={TypographyVariantEnum.H2}>
+            Toggle button
+          </Typography>
+          <Typography variant={TypographyVariantEnum.Caption}>
+            Default, Primary, and Container variants. Pressed state uses theme tokens.
+          </Typography>
+          <div className="flex flex-wrap gap-2 justify-center items-center">
+            <ToggleButton
+              variant={ToggleButtonVariant.Default}
+              size={ToggleButtonSize.Md}
+              onPressedChange={() => { }}
+            >
+              Default
+            </ToggleButton>
+            <ToggleButton
+              variant={ToggleButtonVariant.Primary}
+              size={ToggleButtonSize.Md}
+              defaultPressed
+              onPressedChange={() => { }}
+            >
+              Primary (default on)
+            </ToggleButton>
+            <ToggleButton
+              variant={ToggleButtonVariant.Container}
+              size={ToggleButtonSize.Md}
+              onPressedChange={() => { }}
+            >
+              Container
+            </ToggleButton>
+          </div>
+          <div className="flex flex-wrap gap-2 justify-center items-center">
+            <ToggleButton
+              variant={ToggleButtonVariant.Primary}
+              size={ToggleButtonSize.Sm}
+              onPressedChange={() => { }}
+            >
+              Sm
+            </ToggleButton>
+            <ToggleButton
+              variant={ToggleButtonVariant.Primary}
+              size={ToggleButtonSize.Md}
+              onPressedChange={() => { }}
+            >
+              Md
+            </ToggleButton>
+            <ToggleButton
+              variant={ToggleButtonVariant.Primary}
+              size={ToggleButtonSize.Lg}
+              onPressedChange={() => { }}
+            >
+              Lg
+            </ToggleButton>
+          </div>
+          <div className="flex flex-wrap gap-2 justify-center items-center">
+            <ToggleButton
+              variant={ToggleButtonVariant.Default}
+              size={ToggleButtonSize.Md}
+              disabled
+              onPressedChange={() => { }}
+            >
+              Disabled (off)
+            </ToggleButton>
+            <ToggleButton
+              variant={ToggleButtonVariant.Primary}
+              size={ToggleButtonSize.Md}
+              disabled
+              defaultPressed
+              onPressedChange={() => { }}
+            >
+              Disabled (on)
+            </ToggleButton>
+          </div>
+        </section>
+
+        {/* Checkbox */}
+        <section className="flex flex-col items-center gap-4">
+          <Typography variant={TypographyVariantEnum.H2}>
+            Checkbox
+          </Typography>
+          <Typography variant={TypographyVariantEnum.Caption}>
+            Standard and neumorphic styles; use Variant toolbar. Sizes: sm (16px), md (20px), lg (24px). All tokens overridable via KezelThemeProvider.
+          </Typography>
+          <div className="flex flex-wrap gap-6 justify-center items-center">
+            <Checkbox
+              size={CheckboxSize.Sm}
+              variant={CheckboxVariant.Default}
+              onCheckedChange={() => { }}
+            >
+              Sm unchecked
+            </Checkbox>
+            <Checkbox
+              size={CheckboxSize.Md}
+              variant={CheckboxVariant.Default}
+              defaultChecked
+              onCheckedChange={() => { }}
+            >
+              Md checked
+            </Checkbox>
+            <Checkbox
+              size={CheckboxSize.Lg}
+              variant={CheckboxVariant.Default}
+              indeterminate
+              onCheckedChange={() => { }}
+            >
+              Lg indeterminate
+            </Checkbox>
+          </div>
+          <div className="flex flex-wrap gap-6 justify-center items-center">
+            <Checkbox
+              size={CheckboxSize.Md}
+              variant={CheckboxVariant.Container}
+              onCheckedChange={() => { }}
+            >
+              Container unchecked
+            </Checkbox>
+            <Checkbox
+              size={CheckboxSize.Md}
+              variant={CheckboxVariant.Default}
+              disabled
+              onCheckedChange={() => { }}
+            >
+              Disabled off
+            </Checkbox>
+            <Checkbox
+              size={CheckboxSize.Md}
+              variant={CheckboxVariant.Default}
+              disabled
+              defaultChecked
+              onCheckedChange={() => { }}
+            >
+              Disabled on
+            </Checkbox>
+          </div>
+        </section>
+
+        <section className="flex flex-col items-center gap-4">
+          <Typography variant={TypographyVariantEnum.H2}>
+            Radio button
+          </Typography>
+          <Typography variant={TypographyVariantEnum.Caption}>
+            Standard and neumorphic; sm 16px, md 20px, lg 24px. Disabled 50% opacity. All tokens overridable via KezelThemeProvider.
+          </Typography>
+          <div className="flex flex-wrap gap-6 justify-center items-center">
+            <RadioButton
+              name="radio-demo"
+              value="a"
+              size={RadioSize.Sm}
+              checked={radioValue === "a"}
+              onChange={(e) => setRadioValue(e.target.value)}
+            >
+              Sm A
+            </RadioButton>
+            <RadioButton
+              name="radio-demo"
+              value="b"
+              size={RadioSize.Md}
+              checked={radioValue === "b"}
+              onChange={(e) => setRadioValue(e.target.value)}
+            >
+              Md B
+            </RadioButton>
+            <RadioButton
+              name="radio-demo"
+              value="c"
+              size={RadioSize.Lg}
+              checked={radioValue === "c"}
+              onChange={(e) => setRadioValue(e.target.value)}
+            >
+              Lg C
+            </RadioButton>
+          </div>
+          <div className="flex flex-wrap gap-6 justify-center items-center">
+            <RadioButton
+              name="radio-disabled"
+              value="off"
+              size={RadioSize.Md}
+              disabled
+              onChange={() => { }}
+            >
+              Disabled off
+            </RadioButton>
+            <RadioButton
+              name="radio-disabled"
+              value="on"
+              size={RadioSize.Md}
+              disabled
+              defaultChecked
+              onChange={() => { }}
+            >
+              Disabled on
+            </RadioButton>
+          </div>
+        </section>
+
+        <section className="flex flex-col items-center gap-8 w-full max-w-2xl">
+          <Typography variant={TypographyVariantEnum.H2}>Tabs</Typography>
+          <Typography variant={TypographyVariantEnum.Caption}>
+            Pill, underline, and vertical variants in sm, md, lg. Switch theme
+            and mode to see styles.
+          </Typography>
+
+          <div className="flex flex-col gap-6 w-full">
+            <div>
+              <Typography variant={TypographyVariantEnum.H3} className="mb-2">
+                Pill
+              </Typography>
+              <Tabs variant="pill" size="md" defaultValue="p1">
+                <TabsList>
+                  <TabsTrigger value="p1">Tab 1</TabsTrigger>
+                  <TabsTrigger value="p2">Tab 2</TabsTrigger>
+                  <TabsTrigger value="p3">Tab 3</TabsTrigger>
+                </TabsList>
+                <TabsContent value="p1">Pill tab 1 content.</TabsContent>
+                <TabsContent value="p2">Pill tab 2 content.</TabsContent>
+                <TabsContent value="p3">Pill tab 3 content.</TabsContent>
+              </Tabs>
+            </div>
+
+            <div>
+              <Typography variant={TypographyVariantEnum.H3} className="mb-2">
+                Underline
+              </Typography>
+              <Tabs variant="underline" size="md" defaultValue="u1">
+                <TabsList>
+                  <TabsTrigger value="u1">Tab 1</TabsTrigger>
+                  <TabsTrigger value="u2">Tab 2</TabsTrigger>
+                  <TabsTrigger value="u3">Tab 3</TabsTrigger>
+                </TabsList>
+                <TabsContent value="u1">Underline tab 1 content.</TabsContent>
+                <TabsContent value="u2">Underline tab 2 content.</TabsContent>
+                <TabsContent value="u3">Underline tab 3 content.</TabsContent>
+              </Tabs>
+            </div>
+
+            <div className="flex gap-12 flex-wrap">
+              <div>
+                <Typography variant={TypographyVariantEnum.H3} className="mb-2">
+                  Vertical
+                </Typography>
+                <Tabs variant="vertical" size="md" defaultValue="v1">
+                  <TabsList>
+                    <TabsTrigger value="v1">Tab 1</TabsTrigger>
+                    <TabsTrigger value="v2">Tab 2</TabsTrigger>
+                    <TabsTrigger value="v3">Tab 3</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="v1">Vertical tab 1 content.</TabsContent>
+                  <TabsContent value="v2">Vertical tab 2 content.</TabsContent>
+                  <TabsContent value="v3">Vertical tab 3 content.</TabsContent>
+                </Tabs>
+              </div>
+              <div>
+                <Typography variant={TypographyVariantEnum.H3} className="mb-2">
+                  Sizes
+                </Typography>
+                <div className="flex flex-col gap-4">
+                  <Tabs variant="pill" size="sm" defaultValue="s1">
+                    <TabsList>
+                      <TabsTrigger value="s1">Sm 1</TabsTrigger>
+                      <TabsTrigger value="s2">Sm 2</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="s1">Small tabs content.</TabsContent>
+                    <TabsContent value="s2">Tab 2.</TabsContent>
+                  </Tabs>
+                  <Tabs variant="pill" size="md" defaultValue="m1">
+                    <TabsList>
+                      <TabsTrigger value="m1">Md 1</TabsTrigger>
+                      <TabsTrigger value="m2">Md 2</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="m1">Medium tabs content.</TabsContent>
+                    <TabsContent value="m2">Tab 2.</TabsContent>
+                  </Tabs>
+                  <Tabs variant="pill" size="lg" defaultValue="l1">
+                    <TabsList>
+                      <TabsTrigger value="l1">Lg 1</TabsTrigger>
+                      <TabsTrigger value="l2">Lg 2</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="l1">Large tabs content.</TabsContent>
+                    <TabsContent value="l2">Tab 2.</TabsContent>
+                  </Tabs>
+                </div>
+              </div>
+              <div>
+                <Typography variant={TypographyVariantEnum.H3} className="mb-2">
+                  With icon
+                </Typography>
+                <Tabs variant="pill" size="md" defaultValue="i1">
+                  <TabsList>
+                    <TabsTrigger
+                      value="i1"
+                      icon={
+                        <Icon
+                          name={IconName.Search}
+                          size="sm"
+                          color="currentColor"
+                        />
+                      }
+                    >
+                      Search
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="i2"
+                      icon={
+                        <Icon
+                          name={IconName.BarChart2}
+                          size="sm"
+                          color="currentColor"
+                        />
+                      }
+                    >
+                      Analytics
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="i3"
+                      icon={
+                        <Icon
+                          name={IconName.Shield}
+                          size="sm"
+                          color="currentColor"
+                        />
+                      }
+                    >
+                      Security
+                    </TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="i1">Search content.</TabsContent>
+                  <TabsContent value="i2">Analytics content.</TabsContent>
+                  <TabsContent value="i3">Security content.</TabsContent>
+                </Tabs>
+              </div>
+            </div>
+
+            <div className="w-full max-w-md">
+              <Typography variant={TypographyVariantEnum.H3} className="mb-2">
+                Full width
+              </Typography>
+              <Tabs variant="pill" size="md" fullWidth defaultValue="f1">
+                <TabsList>
+                  <TabsTrigger value="f1">Tab 1</TabsTrigger>
+                  <TabsTrigger value="f2">Tab 2</TabsTrigger>
+                  <TabsTrigger value="f3">Tab 3</TabsTrigger>
+                </TabsList>
+                <TabsContent value="f1">Full width tab 1 content.</TabsContent>
+                <TabsContent value="f2">Full width tab 2 content.</TabsContent>
+                <TabsContent value="f3">Full width tab 3 content.</TabsContent>
+              </Tabs>
+            </div>
+          </div>
+        </section>
+
+        <section className="flex flex-col items-center gap-6 w-full max-w-3xl">
+          <Typography variant={TypographyVariantEnum.H2}>Table</Typography>
+          <Typography variant={TypographyVariantEnum.Caption}>
+            Selection, sorting UI, actions, sticky header, and pagination. Switch
+            theme and mode to see flat table styles.
+          </Typography>
+          <div className="w-full">
+            <Table<TableRow>
+              data={paginatedTableData}
+              columns={tableColumns}
+              size="md"
+              stickyHeader
+              caption="Sample users table"
+              title="Users"
+              description="Manage users and roles"
+              searchable
+              searchValue={tableSearchValue}
+              onSearchChange={setTableSearchValue}
+              searchPlaceholder="Search users…"
+              headerRight={
+                <Button
+                  variant={ButtonVariant.Primary}
+                  size={ButtonSize.Sm}
+                  onClick={() => {}}
+                >
+                  Add user
+                </Button>
+              }
+              selectableRows
+              selectedRowIds={tableSelectedRowIds}
+              getRowId={(row) => row.id}
+              onRowSelectionChange={setTableSelectedRowIds}
+              actions={() => (
+                <DropdownButton
+                  trigger={{ iconOnly: true, ariaLabel: "Row actions" }}
+                  items={[
+                    { key: "edit", label: "Edit", onSelect: () => {} },
+                    { key: "delete", label: "Delete", onSelect: () => {} },
+                  ]}
+                />
+              )}
+              actionsHeader="Actions"
+              sort={tableSort}
+              onSortChange={setTableSort}
+              pagination={tablePaginationState}
+              onPageChange={(page) =>
+                setTablePagination((p) => ({ ...p, page }))
+              }
+              onPageSizeChange={(pageSize) =>
+                setTablePagination((p) => ({
+                  ...p,
+                  pageSize,
+                  page: 1,
+                }))
+              }
+              pageSizeOptions={[5, 10, 20]}
+            />
           </div>
         </section>
 
@@ -494,44 +997,33 @@ export default function App() {
             .
           </Typography>
           <div className="flex flex-wrap gap-3 justify-center items-center">
-            <Dropdown>
-              <DropdownTrigger>Actions</DropdownTrigger>
-              <DropdownContent align="start" sideOffset={6}>
-                <DropdownLabel>Actions</DropdownLabel>
-                <DropdownSeparator />
-                <DropdownItem onSelect={() => { }}>New file</DropdownItem>
-                <DropdownItem onSelect={() => { }}>Copy link</DropdownItem>
-                <DropdownItem onSelect={() => { }}>Edit</DropdownItem>
-                <DropdownSeparator />
-                <DropdownSub>
-                  <DropdownSubTrigger>More options</DropdownSubTrigger>
-                  <DropdownSubContent>
-                    <DropdownItem onSelect={() => { }}>
-                      Sub option A
-                    </DropdownItem>
-                    <DropdownItem onSelect={() => { }}>
-                      Sub option B
-                    </DropdownItem>
-                  </DropdownSubContent>
-                </DropdownSub>
-              </DropdownContent>
-            </Dropdown>
-            <Dropdown>
-              <DropdownTrigger variant={DropdownTriggerVariant.Ghost}>
-                Ghost trigger
-              </DropdownTrigger>
-              <DropdownContent align="start" sideOffset={6}>
-                <DropdownItem onSelect={() => { }}>Item one</DropdownItem>
-                <DropdownItem onSelect={() => { }}>Item two</DropdownItem>
-              </DropdownContent>
-            </Dropdown>
-            <Dropdown>
-              <DropdownTrigger showChevron={false}>No chevron</DropdownTrigger>
-              <DropdownContent align="start" sideOffset={6}>
-                <DropdownItem onSelect={() => { }}>Option A</DropdownItem>
-                <DropdownItem onSelect={() => { }}>Option B</DropdownItem>
-              </DropdownContent>
-            </Dropdown>
+            <DropdownButton
+              trigger={{ label: "Actions" }}
+              items={actionsDropdownItems}
+              align="start"
+              sideOffset={6}
+            />
+            <DropdownButton
+              trigger={{
+                label: "Ghost trigger",
+                variant: "ghost",
+              }}
+              items={[
+                { key: "1", label: "Item one", onSelect: () => { } },
+                { key: "2", label: "Item two", onSelect: () => { } },
+              ]}
+              align="start"
+              sideOffset={6}
+            />
+            <DropdownButton
+              trigger={{ label: "No chevron", showChevron: false }}
+              items={[
+                { key: "a", label: "Option A", onSelect: () => { } },
+                { key: "b", label: "Option B", onSelect: () => { } },
+              ]}
+              align="start"
+              sideOffset={6}
+            />
             <Button
               variant={ButtonVariant.Outline}
               size={ButtonSize.Sm}
@@ -586,7 +1078,7 @@ export default function App() {
               <NavButton
                 type="dropdown"
                 icon={
-                  <Icon name="bar-chart-2" size="sm" color="currentColor" />
+                  <Icon name={IconName.BarChart2} size="sm" color="currentColor" />
                 }
                 label="Analytics"
                 menuOptions={[
@@ -604,7 +1096,7 @@ export default function App() {
               />
               <NavButton
                 type="link"
-                icon={<Icon name="shield" size="sm" color="currentColor" />}
+                icon={<Icon name={IconName.Shield} size="sm" color="currentColor" />}
                 label="Security"
                 selected={navSelected === "security"}
                 onClick={() => setNavSelected("security")}
@@ -612,7 +1104,7 @@ export default function App() {
               <NavButton
                 type="link"
                 icon={
-                  <Icon name="check-circle" size="sm" color="currentColor" />
+                  <Icon name={IconName.CheckCircle} size="sm" color="currentColor" />
                 }
                 label="Direct link (unselected)"
                 selected={false}
@@ -657,7 +1149,7 @@ export default function App() {
               header={
                 <>
                   <div
-                    className="flex items-center justify-center p-3 text-sm font-medium"
+                    className="flex items-center justify-start p-3 text-sm font-medium"
                     style={{ color: "var(--kz-color-text-muted)" }}
                   >
                     Logo

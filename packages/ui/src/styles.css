@@ -10,6 +10,11 @@
 @import "./styles/sidesheet.css";
 @import "./styles/sidemenu.css";
 @import "./styles/tooltip.css";
+@import "./styles/toggle-button.css";
+@import "./styles/checkbox.css";
+@import "./styles/radio-button.css";
+@import "./styles/tabs.css";
+@import "./styles/table.css";
 
 @tailwind base;
 @tailwind components;

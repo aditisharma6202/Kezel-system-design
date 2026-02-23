@@ -1,0 +1,174 @@
+.kz-tabs-list {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+.kz-tabs-list[data-tabs-full-width] {
+  width: 100%;
+}
+
+.kz-tabs-list[data-tabs-variant="vertical"] {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.kz-tabs-list[data-tabs-size="sm"] {
+  min-height: 28px;
+}
+
+.kz-tabs-list[data-tabs-size="md"] {
+  min-height: 33px;
+}
+
+.kz-tabs-list[data-tabs-size="lg"] {
+  min-height: 40px;
+}
+
+.kz-tabs-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  color: var(--kz-component-tabs-trigger-text);
+  transition: color 200ms ease, background 200ms ease, box-shadow 200ms ease,
+    border-color 200ms ease;
+}
+
+.kz-tabs-trigger[data-tabs-size="sm"] {
+  padding: 6px 12px;
+  font-size: 0.875rem;
+}
+
+.kz-tabs-trigger[data-tabs-size="md"] {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+}
+
+.kz-tabs-trigger[data-tabs-size="lg"] {
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+.kz-tabs-trigger[data-state="active"] {
+  color: var(--kz-component-tabs-trigger-selected-text);
+}
+
+.kz-tabs-trigger-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.kz-tabs-content {
+  padding: var(--kz-component-tabs-content-padding, 16px);
+  outline: none;
+}
+
+[data-variant="standard"] .kz-tabs-list[data-tabs-variant="pill"] {
+  background: var(--kz-component-tabs-list-pill-bg);
+  border-radius: var(--kz-component-tabs-list-radius);
+  padding: 4px;
+  box-shadow: var(--kz-component-tabs-list-shadow);
+}
+
+[data-variant="standard"] .kz-tabs-trigger[data-tabs-variant="pill"][data-state="active"] {
+  background: var(--kz-component-tabs-trigger-selected-bg);
+  border-radius: var(--kz-component-tabs-trigger-radius);
+  box-shadow: var(--kz-component-tabs-trigger-selected-shadow);
+}
+
+[data-variant="standard"] .kz-tabs-list[data-tabs-variant="underline"] {
+  height: 33px;
+  padding: 0 0 1px 0;
+  align-items: flex-start;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+[data-variant="standard"] .kz-tabs-trigger[data-tabs-variant="underline"][data-state="active"] {
+  border-bottom: 2px solid var(--kz-component-tabs-trigger-selected-underline);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+[data-variant="standard"] .kz-tabs-list[data-tabs-variant="vertical"] {
+  flex-direction: column;
+  align-items: stretch;
+  background: var(--kz-component-tabs-list-pill-bg);
+  border-radius: var(--kz-component-tabs-list-radius);
+  padding: 4px;
+  min-height: auto;
+  height: auto;
+}
+
+[data-variant="standard"] .kz-tabs-trigger[data-tabs-variant="vertical"][data-state="active"] {
+  background: var(--kz-component-tabs-trigger-selected-bg);
+  border-radius: var(--kz-component-tabs-trigger-radius);
+  box-shadow: var(--kz-component-tabs-trigger-selected-shadow);
+}
+
+[data-variant="neumorphic"] .kz-tabs-list[data-tabs-variant="pill"] {
+  background: var(--kz-component-tabs-list-pill-bg);
+  border-radius: var(--kz-component-tabs-list-radius);
+  padding: 4px;
+  box-shadow: none;
+}
+
+[data-variant="neumorphic"] .kz-tabs-trigger[data-tabs-variant="pill"] {
+  border-radius: var(--kz-component-tabs-trigger-radius);
+}
+
+[data-variant="neumorphic"] .kz-tabs-trigger[data-tabs-variant="pill"][data-state="active"] {
+  background: var(--kz-component-tabs-trigger-selected-bg);
+  box-shadow: var(--kz-component-tabs-trigger-selected-shadow);
+}
+
+[data-variant="neumorphic"] .kz-tabs-list[data-tabs-variant="underline"] {
+  display: flex;
+  height: 33px;
+  padding: 0 0 1px 0;
+  align-items: flex-start;
+  gap: 24px;
+  flex-shrink: 0;
+  align-self: stretch;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+[data-variant="neumorphic"] .kz-tabs-trigger[data-tabs-variant="underline"][data-state="active"] {
+  border-bottom: 2px solid var(--kz-component-tabs-trigger-selected-underline);
+  background: transparent;
+  box-shadow: none;
+}
+
+[data-variant="neumorphic"] .kz-tabs-list[data-tabs-variant="vertical"] {
+  flex-direction: column;
+  align-items: stretch;
+  background: var(--kz-component-tabs-list-pill-bg);
+  border-radius: var(--kz-component-tabs-list-radius);
+  padding: 4px;
+  min-height: auto;
+  height: auto;
+  box-shadow: none;
+}
+
+[data-variant="neumorphic"] .kz-tabs-trigger[data-tabs-variant="vertical"] {
+  border-radius: var(--kz-component-tabs-trigger-radius);
+}
+
+[data-variant="neumorphic"] .kz-tabs-trigger[data-tabs-variant="vertical"][data-state="active"] {
+  background: var(--kz-component-tabs-trigger-selected-bg);
+  box-shadow: var(--kz-component-tabs-trigger-selected-shadow);
+}
+

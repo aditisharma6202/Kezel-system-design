@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { NavButton, Sidesheet, Icon } from "kz-design-system";
+import { NavButton, Sidesheet, Icon, IconName } from "kz-design-system";
 
 const meta: Meta<typeof NavButton> = {
   title: "Design System/NavButton",
@@ -56,7 +56,7 @@ export default meta;
 
 type Story = StoryObj<typeof NavButton>;
 
-const icon = <Icon name="shield" size="sm" color="currentColor" />;
+const icon = <Icon name={IconName.Shield} size="sm" color="currentColor" />;
 
 export const DirectLink: Story = {
   args: {
@@ -81,7 +81,7 @@ export const DirectLinkSelected: Story = {
 export const Dropdown: Story = {
   args: {
     type: "dropdown",
-    icon: <Icon name="bar-chart-2" size="sm" color="currentColor" />,
+    icon: <Icon name={IconName.BarChart2} size="sm" color="currentColor" />,
     label: "Analytics",
     menuOptions: [
       { label: "Trends", onClick: () => {} },
@@ -94,7 +94,7 @@ export const Dropdown: Story = {
 export const DropdownWithSubmenu: Story = {
   args: {
     type: "dropdown",
-    icon: <Icon name="bar-chart-2" size="sm" color="currentColor" />,
+    icon: <Icon name={IconName.BarChart2} size="sm" color="currentColor" />,
     label: "Analytics",
     menuOptions: [
       {
@@ -113,7 +113,7 @@ export const DropdownWithSubmenu: Story = {
 export const DropdownWithSelectedOption: Story = {
   args: {
     type: "dropdown",
-    icon: <Icon name="bar-chart-2" size="sm" color="currentColor" />,
+    icon: <Icon name={IconName.BarChart2} size="sm" color="currentColor" />,
     label: "Analytics",
     selectedOptionLabel: "Trends",
     menuOptions: [
@@ -159,19 +159,19 @@ export const Hover: Story = {
       </p>
       <NavButton
         type="link"
-        icon={<Icon name="shield" size="sm" color="currentColor" />}
+        icon={<Icon name={IconName.Shield} size="sm" color="currentColor" />}
         label="Security"
         onClick={() => {}}
       />
       <NavButton
         type="link"
-        icon={<Icon name="bar-chart-2" size="sm" color="currentColor" />}
+        icon={<Icon name={IconName.BarChart2} size="sm" color="currentColor" />}
         label="Analytics"
         onClick={() => {}}
       />
       <NavButton
         type="dropdown"
-        icon={<Icon name="check-circle" size="sm" color="currentColor" />}
+        icon={<Icon name={IconName.CheckCircle} size="sm" color="currentColor" />}
         label="Settings"
         menuOptions={[{ label: "Option", onClick: () => {} }]}
       />
@@ -193,7 +193,7 @@ export const InSidesheet: Story = {
       <Sidesheet>
         <NavButton
           type="dropdown"
-          icon={<Icon name="bar-chart-2" size="sm" color="currentColor" />}
+          icon={<Icon name={IconName.BarChart2} size="sm" color="currentColor" />}
           label="Analytics"
           selectedOptionLabel="Trends"
           menuOptions={[
@@ -210,14 +210,14 @@ export const InSidesheet: Story = {
         />
         <NavButton
           type="link"
-          icon={<Icon name="shield" size="sm" color="currentColor" />}
+          icon={<Icon name={IconName.Shield} size="sm" color="currentColor" />}
           label="Security"
           selected
           onClick={() => {}}
         />
         <NavButton
           type="link"
-          icon={<Icon name="check-circle" size="sm" color="currentColor" />}
+          icon={<Icon name={IconName.CheckCircle} size="sm" color="currentColor" />}
           label="Settings"
           selected={false}
           onClick={() => {}}

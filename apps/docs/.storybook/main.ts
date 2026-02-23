@@ -1,6 +1,8 @@
 import type { StorybookConfig } from "@storybook/react-webpack5";
 import path from "path";
 
+const designSystemRoot = path.resolve(__dirname, "../../../packages/ui");
+
 const config: StorybookConfig = {
   stories: ["../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: ["@storybook/addon-essentials"],
@@ -35,6 +37,10 @@ const config: StorybookConfig = {
       ".ts",
       ".tsx",
     ];
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "kz-design-system/styles.css": path.join(designSystemRoot, "dist/styles.css"),
+    };
     return config;
   },
 };

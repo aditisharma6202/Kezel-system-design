@@ -1,0 +1,78 @@
+.kz-radio-button-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: var(--kz-component-radio-radius, 50%);
+  transition: background 200ms ease-in-out, border 200ms ease-in-out,
+    box-shadow 200ms ease-in-out;
+}
+
+.kz-radio-button-circle--sm {
+  width: var(--kz-component-radio-size-sm);
+  height: var(--kz-component-radio-size-sm);
+}
+
+.kz-radio-button-circle--md {
+  width: var(--kz-component-radio-size-md);
+  height: var(--kz-component-radio-size-md);
+}
+
+.kz-radio-button-circle--lg {
+  width: var(--kz-component-radio-size-lg);
+  height: var(--kz-component-radio-size-lg);
+}
+
+.kz-radio-button-dot {
+  border-radius: var(--kz-component-radio-radius, 50%);
+  width: 50%;
+  height: 50%;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out,
+    background 200ms ease-in-out, box-shadow 200ms ease-in-out;
+}
+
+.kz-radio-button:has(input:checked) .kz-radio-button-dot {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.kz-radio-button:has(input:disabled) {
+  cursor: not-allowed;
+  opacity: var(--kz-component-radio-disabled-opacity, 0.5);
+}
+
+[data-variant="standard"] .kz-radio-button-circle {
+  background: var(--kz-component-radio-off-bg);
+  border: var(--kz-component-radio-off-border);
+  box-shadow: var(--kz-component-radio-off-shadow);
+}
+
+[data-variant="standard"] .kz-radio-button:has(input:checked) .kz-radio-button-circle {
+  background: var(--kz-component-radio-on-bg);
+  border: var(--kz-component-radio-on-border);
+  box-shadow: var(--kz-component-radio-on-shadow);
+}
+
+[data-variant="standard"] .kz-radio-button:has(input:checked) .kz-radio-button-dot {
+  background: var(--kz-component-radio-dot-bg);
+  box-shadow: var(--kz-component-radio-dot-shadow);
+}
+
+[data-variant="neumorphic"] .kz-radio-button-circle {
+  background: var(--kz-component-radio-off-bg);
+  border: var(--kz-component-radio-off-border);
+  box-shadow: var(--kz-component-radio-off-shadow);
+}
+
+[data-variant="neumorphic"] .kz-radio-button:has(input:checked) .kz-radio-button-circle {
+  background: var(--kz-component-radio-on-bg);
+  border: var(--kz-component-radio-on-border);
+  box-shadow: var(--kz-component-radio-on-shadow);
+}
+
+[data-variant="neumorphic"] .kz-radio-button:has(input:checked) .kz-radio-button-dot {
+  background: var(--kz-component-radio-dot-bg);
+  box-shadow: var(--kz-component-radio-dot-shadow);
+}

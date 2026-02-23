@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { ButtonVariant, ButtonSize, ButtonType } from "../../constants/enum";
+import { ButtonVariant, ButtonSize, ButtonType, ButtonAspectRatio } from "../../constants/enum";
 import { buttonVariants, type ButtonVariants } from "./button.variants";
-import { Icon } from "../../icon/Icon";
+import { Icon, IconName } from "../../icon/Icon";
 import { cn } from "../../utils/cn";
 
 export interface ButtonProps extends Omit<
@@ -16,6 +16,7 @@ export interface ButtonProps extends Omit<
   children: React.ReactNode;
   type?: ButtonType;
   loading?: boolean;
+  aspectRatio?: ButtonAspectRatio;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -29,6 +30,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       children,
       type = ButtonType.Button,
       loading = false,
+      aspectRatio = ButtonAspectRatio.Auto,
       disabled,
       ...props
     },
@@ -37,17 +39,19 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild ? Slot : "button";
     const isDisabled = disabled || loading;
 
+    const buttonClassName = cn(
+      buttonVariants({ variant, size }),
+      loading && "opacity-[var(--kz-component-button-loading-opacity,0.8)]",
+      aspectRatio === ButtonAspectRatio.Square && "kz-button--aspect-1-1",
+      className
+    );
+
     if (asChild) {
       return (
         <Comp
           ref={ref}
           type={asChild ? undefined : type}
-          className={cn(
-            buttonVariants({ variant, size }),
-            loading &&
-              "opacity-[var(--kz-component-button-loading-opacity,0.8)]",
-            className
-          )}
+          className={buttonClassName}
           onClick={onClick}
           disabled={isDisabled}
           aria-busy={loading}
@@ -62,11 +66,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp
         ref={ref}
         type={type}
-        className={cn(
-          buttonVariants({ variant, size }),
-          loading && "opacity-[var(--kz-component-button-loading-opacity,0.8)]",
-          className
-        )}
+        className={buttonClassName}
         onClick={onClick}
         disabled={isDisabled}
         aria-busy={loading}
@@ -74,7 +74,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {loading && (
           <Icon
-            name="loader-2"
+            name={IconName.Loader2}
             className="kz-button-spinner"
             size="md"
             color="currentColor"

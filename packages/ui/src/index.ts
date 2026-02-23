@@ -4,8 +4,32 @@ export {
   ButtonVariant,
   ButtonSize,
   ButtonType,
+  ButtonAspectRatio,
 } from "./components/button";
 export type { ButtonProps, ButtonVariants } from "./components/button";
+export {
+  ToggleButton,
+  toggleButtonVariants,
+  ToggleButtonVariant,
+  ToggleButtonSize,
+} from "./components/toggle-button";
+export type {
+  ToggleButtonProps,
+  ToggleButtonVariants,
+} from "./components/toggle-button";
+export {
+  Checkbox,
+  checkboxVariants,
+  CheckboxSize,
+  CheckboxVariant,
+} from "./components/checkbox";
+export type { CheckboxProps, CheckboxVariants } from "./components/checkbox";
+export {
+  RadioButton,
+  radioButtonVariants,
+  RadioSize,
+} from "./components/radio-button";
+export type { RadioButtonProps, RadioButtonVariants } from "./components/radio-button";
 export {
   Typography,
   typographyVariants,
@@ -61,8 +85,32 @@ export {
   TooltipColor,
 } from "./components/tooltip";
 export type { TooltipProps } from "./components/tooltip";
-export { Icon, icon, iconRegistry, iconSize, size } from "./icon";
-export type { IconProps, IconName, IconSizeKey } from "./icon";
+export {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "./components/tabs";
+export type {
+  TabsVariant,
+  TabsSize,
+  TabsProps,
+  TabsListProps,
+  TabsTriggerProps,
+  TabsContentProps,
+} from "./components/tabs";
+export { Table } from "./components/table";
+export type {
+  TableProps,
+  TableColumn,
+  TableSortState,
+  TablePaginationState,
+  TableSize,
+  TableAlign,
+  SortDirection,
+} from "./components/table";
+export { Icon, iconRegistry, iconSize, IconName, size } from "./icon";
+export type { IconProps, IconSizeKey } from "./icon";
 export {
   KezelThemeProvider,
   KezelVariant,

@@ -1,0 +1,35 @@
+.kz-table-surface {
+  box-shadow: none;
+}
+
+.kz-table-surface table {
+  box-shadow: none;
+}
+
+.kz-table-surface .kz-table-tr {
+  background: transparent;
+}
+
+.kz-table-surface .kz-table-th {
+  font-size: var(--kz-font-size-xs);
+  font-weight: var(--kz-font-weight-medium);
+  color: var(--kz-color-text-primary);
+  border-left: none;
+  border-right: none;
+}
+
+.kz-table-surface .kz-table-td {
+  border-left: none;
+  border-right: none;
+}
+
+.kz-table-surface .kz-table-tr--sticky {
+  position: sticky;
+  top: var(--kz-component-table-sticky-row-top, 0);
+  z-index: 5;
+  background: var(--kz-component-table-surface);
+}
+
+.kz-table-footer .kz-table-pagination-prev-next:hover:not(:disabled) {
+  box-shadow: var(--kz-component-table-pagination-hover-shadow);
+}

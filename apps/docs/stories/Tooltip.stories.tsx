@@ -10,6 +10,7 @@ import {
   ButtonVariant,
   ButtonSize,
   Icon,
+  IconName,
 } from "kz-design-system";
 
 const meta: Meta<typeof Tooltip> = {
@@ -201,7 +202,7 @@ export const Colors: Story = {
 export const WithIcon: Story = {
   args: {
     content: "Save your changes",
-    icon: <Icon name="info" size="sm" color="currentColor" />,
+    icon: <Icon name={IconName.CircleAlert} size="sm" color="currentColor" />,
     children: (
       <Button variant={ButtonVariant.Ghost} size={ButtonSize.Md} onClick={() => {}}>
         With icon
