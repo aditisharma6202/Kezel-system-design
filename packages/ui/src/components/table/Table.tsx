@@ -9,7 +9,6 @@ import { Icon, IconName } from "../../icon";
 import type {
   TableProps,
   TableColumn,
-  TableSortState,
   SortDirection,
 } from "./Table.types";
 

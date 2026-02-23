@@ -41,11 +41,13 @@ const columns = [
   },
 ];
 
-function makeActions(row: Row): DropdownButtonItem[] {
-  return [
-    { key: "edit", label: "Edit", onSelect: () => {} },
-    { key: "delete", label: "Delete", onSelect: () => {} },
-  ];
+const actions: DropdownButtonItem[] = [
+  { key: "edit", label: "Edit", onSelect: () => { } },
+  { key: "delete", label: "Delete", onSelect: () => { } },
+];
+
+function makeActions(): DropdownButtonItem[] {
+  return actions;
 }
 
 const meta: Meta<typeof Table<Row>> = {
@@ -130,7 +132,7 @@ function TableWithState() {
         <Button
           variant={ButtonVariant.Primary}
           size={ButtonSize.Sm}
-          onClick={() => {}}
+          onClick={() => { }}
         >
           Add user
         </Button>
@@ -140,10 +142,10 @@ function TableWithState() {
       getRowId={(row) => row.id}
       onRowSelectionChange={setSelectedRowIds}
       getRowSticky={(_row, index) => index === 0}
-      actions={(row) => (
+      actions={() => (
         <DropdownButton
           trigger={{ iconOnly: true, ariaLabel: "Row actions" }}
-          items={makeActions(row)}
+          items={makeActions()}
         />
       )}
       actionsHeader="Actions"
@@ -174,91 +176,91 @@ export const Default: Story = {
 export const Sizes: Story = {
   render: () => (
     <div className="flex flex-col gap-8">
-        <div>
-          <p className="mb-2 text-sm font-medium text-[var(--kz-color-text-secondary)]">Small</p>
-          <Table<Row>
-            data={sampleData.slice(0, 3)}
-            columns={columns}
-            getRowId={(r) => r.id}
-            size="sm"
-            stickyHeader
-            title="Users (sm)"
-            actions={(row) => (
-              <DropdownButton
-                trigger={{ iconOnly: true, ariaLabel: "Actions" }}
-                items={makeActions(row)}
-              />
-            )}
-            actionsHeader=""
-          />
-        </div>
-        <div>
-          <p className="mb-2 text-sm font-medium text-[var(--kz-color-text-secondary)]">Medium</p>
-          <Table<Row>
-            data={sampleData.slice(0, 3)}
-            columns={columns}
-            getRowId={(r) => r.id}
-            size="md"
-            stickyHeader
-            title="Users (md)"
-            actions={(row) => (
-              <DropdownButton
-                trigger={{ iconOnly: true, ariaLabel: "Actions" }}
-                items={makeActions(row)}
-              />
-            )}
-            actionsHeader=""
-          />
-        </div>
-        <div>
-          <p className="mb-2 text-sm font-medium text-[var(--kz-color-text-secondary)]">Large</p>
-          <Table<Row>
-            data={sampleData.slice(0, 3)}
-            columns={columns}
-            getRowId={(r) => r.id}
-            size="lg"
-            stickyHeader
-            title="Users (lg)"
-            actions={(row) => (
-              <DropdownButton
-                trigger={{ iconOnly: true, ariaLabel: "Actions" }}
-                items={makeActions(row)}
-              />
-            )}
-            actionsHeader=""
-          />
-        </div>
+      <div>
+        <p className="mb-2 text-sm font-medium text-[var(--kz-color-text-secondary)]">Small</p>
+        <Table<Row>
+          data={sampleData.slice(0, 3)}
+          columns={columns}
+          getRowId={(r) => r.id}
+          size="sm"
+          stickyHeader
+          title="Users (sm)"
+          actions={() => (
+            <DropdownButton
+              trigger={{ iconOnly: true, ariaLabel: "Actions" }}
+              items={makeActions()}
+            />
+          )}
+          actionsHeader=""
+        />
       </div>
+      <div>
+        <p className="mb-2 text-sm font-medium text-[var(--kz-color-text-secondary)]">Medium</p>
+        <Table<Row>
+          data={sampleData.slice(0, 3)}
+          columns={columns}
+          getRowId={(r) => r.id}
+          size="md"
+          stickyHeader
+          title="Users (md)"
+          actions={() => (
+            <DropdownButton
+              trigger={{ iconOnly: true, ariaLabel: "Actions" }}
+              items={makeActions()}
+            />
+          )}
+          actionsHeader=""
+        />
+      </div>
+      <div>
+        <p className="mb-2 text-sm font-medium text-[var(--kz-color-text-secondary)]">Large</p>
+        <Table<Row>
+          data={sampleData.slice(0, 3)}
+          columns={columns}
+          getRowId={(r) => r.id}
+          size="lg"
+          stickyHeader
+          title="Users (lg)"
+          actions={() => (
+            <DropdownButton
+              trigger={{ iconOnly: true, ariaLabel: "Actions" }}
+              items={makeActions()}
+            />
+          )}
+          actionsHeader=""
+        />
+      </div>
+    </div>
   ),
 };
 
 export const WithStickyRow: Story = {
   render: () => (
     <Table<Row>
-        data={sampleData.slice(0, 8)}
-        columns={columns}
-        getRowId={(r) => r.id}
-        size="md"
-        stickyHeader
-        title="Users (first row sticky)"
-        description="Scroll to see the first row stay pinned below the header"
-        getRowSticky={(_row, index) => index === 0}
-        actions={(row) => (
-          <DropdownButton
-            trigger={{ iconOnly: true, ariaLabel: "Actions" }}
-            items={makeActions(row)}
-          />
-        )}
-        actionsHeader=""
-        pagination={{
-          page: 1,
-          pageSize: 5,
-          total: 8,
-        }}
-        onPageChange={() => {}}
-        onPageSizeChange={() => {}}
-        pageSizeOptions={[5, 10]}
-      />
+      data={sampleData.slice(0, 8)}
+      columns={columns}
+      getRowId={(r) => r.id}
+      size="md"
+      stickyHeader
+      title="Users (first row sticky)"
+      description="Scroll to see the first row stay pinned below the header"
+      getRowSticky={(_row, index) => index === 0}
+      actions={() => (
+        <DropdownButton
+          trigger={{ iconOnly: true, ariaLabel: "Actions" }}
+          items={makeActions()}
+        />
+      )}
+      actionsHeader=""
+      pagination={{
+        page: 1,
+        pageSize: 5,
+        total: 8,
+      }}
+      onPageChange={() => { }}
+      onPageSizeChange={() => { }}
+      pageSizeOptions={[5, 10]}
+    />
   ),
   parameters: {
     docs: {
@@ -272,56 +274,56 @@ export const WithStickyRow: Story = {
 export const Loading: Story = {
   render: () => (
     <Table<Row>
-        data={[]}
-        columns={columns}
-        getRowId={(r) => r.id}
-        size="md"
-        title="Users"
-        loading
-        actions={(row) => (
-          <DropdownButton
-            trigger={{ iconOnly: true, ariaLabel: "Actions" }}
-            items={makeActions(row)}
-          />
-        )}
-        actionsHeader=""
-      />
+      data={[]}
+      columns={columns}
+      getRowId={(r) => r.id}
+      size="md"
+      title="Users"
+      loading
+      actions={() => (
+        <DropdownButton
+          trigger={{ iconOnly: true, ariaLabel: "Actions" }}
+          items={makeActions()}
+        />
+      )}
+      actionsHeader=""
+    />
   ),
 };
 
 export const Empty: Story = {
   render: () => (
     <Table<Row>
-        data={[]}
-        columns={columns}
-        getRowId={(r) => r.id}
-        size="md"
-        title="Users"
-        emptyState={<span>No users found. Click Add user to create one.</span>}
-        headerRight={
-          <Button variant={ButtonVariant.Primary} size={ButtonSize.Sm} onClick={() => {}}>
-            Add user
-          </Button>
-        }
-        actions={(row) => (
-          <DropdownButton
-            trigger={{ iconOnly: true, ariaLabel: "Actions" }}
-            items={makeActions(row)}
-          />
-        )}
-        actionsHeader=""
-      />
+      data={[]}
+      columns={columns}
+      getRowId={(r) => r.id}
+      size="md"
+      title="Users"
+      emptyState={<span>No users found. Click Add user to create one.</span>}
+      headerRight={
+        <Button variant={ButtonVariant.Primary} size={ButtonSize.Sm} onClick={() => { }}>
+          Add user
+        </Button>
+      }
+      actions={() => (
+        <DropdownButton
+          trigger={{ iconOnly: true, ariaLabel: "Actions" }}
+          items={makeActions()}
+        />
+      )}
+      actionsHeader=""
+    />
   ),
 };
 
 export const Minimal: Story = {
   render: () => (
     <Table<Row>
-        data={sampleData.slice(0, 4)}
-        columns={columns}
-        getRowId={(r) => r.id}
-        size="md"
-        title="Users (no search, selection, or actions)"
-      />
+      data={sampleData.slice(0, 4)}
+      columns={columns}
+      getRowId={(r) => r.id}
+      size="md"
+      title="Users (no search, selection, or actions)"
+    />
   ),
 };

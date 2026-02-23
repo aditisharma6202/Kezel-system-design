@@ -52,7 +52,7 @@ function renderItems(items: DropdownButtonItem[]): React.ReactNode {
       <DropdownItem
         key={it.key}
         disabled={it.disabled}
-        onSelect={(e: Event) => {
+        onSelect={() => {
           it.onSelect?.();
         }}
         startIcon={it.icon}
