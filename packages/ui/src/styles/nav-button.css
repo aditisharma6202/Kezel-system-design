@@ -19,7 +19,14 @@
   text-decoration: none;
   cursor: pointer;
   outline: none;
-  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    box-shadow 0.15s;
+}
+
+.kz-nav-button:hover {
+  background: var(--kz-component-nav-button-hover-bg);
 }
 
 .kz-nav-button-icon {
@@ -61,36 +68,25 @@
   transform: rotate(180deg);
 }
 
-/* Wrapper so dropdown content is in document flow and pushes nav-buttons below */
-.kz-nav-dropdown-root {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+/* Dropdown closed with a selected option: trigger icon and text use selected color */
+.kz-nav-button-dropdown--has-selection:not([data-state="open"]) .kz-nav-button-icon,
+.kz-nav-button-dropdown--has-selection:not([data-state="open"]) .kz-nav-button-label,
+.kz-nav-button-dropdown--has-selection:not([data-state="open"]) .kz-nav-button-chevron {
+  color: var(--kz-component-nav-button-selected-icon, #18AB9F);
 }
 
-/* Main nav dropdown menu: in-flow (no portal), so it pushes siblings down */
-.kz-nav-dropdown-root > .kz-nav-dropdown-menu {
-  position: relative !important;
-  width: 100%;
-  left: unset !important;
-  top: unset !important;
-  transform: none !important;
-}
-
-/* Nav dropdown menu container — high z-index so it appears above other nav-buttons/sidesheet */
+/* Nav dropdown menu container (main dropdown only, not submenu) */
 .kz-nav-dropdown-menu {
   min-width: 180px;
   padding: 4px;
   border-radius: var(--kz-component-nav-dropdown-menu-radius, 4px);
   background: var(--kz-component-nav-dropdown-menu-bg);
-  box-shadow: var(--kz-component-nav-dropdown-menu-shadow);
+  box-shadow:
+    var(--kz-component-nav-dropdown-menu-shadow),
+    1px 1px 2px 0 rgba(0, 0, 0, 0.04) inset;
   z-index: 1000;
   max-height: min(80vh, 320px);
   overflow-y: auto;
-}
-
-.kz-nav-dropdown-sub {
-  margin-left: 0;
 }
 
 /* Nav dropdown option (item) */
@@ -134,8 +130,33 @@
   cursor: pointer;
 }
 
+/* Inline submenu trigger (collapsible) — chevron rotates when open */
+.kz-nav-dropdown-option-trigger .kz-nav-dropdown-option-chevron {
+  flex-shrink: 0;
+  color: inherit;
+  opacity: 0.8;
+  transition: transform 0.2s ease;
+}
+
+.kz-nav-dropdown-option-trigger[data-state="open"] .kz-nav-dropdown-option-chevron {
+  transform: rotate(180deg);
+}
+
 .kz-nav-dropdown-option-chevron {
   flex-shrink: 0;
   color: inherit;
   opacity: 0.8;
+}
+
+/* Inline sublist: indent and spacing */
+.kz-nav-dropdown-sublist {
+  padding-left: 12px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-left: 1px solid var(--kz-color-border-subtle, rgba(0, 0, 0, 0.1));
+}
+
+.kz-nav-dropdown-subitem {
+  padding-left: 8px;
+  font-size: 12px;
 }

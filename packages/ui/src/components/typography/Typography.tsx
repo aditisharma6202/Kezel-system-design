@@ -22,10 +22,23 @@ export type TypographyAlign = TypographyAlignEnum;
 export type TypographyWeight = TypographyWeightEnum;
 
 export type TypographyAsElement =
-  | "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "div" | "a" | "label" | "figcaption";
+  | "p"
+  | "span"
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4"
+  | "h5"
+  | "h6"
+  | "div"
+  | "a"
+  | "label"
+  | "figcaption";
 
-export interface TypographyProps
-  extends Omit<React.HTMLAttributes<HTMLElement>, "color"> {
+export interface TypographyProps extends Omit<
+  React.HTMLAttributes<HTMLElement>,
+  "color"
+> {
   children: React.ReactNode;
   variant: TypographyVariant;
   href?: string;
@@ -78,15 +91,16 @@ const Typography = React.forwardRef<HTMLElement, TypographyProps>(
     const lineClampStyle: React.CSSProperties | undefined =
       lines !== undefined && lines > 0
         ? {
-          display: "-webkit-box",
-          WebkitBoxOrient: "vertical",
-          WebkitLineClamp: lines,
-          overflow: "hidden",
-        }
+            display: "-webkit-box",
+            WebkitBoxOrient: "vertical",
+            WebkitLineClamp: lines,
+            overflow: "hidden",
+          }
         : undefined;
 
-    const combinedStyle =
-      lineClampStyle ? { ...style, ...lineClampStyle } : style;
+    const combinedStyle = lineClampStyle
+      ? { ...style, ...lineClampStyle }
+      : style;
 
     return React.createElement(
       Comp as "p",

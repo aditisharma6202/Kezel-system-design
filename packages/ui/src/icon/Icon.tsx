@@ -3,7 +3,10 @@ import { iconRegistry, type IconName } from "./icon-registry";
 import { iconSize, type IconSizeKey } from "./icon-sizes";
 import { cn } from "../utils/cn";
 
-export interface IconProps extends Omit<React.SVGAttributes<SVGSVGElement>, "color"> {
+export interface IconProps extends Omit<
+  React.SVGAttributes<SVGSVGElement>,
+  "color"
+> {
   /** Icon name from registry (e.g. icon.search). */
   name: IconName;
   /** Size: preset key (sm, md, lg) or number in px. */

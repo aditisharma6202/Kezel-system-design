@@ -1,6 +1,11 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button, ButtonVariant, ButtonSize, ButtonType } from "kz-design-system";
+import {
+  Button,
+  ButtonVariant,
+  ButtonSize,
+  ButtonType,
+} from "kz-design-system";
 
 const meta: Meta<typeof Button> = {
   title: "Design System/Button",
@@ -29,7 +34,8 @@ const meta: Meta<typeof Button> = {
     variant: {
       control: "select",
       options: Object.values(ButtonVariant),
-      description: "Visual variant: Primary, Secondary, Outline, Ghost, Success, Warning, or Error.",
+      description:
+        "Visual variant: Primary, Secondary, Outline, Ghost, Success, Warning, or Error.",
     },
     size: {
       control: "select",
@@ -38,24 +44,29 @@ const meta: Meta<typeof Button> = {
     },
     children: {
       control: "text",
-      description: "Button content (text or nodes). When asChild is true, must be a single React element.",
+      description:
+        "Button content (text or nodes). When asChild is true, must be a single React element.",
     },
     type: {
       control: "select",
       options: Object.values(ButtonType),
-      description: "Native button type: button, submit, or reset. Ignored when asChild is true.",
+      description:
+        "Native button type: button, submit, or reset. Ignored when asChild is true.",
     },
     onClick: {
       action: "clicked",
-      description: "Click handler. Called when the button is clicked (not when disabled or loading).",
+      description:
+        "Click handler. Called when the button is clicked (not when disabled or loading).",
     },
     loading: {
       control: "boolean",
-      description: "When true, shows a loading spinner, disables the button, and applies loading opacity.",
+      description:
+        "When true, shows a loading spinner, disables the button, and applies loading opacity.",
     },
     disabled: {
       control: "boolean",
-      description: "Disables the button. Also set to true automatically when loading is true.",
+      description:
+        "Disables the button. Also set to true automatically when loading is true.",
     },
     asChild: {
       control: "boolean",
@@ -64,7 +75,8 @@ const meta: Meta<typeof Button> = {
     },
     className: {
       control: "text",
-      description: "Additional CSS classes applied to the button (or child when asChild).",
+      description:
+        "Additional CSS classes applied to the button (or child when asChild).",
     },
   },
 };
@@ -149,14 +161,33 @@ export const Loading: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-      <Button variant={ButtonVariant.Primary} size={ButtonSize.Sm} onClick={() => {}}>
+    <div
+      style={{
+        display: "flex",
+        gap: 8,
+        alignItems: "center",
+        flexWrap: "wrap",
+      }}
+    >
+      <Button
+        variant={ButtonVariant.Primary}
+        size={ButtonSize.Sm}
+        onClick={() => {}}
+      >
         Small
       </Button>
-      <Button variant={ButtonVariant.Primary} size={ButtonSize.Md} onClick={() => {}}>
+      <Button
+        variant={ButtonVariant.Primary}
+        size={ButtonSize.Md}
+        onClick={() => {}}
+      >
         Medium
       </Button>
-      <Button variant={ButtonVariant.Primary} size={ButtonSize.Lg} onClick={() => {}}>
+      <Button
+        variant={ButtonVariant.Primary}
+        size={ButtonSize.Lg}
+        onClick={() => {}}
+      >
         Large
       </Button>
     </div>
@@ -165,32 +196,77 @@ export const Sizes: Story = {
 
 export const AllVariants: Story = {
   render: () => (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center" }}>
-      <Button variant={ButtonVariant.Primary} size={ButtonSize.Md} onClick={() => {}}>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: 12,
+        alignItems: "center",
+      }}
+    >
+      <Button
+        variant={ButtonVariant.Primary}
+        size={ButtonSize.Md}
+        onClick={() => {}}
+      >
         Primary
       </Button>
-      <Button variant={ButtonVariant.Secondary} size={ButtonSize.Md} onClick={() => {}}>
+      <Button
+        variant={ButtonVariant.Secondary}
+        size={ButtonSize.Md}
+        onClick={() => {}}
+      >
         Secondary
       </Button>
-      <Button variant={ButtonVariant.Outline} size={ButtonSize.Md} onClick={() => {}}>
+      <Button
+        variant={ButtonVariant.Outline}
+        size={ButtonSize.Md}
+        onClick={() => {}}
+      >
         Outline
       </Button>
-      <Button variant={ButtonVariant.Ghost} size={ButtonSize.Md} onClick={() => {}}>
+      <Button
+        variant={ButtonVariant.Ghost}
+        size={ButtonSize.Md}
+        onClick={() => {}}
+      >
         Ghost
       </Button>
-      <Button variant={ButtonVariant.Success} size={ButtonSize.Md} onClick={() => {}}>
+      <Button
+        variant={ButtonVariant.Success}
+        size={ButtonSize.Md}
+        onClick={() => {}}
+      >
         Success
       </Button>
-      <Button variant={ButtonVariant.Warning} size={ButtonSize.Md} onClick={() => {}}>
+      <Button
+        variant={ButtonVariant.Warning}
+        size={ButtonSize.Md}
+        onClick={() => {}}
+      >
         Warning
       </Button>
-      <Button variant={ButtonVariant.Error} size={ButtonSize.Md} onClick={() => {}}>
+      <Button
+        variant={ButtonVariant.Error}
+        size={ButtonSize.Md}
+        onClick={() => {}}
+      >
         Error
       </Button>
-      <Button variant={ButtonVariant.Primary} size={ButtonSize.Md} disabled onClick={() => {}}>
+      <Button
+        variant={ButtonVariant.Primary}
+        size={ButtonSize.Md}
+        disabled
+        onClick={() => {}}
+      >
         Disabled
       </Button>
-      <Button variant={ButtonVariant.Primary} size={ButtonSize.Md} loading onClick={() => {}}>
+      <Button
+        variant={ButtonVariant.Primary}
+        size={ButtonSize.Md}
+        loading
+        onClick={() => {}}
+      >
         Loading
       </Button>
     </div>
@@ -219,7 +295,8 @@ export const AsChild: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Render as a link using asChild. The single child receives button styles and props.",
+        story:
+          "Render as a link using asChild. The single child receives button styles and props.",
       },
     },
   },

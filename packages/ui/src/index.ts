@@ -1,4 +1,10 @@
-export { Button, buttonVariants, ButtonVariant, ButtonSize, ButtonType } from "./components/button";
+export {
+  Button,
+  buttonVariants,
+  ButtonVariant,
+  ButtonSize,
+  ButtonType,
+} from "./components/button";
 export type { ButtonProps, ButtonVariants } from "./components/button";
 export {
   Typography,
@@ -35,6 +41,26 @@ export type {
 } from "./components/nav-button";
 export { Sidesheet } from "./components/sidesheet";
 export type { SidesheetProps } from "./components/sidesheet";
+export { SideMenu } from "./components/sidemenu";
+export type {
+  SideMenuProps,
+  SideMenuNode,
+  SideMenuSectionNode,
+  SideMenuLinkNode,
+  SideMenuGroupNode,
+  SideMenuGroupItem,
+  SideMenuGroupItemSubItem,
+  SideMenuNavigatePayload,
+  SideMenuFlyoutSide,
+} from "./components/sidemenu";
+export {
+  Tooltip,
+  TooltipSize,
+  TooltipPosition,
+  TooltipAlign,
+  TooltipColor,
+} from "./components/tooltip";
+export type { TooltipProps } from "./components/tooltip";
 export { Icon, icon, iconRegistry, iconSize, size } from "./icon";
 export type { IconProps, IconName, IconSizeKey } from "./icon";
 export {

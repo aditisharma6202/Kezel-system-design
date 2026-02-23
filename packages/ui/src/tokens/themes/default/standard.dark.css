@@ -104,6 +104,7 @@
   --kz-component-nav-button-text: #d1d5db;
   --kz-component-nav-button-gap: 10px;
   --kz-component-nav-button-chevron: #9ca3af;
+  --kz-component-nav-button-hover-bg: rgba(255, 255, 255, 0.05);
   --kz-component-nav-button-selected-bg: rgba(0, 150, 137, 0.15);
   --kz-component-nav-button-selected-shadow: none;
   --kz-component-nav-button-selected-icon: #18AB9F;
@@ -121,4 +122,45 @@
   --kz-component-sidesheet-bg: var(--kz-color-surface-base);
   --kz-component-sidesheet-width: 260px;
   --kz-component-sidesheet-border: var(--kz-color-border-default);
+
+  /* Component: Sidemenu (standard dark) */
+  --kz-component-sidemenu-bg: var(--kz-color-surface-base);
+  --kz-component-sidemenu-border: var(--kz-color-border-default);
+  --kz-component-sidemenu-shadow: none;
+  --kz-component-sidemenu-section-label-text: var(--kz-color-text-muted);
+  --kz-component-sidemenu-item-text: var(--kz-color-text-primary);
+  --kz-component-sidemenu-item-bg-hover: rgba(255, 255, 255, 0.05);
+  --kz-component-sidemenu-item-bg-active: rgba(0, 150, 137, 0.15);
+  --kz-component-sidemenu-item-active-text: #18AB9F;
+  --kz-component-sidemenu-item-active-link-bg: rgba(0, 150, 137, 0.15);
+  --kz-component-sidemenu-item-active-link-shadow: none;
+  --kz-component-sidemenu-group-indent-bg: rgba(255, 255, 255, 0.03);
+  --kz-component-sidemenu-gap: 4px;
+  --kz-component-sidemenu-icon-gap: 10px;
+  --kz-component-sidemenu-flyout-menu-bg: var(--kz-component-sidemenu-bg);
+  --kz-component-sidemenu-flyout-menu-shadow: var(--kz-component-nav-dropdown-menu-shadow);
+  --kz-component-sidemenu-flyout-menu-radius: var(--kz-component-nav-dropdown-menu-radius);
+  --kz-component-sidemenu-flyout-option-text: var(--kz-component-nav-dropdown-option-text);
+  --kz-component-sidemenu-flyout-option-hover-bg: var(--kz-component-nav-dropdown-option-hover-bg);
+
+  /* Component: Tooltip (standard dark) */
+  --kz-component-tooltip-bg: #f9fafb;
+  --kz-component-tooltip-text: #111827;
+  --kz-component-tooltip-border: transparent;
+  --kz-component-tooltip-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --kz-component-tooltip-radius: 6px;
+  --kz-component-tooltip-padding-sm: 4px 8px;
+  --kz-component-tooltip-padding-md: 6px 10px;
+  --kz-component-tooltip-padding-lg: 8px 12px;
+  --kz-component-tooltip-max-width-sm: 160px;
+  --kz-component-tooltip-max-width-md: 220px;
+  --kz-component-tooltip-max-width-lg: 320px;
+  --kz-component-tooltip-inverse-bg: #1f2933;
+  --kz-component-tooltip-inverse-text: #f9fafb;
+  --kz-component-tooltip-success-bg: #00c950;
+  --kz-component-tooltip-success-text: #ffffff;
+  --kz-component-tooltip-warning-bg: #f59e0b;
+  --kz-component-tooltip-warning-text: #ffffff;
+  --kz-component-tooltip-error-bg: #fb2c36;
+  --kz-component-tooltip-error-text: #ffffff;
 }

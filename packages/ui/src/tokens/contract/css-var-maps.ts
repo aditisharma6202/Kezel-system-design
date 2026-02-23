@@ -116,7 +116,8 @@ export const tokenToCssVar: Record<TokenKey, `--kz-${string}`> = {
   "component.sidebar.item.bg.hover": "--kz-component-sidebar-item-bg-hover",
   "component.sidebar.item.bg.active": "--kz-component-sidebar-item-bg-active",
   "component.sidebar.item.text": "--kz-component-sidebar-item-text",
-  "component.sidebar.item.text.active": "--kz-component-sidebar-item-text-active",
+  "component.sidebar.item.text.active":
+    "--kz-component-sidebar-item-text-active",
   "component.sidebar.indicator": "--kz-component-sidebar-indicator",
 
   "component.header.bg": "--kz-component-header-bg",
@@ -125,22 +126,28 @@ export const tokenToCssVar: Record<TokenKey, `--kz-${string}`> = {
 
   "component.button.primary.bg": "--kz-component-button-primary-bg",
   "component.button.primary.bg.hover": "--kz-component-button-primary-bg-hover",
-  "component.button.primary.bg.active": "--kz-component-button-primary-bg-active",
+  "component.button.primary.bg.active":
+    "--kz-component-button-primary-bg-active",
   "component.button.primary.text": "--kz-component-button-primary-text",
   "component.button.primary.shadow": "--kz-component-button-primary-shadow",
-  "component.button.primary.shadow.hover": "--kz-component-button-primary-shadow-hover",
+  "component.button.primary.shadow.hover":
+    "--kz-component-button-primary-shadow-hover",
   "component.button.secondary.bg": "--kz-component-button-secondary-bg",
-  "component.button.secondary.bg.hover": "--kz-component-button-secondary-bg-hover",
-  "component.button.secondary.bg.active": "--kz-component-button-secondary-bg-active",
+  "component.button.secondary.bg.hover":
+    "--kz-component-button-secondary-bg-hover",
+  "component.button.secondary.bg.active":
+    "--kz-component-button-secondary-bg-active",
   "component.button.secondary.text": "--kz-component-button-secondary-text",
   "component.button.secondary.shadow": "--kz-component-button-secondary-shadow",
-  "component.button.secondary.shadow.hover": "--kz-component-button-secondary-shadow-hover",
+  "component.button.secondary.shadow.hover":
+    "--kz-component-button-secondary-shadow-hover",
   "component.button.outline.bg": "--kz-component-button-outline-bg",
   "component.button.outline.bg.hover": "--kz-component-button-outline-bg-hover",
   "component.button.outline.border": "--kz-component-button-outline-border",
   "component.button.outline.text": "--kz-component-button-outline-text",
   "component.button.outline.shadow": "--kz-component-button-outline-shadow",
-  "component.button.outline.shadow.hover": "--kz-component-button-outline-shadow-hover",
+  "component.button.outline.shadow.hover":
+    "--kz-component-button-outline-shadow-hover",
   "component.button.ghost.bg": "--kz-component-button-ghost-bg",
   "component.button.ghost.bg.hover": "--kz-component-button-ghost-bg-hover",
   "component.button.ghost.text": "--kz-component-button-ghost-text",
@@ -148,17 +155,20 @@ export const tokenToCssVar: Record<TokenKey, `--kz-${string}`> = {
   "component.button.success.bg.hover": "--kz-component-button-success-bg-hover",
   "component.button.success.text": "--kz-component-button-success-text",
   "component.button.success.shadow": "--kz-component-button-success-shadow",
-  "component.button.success.shadow.hover": "--kz-component-button-success-shadow-hover",
+  "component.button.success.shadow.hover":
+    "--kz-component-button-success-shadow-hover",
   "component.button.warning.bg": "--kz-component-button-warning-bg",
   "component.button.warning.bg.hover": "--kz-component-button-warning-bg-hover",
   "component.button.warning.text": "--kz-component-button-warning-text",
   "component.button.warning.shadow": "--kz-component-button-warning-shadow",
-  "component.button.warning.shadow.hover": "--kz-component-button-warning-shadow-hover",
+  "component.button.warning.shadow.hover":
+    "--kz-component-button-warning-shadow-hover",
   "component.button.error.bg": "--kz-component-button-error-bg",
   "component.button.error.bg.hover": "--kz-component-button-error-bg-hover",
   "component.button.error.text": "--kz-component-button-error-text",
   "component.button.error.shadow": "--kz-component-button-error-shadow",
-  "component.button.error.shadow.hover": "--kz-component-button-error-shadow-hover",
+  "component.button.error.shadow.hover":
+    "--kz-component-button-error-shadow-hover",
   "component.button.radius": "--kz-component-button-radius",
   "component.button.disabled.opacity": "--kz-component-button-disabled-opacity",
   "component.button.loading.opacity": "--kz-component-button-loading-opacity",
@@ -177,40 +187,101 @@ export const tokenToCssVar: Record<TokenKey, `--kz-${string}`> = {
 
   "component.dropdown.trigger.bg": "--kz-component-dropdown-trigger-bg",
   "component.dropdown.trigger.border": "--kz-component-dropdown-trigger-border",
-  "component.dropdown.trigger.border.open": "--kz-component-dropdown-trigger-border-open",
+  "component.dropdown.trigger.border.open":
+    "--kz-component-dropdown-trigger-border-open",
   "component.dropdown.trigger.text": "--kz-component-dropdown-trigger-text",
-  "component.dropdown.trigger.text.selected": "--kz-component-dropdown-trigger-text-selected",
+  "component.dropdown.trigger.text.selected":
+    "--kz-component-dropdown-trigger-text-selected",
   "component.dropdown.trigger.shadow": "--kz-component-dropdown-trigger-shadow",
-  "component.dropdown.trigger.shadow.open": "--kz-component-dropdown-trigger-shadow-open",
+  "component.dropdown.trigger.shadow.open":
+    "--kz-component-dropdown-trigger-shadow-open",
   "component.dropdown.trigger.radius": "--kz-component-dropdown-trigger-radius",
-  "component.dropdown.trigger.focus.ring": "--kz-component-dropdown-trigger-focus-ring",
+  "component.dropdown.trigger.focus.ring":
+    "--kz-component-dropdown-trigger-focus-ring",
   "component.dropdown.content.bg": "--kz-component-dropdown-content-bg",
   "component.dropdown.content.border": "--kz-component-dropdown-content-border",
   "component.dropdown.content.shadow": "--kz-component-dropdown-content-shadow",
   "component.dropdown.content.radius": "--kz-component-dropdown-content-radius",
   "component.dropdown.item.text": "--kz-component-dropdown-item-text",
-  "component.dropdown.item.text.selected": "--kz-component-dropdown-item-text-selected",
+  "component.dropdown.item.text.selected":
+    "--kz-component-dropdown-item-text-selected",
   "component.dropdown.item.bg.hover": "--kz-component-dropdown-item-bg-hover",
 
   "component.nav-button.icon": "--kz-component-nav-button-icon",
   "component.nav-button.text": "--kz-component-nav-button-text",
   "component.nav-button.gap": "--kz-component-nav-button-gap",
   "component.nav-button.chevron": "--kz-component-nav-button-chevron",
+  "component.nav-button.hover.bg": "--kz-component-nav-button-hover-bg",
   "component.nav-button.selected.bg": "--kz-component-nav-button-selected-bg",
-  "component.nav-button.selected.shadow": "--kz-component-nav-button-selected-shadow",
-  "component.nav-button.selected.icon": "--kz-component-nav-button-selected-icon",
-  "component.nav-button.selected.text": "--kz-component-nav-button-selected-text",
+  "component.nav-button.selected.shadow":
+    "--kz-component-nav-button-selected-shadow",
+  "component.nav-button.selected.icon":
+    "--kz-component-nav-button-selected-icon",
+  "component.nav-button.selected.text":
+    "--kz-component-nav-button-selected-text",
   "component.nav-button.radius": "--kz-component-nav-button-radius",
 
   "component.nav-dropdown.menu.bg": "--kz-component-nav-dropdown-menu-bg",
-  "component.nav-dropdown.menu.shadow": "--kz-component-nav-dropdown-menu-shadow",
-  "component.nav-dropdown.menu.radius": "--kz-component-nav-dropdown-menu-radius",
-  "component.nav-dropdown.option.text": "--kz-component-nav-dropdown-option-text",
-  "component.nav-dropdown.option.hover.bg": "--kz-component-nav-dropdown-option-hover-bg",
+  "component.nav-dropdown.menu.shadow":
+    "--kz-component-nav-dropdown-menu-shadow",
+  "component.nav-dropdown.menu.radius":
+    "--kz-component-nav-dropdown-menu-radius",
+  "component.nav-dropdown.option.text":
+    "--kz-component-nav-dropdown-option-text",
+  "component.nav-dropdown.option.hover.bg":
+    "--kz-component-nav-dropdown-option-hover-bg",
 
   "component.sidesheet.bg": "--kz-component-sidesheet-bg",
   "component.sidesheet.width": "--kz-component-sidesheet-width",
   "component.sidesheet.border": "--kz-component-sidesheet-border",
+
+  "component.sidemenu.bg": "--kz-component-sidemenu-bg",
+  "component.sidemenu.border": "--kz-component-sidemenu-border",
+  "component.sidemenu.shadow": "--kz-component-sidemenu-shadow",
+  "component.sidemenu.section.label.text":
+    "--kz-component-sidemenu-section-label-text",
+  "component.sidemenu.item.text": "--kz-component-sidemenu-item-text",
+  "component.sidemenu.item.bg.hover": "--kz-component-sidemenu-item-bg-hover",
+  "component.sidemenu.item.bg.active": "--kz-component-sidemenu-item-bg-active",
+  "component.sidemenu.item.active.text":
+    "--kz-component-sidemenu-item-active-text",
+  "component.sidemenu.item.active.link.bg":
+    "--kz-component-sidemenu-item-active-link-bg",
+  "component.sidemenu.item.active.link.shadow":
+    "--kz-component-sidemenu-item-active-link-shadow",
+  "component.sidemenu.group.indent.bg":
+    "--kz-component-sidemenu-group-indent-bg",
+  "component.sidemenu.gap": "--kz-component-sidemenu-gap",
+  "component.sidemenu.icon.gap": "--kz-component-sidemenu-icon-gap",
+  "component.sidemenu.flyout.menu.bg": "--kz-component-sidemenu-flyout-menu-bg",
+  "component.sidemenu.flyout.menu.shadow":
+    "--kz-component-sidemenu-flyout-menu-shadow",
+  "component.sidemenu.flyout.menu.radius":
+    "--kz-component-sidemenu-flyout-menu-radius",
+  "component.sidemenu.flyout.option.text":
+    "--kz-component-sidemenu-flyout-option-text",
+  "component.sidemenu.flyout.option.hover.bg":
+    "--kz-component-sidemenu-flyout-option-hover-bg",
+
+  "component.tooltip.bg": "--kz-component-tooltip-bg",
+  "component.tooltip.text": "--kz-component-tooltip-text",
+  "component.tooltip.border": "--kz-component-tooltip-border",
+  "component.tooltip.shadow": "--kz-component-tooltip-shadow",
+  "component.tooltip.radius": "--kz-component-tooltip-radius",
+  "component.tooltip.padding.sm": "--kz-component-tooltip-padding-sm",
+  "component.tooltip.padding.md": "--kz-component-tooltip-padding-md",
+  "component.tooltip.padding.lg": "--kz-component-tooltip-padding-lg",
+  "component.tooltip.maxWidth.sm": "--kz-component-tooltip-max-width-sm",
+  "component.tooltip.maxWidth.md": "--kz-component-tooltip-max-width-md",
+  "component.tooltip.maxWidth.lg": "--kz-component-tooltip-max-width-lg",
+  "component.tooltip.inverse.bg": "--kz-component-tooltip-inverse-bg",
+  "component.tooltip.inverse.text": "--kz-component-tooltip-inverse-text",
+  "component.tooltip.success.bg": "--kz-component-tooltip-success-bg",
+  "component.tooltip.success.text": "--kz-component-tooltip-success-text",
+  "component.tooltip.warning.bg": "--kz-component-tooltip-warning-bg",
+  "component.tooltip.warning.text": "--kz-component-tooltip-warning-text",
+  "component.tooltip.error.bg": "--kz-component-tooltip-error-bg",
+  "component.tooltip.error.text": "--kz-component-tooltip-error-text",
 
   "component.card.bg": "--kz-component-card-bg",
   "component.card.border": "--kz-component-card-border",

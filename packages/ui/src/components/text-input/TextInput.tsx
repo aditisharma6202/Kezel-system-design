@@ -11,8 +11,10 @@ import { TypographyAlignEnum } from "../typography";
 import { Icon } from "../../icon";
 import { icon } from "../../icon/icon-registry";
 
-export interface TextInputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
+export interface TextInputProps extends Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  "size"
+> {
   size?: TextInputSize;
   variant?: TextInputVariant;
 
@@ -89,7 +91,6 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
             ? warningText
             : undefined;
 
-
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const next = e.target.value;
       if (maxLength != null && next.length > maxLength) return;
@@ -104,8 +105,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
       "kz-text-input-wrapper",
       `kz-text-input-wrapper--${variant}`,
       `kz-text-input-wrapper--${size}`,
-      state !== TextInputState.Default &&
-      `kz-text-input-wrapper--${state}`
+      state !== TextInputState.Default && `kz-text-input-wrapper--${state}`
     );
 
     const inputClass = cn(
@@ -203,14 +203,16 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
             {stateMessage}
           </Typography>
         )}
-        {helperText != null && helperText !== "" && state === TextInputState.Default && (
-          <Typography
-            id="text-input-helper"
-            variant={TypographyVariantEnum.Caption}
-          >
-            {helperText}
-          </Typography>
-        )}
+        {helperText != null &&
+          helperText !== "" &&
+          state === TextInputState.Default && (
+            <Typography
+              id="text-input-helper"
+              variant={TypographyVariantEnum.Caption}
+            >
+              {helperText}
+            </Typography>
+          )}
         {showCount && maxLength != null && (
           <Typography
             variant={TypographyVariantEnum.Caption}

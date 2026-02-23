@@ -8,7 +8,10 @@ import {
 } from "kz-design-system";
 
 function Controlled(
-  props: Omit<React.ComponentProps<typeof TextInput>, "value" | "onValueChange"> & {
+  props: Omit<
+    React.ComponentProps<typeof TextInput>,
+    "value" | "onValueChange"
+  > & {
     value?: string;
     placeHolder?: string;
   }
@@ -57,7 +60,8 @@ const meta: Meta<typeof TextInput> = {
     variant: {
       control: "select",
       options: Object.values(TextInputVariant),
-      description: "Visual style: Default, Container (transparent bg), or Ghost (border bottom only).",
+      description:
+        "Visual style: Default, Container (transparent bg), or Ghost (border bottom only).",
     },
     label: {
       control: "text",
@@ -74,7 +78,8 @@ const meta: Meta<typeof TextInput> = {
     state: {
       control: "select",
       options: Object.values(TextInputState),
-      description: "Validation state: Default, Error, Success, or Warning. Shows state message and optional icon.",
+      description:
+        "Validation state: Default, Error, Success, or Warning. Shows state message and optional icon.",
     },
     errorText: {
       control: "text",
@@ -102,15 +107,18 @@ const meta: Meta<typeof TextInput> = {
     },
     endAdornment: {
       control: false,
-      description: "React node rendered at the end of the input. Ignored when clearable and value is non-empty.",
+      description:
+        "React node rendered at the end of the input. Ignored when clearable and value is non-empty.",
     },
     loading: {
       control: "boolean",
-      description: "When true, shows a loading indicator and disables the input.",
+      description:
+        "When true, shows a loading indicator and disables the input.",
     },
     clearable: {
       control: "boolean",
-      description: "When true, shows a clear button when the input has a value.",
+      description:
+        "When true, shows a clear button when the input has a value.",
     },
     showCount: {
       control: "boolean",
@@ -122,7 +130,8 @@ const meta: Meta<typeof TextInput> = {
     },
     containerClassName: {
       control: "text",
-      description: "CSS class for the outer container (label + input + messages).",
+      description:
+        "CSS class for the outer container (label + input + messages).",
     },
     inputClassName: {
       control: "text",
@@ -134,7 +143,8 @@ const meta: Meta<typeof TextInput> = {
     },
     showStateIcon: {
       control: "boolean",
-      description: "When true, shows an icon for Error / Success / Warning state.",
+      description:
+        "When true, shows an icon for Error / Success / Warning state.",
     },
   },
 };
@@ -185,17 +195,33 @@ export const Ghost: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 12, width: 320 }}>
-      <Controlled placeHolder="Small" variant={TextInputVariant.Default} size={TextInputSize.Sm} />
-      <Controlled placeHolder="Medium" variant={TextInputVariant.Default} size={TextInputSize.Md} />
-      <Controlled placeHolder="Large" variant={TextInputVariant.Default} size={TextInputSize.Lg} />
+    <div
+      style={{ display: "flex", flexDirection: "column", gap: 12, width: 320 }}
+    >
+      <Controlled
+        placeHolder="Small"
+        variant={TextInputVariant.Default}
+        size={TextInputSize.Sm}
+      />
+      <Controlled
+        placeHolder="Medium"
+        variant={TextInputVariant.Default}
+        size={TextInputSize.Md}
+      />
+      <Controlled
+        placeHolder="Large"
+        variant={TextInputVariant.Default}
+        size={TextInputSize.Lg}
+      />
     </div>
   ),
 };
 
 export const States: Story = {
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 16, width: 320 }}>
+    <div
+      style={{ display: "flex", flexDirection: "column", gap: 16, width: 320 }}
+    >
       <Controlled
         label="Error"
         value="invalid@"
@@ -280,7 +306,9 @@ export const WithCharacterCount: Story = {
 
 export const AllVariants: Story = {
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 16, width: 320 }}>
+    <div
+      style={{ display: "flex", flexDirection: "column", gap: 16, width: 320 }}
+    >
       <Controlled
         label="Default"
         placeHolder="Placeholder"

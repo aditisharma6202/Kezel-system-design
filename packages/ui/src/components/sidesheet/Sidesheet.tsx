@@ -10,11 +10,7 @@ export interface SidesheetProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const Sidesheet = React.forwardRef<HTMLDivElement, SidesheetProps>(
   ({ className, children, ...props }, ref) => (
-    <aside
-      ref={ref}
-      className={cn("kz-sidesheet", className)}
-      {...props}
-    >
+    <aside ref={ref} className={cn("kz-sidesheet", className)} {...props}>
       {children}
     </aside>
   )

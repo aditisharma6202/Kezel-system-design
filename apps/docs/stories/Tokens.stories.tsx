@@ -32,12 +32,10 @@ function groupKeys(keys: readonly string[]): Record<string, string[]> {
   for (const key of keys) {
     const parts = key.split(".");
     let group: string;
-    if (parts[0] === "color" && parts[1])
-      group = `color.${parts[1]}`;
+    if (parts[0] === "color" && parts[1]) group = `color.${parts[1]}`;
     else if (parts[0] === "component" && parts[1])
       group = `component.${parts[1]}`;
-    else
-      group = parts[0];
+    else group = parts[0];
     if (!groups[group]) groups[group] = [];
     groups[group].push(key);
   }
@@ -74,7 +72,8 @@ function TokenTable() {
       <h2 style={{ marginTop: 0 }}>Token reference</h2>
       <p style={{ color: "#52606d", marginBottom: 24 }}>
         Pass any of these keys to the <code>tokens</code> prop of{" "}
-        <code>KezelThemeProvider</code>. Each key maps to a CSS variable applied on the theme root.
+        <code>KezelThemeProvider</code>. Each key maps to a CSS variable applied
+        on the theme root.
       </p>
       {groupOrder.map((group) => {
         const keys = tokenGroups[group];
@@ -88,7 +87,15 @@ function TokenTable() {
               : group.charAt(0).toUpperCase() + group.slice(1);
         return (
           <div key={group} style={{ marginBottom: 32 }}>
-            <h3 style={{ fontSize: 14, fontWeight: 600, marginBottom: 8, textTransform: "uppercase", letterSpacing: "0.05em" }}>
+            <h3
+              style={{
+                fontSize: 14,
+                fontWeight: 600,
+                marginBottom: 8,
+                textTransform: "uppercase",
+                letterSpacing: "0.05em",
+              }}
+            >
               {groupLabel}
             </h3>
             <table
@@ -99,18 +106,40 @@ function TokenTable() {
               }}
             >
               <thead>
-                <tr style={{ borderBottom: "1px solid #e4e7eb", textAlign: "left" }}>
-                  <th style={{ padding: "8px 12px", fontWeight: 600 }}>Token key</th>
-                  <th style={{ padding: "8px 12px", fontWeight: 600 }}>CSS variable</th>
+                <tr
+                  style={{
+                    borderBottom: "1px solid #e4e7eb",
+                    textAlign: "left",
+                  }}
+                >
+                  <th style={{ padding: "8px 12px", fontWeight: 600 }}>
+                    Token key
+                  </th>
+                  <th style={{ padding: "8px 12px", fontWeight: 600 }}>
+                    CSS variable
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {keys.map((key) => (
                   <tr key={key} style={{ borderBottom: "1px solid #f0f2f5" }}>
-                    <td style={{ padding: "8px 12px", fontFamily: "monospace", fontSize: 12 }}>
+                    <td
+                      style={{
+                        padding: "8px 12px",
+                        fontFamily: "monospace",
+                        fontSize: 12,
+                      }}
+                    >
                       {key}
                     </td>
-                    <td style={{ padding: "8px 12px", fontFamily: "monospace", fontSize: 12, color: "#52606d" }}>
+                    <td
+                      style={{
+                        padding: "8px 12px",
+                        fontFamily: "monospace",
+                        fontSize: 12,
+                        color: "#52606d",
+                      }}
+                    >
                       {tokenToCssVar[key as keyof typeof tokenToCssVar]}
                     </td>
                   </tr>
@@ -140,15 +169,29 @@ export const ExampleOverride: StoryObj = {
         "color.brand.accent.active": "#007a73",
       }}
     >
-      <div style={{ padding: 24, background: "var(--kz-color-surface-background)", minHeight: 120 }}>
+      <div
+        style={{
+          padding: 24,
+          background: "var(--kz-color-surface-background)",
+          minHeight: 120,
+        }}
+      >
         <p style={{ marginBottom: 16, color: "var(--kz-color-text-primary)" }}>
           Buttons below use overridden brand tokens:
         </p>
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-          <Button variant={ButtonVariant.Primary} size={ButtonSize.Md} onClick={() => {}}>
+          <Button
+            variant={ButtonVariant.Primary}
+            size={ButtonSize.Md}
+            onClick={() => {}}
+          >
             Primary
           </Button>
-          <Button variant={ButtonVariant.Secondary} size={ButtonSize.Md} onClick={() => {}}>
+          <Button
+            variant={ButtonVariant.Secondary}
+            size={ButtonSize.Md}
+            onClick={() => {}}
+          >
             Secondary
           </Button>
         </div>
@@ -158,7 +201,8 @@ export const ExampleOverride: StoryObj = {
   parameters: {
     docs: {
       description: {
-        story: "Example: override brand and accent tokens via the `tokens` prop.",
+        story:
+          "Example: override brand and accent tokens via the `tokens` prop.",
       },
     },
   },

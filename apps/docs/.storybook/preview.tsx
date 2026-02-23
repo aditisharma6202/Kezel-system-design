@@ -3,7 +3,10 @@ import type { Preview } from "@storybook/react";
 import { KezelThemeProvider, KezelVariant, KezelMode } from "kz-design-system";
 import "kz-design-system/styles.css";
 
-function getThemeFromUrl(): { variant: "standard" | "neumorphic"; mode: "light" | "dark" } | null {
+function getThemeFromUrl(): {
+  variant: "standard" | "neumorphic";
+  mode: "light" | "dark";
+} | null {
   if (typeof window === "undefined") return null;
   const params = new URLSearchParams(window.location.search);
   const theme = params.get("theme")?.replace(/^"|"$/g, "").toLowerCase();
@@ -65,14 +68,18 @@ const preview: Preview = {
   decorators: [
     (Story, context) => {
       const fromUrl = getThemeFromUrl();
-      const variant =
-        (fromUrl ? fromUrl.variant === "neumorphic" : context.globals?.variant === "neumorphic")
-          ? KezelVariant.Neumorphic
-          : KezelVariant.Standard;
-      const mode =
-        (fromUrl ? fromUrl.mode === "dark" : context.globals?.mode === "dark")
-          ? KezelMode.Dark
-          : KezelMode.Light;
+      const variant = (
+        fromUrl
+          ? fromUrl.variant === "neumorphic"
+          : context.globals?.variant === "neumorphic"
+      )
+        ? KezelVariant.Neumorphic
+        : KezelVariant.Standard;
+      const mode = (
+        fromUrl ? fromUrl.mode === "dark" : context.globals?.mode === "dark"
+      )
+        ? KezelMode.Dark
+        : KezelMode.Light;
       return (
         <KezelThemeProvider variant={variant} mode={mode}>
           <div

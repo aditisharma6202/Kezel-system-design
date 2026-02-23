@@ -1,0 +1,91 @@
+/* Tooltip — tokenized; override via KezelThemeProvider tokens. */
+
+.kz-tooltip-content {
+  --kz-tooltip-bg: var(--kz-component-tooltip-bg);
+  --kz-tooltip-text: var(--kz-component-tooltip-text);
+  --kz-tooltip-padding: var(--kz-component-tooltip-padding-md, 6px 10px);
+  --kz-tooltip-max-width: var(--kz-component-tooltip-max-width-md, 220px);
+  z-index: 9999;
+  max-width: var(--kz-tooltip-max-width);
+  padding: var(--kz-tooltip-padding);
+  border-radius: var(--kz-component-tooltip-radius, 6px);
+  background: var(--kz-tooltip-bg);
+  color: var(--kz-tooltip-text);
+  border: 1px solid var(--kz-component-tooltip-border, transparent);
+  box-shadow: var(--kz-component-tooltip-shadow, 0 2px 8px rgba(0, 0, 0, 0.15));
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  animation-duration: 0.15s;
+}
+
+/* Size variants */
+.kz-tooltip-content--size-sm,
+.kz-tooltip-content[data-size="sm"] {
+  --kz-tooltip-padding: var(--kz-component-tooltip-padding-sm, 4px 8px);
+  --kz-tooltip-max-width: var(--kz-component-tooltip-max-width-sm, 160px);
+  font-size: 11px;
+}
+
+.kz-tooltip-content--size-md,
+.kz-tooltip-content[data-size="md"] {
+  --kz-tooltip-padding: var(--kz-component-tooltip-padding-md, 6px 10px);
+  --kz-tooltip-max-width: var(--kz-component-tooltip-max-width-md, 220px);
+  font-size: 12px;
+}
+
+.kz-tooltip-content--size-lg,
+.kz-tooltip-content[data-size="lg"] {
+  --kz-tooltip-padding: var(--kz-component-tooltip-padding-lg, 8px 12px);
+  --kz-tooltip-max-width: var(--kz-component-tooltip-max-width-lg, 320px);
+  font-size: 13px;
+}
+
+/* Color variants */
+.kz-tooltip-content--color-default,
+.kz-tooltip-content[data-color="default"] {
+  --kz-tooltip-bg: var(--kz-component-tooltip-bg);
+  --kz-tooltip-text: var(--kz-component-tooltip-text);
+}
+
+.kz-tooltip-content--color-inverse,
+.kz-tooltip-content[data-color="inverse"] {
+  --kz-tooltip-bg: var(--kz-component-tooltip-inverse-bg);
+  --kz-tooltip-text: var(--kz-component-tooltip-inverse-text);
+}
+
+.kz-tooltip-content--color-success,
+.kz-tooltip-content[data-color="success"] {
+  --kz-tooltip-bg: var(--kz-component-tooltip-success-bg);
+  --kz-tooltip-text: var(--kz-component-tooltip-success-text);
+}
+
+.kz-tooltip-content--color-warning,
+.kz-tooltip-content[data-color="warning"] {
+  --kz-tooltip-bg: var(--kz-component-tooltip-warning-bg);
+  --kz-tooltip-text: var(--kz-component-tooltip-warning-text);
+}
+
+.kz-tooltip-content--color-error,
+.kz-tooltip-content[data-color="error"] {
+  --kz-tooltip-bg: var(--kz-component-tooltip-error-bg);
+  --kz-tooltip-text: var(--kz-component-tooltip-error-text);
+}
+
+.kz-tooltip-content-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.kz-tooltip-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: inherit;
+  opacity: 0.9;
+}
+
+.kz-tooltip-text {
+  min-width: 0;
+}

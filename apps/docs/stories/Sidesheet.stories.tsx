@@ -10,7 +10,7 @@ const meta: Meta<typeof Sidesheet> = {
     docs: {
       description: {
         component:
-          "Side panel for navigation (e.g. NavButton list). Width and styles are tokenized (component.sidesheet.*). Override via KezelThemeProvider tokens.",
+          "Side panel for navigation (e.g. NavButton list). Nav dropdowns open in-flow (items below move down); submenus open below their trigger. Width and styles are tokenized (component.sidesheet.*). Override via KezelThemeProvider tokens.",
       },
     },
   },
@@ -20,7 +20,14 @@ const meta: Meta<typeof Sidesheet> = {
   },
   decorators: [
     (Story) => (
-      <div style={{ display: "flex", minHeight: 320, width: "100%", maxWidth: 400 }}>
+      <div
+        style={{
+          display: "flex",
+          minHeight: 320,
+          width: "100%",
+          maxWidth: 400,
+        }}
+      >
         <Story />
         <div
           style={{
@@ -67,6 +74,14 @@ export const Default: Story = {
 };
 
 export const WithNavButtons: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Open the Analytics dropdown to see the menu push items below down; open Overview submenu to see it open below the trigger.",
+      },
+    },
+  },
   render: () => (
     <Sidesheet>
       <NavButton

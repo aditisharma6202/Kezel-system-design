@@ -220,12 +220,15 @@
   --kz-component-button-ghost-bg: transparent;
   --kz-component-button-ghost-text: #364153;
 
-  /* Component: Button — Success, Warning, Error */
+  /* Component: Button — Success, Warning, Error (standard: with hover) */
   --kz-component-button-success-bg: #00a63e;
+  --kz-component-button-success-bg-hover: #008c35;
   --kz-component-button-success-text: #fff;
   --kz-component-button-warning-bg: #f59e0b;
+  --kz-component-button-warning-bg-hover: #d97706;
   --kz-component-button-warning-text: #fff;
   --kz-component-button-error-bg: #e7000b;
+  --kz-component-button-error-bg-hover: #c90009;
   --kz-component-button-error-text: #fff;
 
   /* Component: Button — Disabled & Loading */
@@ -305,6 +308,7 @@
   --kz-component-nav-button-text: #364153;
   --kz-component-nav-button-gap: 10px;
   --kz-component-nav-button-chevron: #52606d;
+  --kz-component-nav-button-hover-bg: rgba(0, 0, 0, 0.05);
   --kz-component-nav-button-selected-bg: rgba(0, 150, 137, 0.08);
   --kz-component-nav-button-selected-shadow: none;
   --kz-component-nav-button-selected-icon: #18AB9F;
@@ -322,4 +326,45 @@
   --kz-component-sidesheet-bg: var(--kz-color-surface-base);
   --kz-component-sidesheet-width: 260px;
   --kz-component-sidesheet-border: var(--kz-color-border-subtle);
+
+  /* Component: Sidemenu (standard light) */
+  --kz-component-sidemenu-bg: var(--kz-color-surface-base);
+  --kz-component-sidemenu-border: var(--kz-color-border-subtle);
+  --kz-component-sidemenu-shadow: none;
+  --kz-component-sidemenu-section-label-text: var(--kz-color-text-muted);
+  --kz-component-sidemenu-item-text: var(--kz-color-text-primary);
+  --kz-component-sidemenu-item-bg-hover: rgba(0, 0, 0, 0.05);
+  --kz-component-sidemenu-item-bg-active: rgba(0, 150, 137, 0.08);
+  --kz-component-sidemenu-item-active-text: #18AB9F;
+  --kz-component-sidemenu-item-active-link-bg: rgba(0, 150, 137, 0.08);
+  --kz-component-sidemenu-item-active-link-shadow: none;
+  --kz-component-sidemenu-group-indent-bg: rgba(0, 0, 0, 0.02);
+  --kz-component-sidemenu-gap: 4px;
+  --kz-component-sidemenu-icon-gap: 10px;
+  --kz-component-sidemenu-flyout-menu-bg: var(--kz-component-sidemenu-bg);
+  --kz-component-sidemenu-flyout-menu-shadow: var(--kz-component-nav-dropdown-menu-shadow);
+  --kz-component-sidemenu-flyout-menu-radius: var(--kz-component-nav-dropdown-menu-radius);
+  --kz-component-sidemenu-flyout-option-text: var(--kz-component-nav-dropdown-option-text);
+  --kz-component-sidemenu-flyout-option-hover-bg: var(--kz-component-nav-dropdown-option-hover-bg);
+
+  /* Component: Tooltip (standard light) */
+  --kz-component-tooltip-bg: #1f2933;
+  --kz-component-tooltip-text: #ffffff;
+  --kz-component-tooltip-border: transparent;
+  --kz-component-tooltip-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --kz-component-tooltip-radius: 6px;
+  --kz-component-tooltip-padding-sm: 4px 8px;
+  --kz-component-tooltip-padding-md: 6px 10px;
+  --kz-component-tooltip-padding-lg: 8px 12px;
+  --kz-component-tooltip-max-width-sm: 160px;
+  --kz-component-tooltip-max-width-md: 220px;
+  --kz-component-tooltip-max-width-lg: 320px;
+  --kz-component-tooltip-inverse-bg: #ffffff;
+  --kz-component-tooltip-inverse-text: #1f2933;
+  --kz-component-tooltip-success-bg: #00a63e;
+  --kz-component-tooltip-success-text: #ffffff;
+  --kz-component-tooltip-warning-bg: #f59e0b;
+  --kz-component-tooltip-warning-text: #ffffff;
+  --kz-component-tooltip-error-bg: #e7000b;
+  --kz-component-tooltip-error-text: #ffffff;
 }

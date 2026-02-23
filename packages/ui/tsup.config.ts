@@ -8,6 +8,7 @@ export default defineConfig({
     dialog: "src/dialog/index.ts",
     icon: "src/icon/index.ts",
     theme: "src/theme/index.ts",
+    sidemenu: "src/components/sidemenu/index.ts",
   },
   format: ["esm", "cjs"],
   dts: true,

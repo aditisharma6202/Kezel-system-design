@@ -1,0 +1,381 @@
+/* Sidemenu — tokenized; override via KezelThemeProvider tokens. */
+
+.kz-sidemenu {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 12px 8px;
+  background: var(--kz-component-sidemenu-bg);
+  border-right: 1px solid var(--kz-component-sidemenu-border);
+  box-shadow: var(--kz-component-sidemenu-shadow, none);
+  gap: var(--kz-component-sidemenu-gap, 4px);
+  overflow-x: hidden;
+  transition: width 0.25s ease;
+}
+
+.kz-sidemenu--collapsed {
+  align-items: center;
+  position: relative;
+  overflow: visible;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+/* Top row: logo (header) + collapse chevron on the right */
+.kz-sidemenu-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-bottom: 8px;
+}
+
+.kz-sidemenu-top .kz-sidemenu-header {
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 0;
+}
+
+.kz-sidemenu-top .kz-sidemenu-collapse-btn-wrap {
+  flex-shrink: 0;
+}
+
+.kz-sidemenu-top .kz-sidemenu-collapse-btn {
+  margin-left: auto;
+}
+
+/* Collapsed: collapse button floats on the border — 50% sidebar / 50% content, round circle */
+.kz-sidemenu-top--collapse-on-border {
+  position: relative;
+  min-height: 44px;
+}
+
+.kz-sidemenu-top--collapse-on-border .kz-sidemenu-collapse-btn-wrap {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(50%, -50%);
+  z-index: 10;
+}
+
+.kz-sidemenu-top--collapse-on-border .kz-sidemenu-collapse-btn {
+  margin-left: 0;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  background: var(--kz-component-sidemenu-bg);
+  border: 1px solid var(--kz-component-sidemenu-border);
+}
+
+.kz-sidemenu-top--collapse-on-border .kz-sidemenu-collapse-btn:hover {
+  background: var(--kz-component-sidemenu-item-bg-hover);
+}
+
+.kz-sidemenu-header {
+  flex-shrink: 0;
+  margin-bottom: 8px;
+}
+
+.kz-sidemenu-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--kz-component-sidemenu-gap, 4px);
+  min-width: 0;
+}
+
+.kz-sidemenu-footer {
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+.kz-sidemenu-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kz-component-sidemenu-gap, 4px);
+}
+
+.kz-sidemenu-section-label {
+  padding: 8px 12px 4px;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--kz-component-sidemenu-section-label-text);
+}
+
+.kz-sidemenu-section-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kz-component-sidemenu-gap, 4px);
+}
+
+.kz-sidemenu-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--kz-component-sidemenu-icon-gap, 10px);
+  width: 100%;
+  min-height: 36px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: var(--kz-component-nav-button-radius, 5px);
+  background: transparent;
+  color: var(--kz-component-sidemenu-item-text);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.15s, color 0.15s;
+  box-sizing: border-box;
+}
+
+.kz-sidemenu-item:hover:not(.kz-sidemenu-item--disabled) {
+  background: var(--kz-component-sidemenu-item-bg-hover);
+}
+
+.kz-sidemenu-item--active {
+  background: var(--kz-component-sidemenu-item-bg-active);
+  color: var(--kz-component-sidemenu-item-active-text, #18AB9F);
+}
+
+.kz-sidemenu-item--active .kz-sidemenu-item-icon {
+  color: var(--kz-component-sidemenu-item-active-text, #18AB9F);
+}
+
+/* Link (non-dropdown) selected only: border-radius 5px, optional neumorphic inset; dropdown/group options get only color change above */
+.kz-sidemenu-item--link.kz-sidemenu-item--active {
+  border-radius: 5px;
+  background: var(--kz-component-sidemenu-item-active-link-bg, var(--kz-component-sidemenu-item-bg-active));
+  box-shadow: var(--kz-component-sidemenu-item-active-link-shadow, none);
+}
+
+.kz-sidemenu-item--link.kz-sidemenu-item--active .kz-sidemenu-item-icon,
+.kz-sidemenu-item--link.kz-sidemenu-item--active .kz-sidemenu-item-label {
+  color: var(--kz-component-sidemenu-item-active-text, #18AB9F);
+}
+
+.kz-sidemenu-item--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.kz-sidemenu-item--collapsed {
+  justify-content: center;
+  padding: 8px 16px;
+  min-height: 36px;
+  /* Wider-than-tall pill: ~1.75:1 (64px × 36px), more horizontal padding */
+  max-width: 64px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Collapsed sidebar: hover bg and icon color */
+.kz-sidemenu--collapsed .kz-sidemenu-item--collapsed:hover,
+.kz-sidemenu--collapsed .kz-sidemenu-flyout-trigger:hover {
+  background: #18AB9F0F;
+}
+
+.kz-sidemenu--collapsed .kz-sidemenu-item--collapsed:hover .kz-sidemenu-item-icon,
+.kz-sidemenu--collapsed .kz-sidemenu-flyout-trigger:hover .kz-sidemenu-item-icon {
+  color: #18AB9F;
+}
+
+/* When flyout is open, show icon in active color so user knows which menu is open */
+.kz-sidemenu-flyout-trigger[data-state="open"] .kz-sidemenu-item-icon {
+  color: var(--kz-component-sidemenu-item-active-text, #18AB9F);
+}
+
+.kz-sidemenu-item-row {
+  border-radius: var(--kz-component-nav-button-radius, 5px);
+}
+
+.kz-sidemenu-item-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.kz-sidemenu-item-label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kz-sidemenu--collapsed .kz-sidemenu-item-label {
+  display: none;
+}
+
+.kz-sidemenu-group-trigger,
+.kz-sidemenu-group-item-trigger {
+  justify-content: space-between;
+}
+
+.kz-sidemenu-group-chevron {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.kz-sidemenu-group-trigger[data-state="open"] .kz-sidemenu-group-chevron,
+.kz-sidemenu-group-item-trigger[data-state="open"] .kz-sidemenu-group-chevron {
+  transform: rotate(180deg);
+}
+
+/* Submenu (group trigger) icon when not selected */
+.kz-sidemenu-group-trigger:not(.kz-sidemenu-item--active) .kz-sidemenu-item-icon {
+  color: #2C344059;
+}
+
+/* When a group/dropdown has a selected option: only text + icon color, no bg (bg is for hover only) */
+.kz-sidemenu-group-trigger.kz-sidemenu-item--active {
+  background: transparent;
+}
+
+.kz-sidemenu-flyout-trigger .kz-sidemenu-item--active {
+  background: transparent;
+}
+
+.kz-sidemenu-group-trigger.kz-sidemenu-item--active .kz-sidemenu-item-label,
+.kz-sidemenu-group-trigger.kz-sidemenu-item--active .kz-sidemenu-group-chevron {
+  color: var(--kz-component-sidemenu-item-active-text, #18AB9F);
+}
+
+.kz-sidemenu-group-content {
+  padding: 4px 0 4px 0;
+  margin-top: 2px;
+  margin-bottom: 4px;
+  border-radius: 4px;
+}
+
+.kz-sidemenu-sublist {
+  padding-left: 0;
+}
+
+.kz-sidemenu-subitem {
+  font-size: 13px;
+}
+
+.kz-sidemenu-tooltip-trigger,
+.kz-sidemenu-tooltip-wrapper {
+  width: 100%;
+  display: block;
+}
+
+.kz-sidemenu-tooltip-trigger:has(.kz-sidemenu-item--collapsed) {
+  display: flex;
+  justify-content: center;
+}
+
+/* Collapsed: wider-than-tall hover pill (~1.75:1, 64×36) with more horizontal padding */
+.kz-sidemenu--collapsed .kz-sidemenu-tooltip-wrapper,
+.kz-sidemenu--collapsed .kz-sidemenu-flyout-trigger {
+  max-width: 64px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kz-sidemenu-flyout-trigger {
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kz-sidemenu--collapsed .kz-sidemenu-flyout-trigger {
+  max-width: 64px;
+  min-height: 36px;
+  border-radius: var(--kz-component-nav-button-radius, 5px);
+}
+
+/* Collapsed sidebar flyout — same bg as sidemenu by default, inset shadow for differentiation */
+.kz-sidemenu-flyout {
+  min-width: 180px;
+  padding: 4px;
+  border-radius: var(--kz-component-sidemenu-flyout-menu-radius, var(--kz-component-nav-dropdown-menu-radius, 4px));
+  background: var(--kz-component-sidemenu-flyout-menu-bg, var(--kz-component-sidemenu-bg, var(--kz-component-nav-dropdown-menu-bg, #f5f6f8)));
+  box-shadow:
+    var(--kz-component-sidemenu-flyout-menu-shadow, var(--kz-component-nav-dropdown-menu-shadow)),
+    1px 1px 2px 0 rgba(0, 0, 0, 0.06) inset;
+  z-index: 1000;
+  max-height: min(80vh, 320px);
+  overflow-y: auto;
+}
+
+.kz-sidemenu-flyout-sub {
+  margin-left: 0;
+}
+
+.kz-sidemenu-flyout-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--kz-component-sidemenu-flyout-option-text, var(--kz-component-nav-dropdown-option-text, #52606d));
+  font-size: 12.5px;
+  cursor: pointer;
+  outline: none;
+  text-align: left;
+}
+
+.kz-sidemenu-flyout-item:hover,
+.kz-sidemenu-flyout-item[data-highlighted] {
+  background: var(--kz-component-sidemenu-flyout-option-hover-bg, var(--kz-component-nav-dropdown-option-hover-bg));
+}
+
+.kz-sidemenu-flyout-item a,
+.kz-sidemenu-flyout-item span {
+  flex: 1;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.kz-sidemenu-collapse-btn {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 8px;
+  border: none;
+  border-radius: var(--kz-component-nav-button-radius, 5px);
+  background: transparent;
+  color: var(--kz-component-sidemenu-item-text);
+  cursor: pointer;
+  outline: none;
+  transition: background 0.15s;
+}
+
+.kz-sidemenu-collapse-btn:hover {
+  background: var(--kz-component-sidemenu-item-bg-hover);
+}
+
+.kz-sidemenu--collapsed .kz-sidemenu-collapse-btn {
+  justify-content: center;
+}
+
+.kz-sidemenu--collapsed .kz-sidemenu-section-label {
+  display: none;
+}

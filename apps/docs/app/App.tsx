@@ -17,8 +17,10 @@ import {
   KezelMode,
   NavButton,
   Sidesheet,
+  SideMenu,
   Icon,
   type TokenKey,
+  type SideMenuNode,
 } from "kz-design-system";
 import {
   Dropdown,
@@ -35,7 +37,9 @@ import {
 
 export default function App() {
   const [mode, setMode] = React.useState<KezelMode>(KezelMode.Light);
-  const [variant, setVariant] = React.useState<KezelVariant>(KezelVariant.Neumorphic);
+  const [variant, setVariant] = React.useState<KezelVariant>(
+    KezelVariant.Neumorphic
+  );
   const [defaultValue, setDefaultValue] = React.useState("");
   const [ghostValue, setGhostValue] = React.useState("");
   const [errorValue, setErrorValue] = React.useState("invalid@");
@@ -45,26 +49,98 @@ export default function App() {
   const [dropdownTokenOverrides, setDropdownTokenOverrides] = React.useState<
     Partial<Record<TokenKey, string>> | undefined
   >(undefined);
-  const [navSelected, setNavSelected] = React.useState<"analytics" | "security" | null>("analytics");
+  const [navSelected, setNavSelected] = React.useState<
+    "analytics" | "security" | null
+  >("analytics");
+  const [sidemenuSelectedId, setSidemenuSelectedId] = React.useState<
+    string | undefined
+  >(undefined);
+  const [sidemenuCollapsed, setSidemenuCollapsed] = React.useState(false);
+
+  const sidemenuData: SideMenuNode[] = [
+    {
+      type: "section",
+      id: "monitor",
+      label: "MONITOR",
+      items: [
+        {
+          type: "link",
+          id: "dashboard",
+          label: "Dashboard",
+          icon: "bar-chart-2",
+          href: "#dashboard",
+        },
+        {
+          type: "group",
+          id: "analytics",
+          label: "Analytics",
+          icon: "bar-chart-2",
+          items: [
+            {
+              id: "overview",
+              label: "Overview",
+              href: "#overview",
+              subItems: [
+                { id: "sub1", label: "Sub overview 1", href: "#sub1" },
+                { id: "sub2", label: "Sub overview 2", href: "#sub2" },
+              ],
+            },
+            { id: "trends", label: "Trends", href: "#trends" },
+            { id: "engagement", label: "Engagement", href: "#engagement" },
+          ],
+        },
+      ],
+    },
+    {
+      type: "section",
+      id: "manage",
+      label: "MANAGE",
+      items: [
+        {
+          type: "link",
+          id: "security",
+          label: "Security",
+          icon: "shield",
+          href: "#security",
+        },
+        {
+          type: "link",
+          id: "settings",
+          label: "Settings",
+          icon: "check-circle",
+          href: "#settings",
+        },
+      ],
+    },
+  ];
 
   return (
-    <KezelThemeProvider variant={variant} mode={mode} tokens={dropdownTokenOverrides}>
-      <main
-        className="min-h-screen flex flex-col items-center justify-center gap-12 p-8 transition-colors bg-[var(--kz-color-surface-background)]"
-      >
-        <Typography variant={TypographyVariantEnum.H1} align={TypographyAlignEnum.Center}>
+    <KezelThemeProvider
+      variant={variant}
+      mode={mode}
+      tokens={dropdownTokenOverrides}
+    >
+      <main className="min-h-screen flex flex-col items-center justify-center gap-12 p-8 transition-colors bg-[var(--kz-color-surface-background)]">
+        <Typography
+          variant={TypographyVariantEnum.H1}
+          align={TypographyAlignEnum.Center}
+        >
           Design system
         </Typography>
 
         {/* Typography showcase */}
         <section className="flex flex-col items-center gap-4 w-full max-w-xl">
-          <Typography variant={TypographyVariantEnum.H2}>
-            Typography
-          </Typography>
+          <Typography variant={TypographyVariantEnum.H2}>Typography</Typography>
           <div className="flex flex-col gap-2 w-full text-left">
-            <Typography variant={TypographyVariantEnum.H1}>Heading 1</Typography>
-            <Typography variant={TypographyVariantEnum.H2}>Heading 2</Typography>
-            <Typography variant={TypographyVariantEnum.H3}>Heading 3</Typography>
+            <Typography variant={TypographyVariantEnum.H1}>
+              Heading 1
+            </Typography>
+            <Typography variant={TypographyVariantEnum.H2}>
+              Heading 2
+            </Typography>
+            <Typography variant={TypographyVariantEnum.H3}>
+              Heading 3
+            </Typography>
             <Typography variant={TypographyVariantEnum.Body}>
               Body — The quick brown fox jumps over the lazy dog.
             </Typography>
@@ -92,7 +168,10 @@ export default function App() {
           </div>
         </section>
 
-        <Typography variant={TypographyVariantEnum.H2} align={TypographyAlignEnum.Center}>
+        <Typography
+          variant={TypographyVariantEnum.H2}
+          align={TypographyAlignEnum.Center}
+        >
           Button variants & sizes
         </Typography>
 
@@ -119,14 +198,18 @@ export default function App() {
             <Button
               variant={ButtonVariant.Outline}
               size={ButtonSize.Sm}
-              onClick={() => setMode(mode === KezelMode.Light ? KezelMode.Dark : KezelMode.Light)}
+              onClick={() =>
+                setMode(
+                  mode === KezelMode.Light ? KezelMode.Dark : KezelMode.Light
+                )
+              }
             >
               {mode === KezelMode.Light ? "Switch to dark" : "Switch to light"}
             </Button>
             <Button
               variant={ButtonVariant.Ghost}
               size={ButtonSize.Sm}
-              onClick={() => {}}
+              onClick={() => { }}
               asChild
             >
               <a href="https://www.google.com">Google</a>
@@ -137,34 +220,73 @@ export default function App() {
         <section className="flex flex-col items-center gap-4">
           <Typography variant={TypographyVariantEnum.H3}>Variants</Typography>
           <Typography variant={TypographyVariantEnum.Caption}>
-            Primary, Secondary, Outline, Ghost, Success, Warning, Error. Disabled uses 0.5 opacity; Loading shows spinner.
+            Primary, Secondary, Outline, Ghost, Success, Warning, Error.
+            Disabled uses 0.5 opacity; Loading shows spinner.
           </Typography>
           <div className="flex flex-wrap gap-3 justify-center">
-            <Button variant={ButtonVariant.Primary} size={ButtonSize.Md} onClick={() => {}}>
+            <Button
+              variant={ButtonVariant.Primary}
+              size={ButtonSize.Md}
+              onClick={() => { }}
+            >
               Primary
             </Button>
-            <Button variant={ButtonVariant.Secondary} size={ButtonSize.Md} onClick={() => {}}>
+            <Button
+              variant={ButtonVariant.Secondary}
+              size={ButtonSize.Md}
+              onClick={() => { }}
+            >
               Secondary
             </Button>
-            <Button variant={ButtonVariant.Outline} size={ButtonSize.Md} onClick={() => {}}>
+            <Button
+              variant={ButtonVariant.Outline}
+              size={ButtonSize.Md}
+              onClick={() => { }}
+            >
               Outline
             </Button>
-            <Button variant={ButtonVariant.Ghost} size={ButtonSize.Md} onClick={() => {}}>
+            <Button
+              variant={ButtonVariant.Ghost}
+              size={ButtonSize.Md}
+              onClick={() => { }}
+            >
               Ghost
             </Button>
-            <Button variant={ButtonVariant.Success} size={ButtonSize.Md} onClick={() => {}}>
+            <Button
+              variant={ButtonVariant.Success}
+              size={ButtonSize.Md}
+              onClick={() => { }}
+            >
               Success
             </Button>
-            <Button variant={ButtonVariant.Warning} size={ButtonSize.Md} onClick={() => {}}>
+            <Button
+              variant={ButtonVariant.Warning}
+              size={ButtonSize.Md}
+              onClick={() => { }}
+            >
               Warning
             </Button>
-            <Button variant={ButtonVariant.Error} size={ButtonSize.Md} onClick={() => {}}>
+            <Button
+              variant={ButtonVariant.Error}
+              size={ButtonSize.Md}
+              onClick={() => { }}
+            >
               Error
             </Button>
-            <Button variant={ButtonVariant.Primary} size={ButtonSize.Md} disabled onClick={() => {}}>
+            <Button
+              variant={ButtonVariant.Primary}
+              size={ButtonSize.Md}
+              disabled
+              onClick={() => { }}
+            >
               Disabled
             </Button>
-            <Button variant={ButtonVariant.Primary} size={ButtonSize.Md} loading onClick={() => {}}>
+            <Button
+              variant={ButtonVariant.Primary}
+              size={ButtonSize.Md}
+              loading
+              onClick={() => { }}
+            >
               Loading
             </Button>
           </div>
@@ -174,13 +296,25 @@ export default function App() {
         <section className="flex flex-col items-center gap-4">
           <Typography variant={TypographyVariantEnum.H3}>Sizes</Typography>
           <div className="flex flex-wrap items-center gap-3 justify-center">
-            <Button variant={ButtonVariant.Primary} size={ButtonSize.Sm} onClick={() => { }}>
+            <Button
+              variant={ButtonVariant.Primary}
+              size={ButtonSize.Sm}
+              onClick={() => { }}
+            >
               Small
             </Button>
-            <Button variant={ButtonVariant.Primary} size={ButtonSize.Md} onClick={() => { }}>
+            <Button
+              variant={ButtonVariant.Primary}
+              size={ButtonSize.Md}
+              onClick={() => { }}
+            >
               Medium
             </Button>
-            <Button variant={ButtonVariant.Primary} size={ButtonSize.Lg} onClick={() => { }}>
+            <Button
+              variant={ButtonVariant.Primary}
+              size={ButtonSize.Lg}
+              onClick={() => { }}
+            >
               Large
             </Button>
           </div>
@@ -188,7 +322,9 @@ export default function App() {
 
         {/* All variants × sizes (compact) */}
         <section className="flex flex-col items-center gap-4">
-          <Typography variant={TypographyVariantEnum.H3}>All combinations</Typography>
+          <Typography variant={TypographyVariantEnum.H3}>
+            All combinations
+          </Typography>
           <div className="flex flex-wrap gap-2 justify-center max-w-2xl">
             {(
               [
@@ -201,11 +337,18 @@ export default function App() {
                 ButtonVariant.Error,
               ] as const
             ).map((v) =>
-              ([ButtonSize.Sm, ButtonSize.Md, ButtonSize.Lg] as const).map((s) => (
-                <Button key={`${v}-${s}`} variant={v} size={s} onClick={() => {}}>
-                  {v} {s}
-                </Button>
-              ))
+              ([ButtonSize.Sm, ButtonSize.Md, ButtonSize.Lg] as const).map(
+                (s) => (
+                  <Button
+                    key={`${v}-${s}`}
+                    variant={v}
+                    size={s}
+                    onClick={() => { }}
+                  >
+                    {v} {s}
+                  </Button>
+                )
+              )
             )}
           </div>
         </section>
@@ -213,7 +356,8 @@ export default function App() {
         <section className="flex flex-col items-center gap-6 w-full max-w-md">
           <Typography variant={TypographyVariantEnum.H2}>TextInput</Typography>
           <Typography variant={TypographyVariantEnum.Caption}>
-            Switch theme (Standard / Neumorphic) and mode (Light / Dark) above to see input styles change.
+            Switch theme (Standard / Neumorphic) and mode (Light / Dark) above
+            to see input styles change.
           </Typography>
 
           <div className="w-full flex flex-col gap-2">
@@ -302,7 +446,7 @@ export default function App() {
               label="Disabled"
               value="Disabled value"
               placeHolder="Placeholder"
-              onValueChange={() => {}}
+              onValueChange={() => { }}
               variant={TextInputVariant.Default}
               disabled
             />
@@ -342,7 +486,8 @@ export default function App() {
         <section className="flex flex-col items-center gap-4 w-full max-w-md">
           <Typography variant={TypographyVariantEnum.H2}>Dropdown</Typography>
           <Typography variant={TypographyVariantEnum.Caption}>
-            Default, Ghost variant, and no-chevron. All styles use design tokens; override via{" "}
+            Default, Ghost variant, and no-chevron. All styles use design
+            tokens; override via{" "}
             <code className="text-xs bg-black/10 dark:bg-white/10 px-1 rounded">
               KezelThemeProvider tokens
             </code>
@@ -354,15 +499,19 @@ export default function App() {
               <DropdownContent align="start" sideOffset={6}>
                 <DropdownLabel>Actions</DropdownLabel>
                 <DropdownSeparator />
-                <DropdownItem onSelect={() => {}}>New file</DropdownItem>
-                <DropdownItem onSelect={() => {}}>Copy link</DropdownItem>
-                <DropdownItem onSelect={() => {}}>Edit</DropdownItem>
+                <DropdownItem onSelect={() => { }}>New file</DropdownItem>
+                <DropdownItem onSelect={() => { }}>Copy link</DropdownItem>
+                <DropdownItem onSelect={() => { }}>Edit</DropdownItem>
                 <DropdownSeparator />
                 <DropdownSub>
                   <DropdownSubTrigger>More options</DropdownSubTrigger>
                   <DropdownSubContent>
-                    <DropdownItem onSelect={() => {}}>Sub option A</DropdownItem>
-                    <DropdownItem onSelect={() => {}}>Sub option B</DropdownItem>
+                    <DropdownItem onSelect={() => { }}>
+                      Sub option A
+                    </DropdownItem>
+                    <DropdownItem onSelect={() => { }}>
+                      Sub option B
+                    </DropdownItem>
                   </DropdownSubContent>
                 </DropdownSub>
               </DropdownContent>
@@ -372,15 +521,15 @@ export default function App() {
                 Ghost trigger
               </DropdownTrigger>
               <DropdownContent align="start" sideOffset={6}>
-                <DropdownItem onSelect={() => {}}>Item one</DropdownItem>
-                <DropdownItem onSelect={() => {}}>Item two</DropdownItem>
+                <DropdownItem onSelect={() => { }}>Item one</DropdownItem>
+                <DropdownItem onSelect={() => { }}>Item two</DropdownItem>
               </DropdownContent>
             </Dropdown>
             <Dropdown>
               <DropdownTrigger showChevron={false}>No chevron</DropdownTrigger>
               <DropdownContent align="start" sideOffset={6}>
-                <DropdownItem onSelect={() => {}}>Option A</DropdownItem>
-                <DropdownItem onSelect={() => {}}>Option B</DropdownItem>
+                <DropdownItem onSelect={() => { }}>Option A</DropdownItem>
+                <DropdownItem onSelect={() => { }}>Option B</DropdownItem>
               </DropdownContent>
             </Dropdown>
             <Button
@@ -391,46 +540,61 @@ export default function App() {
                   prev
                     ? undefined
                     : ({
-                        "component.dropdown.trigger.bg": "#fef3c7",
-                        "component.dropdown.trigger.text": "#92400e",
-                        "component.dropdown.item.text.selected": "#b45309",
-                        "component.dropdown.item.bg.hover": "rgba(245, 158, 11, 0.15)",
-                      } as Partial<Record<TokenKey, string>>)
-                    )
-                }
+                      "component.dropdown.trigger.bg": "#fef3c7",
+                      "component.dropdown.trigger.text": "#92400e",
+                      "component.dropdown.item.text.selected": "#b45309",
+                      "component.dropdown.item.bg.hover":
+                        "rgba(245, 158, 11, 0.15)",
+                    } as Partial<Record<TokenKey, string>>)
+                )
+              }
             >
-              {dropdownTokenOverrides ? "Reset dropdown tokens" : "Override dropdown tokens"}
+              {dropdownTokenOverrides
+                ? "Reset dropdown tokens"
+                : "Override dropdown tokens"}
             </Button>
           </div>
           {dropdownTokenOverrides && (
             <Typography variant={TypographyVariantEnum.Caption}>
-              Custom tokens applied: trigger bg/text, selected item color, item hover bg.
+              Custom tokens applied: trigger bg/text, selected item color, item
+              hover bg.
             </Typography>
           )}
         </section>
 
         {/* Sidesheet with NavButton — direct link, selected link, dropdown with submenu */}
         <section className="flex flex-col items-center gap-4 w-full">
-          <Typography variant={TypographyVariantEnum.H2}>Sidesheet & NavButton</Typography>
+          <Typography variant={TypographyVariantEnum.H2}>
+            Sidesheet & NavButton
+          </Typography>
           <Typography variant={TypographyVariantEnum.Caption}>
-            Nav buttons: direct link, selected link, dropdown with submenu. All tokenized; override via{" "}
-            <code className="text-xs bg-black/10 dark:bg-white/10 px-1 rounded">tokens</code>.
+            Nav buttons: direct link, selected link, dropdown with submenu. All
+            tokenized; override via{" "}
+            <code className="text-xs bg-black/10 dark:bg-white/10 px-1 rounded">
+              tokens
+            </code>
+            .
           </Typography>
           <div
             className="flex w-full max-w-md rounded-xl overflow-hidden border border-[var(--kz-color-border-subtle)]"
-            style={{ minHeight: 320, background: "var(--kz-color-surface-background)" }}
+            style={{
+              minHeight: 320,
+              background: "var(--kz-color-surface-background)",
+            }}
           >
             <Sidesheet>
               <NavButton
                 type="dropdown"
-                icon={<Icon name="bar-chart-2" size="sm" color="currentColor" />}
+                icon={
+                  <Icon name="bar-chart-2" size="sm" color="currentColor" />
+                }
                 label="Analytics"
                 menuOptions={[
                   {
                     label: "Overview",
                     subMenu: [
-                      { label: "Sub overview 1", onClick: () => {} },
-                      { label: "Sub overview 2", onClick: () => {} },
+                      { label: "Sub overview 1", onClick: () => { } },
+                      { label: "Sub overview 2", onClick: () => { } },
                     ],
                   },
                   { label: "Trends", onClick: () => setNavSelected(null) },
@@ -447,7 +611,9 @@ export default function App() {
               />
               <NavButton
                 type="link"
-                icon={<Icon name="check-circle" size="sm" color="currentColor" />}
+                icon={
+                  <Icon name="check-circle" size="sm" color="currentColor" />
+                }
                 label="Direct link (unselected)"
                 selected={false}
                 onClick={() => setNavSelected(null)}
@@ -458,6 +624,64 @@ export default function App() {
               style={{ background: "var(--kz-color-surface-base)" }}
             >
               Main content area
+            </div>
+          </div>
+        </section>
+
+        {/* SideMenu — JSON-driven sidebar with sections, links, inline groups (expanded) and flyout (collapsed) */}
+        <section className="flex flex-col items-center gap-4 w-full">
+          <Typography variant={TypographyVariantEnum.H2}>SideMenu</Typography>
+          <Typography variant={TypographyVariantEnum.Caption}>
+            JSON-driven sidebar: sections, links, dropdown groups. Expanded:
+            groups open inline (push down). Collapsed: icons only with tooltips;
+            group icon opens flyout to the right. Toggle collapse below.
+          </Typography>
+          <div
+            className="flex rounded-xl overflow-hidden border border-[var(--kz-color-border-subtle)]"
+            style={{
+              minHeight: 400,
+              width: "100%",
+              maxWidth: 900,
+              background: "var(--kz-color-surface-background)",
+            }}
+          >
+            <SideMenu
+              data={sidemenuData}
+              selectedId={sidemenuSelectedId}
+              onNavigate={(p) => setSidemenuSelectedId(p.id)}
+              collapsed={sidemenuCollapsed}
+              onCollapsedChange={setSidemenuCollapsed}
+              collapsible
+              expandedWidth={280}
+              collapsedWidth={72}
+              header={
+                <>
+                  <div
+                    className="flex items-center justify-center p-3 text-sm font-medium"
+                    style={{ color: "var(--kz-color-text-muted)" }}
+                  >
+                    Logo
+                  </div>
+                </>
+
+              }
+              showTooltipsWhenCollapsed
+              flyoutSide="right"
+              flyoutOffset={8}
+              closeFlyoutOnSelect
+            />
+            <div
+              className="flex-1 p-6 flex flex-col gap-4"
+              style={{
+                background: "var(--kz-color-surface-base)",
+                color: "var(--kz-color-text-muted)",
+              }}
+            >
+              <Typography variant={TypographyVariantEnum.Body}>
+                Main content. Sidebar uses neumorphic/standard tokens (border,
+                background, shadow).
+              </Typography>
+
             </div>
           </div>
         </section>

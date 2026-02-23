@@ -8,6 +8,8 @@
 @import "./styles/dropdown.css";
 @import "./styles/nav-button.css";
 @import "./styles/sidesheet.css";
+@import "./styles/sidemenu.css";
+@import "./styles/tooltip.css";
 
 @tailwind base;
 @tailwind components;

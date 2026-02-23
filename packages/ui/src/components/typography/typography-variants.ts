@@ -36,10 +36,7 @@ export function getTypographyClass(variant: TypographyVariant): string {
   return variantToClass[variant];
 }
 
-const defaultElement: Record<
-  TypographyVariant,
-  keyof JSX.IntrinsicElements
-> = {
+const defaultElement: Record<TypographyVariant, keyof JSX.IntrinsicElements> = {
   [TypographyVariantEnum.H1]: "h1",
   [TypographyVariantEnum.H2]: "h2",
   [TypographyVariantEnum.H3]: "h3",

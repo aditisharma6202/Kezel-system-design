@@ -12,7 +12,10 @@ const config: StorybookConfig = {
     config.module = config.module || { rules: [] };
     config.module.rules.unshift({
       test: /\.(ts|tsx)$/,
-      include: [path.resolve(__dirname, "../stories"), path.resolve(__dirname, "../.storybook")],
+      include: [
+        path.resolve(__dirname, "../stories"),
+        path.resolve(__dirname, "../.storybook"),
+      ],
       use: [
         {
           loader: require.resolve("ts-loader"),
@@ -27,7 +30,11 @@ const config: StorybookConfig = {
       ],
     });
     config.resolve = config.resolve || {};
-    config.resolve.extensions = [...(config.resolve.extensions || []), ".ts", ".tsx"];
+    config.resolve.extensions = [
+      ...(config.resolve.extensions || []),
+      ".ts",
+      ".tsx",
+    ];
     return config;
   },
 };

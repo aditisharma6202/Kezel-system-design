@@ -7,7 +7,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "dev": "pnpm --filter docs run dev",
+    "dev": "pnpm run build --filter=kz-design-system && pnpm --filter docs run dev",
     "storybook": "pnpm --filter docs run storybook",
     "build-storybook": "pnpm --filter docs run build-storybook",
     "build": "turbo run build",

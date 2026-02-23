@@ -118,3 +118,30 @@ export enum TextInputState {
   Success = "success",
   Warning = "warning",
 }
+
+export enum TooltipSize {
+  Sm = "sm",
+  Md = "md",
+  Lg = "lg",
+}
+
+export enum TooltipPosition {
+  Top = "top",
+  Right = "right",
+  Bottom = "bottom",
+  Left = "left",
+}
+
+export enum TooltipAlign {
+  Start = "start",
+  Center = "center",
+  End = "end",
+}
+
+export enum TooltipColor {
+  Default = "default",
+  Inverse = "inverse",
+  Success = "success",
+  Warning = "warning",
+  Error = "error",
+}

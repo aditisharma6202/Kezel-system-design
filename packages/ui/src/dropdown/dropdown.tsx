@@ -7,8 +7,9 @@ import { DropdownTriggerVariant } from "../constants/enum";
 
 const Dropdown = DropdownMenuPrimitive.Root;
 
-export interface DropdownTriggerProps
-  extends React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Trigger> {
+export interface DropdownTriggerProps extends React.ComponentPropsWithoutRef<
+  typeof DropdownMenuPrimitive.Trigger
+> {
   /** Visual style: default (filled/bordered) or ghost (minimal, like ghost button). */
   variant?: DropdownTriggerVariant;
   /** When true (default), shows a chevron icon after children. Set false to hide it. */
@@ -66,8 +67,9 @@ const DropdownTrigger = React.forwardRef<
 );
 DropdownTrigger.displayName = DropdownMenuPrimitive.Trigger.displayName;
 
-interface DropdownContentProps
-  extends React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content> {
+interface DropdownContentProps extends React.ComponentPropsWithoutRef<
+  typeof DropdownMenuPrimitive.Content
+> {
   className?: string;
   align?: "start" | "center" | "end";
   side?: "top" | "right" | "bottom" | "left";
@@ -108,8 +110,9 @@ const DropdownContent = React.forwardRef<
 );
 DropdownContent.displayName = DropdownMenuPrimitive.Content.displayName;
 
-interface DropdownItemProps
-  extends React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> {
+interface DropdownItemProps extends React.ComponentPropsWithoutRef<
+  typeof DropdownMenuPrimitive.Item
+> {
   onSelect?: (event: Event) => void;
   disabled?: boolean;
   destructive?: boolean;
@@ -152,10 +155,16 @@ const DropdownItem = React.forwardRef<
       )}
       {...props}
     >
-      {startIcon ? <span className="kz-dropdown-item-icon-start">{startIcon}</span> : null}
+      {startIcon ? (
+        <span className="kz-dropdown-item-icon-start">{startIcon}</span>
+      ) : null}
       <span className="kz-dropdown-item-text">{children}</span>
-      {shortcut ? <span className="kz-dropdown-item-shortcut">{shortcut}</span> : null}
-      {endIcon ? <span className="kz-dropdown-item-icon-end">{endIcon}</span> : null}
+      {shortcut ? (
+        <span className="kz-dropdown-item-shortcut">{shortcut}</span>
+      ) : null}
+      {endIcon ? (
+        <span className="kz-dropdown-item-icon-end">{endIcon}</span>
+      ) : null}
     </DropdownMenuPrimitive.Item>
   )
 );
@@ -163,7 +172,9 @@ DropdownItem.displayName = DropdownMenuPrimitive.Item.displayName;
 
 const DropdownSeparator = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Separator>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator> & { className?: string }
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator> & {
+    className?: string;
+  }
 >(({ className, ...props }, ref) => (
   <DropdownMenuPrimitive.Separator
     ref={ref}
@@ -173,8 +184,9 @@ const DropdownSeparator = React.forwardRef<
 ));
 DropdownSeparator.displayName = DropdownMenuPrimitive.Separator.displayName;
 
-interface DropdownLabelProps
-  extends React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> {
+interface DropdownLabelProps extends React.ComponentPropsWithoutRef<
+  typeof DropdownMenuPrimitive.Label
+> {
   inset?: boolean;
   className?: string;
 }
@@ -185,14 +197,19 @@ const DropdownLabel = React.forwardRef<
 >(({ className, inset, ...props }, ref) => (
   <DropdownMenuPrimitive.Label
     ref={ref}
-    className={cn("kz-dropdown-label", inset && "kz-dropdown-label-inset", className)}
+    className={cn(
+      "kz-dropdown-label",
+      inset && "kz-dropdown-label-inset",
+      className
+    )}
     {...props}
   />
 ));
 DropdownLabel.displayName = DropdownMenuPrimitive.Label.displayName;
 
-interface DropdownCheckboxItemProps
-  extends React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem> {
+interface DropdownCheckboxItemProps extends React.ComponentPropsWithoutRef<
+  typeof DropdownMenuPrimitive.CheckboxItem
+> {
   checked?: boolean | "indeterminate";
   onCheckedChange?: (checked: boolean) => void;
   disabled?: boolean;
@@ -203,26 +220,32 @@ interface DropdownCheckboxItemProps
 const DropdownCheckboxItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,
   DropdownCheckboxItemProps
->(({ className, checked, onCheckedChange, disabled, children, ...props }, ref) => (
-  <DropdownMenuPrimitive.CheckboxItem
-    ref={ref}
-    checked={checked}
-    onCheckedChange={onCheckedChange}
-    disabled={disabled}
-    className={cn("kz-dropdown-checkbox-item", className)}
-    {...props}
-  >
-    <DropdownMenuPrimitive.ItemIndicator className="kz-dropdown-item-indicator">
-      {checked === "indeterminate" ? (
-        <span className="kz-dropdown-item-indicator-minus">−</span>
-      ) : (
-        <Check className="kz-dropdown-item-indicator-check" />
-      )}
-    </DropdownMenuPrimitive.ItemIndicator>
-    {children}
-  </DropdownMenuPrimitive.CheckboxItem>
-));
-DropdownCheckboxItem.displayName = DropdownMenuPrimitive.CheckboxItem.displayName;
+>(
+  (
+    { className, checked, onCheckedChange, disabled, children, ...props },
+    ref
+  ) => (
+    <DropdownMenuPrimitive.CheckboxItem
+      ref={ref}
+      checked={checked}
+      onCheckedChange={onCheckedChange}
+      disabled={disabled}
+      className={cn("kz-dropdown-checkbox-item", className)}
+      {...props}
+    >
+      <DropdownMenuPrimitive.ItemIndicator className="kz-dropdown-item-indicator">
+        {checked === "indeterminate" ? (
+          <span className="kz-dropdown-item-indicator-minus">−</span>
+        ) : (
+          <Check className="kz-dropdown-item-indicator-check" />
+        )}
+      </DropdownMenuPrimitive.ItemIndicator>
+      {children}
+    </DropdownMenuPrimitive.CheckboxItem>
+  )
+);
+DropdownCheckboxItem.displayName =
+  DropdownMenuPrimitive.CheckboxItem.displayName;
 
 const DropdownRadioGroup = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.RadioGroup>,
@@ -236,8 +259,9 @@ const DropdownRadioGroup = React.forwardRef<
 ));
 DropdownRadioGroup.displayName = DropdownMenuPrimitive.RadioGroup.displayName;
 
-interface DropdownRadioItemProps
-  extends React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioItem> {
+interface DropdownRadioItemProps extends React.ComponentPropsWithoutRef<
+  typeof DropdownMenuPrimitive.RadioItem
+> {
   value: string;
   disabled?: boolean;
   className?: string;
@@ -265,8 +289,9 @@ DropdownRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName;
 
 const DropdownSub = DropdownMenuPrimitive.Sub;
 
-interface DropdownSubTriggerProps
-  extends React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> {
+interface DropdownSubTriggerProps extends React.ComponentPropsWithoutRef<
+  typeof DropdownMenuPrimitive.SubTrigger
+> {
   inset?: boolean;
   disabled?: boolean;
   startIcon?: React.ReactNode;
@@ -278,28 +303,36 @@ interface DropdownSubTriggerProps
 const DropdownSubTrigger = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
   DropdownSubTriggerProps
->(({ className, inset, disabled, startIcon, endIcon, children, ...props }, ref) => (
-  <DropdownMenuPrimitive.SubTrigger
-    ref={ref}
-    disabled={disabled}
-    className={cn(
-      "kz-dropdown-sub-trigger",
-      inset && "kz-dropdown-sub-trigger-inset",
-      className
-    )}
-    {...props}
-  >
-    {startIcon ? <span className="kz-dropdown-item-icon-start">{startIcon}</span> : null}
-    <span className="kz-dropdown-item-text">{children}</span>
-    {endIcon ?? (
-      <ChevronRight className="kz-dropdown-sub-trigger-chevron" aria-hidden />
-    )}
-  </DropdownMenuPrimitive.SubTrigger>
-));
+>(
+  (
+    { className, inset, disabled, startIcon, endIcon, children, ...props },
+    ref
+  ) => (
+    <DropdownMenuPrimitive.SubTrigger
+      ref={ref}
+      disabled={disabled}
+      className={cn(
+        "kz-dropdown-sub-trigger",
+        inset && "kz-dropdown-sub-trigger-inset",
+        className
+      )}
+      {...props}
+    >
+      {startIcon ? (
+        <span className="kz-dropdown-item-icon-start">{startIcon}</span>
+      ) : null}
+      <span className="kz-dropdown-item-text">{children}</span>
+      {endIcon ?? (
+        <ChevronRight className="kz-dropdown-sub-trigger-chevron" aria-hidden />
+      )}
+    </DropdownMenuPrimitive.SubTrigger>
+  )
+);
 DropdownSubTrigger.displayName = DropdownMenuPrimitive.SubTrigger.displayName;
 
-interface DropdownSubContentProps
-  extends React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent> {
+interface DropdownSubContentProps extends React.ComponentPropsWithoutRef<
+  typeof DropdownMenuPrimitive.SubContent
+> {
   className?: string;
   sideOffset?: number;
   alignOffset?: number;
@@ -309,22 +342,17 @@ interface DropdownSubContentProps
 const DropdownSubContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.SubContent>,
   DropdownSubContentProps
->(
-  (
-    { className, sideOffset = 8, alignOffset, children, ...props },
-    ref
-  ) => (
-    <DropdownMenuPrimitive.SubContent
-      ref={ref}
-      sideOffset={sideOffset}
-      alignOffset={alignOffset}
-      className={cn("kz-dropdown-sub-content", className)}
-      {...props}
-    >
-      {children}
-    </DropdownMenuPrimitive.SubContent>
-  )
-);
+>(({ className, sideOffset = 8, alignOffset, children, ...props }, ref) => (
+  <DropdownMenuPrimitive.SubContent
+    ref={ref}
+    sideOffset={sideOffset}
+    alignOffset={alignOffset}
+    className={cn("kz-dropdown-sub-content", className)}
+    {...props}
+  >
+    {children}
+  </DropdownMenuPrimitive.SubContent>
+));
 DropdownSubContent.displayName = DropdownMenuPrimitive.SubContent.displayName;
 
 export {

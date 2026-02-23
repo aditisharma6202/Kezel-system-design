@@ -15,18 +15,18 @@ pnpm install
 
 ## Scripts
 
-| Script           | Description                   |
-| ---------------- | ----------------------------- |
-| `pnpm build`     | Build all packages and apps   |
-| `pnpm typecheck` | Type-check all packages       |
-| `pnpm lint`      | Lint all packages             |
-| `pnpm format`    | Format with Prettier          |
-| `pnpm changeset` | Add a changeset               |
-| `pnpm version`   | Bump versions from changesets |
-| `pnpm publish`   | Build and publish to npm      |
-| `pnpm size`      | Run bundle size limits (UI)   |
-| `pnpm --filter docs storybook` | Run Storybook (docs app) |
-| `pnpm --filter docs build-storybook` | Build static Storybook   |
+| Script                               | Description                   |
+| ------------------------------------ | ----------------------------- |
+| `pnpm build`                         | Build all packages and apps   |
+| `pnpm typecheck`                     | Type-check all packages       |
+| `pnpm lint`                          | Lint all packages             |
+| `pnpm format`                        | Format with Prettier          |
+| `pnpm changeset`                     | Add a changeset               |
+| `pnpm version`                       | Bump versions from changesets |
+| `pnpm publish`                       | Build and publish to npm      |
+| `pnpm size`                          | Run bundle size limits (UI)   |
+| `pnpm --filter docs storybook`       | Run Storybook (docs app)      |
+| `pnpm --filter docs build-storybook` | Build static Storybook        |
 
 ## Storybook
 
@@ -78,16 +78,17 @@ import "kz-design-system/styles.css";
 
 // Wrap app
 <KezelThemeProvider defaultMode={Theme.Light} defaultThemeStyle={ThemeStyle.Neumorphic}>
-  <App />
+<App />
 </KezelThemeProvider>
 
 // In a component
 function Panel() {
-  const { mode, toggleMode, themeStyle, setThemeStyle } = useKezelTheme();
-  return (
-    <div className="bg-[rgb(var(--app-background))] text-[rgb(var(--text-primary))]">
-      <button onClick={toggleMode}>Toggle {mode}</button>
-      <p>Theme style: {themeStyle}</p>
-    </div>
-  );
+const { mode, toggleMode, themeStyle, setThemeStyle } = useKezelTheme();
+return (
+
+<div className="bg-[rgb(var(--app-background))] text-[rgb(var(--text-primary))]">
+<button onClick={toggleMode}>Toggle {mode}</button>
+<p>Theme style: {themeStyle}</p>
+</div>
+);
 }

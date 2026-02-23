@@ -70,7 +70,8 @@ const meta: Meta<typeof DropdownDemo> = {
     triggerVariant: {
       control: "select",
       options: Object.values(DropdownTriggerVariant),
-      description: "Trigger style: default (filled/bordered) or ghost (minimal).",
+      description:
+        "Trigger style: default (filled/bordered) or ghost (minimal).",
     },
     showChevron: {
       control: "boolean",
@@ -104,7 +105,8 @@ export const Ghost: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Trigger uses ghost style (transparent bg, hover only). Menu is unchanged.",
+        story:
+          "Trigger uses ghost style (transparent bg, hover only). Menu is unchanged.",
       },
     },
   },
@@ -119,7 +121,8 @@ export const NoChevron: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Chevron icon is hidden. Use when the trigger already indicates expandability (e.g. icon button).",
+        story:
+          "Chevron icon is hidden. Use when the trigger already indicates expandability (e.g. icon button).",
       },
     },
   },
@@ -149,7 +152,8 @@ export const WithSubmenu: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Full example with label, separator, items, and a submenu (DropdownSub, DropdownSubTrigger, DropdownSubContent).",
+        story:
+          "Full example with label, separator, items, and a submenu (DropdownSub, DropdownSubTrigger, DropdownSubContent).",
       },
     },
   },

@@ -157,21 +157,65 @@
   --kz-component-nav-button-text: #ffffffd9;
   --kz-component-nav-button-gap: 10px;
   --kz-component-nav-button-chevron: #ffffff59;
+  --kz-component-nav-button-hover-bg: rgba(255, 255, 255, 0.05);
   --kz-component-nav-button-selected-bg: rgba(255, 255, 255, 0);
   --kz-component-nav-button-selected-shadow: 2px 2px 4px 0 rgba(20, 24, 32, 0.8) inset, -2px -2px 4px 0 rgba(72, 82, 98, 0.4) inset;
   --kz-component-nav-button-selected-icon: #18ab9f;
   --kz-component-nav-button-selected-text: #18ab9f;
   --kz-component-nav-button-radius: 5px;
 
-  /* Component: Nav dropdown menu (neumorphic dark) */
-  --kz-component-nav-dropdown-menu-bg: rgba(0, 0, 0, 0.15);
+  /* Component: Nav dropdown menu (neumorphic dark) — opaque for readability */
+  --kz-component-nav-dropdown-menu-bg: #252d38;
   --kz-component-nav-dropdown-menu-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.2) inset;
   --kz-component-nav-dropdown-menu-radius: 4px;
   --kz-component-nav-dropdown-option-text: rgba(255, 255, 255, 0.7);
   --kz-component-nav-dropdown-option-hover-bg: rgba(255, 255, 255, 0.08);
 
+  /* Sidemenu collapsed flyout (same as nav dropdown by default; themeable) */
+  --kz-component-sidemenu-flyout-menu-bg: var(--kz-component-sidemenu-bg);
+  --kz-component-sidemenu-flyout-menu-shadow: var(--kz-component-nav-dropdown-menu-shadow);
+  --kz-component-sidemenu-flyout-menu-radius: var(--kz-component-nav-dropdown-menu-radius);
+  --kz-component-sidemenu-flyout-option-text: var(--kz-component-nav-dropdown-option-text);
+  --kz-component-sidemenu-flyout-option-hover-bg: var(--kz-component-nav-dropdown-option-hover-bg);
+
   /* Component: Sidesheet (neumorphic dark) */
   --kz-component-sidesheet-bg: var(--kz-color-surface-base);
   --kz-component-sidesheet-width: 260px;
   --kz-component-sidesheet-border: transparent;
+
+  /* Component: Sidemenu (neumorphic dark) */
+  --kz-component-sidemenu-bg: #2c3440;
+  --kz-component-sidemenu-border: rgba(255, 255, 255, 0.06);
+  --kz-component-sidemenu-shadow: 3px 0 8px 0 rgba(0, 0, 0, 0.15);
+  --kz-component-sidemenu-section-label-text: var(--kz-color-text-muted);
+  --kz-component-sidemenu-item-text: var(--kz-color-text-primary);
+  --kz-component-sidemenu-item-bg-hover: rgba(255, 255, 255, 0.05);
+  --kz-component-sidemenu-item-bg-active: rgba(24, 171, 159, 0.15);
+  --kz-component-sidemenu-item-active-text: #18AB9F;
+  --kz-component-sidemenu-item-active-link-bg: rgba(255, 255, 255, 0);
+  --kz-component-sidemenu-item-active-link-shadow: 2px 2px 4px 0 rgba(20, 24, 32, 0.8) inset, -2px -2px 4px 0 rgba(72, 82, 98, 0.4) inset;
+  --kz-component-sidemenu-group-indent-bg: rgba(255, 255, 255, 0.03);
+  --kz-component-sidemenu-gap: 4px;
+  --kz-component-sidemenu-icon-gap: 10px;
+
+  /* Component: Tooltip (neumorphic dark) */
+  --kz-component-tooltip-bg: #2c3440;
+  --kz-component-tooltip-text: #e8ecf0;
+  --kz-component-tooltip-border: transparent;
+  --kz-component-tooltip-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.4), -2px -2px 6px 0 rgba(72, 82, 98, 0.3);
+  --kz-component-tooltip-radius: 10px;
+  --kz-component-tooltip-padding-sm: 4px 8px;
+  --kz-component-tooltip-padding-md: 6px 10px;
+  --kz-component-tooltip-padding-lg: 8px 12px;
+  --kz-component-tooltip-max-width-sm: 160px;
+  --kz-component-tooltip-max-width-md: 220px;
+  --kz-component-tooltip-max-width-lg: 320px;
+  --kz-component-tooltip-inverse-bg: #e8ecf0;
+  --kz-component-tooltip-inverse-text: #2c3440;
+  --kz-component-tooltip-success-bg: #22c55e;
+  --kz-component-tooltip-success-text: #fff;
+  --kz-component-tooltip-warning-bg: #f59e0b;
+  --kz-component-tooltip-warning-text: #fff;
+  --kz-component-tooltip-error-bg: #ef4444;
+  --kz-component-tooltip-error-text: #fff;
 }

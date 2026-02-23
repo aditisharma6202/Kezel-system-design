@@ -5,8 +5,10 @@ import { buttonVariants, type ButtonVariants } from "./button.variants";
 import { Icon } from "../../icon/Icon";
 import { cn } from "../../utils/cn";
 
-export interface ButtonProps
-  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "children" | "onClick"> {
+export interface ButtonProps extends Omit<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  "children" | "onClick"
+> {
   variant: ButtonVariant;
   size: ButtonSize;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
@@ -42,7 +44,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           type={asChild ? undefined : type}
           className={cn(
             buttonVariants({ variant, size }),
-            loading && "opacity-[var(--kz-component-button-loading-opacity,0.8)]",
+            loading &&
+              "opacity-[var(--kz-component-button-loading-opacity,0.8)]",
             className
           )}
           onClick={onClick}
@@ -70,7 +73,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {loading && (
-          <Icon name="loader-2" className="kz-button-spinner" size="md" color="currentColor" />
+          <Icon
+            name="loader-2"
+            className="kz-button-spinner"
+            size="md"
+            color="currentColor"
+          />
         )}
         {children}
       </Comp>
