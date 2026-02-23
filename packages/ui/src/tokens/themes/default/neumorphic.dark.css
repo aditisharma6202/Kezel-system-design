@@ -151,4 +151,27 @@
   --kz-component-dropdown-item-text: #e8ecf0;
   --kz-component-dropdown-item-text-selected: #18ab9f;
   --kz-component-dropdown-item-bg-hover: rgba(255, 255, 255, 0.05);
+
+  /* Component: Nav button (neumorphic dark) */
+  --kz-component-nav-button-icon: #ffffff59;
+  --kz-component-nav-button-text: #ffffffd9;
+  --kz-component-nav-button-gap: 10px;
+  --kz-component-nav-button-chevron: #ffffff59;
+  --kz-component-nav-button-selected-bg: rgba(255, 255, 255, 0);
+  --kz-component-nav-button-selected-shadow: 2px 2px 4px 0 rgba(20, 24, 32, 0.8) inset, -2px -2px 4px 0 rgba(72, 82, 98, 0.4) inset;
+  --kz-component-nav-button-selected-icon: #18ab9f;
+  --kz-component-nav-button-selected-text: #18ab9f;
+  --kz-component-nav-button-radius: 5px;
+
+  /* Component: Nav dropdown menu (neumorphic dark) */
+  --kz-component-nav-dropdown-menu-bg: rgba(0, 0, 0, 0.15);
+  --kz-component-nav-dropdown-menu-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.2) inset;
+  --kz-component-nav-dropdown-menu-radius: 4px;
+  --kz-component-nav-dropdown-option-text: rgba(255, 255, 255, 0.7);
+  --kz-component-nav-dropdown-option-hover-bg: rgba(255, 255, 255, 0.08);
+
+  /* Component: Sidesheet (neumorphic dark) */
+  --kz-component-sidesheet-bg: var(--kz-color-surface-base);
+  --kz-component-sidesheet-width: 260px;
+  --kz-component-sidesheet-border: transparent;
 }

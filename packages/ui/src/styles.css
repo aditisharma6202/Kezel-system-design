@@ -6,6 +6,8 @@
 @import "./styles/text-input.css";
 @import "./styles/button.css";
 @import "./styles/dropdown.css";
+@import "./styles/nav-button.css";
+@import "./styles/sidesheet.css";
 
 @tailwind base;
 @tailwind components;

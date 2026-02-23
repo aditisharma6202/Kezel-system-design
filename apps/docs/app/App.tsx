@@ -15,6 +15,9 @@ import {
   KezelThemeProvider,
   KezelVariant,
   KezelMode,
+  NavButton,
+  Sidesheet,
+  Icon,
   type TokenKey,
 } from "kz-design-system";
 import {
@@ -42,6 +45,7 @@ export default function App() {
   const [dropdownTokenOverrides, setDropdownTokenOverrides] = React.useState<
     Partial<Record<TokenKey, string>> | undefined
   >(undefined);
+  const [navSelected, setNavSelected] = React.useState<"analytics" | "security" | null>("analytics");
 
   return (
     <KezelThemeProvider variant={variant} mode={mode} tokens={dropdownTokenOverrides}>
@@ -403,6 +407,59 @@ export default function App() {
               Custom tokens applied: trigger bg/text, selected item color, item hover bg.
             </Typography>
           )}
+        </section>
+
+        {/* Sidesheet with NavButton — direct link, selected link, dropdown with submenu */}
+        <section className="flex flex-col items-center gap-4 w-full">
+          <Typography variant={TypographyVariantEnum.H2}>Sidesheet & NavButton</Typography>
+          <Typography variant={TypographyVariantEnum.Caption}>
+            Nav buttons: direct link, selected link, dropdown with submenu. All tokenized; override via{" "}
+            <code className="text-xs bg-black/10 dark:bg-white/10 px-1 rounded">tokens</code>.
+          </Typography>
+          <div
+            className="flex w-full max-w-md rounded-xl overflow-hidden border border-[var(--kz-color-border-subtle)]"
+            style={{ minHeight: 320, background: "var(--kz-color-surface-background)" }}
+          >
+            <Sidesheet>
+              <NavButton
+                type="dropdown"
+                icon={<Icon name="bar-chart-2" size="sm" color="currentColor" />}
+                label="Analytics"
+                menuOptions={[
+                  {
+                    label: "Overview",
+                    subMenu: [
+                      { label: "Sub overview 1", onClick: () => {} },
+                      { label: "Sub overview 2", onClick: () => {} },
+                    ],
+                  },
+                  { label: "Trends", onClick: () => setNavSelected(null) },
+                  { label: "Engagement", onClick: () => setNavSelected(null) },
+                  { label: "Conversion", onClick: () => setNavSelected(null) },
+                ]}
+              />
+              <NavButton
+                type="link"
+                icon={<Icon name="shield" size="sm" color="currentColor" />}
+                label="Security"
+                selected={navSelected === "security"}
+                onClick={() => setNavSelected("security")}
+              />
+              <NavButton
+                type="link"
+                icon={<Icon name="check-circle" size="sm" color="currentColor" />}
+                label="Direct link (unselected)"
+                selected={false}
+                onClick={() => setNavSelected(null)}
+              />
+            </Sidesheet>
+            <div
+              className="flex-1 p-4 flex items-center justify-center text-[var(--kz-color-text-muted)]"
+              style={{ background: "var(--kz-color-surface-base)" }}
+            >
+              Main content area
+            </div>
+          </div>
         </section>
       </main>
     </KezelThemeProvider>

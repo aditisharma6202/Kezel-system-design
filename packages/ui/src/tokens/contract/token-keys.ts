@@ -206,6 +206,29 @@ export const TOKEN_KEYS = [
   "component.dropdown.item.text.selected",
   "component.dropdown.item.bg.hover",
 
+  // Component — Nav button (sidesheet)
+  "component.nav-button.icon",
+  "component.nav-button.text",
+  "component.nav-button.gap",
+  "component.nav-button.chevron",
+  "component.nav-button.selected.bg",
+  "component.nav-button.selected.shadow",
+  "component.nav-button.selected.icon",
+  "component.nav-button.selected.text",
+  "component.nav-button.radius",
+
+  // Component — Nav dropdown menu
+  "component.nav-dropdown.menu.bg",
+  "component.nav-dropdown.menu.shadow",
+  "component.nav-dropdown.menu.radius",
+  "component.nav-dropdown.option.text",
+  "component.nav-dropdown.option.hover.bg",
+
+  // Component — Sidesheet
+  "component.sidesheet.bg",
+  "component.sidesheet.width",
+  "component.sidesheet.border",
+
   // Component — Card
   "component.card.bg",
   "component.card.border",

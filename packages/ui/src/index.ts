@@ -25,6 +25,16 @@ export {
   TextInputState,
 } from "./components/text-input";
 export type { TextInputProps } from "./components/text-input";
+export { NavButton } from "./components/nav-button";
+export type {
+  NavButtonProps,
+  NavButtonLinkProps,
+  NavButtonDropdownProps,
+  NavButtonOption,
+  NavButtonType,
+} from "./components/nav-button";
+export { Sidesheet } from "./components/sidesheet";
+export type { SidesheetProps } from "./components/sidesheet";
 export { Icon, icon, iconRegistry, iconSize, size } from "./icon";
 export type { IconProps, IconName, IconSizeKey } from "./icon";
 export {

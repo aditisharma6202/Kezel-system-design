@@ -1,0 +1,141 @@
+/* Nav button — tokenized; override via KezelThemeProvider tokens. */
+
+.kz-nav-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--kz-component-nav-button-gap, 10px);
+  width: 100%;
+  min-height: 36px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: var(--kz-component-nav-button-radius, 5px);
+  background: transparent;
+  color: var(--kz-component-nav-button-text);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+.kz-nav-button-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--kz-component-nav-button-icon);
+}
+
+.kz-nav-button-label {
+  flex: 1;
+}
+
+/* Direct link selected */
+.kz-nav-button-link.kz-nav-button-selected,
+.kz-nav-button-link[data-selected="true"] {
+  background: var(--kz-component-nav-button-selected-bg);
+  box-shadow: var(--kz-component-nav-button-selected-shadow);
+}
+
+.kz-nav-button-link.kz-nav-button-selected .kz-nav-button-icon,
+.kz-nav-button-link.kz-nav-button-selected .kz-nav-button-label,
+.kz-nav-button-link[data-selected="true"] .kz-nav-button-icon,
+.kz-nav-button-link[data-selected="true"] .kz-nav-button-label {
+  color: var(--kz-component-nav-button-selected-icon);
+}
+
+/* Dropdown trigger: chevron on the right */
+.kz-nav-button-dropdown {
+  justify-content: space-between;
+}
+
+.kz-nav-button-chevron {
+  flex-shrink: 0;
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+.kz-nav-button-dropdown[data-state="open"] .kz-nav-button-chevron {
+  transform: rotate(180deg);
+}
+
+/* Wrapper so dropdown content is in document flow and pushes nav-buttons below */
+.kz-nav-dropdown-root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Main nav dropdown menu: in-flow (no portal), so it pushes siblings down */
+.kz-nav-dropdown-root > .kz-nav-dropdown-menu {
+  position: relative !important;
+  width: 100%;
+  left: unset !important;
+  top: unset !important;
+  transform: none !important;
+}
+
+/* Nav dropdown menu container — high z-index so it appears above other nav-buttons/sidesheet */
+.kz-nav-dropdown-menu {
+  min-width: 180px;
+  padding: 4px;
+  border-radius: var(--kz-component-nav-dropdown-menu-radius, 4px);
+  background: var(--kz-component-nav-dropdown-menu-bg);
+  box-shadow: var(--kz-component-nav-dropdown-menu-shadow);
+  z-index: 1000;
+  max-height: min(80vh, 320px);
+  overflow-y: auto;
+}
+
+.kz-nav-dropdown-sub {
+  margin-left: 0;
+}
+
+/* Nav dropdown option (item) */
+.kz-nav-dropdown-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--kz-component-nav-dropdown-option-text);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 12.5px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 17.857px;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.1s;
+}
+
+.kz-nav-dropdown-option:hover,
+.kz-nav-dropdown-option[data-highlighted] {
+  background: var(--kz-component-nav-dropdown-option-hover-bg);
+}
+
+.kz-nav-dropdown-option a,
+.kz-nav-dropdown-option button {
+  all: unset;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.kz-nav-dropdown-option-chevron {
+  flex-shrink: 0;
+  color: inherit;
+  opacity: 0.8;
+}

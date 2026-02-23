@@ -299,4 +299,27 @@
   --kz-component-dropdown-item-text: #364153;
   --kz-component-dropdown-item-text-selected: #18AB9F;
   --kz-component-dropdown-item-bg-hover: rgba(0, 150, 137, 0.08);
+
+  /* Component: Nav button (standard light) */
+  --kz-component-nav-button-icon: #52606d;
+  --kz-component-nav-button-text: #364153;
+  --kz-component-nav-button-gap: 10px;
+  --kz-component-nav-button-chevron: #52606d;
+  --kz-component-nav-button-selected-bg: rgba(0, 150, 137, 0.08);
+  --kz-component-nav-button-selected-shadow: none;
+  --kz-component-nav-button-selected-icon: #18AB9F;
+  --kz-component-nav-button-selected-text: #18AB9F;
+  --kz-component-nav-button-radius: 5px;
+
+  /* Component: Nav dropdown menu (standard light) */
+  --kz-component-nav-dropdown-menu-bg: #fff;
+  --kz-component-nav-dropdown-menu-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --kz-component-nav-dropdown-menu-radius: 4px;
+  --kz-component-nav-dropdown-option-text: #52606d;
+  --kz-component-nav-dropdown-option-hover-bg: rgba(0, 150, 137, 0.08);
+
+  /* Component: Sidesheet (standard light) */
+  --kz-component-sidesheet-bg: var(--kz-color-surface-base);
+  --kz-component-sidesheet-width: 260px;
+  --kz-component-sidesheet-border: var(--kz-color-border-subtle);
 }

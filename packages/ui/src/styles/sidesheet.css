@@ -1,0 +1,12 @@
+/* Sidesheet — tokenized; override via KezelThemeProvider tokens. */
+
+.kz-sidesheet {
+  width: var(--kz-component-sidesheet-width, 260px);
+  min-height: 100%;
+  background: var(--kz-component-sidesheet-bg);
+  border-right: 1px solid var(--kz-component-sidesheet-border);
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}

@@ -192,6 +192,26 @@ export const tokenToCssVar: Record<TokenKey, `--kz-${string}`> = {
   "component.dropdown.item.text.selected": "--kz-component-dropdown-item-text-selected",
   "component.dropdown.item.bg.hover": "--kz-component-dropdown-item-bg-hover",
 
+  "component.nav-button.icon": "--kz-component-nav-button-icon",
+  "component.nav-button.text": "--kz-component-nav-button-text",
+  "component.nav-button.gap": "--kz-component-nav-button-gap",
+  "component.nav-button.chevron": "--kz-component-nav-button-chevron",
+  "component.nav-button.selected.bg": "--kz-component-nav-button-selected-bg",
+  "component.nav-button.selected.shadow": "--kz-component-nav-button-selected-shadow",
+  "component.nav-button.selected.icon": "--kz-component-nav-button-selected-icon",
+  "component.nav-button.selected.text": "--kz-component-nav-button-selected-text",
+  "component.nav-button.radius": "--kz-component-nav-button-radius",
+
+  "component.nav-dropdown.menu.bg": "--kz-component-nav-dropdown-menu-bg",
+  "component.nav-dropdown.menu.shadow": "--kz-component-nav-dropdown-menu-shadow",
+  "component.nav-dropdown.menu.radius": "--kz-component-nav-dropdown-menu-radius",
+  "component.nav-dropdown.option.text": "--kz-component-nav-dropdown-option-text",
+  "component.nav-dropdown.option.hover.bg": "--kz-component-nav-dropdown-option-hover-bg",
+
+  "component.sidesheet.bg": "--kz-component-sidesheet-bg",
+  "component.sidesheet.width": "--kz-component-sidesheet-width",
+  "component.sidesheet.border": "--kz-component-sidesheet-border",
+
   "component.card.bg": "--kz-component-card-bg",
   "component.card.border": "--kz-component-card-border",
   "component.card.shadow": "--kz-component-card-shadow",
