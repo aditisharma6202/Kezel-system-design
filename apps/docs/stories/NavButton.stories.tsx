@@ -10,7 +10,7 @@ const meta: Meta<typeof NavButton> = {
     docs: {
       description: {
         component:
-          "Nav button for sidesheet: **link** (direct link with optional selected state) or **dropdown** (trigger with chevron, menu with options and optional submenus). Icon and label on the left with 10px gap. Hover uses `component.nav-button.hover.bg` (light: rgba(0,0,0,0.05), dark: rgba(255,255,255,0.05)). Dropdown opens in-flow so items below move down; submenus open below their trigger. All styles are tokenized; override via KezelThemeProvider tokens.",
+          "Nav button for sidesheet: **link** (direct link with optional selected state) or **dropdown** (trigger with chevron, menu with options and optional submenus). When dropdown is closed but an option/sub-option is selected, pass `selectedOptionLabel` to show trigger icon and text in #18AB9F. Icon and label on the left with 10px gap. Hover uses `component.nav-button.hover.bg`. Dropdown opens in-flow; submenus open below their trigger. All styles tokenized; override via KezelThemeProvider.",
       },
     },
   },
@@ -30,6 +30,11 @@ const meta: Meta<typeof NavButton> = {
     menuOptions: {
       control: false,
       description: "Dropdown only: array of options; use subMenu for submenu.",
+    },
+    selectedOptionLabel: {
+      control: "text",
+      description:
+        "Dropdown only: when set and matches an option or sub-option label, trigger icon and text use #18AB9F when closed.",
     },
   },
   decorators: [
@@ -105,6 +110,34 @@ export const DropdownWithSubmenu: Story = {
   },
 };
 
+export const DropdownWithSelectedOption: Story = {
+  args: {
+    type: "dropdown",
+    icon: <Icon name="bar-chart-2" size="sm" color="currentColor" />,
+    label: "Analytics",
+    selectedOptionLabel: "Trends",
+    menuOptions: [
+      {
+        label: "Overview",
+        subMenu: [
+          { label: "Sub overview 1", onClick: () => {} },
+          { label: "Sub overview 2", onClick: () => {} },
+        ],
+      },
+      { label: "Trends", onClick: () => {} },
+      { label: "Engagement", onClick: () => {} },
+    ],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "When dropdown is closed and an option is selected, pass selectedOptionLabel (e.g. \"Trends\") so the trigger icon and text use #18AB9F.",
+      },
+    },
+  },
+};
+
 export const Hover: Story = {
   render: () => (
     <div
@@ -162,6 +195,7 @@ export const InSidesheet: Story = {
           type="dropdown"
           icon={<Icon name="bar-chart-2" size="sm" color="currentColor" />}
           label="Analytics"
+          selectedOptionLabel="Trends"
           menuOptions={[
             {
               label: "Overview",
