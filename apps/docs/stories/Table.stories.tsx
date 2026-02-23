@@ -1,14 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-  Table,
-  KezelThemeProvider,
-  KezelVariant,
-  KezelMode,
-  Button,
-  ButtonVariant,
-  ButtonSize,
-} from "kz-design-system";
+import { Table, Button, ButtonVariant, ButtonSize } from "kz-design-system";
 import { DropdownButton, type DropdownButtonItem } from "kz-design-system/dropdown";
 import type {
   TableSortState,
@@ -167,48 +159,21 @@ function TableWithState() {
   );
 }
 
-export const StandardLight: Story = {
-  render: () => (
-    <KezelThemeProvider variant={KezelVariant.Standard} mode={KezelMode.Light}>
-      <TableWithState />
-    </KezelThemeProvider>
-  ),
-};
-
-export const StandardDark: Story = {
-  render: () => (
-    <KezelThemeProvider variant={KezelVariant.Standard} mode={KezelMode.Dark}>
-      <TableWithState />
-    </KezelThemeProvider>
-  ),
-};
-
-export const NeumorphicLight: Story = {
-  render: () => (
-    <KezelThemeProvider
-      variant={KezelVariant.Neumorphic}
-      mode={KezelMode.Light}
-    >
-      <TableWithState />
-    </KezelThemeProvider>
-  ),
-};
-
-export const NeumorphicDark: Story = {
-  render: () => (
-    <KezelThemeProvider
-      variant={KezelVariant.Neumorphic}
-      mode={KezelMode.Dark}
-    >
-      <TableWithState />
-    </KezelThemeProvider>
-  ),
+export const Default: Story = {
+  render: () => <TableWithState />,
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Use the **Variant** (Standard / Neumorphic) and **Mode** (Light / Dark) toolbar controls above to switch themes.",
+      },
+    },
+  },
 };
 
 export const Sizes: Story = {
   render: () => (
-    <KezelThemeProvider variant={KezelVariant.Standard} mode={KezelMode.Light}>
-      <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8">
         <div>
           <p className="mb-2 text-sm font-medium text-[var(--kz-color-text-secondary)]">Small</p>
           <Table<Row>
@@ -264,14 +229,12 @@ export const Sizes: Story = {
           />
         </div>
       </div>
-    </KezelThemeProvider>
   ),
 };
 
 export const WithStickyRow: Story = {
   render: () => (
-    <KezelThemeProvider variant={KezelVariant.Standard} mode={KezelMode.Light}>
-      <Table<Row>
+    <Table<Row>
         data={sampleData.slice(0, 8)}
         columns={columns}
         getRowId={(r) => r.id}
@@ -296,7 +259,6 @@ export const WithStickyRow: Story = {
         onPageSizeChange={() => {}}
         pageSizeOptions={[5, 10]}
       />
-    </KezelThemeProvider>
   ),
   parameters: {
     docs: {
@@ -309,8 +271,7 @@ export const WithStickyRow: Story = {
 
 export const Loading: Story = {
   render: () => (
-    <KezelThemeProvider variant={KezelVariant.Standard} mode={KezelMode.Light}>
-      <Table<Row>
+    <Table<Row>
         data={[]}
         columns={columns}
         getRowId={(r) => r.id}
@@ -325,14 +286,12 @@ export const Loading: Story = {
         )}
         actionsHeader=""
       />
-    </KezelThemeProvider>
   ),
 };
 
 export const Empty: Story = {
   render: () => (
-    <KezelThemeProvider variant={KezelVariant.Standard} mode={KezelMode.Light}>
-      <Table<Row>
+    <Table<Row>
         data={[]}
         columns={columns}
         getRowId={(r) => r.id}
@@ -352,20 +311,17 @@ export const Empty: Story = {
         )}
         actionsHeader=""
       />
-    </KezelThemeProvider>
   ),
 };
 
 export const Minimal: Story = {
   render: () => (
-    <KezelThemeProvider variant={KezelVariant.Standard} mode={KezelMode.Light}>
-      <Table<Row>
+    <Table<Row>
         data={sampleData.slice(0, 4)}
         columns={columns}
         getRowId={(r) => r.id}
         size="md"
         title="Users (no search, selection, or actions)"
       />
-    </KezelThemeProvider>
   ),
 };
