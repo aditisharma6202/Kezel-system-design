@@ -8,6 +8,7 @@ import {
   ChevronDown,
   BarChart2,
   Shield,
+  ArrowLeft,
 } from "lucide-react";
 
 export const iconRegistry: Record<string, LucideIcon> = {
@@ -19,6 +20,7 @@ export const iconRegistry: Record<string, LucideIcon> = {
   "chevron-down": ChevronDown,
   "bar-chart-2": BarChart2,
   shield: Shield,
+  "arrow-left": ArrowLeft,
 } as const;
 
 export type IconName = keyof typeof iconRegistry;
@@ -32,4 +34,5 @@ export const icon = {
   "chevron-down": "chevron-down",
   "bar-chart-2": "bar-chart-2",
   shield: "shield",
+  "arrow-left": "arrow-left",
 } as const satisfies Record<string, IconName>;

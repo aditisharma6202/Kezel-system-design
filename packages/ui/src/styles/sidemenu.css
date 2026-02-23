@@ -17,8 +17,8 @@
   align-items: center;
   position: relative;
   overflow: visible;
-  padding-left: 6px;
-  padding-right: 6px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 /* Top row: logo (header) + collapse chevron on the right */
@@ -171,10 +171,10 @@
 
 .kz-sidemenu-item--collapsed {
   justify-content: center;
-  padding: 8px 16px;
+  padding: 8px 20px;
   min-height: 36px;
-  /* Wider-than-tall pill: ~1.75:1 (64px × 36px), more horizontal padding */
-  max-width: 64px;
+  /* Wider-than-tall pill (~2.2:1, 80×36), generous horizontal padding per reference */
+  max-width: 80px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -247,8 +247,14 @@
   background: transparent;
 }
 
+.kz-sidemenu-group-trigger.kz-sidemenu-item--active .kz-sidemenu-item-icon,
 .kz-sidemenu-group-trigger.kz-sidemenu-item--active .kz-sidemenu-item-label,
 .kz-sidemenu-group-trigger.kz-sidemenu-item--active .kz-sidemenu-group-chevron {
+  color: var(--kz-component-sidemenu-item-active-text, #18AB9F);
+}
+
+/* Collapsed: when a group has a selected option, icon uses active color (no bg) */
+.kz-sidemenu-flyout-trigger .kz-sidemenu-item--active .kz-sidemenu-item-icon {
   color: var(--kz-component-sidemenu-item-active-text, #18AB9F);
 }
 
@@ -278,10 +284,10 @@
   justify-content: center;
 }
 
-/* Collapsed: wider-than-tall hover pill (~1.75:1, 64×36) with more horizontal padding */
+/* Collapsed: wider-than-tall hover pill (~2.2:1, 80×36), generous padding per reference */
 .kz-sidemenu--collapsed .kz-sidemenu-tooltip-wrapper,
 .kz-sidemenu--collapsed .kz-sidemenu-flyout-trigger {
-  max-width: 64px;
+  max-width: 80px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -298,7 +304,7 @@
 }
 
 .kz-sidemenu--collapsed .kz-sidemenu-flyout-trigger {
-  max-width: 64px;
+  max-width: 80px;
   min-height: 36px;
   border-radius: var(--kz-component-nav-button-radius, 5px);
 }
