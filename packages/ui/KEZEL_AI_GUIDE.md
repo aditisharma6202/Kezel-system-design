@@ -15,7 +15,7 @@
 
 ### Tech assumptions
 
-- **React 18+** (or 19). 
+- **React 18+** (or 19).
 - **Next.js App Router** (or any React app).
 - **Tailwind CSS** for utility overrides and layout.
 - **Radix UI** as the underlying primitive layer; Kezel components are wrappers that preserve Radix behavior (focus, a11y, positioning).
@@ -39,11 +39,25 @@ Always use **subpath imports** when the package exports that path. Do **not** im
 ```tsx
 // Correct — subpath imports
 import { Button } from "kz-design-system/button";
-import { Dialog, DialogTrigger, DialogContent, DialogTitle } from "kz-design-system/dialog";
-import { Dropdown, DropdownTrigger, DropdownContent, DropdownItem } from "kz-design-system/dropdown";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogTitle,
+} from "kz-design-system/dialog";
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownContent,
+  DropdownItem,
+} from "kz-design-system/dropdown";
 import { Icon, IconName } from "kz-design-system/icon";
 import { SideMenu } from "kz-design-system/sidemenu";
-import { KezelThemeProvider, KezelVariant, KezelMode } from "kz-design-system/theme";
+import {
+  KezelThemeProvider,
+  KezelVariant,
+  KezelMode,
+} from "kz-design-system/theme";
 ```
 
 Components that do **not** have a dedicated subpath (e.g. Tooltip, Tabs, Table, Typography, TextInput, NavButton, Checkbox, RadioButton, ToggleButton) are imported from the **main entry**:
@@ -65,6 +79,7 @@ import {
   RadioButton,
   ToggleButton,
   type SideMenuNode,
+  type TableColumn,
   type TokenKey,
 } from "kz-design-system";
 ```
@@ -263,7 +278,7 @@ import {
   clearable
   showCount
   maxLength={100}
-/>
+/>;
 ```
 
 ### Dialog (subpath: `kz-design-system/dialog`)
@@ -360,7 +375,7 @@ const items: DropdownButtonItem[] = [
   sideOffset={6}
   disabled={false}
   contentClassName={undefined}
-/>
+/>;
 ```
 
 ### Tooltip (main entry)
@@ -369,9 +384,87 @@ const items: DropdownButtonItem[] = [
 import { Tooltip } from "kz-design-system";
 import { TooltipPosition, TooltipAlign } from "kz-design-system";
 
-<Tooltip content="Hint text" position={TooltipPosition.Top} align={TooltipAlign.Center}>
+<Tooltip
+  content="Hint text"
+  position={TooltipPosition.Top}
+  align={TooltipAlign.Center}
+>
   <button>Hover me</button>
-</Tooltip>
+</Tooltip>;
+```
+
+### Table (main entry)
+
+```tsx
+import {
+  Table,
+  Button,
+  ButtonVariant,
+  ButtonSize,
+  type TableColumn,
+} from "kz-design-system";
+import {
+  DropdownButton,
+  type DropdownButtonItem,
+} from "kz-design-system/dropdown";
+
+type Row = { id: string; name: string; role: string };
+const data: Row[] = [
+  { id: "1", name: "Alice", role: "Admin" },
+  { id: "2", name: "Bob", role: "Editor" },
+];
+
+const columns: TableColumn<Row>[] = [
+  { key: "name", header: "Name", accessor: (row) => row.name, sortable: true },
+  { key: "role", header: "Role", accessor: (row) => row.role, sortable: true },
+];
+
+const rowActions: DropdownButtonItem[] = [
+  { key: "edit", label: "Edit", onSelect: () => {} },
+  { key: "delete", label: "Delete", onSelect: () => {} },
+];
+
+<Table
+  data={data}
+  columns={columns}
+  getRowId={(row) => row.id}
+  size="md"
+  stickyHeader
+  caption="Users"
+  title="Users"
+  description="Manage users"
+  searchable
+  searchValue={searchValue}
+  onSearchChange={setSearchValue}
+  searchPlaceholder="Search…"
+  headerRight={
+    <Button
+      variant={ButtonVariant.Primary}
+      size={ButtonSize.Sm}
+      onClick={() => {}}
+    >
+      Add user
+    </Button>
+  }
+  selectableRows
+  selectedRowIds={selectedRowIds}
+  onRowSelectionChange={setSelectedRowIds}
+  actions={() => (
+    <DropdownButton
+      trigger={{ iconOnly: true, ariaLabel: "Actions" }}
+      items={rowActions}
+    />
+  )}
+  actionsHeader="Actions"
+  sort={sort}
+  onSortChange={setSort}
+  pagination={{ page: 1, pageSize: 10, total: data.length }}
+  onPageChange={setPage}
+  onPageSizeChange={setPageSize}
+  pageSizeOptions={[5, 10, 20]}
+  loading={false}
+  emptyState={<span>No rows</span>}
+/>;
 ```
 
 ### SideMenu (subpath: `kz-design-system/sidemenu` or main entry)
@@ -427,32 +520,32 @@ Use **enums** from `kz-design-system` (or the relevant subpath) for variant/size
 
 ### Enums (from `constants/enum.ts`; export from main or subpaths)
 
-| Enum | Values | Use |
-|------|--------|-----|
-| **KezelVariant** | `Standard`, `Neumorphic` | Theme provider |
-| **KezelMode** | `Light`, `Dark` | Theme provider |
-| **OverrideMode** | `Safe`, `Strict` | Theme provider token validation |
-| **ButtonVariant** | `Primary`, `Secondary`, `Outline`, `Ghost`, `Success`, `Warning`, `Error` | Button |
-| **ButtonSize** | `Sm`, `Md`, `Lg` | Button |
-| **ButtonType** | `Button`, `Submit`, `Reset` | Button |
-| **ButtonAspectRatio** | `Auto`, `Square` | Button |
-| **DropdownTriggerVariant** | `Default`, `Ghost` | DropdownTrigger / DropdownButton trigger |
-| **TypographyVariant** | `H1`, `H2`, `H3`, `Body`, `Small`, `Caption`, `Label`, `Link`, `Error`, `Success`, `Warning` | Typography |
-| **TypographyTone** | `Primary`, `Secondary`, `Muted`, `Disabled`, `Inverse`, `Link` | Typography |
-| **TypographyAlign** | `Left`, `Center`, `Right` | Typography |
-| **TypographyWeight** | `Regular`, `Medium`, `Semibold`, `Bold` | Typography |
-| **TextInputVariant** | `Default`, `Container`, `Ghost` | TextInput |
-| **TextInputSize** | `Sm`, `Md`, `Lg` | TextInput |
-| **TextInputState** | `Default`, `Error`, `Success`, `Warning` | TextInput |
-| **TooltipSize** | `Sm`, `Md`, `Lg` | Tooltip |
-| **TooltipPosition** | `Top`, `Right`, `Bottom`, `Left` | Tooltip |
-| **TooltipAlign** | `Start`, `Center`, `End` | Tooltip |
-| **TooltipColor** | `Default`, `Inverse`, `Success`, `Warning`, `Error` | Tooltip |
-| **ToggleButtonVariant** | `Default`, `Primary`, `Container` | ToggleButton |
-| **ToggleButtonSize** | `Sm`, `Md`, `Lg` | ToggleButton |
-| **CheckboxSize** | `Sm`, `Md`, `Lg` | Checkbox |
-| **CheckboxVariant** | `Default`, `Container` | Checkbox |
-| **RadioSize** | `Sm`, `Md`, `Lg` | RadioButton |
+| Enum                       | Values                                                                                       | Use                                      |
+| -------------------------- | -------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| **KezelVariant**           | `Standard`, `Neumorphic`                                                                     | Theme provider                           |
+| **KezelMode**              | `Light`, `Dark`                                                                              | Theme provider                           |
+| **OverrideMode**           | `Safe`, `Strict`                                                                             | Theme provider token validation          |
+| **ButtonVariant**          | `Primary`, `Secondary`, `Outline`, `Ghost`, `Success`, `Warning`, `Error`                    | Button                                   |
+| **ButtonSize**             | `Sm`, `Md`, `Lg`                                                                             | Button                                   |
+| **ButtonType**             | `Button`, `Submit`, `Reset`                                                                  | Button                                   |
+| **ButtonAspectRatio**      | `Auto`, `Square`                                                                             | Button                                   |
+| **DropdownTriggerVariant** | `Default`, `Ghost`                                                                           | DropdownTrigger / DropdownButton trigger |
+| **TypographyVariant**      | `H1`, `H2`, `H3`, `Body`, `Small`, `Caption`, `Label`, `Link`, `Error`, `Success`, `Warning` | Typography                               |
+| **TypographyTone**         | `Primary`, `Secondary`, `Muted`, `Disabled`, `Inverse`, `Link`                               | Typography                               |
+| **TypographyAlign**        | `Left`, `Center`, `Right`                                                                    | Typography                               |
+| **TypographyWeight**       | `Regular`, `Medium`, `Semibold`, `Bold`                                                      | Typography                               |
+| **TextInputVariant**       | `Default`, `Container`, `Ghost`                                                              | TextInput                                |
+| **TextInputSize**          | `Sm`, `Md`, `Lg`                                                                             | TextInput                                |
+| **TextInputState**         | `Default`, `Error`, `Success`, `Warning`                                                     | TextInput                                |
+| **TooltipSize**            | `Sm`, `Md`, `Lg`                                                                             | Tooltip                                  |
+| **TooltipPosition**        | `Top`, `Right`, `Bottom`, `Left`                                                             | Tooltip                                  |
+| **TooltipAlign**           | `Start`, `Center`, `End`                                                                     | Tooltip                                  |
+| **TooltipColor**           | `Default`, `Inverse`, `Success`, `Warning`, `Error`                                          | Tooltip                                  |
+| **ToggleButtonVariant**    | `Default`, `Primary`, `Container`                                                            | ToggleButton                             |
+| **ToggleButtonSize**       | `Sm`, `Md`, `Lg`                                                                             | ToggleButton                             |
+| **CheckboxSize**           | `Sm`, `Md`, `Lg`                                                                             | Checkbox                                 |
+| **CheckboxVariant**        | `Default`, `Container`                                                                       | Checkbox                                 |
+| **RadioSize**              | `Sm`, `Md`, `Lg`                                                                             | RadioButton                              |
 
 ### Component props (full reference from source)
 
@@ -651,7 +744,7 @@ import { Icon, IconName, iconRegistry, iconSize } from "kz-design-system/icon";
 ### Icon component props
 
 - **name** (required): `IconName` — use `IconName.<Name>` (e.g. `IconName.ChevronDown`, `IconName.Loader2`).
-- **size?**: `IconSizeKey` (\`"xs"` \| `"sm"` \| `"md"` \| `"lg"` \| `"xl"`) or number (px). Default `"md"`.
+- **size?**: `IconSizeKey` (\`"xs"`\|`"sm"`\|`"md"`\|`"lg"`\|`"xl"`) or number (px). Default `"md"`.
 - **color?**: string (e.g. `"currentColor"`, `"var(--kz-color-icon-default)"`). Default uses `--kz-color-icon-default` or `currentColor`.
 - **className?**: merged with internal classes.
 - Other SVG attributes (e.g. `aria-hidden`) are forwarded.
@@ -708,7 +801,7 @@ import type { TokenKey } from "kz-design-system";
 ```
 
 - **TOKEN_KEYS:** Read-only array of all token keys (e.g. `"color.brand.primary"`, `"component.button.radius"`). Use for type-safe override keys.
-- **tokenToCssVar:** `Record<TokenKey, \`--kz-${string}\`>`. Maps each token key to its CSS variable name (e.g. `"color.brand.primary"` → `"--kz-color-brand-primary"`).
+- **tokenToCssVar:** `Record<TokenKey, \`--kz-${string}\`>`. Maps each token key to its CSS variable name (e.g. `"color.brand.primary"`→`"--kz-color-brand-primary"`).
 - **TokenKey:** TypeScript type for valid token keys.
 
 ### Override via KezelThemeProvider (recommended)
@@ -783,19 +876,19 @@ Then use `bg-kz-brand`, `rounded-kz-md`, etc. Alternatively, use arbitrary value
 
 Use these rules to choose components:
 
-| Need | Use |
-|------|-----|
-| Modal / overlay | **Dialog** |
-| Popover / floating panel | **Dropdown** (or design system Popover if added) |
-| Inline expand/collapse | **Collapsible** (or design system equivalent) |
+| Need                      | Use                                                                                                                              |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Modal / overlay           | **Dialog**                                                                                                                       |
+| Popover / floating panel  | **Dropdown** (or design system Popover if added)                                                                                 |
+| Inline expand/collapse    | **Collapsible** (or design system equivalent)                                                                                    |
 | Side navigation / sidebar | **SideMenu** (JSON-driven; collapsed flyouts). For custom rails use **NavButton** inside an `aside` (e.g. class `kz-sidesheet`). |
-| Grouped actions / menu | **Dropdown** or **DropdownButton** |
-| Form fields | **TextInput**, **Checkbox**, **RadioButton**, **ToggleButton** + **Typography** (labels) |
-| Primary action | **Button** |
-| Icon only | **Icon** + **IconName**; wrap with **Tooltip** if needed |
-| Tabs | **Tabs**, **TabsList**, **TabsTrigger**, **TabsContent** |
-| Data grid / table | **Table** |
-| Hover hint | **Tooltip** |
+| Grouped actions / menu    | **Dropdown** or **DropdownButton**                                                                                               |
+| Form fields               | **TextInput**, **Checkbox**, **RadioButton**, **ToggleButton** + **Typography** (labels)                                         |
+| Primary action            | **Button**                                                                                                                       |
+| Icon only                 | **Icon** + **IconName**; wrap with **Tooltip** if needed                                                                         |
+| Tabs                      | **Tabs**, **TabsList**, **TabsTrigger**, **TabsContent**                                                                         |
+| Data grid / table         | **Table**                                                                                                                        |
+| Hover hint                | **Tooltip**                                                                                                                      |
 
 ---
 
@@ -817,7 +910,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <KezelThemeProvider variant={KezelVariant.Standard} mode={KezelMode.Light}>
+        <KezelThemeProvider
+          variant={KezelVariant.Standard}
+          mode={KezelMode.Light}
+        >
           {children}
         </KezelThemeProvider>
       </body>
@@ -896,4 +992,4 @@ When generating code that uses Kezel-design-system, ensure:
 
 ---
 
-*End of KEZEL_AI_GUIDE.md*
+_End of KEZEL_AI_GUIDE.md_
