@@ -9,7 +9,7 @@ import {
   DropdownSub,
   DropdownSubTrigger,
   DropdownSubContent,
-} from "../../dropdown/dropdown";
+} from "./dropdown";
 import { DropdownTriggerVariant } from "../../constants/enum";
 import { Button } from "../button";
 import { ButtonVariant, ButtonSize, ButtonAspectRatio } from "../../constants/enum";

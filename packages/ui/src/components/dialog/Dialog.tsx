@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as RadixDialog from "@radix-ui/react-dialog";
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
 
 const Dialog: typeof RadixDialog.Root = RadixDialog.Root;
 const DialogTrigger: typeof RadixDialog.Trigger = RadixDialog.Trigger;

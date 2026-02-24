@@ -112,6 +112,38 @@ export type {
 export { Icon, iconRegistry, iconSize, IconName, size } from "./icon";
 export type { IconProps, IconSizeKey } from "./icon";
 export {
+  DropdownButton,
+  Dropdown,
+  DropdownTrigger,
+  DropdownContent,
+  DropdownItem,
+  DropdownSeparator,
+  DropdownLabel,
+  DropdownCheckboxItem,
+  DropdownRadioGroup,
+  DropdownRadioItem,
+  DropdownSub,
+  DropdownSubTrigger,
+  DropdownSubContent,
+  DropdownTriggerVariant,
+} from "./components/dropdown";
+export type {
+  DropdownButtonProps,
+  DropdownButtonTrigger,
+  DropdownButtonItem,
+  DropdownTriggerProps,
+} from "./components/dropdown";
+export {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogFooter,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+} from "./components/dialog";
+export {
   KezelThemeProvider,
   KezelVariant,
   KezelMode,

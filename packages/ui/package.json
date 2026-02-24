@@ -1,6 +1,6 @@
 {
   "name": "kz-design-system",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Production-ready React design system",
   "sideEffects": [
     "**/*.css"
@@ -15,43 +15,45 @@
     "./button": {
       "types": "./dist/button.d.ts",
       "import": "./dist/button.mjs",
-      "require": "./dist/button.cjs",
+      "require": "./dist/button.js",
       "default": "./dist/button.mjs"
     },
     "./dropdown": {
       "types": "./dist/dropdown.d.ts",
       "import": "./dist/dropdown.mjs",
-      "require": "./dist/dropdown.cjs",
+      "require": "./dist/dropdown.js",
       "default": "./dist/dropdown.mjs"
     },
     "./dialog": {
       "types": "./dist/dialog.d.ts",
       "import": "./dist/dialog.mjs",
-      "require": "./dist/dialog.cjs",
+      "require": "./dist/dialog.js",
       "default": "./dist/dialog.mjs"
     },
     "./icon": {
       "types": "./dist/icon.d.ts",
       "import": "./dist/icon.mjs",
-      "require": "./dist/icon.cjs",
+      "require": "./dist/icon.js",
       "default": "./dist/icon.mjs"
     },
     "./theme": {
       "types": "./dist/theme.d.ts",
       "import": "./dist/theme.mjs",
-      "require": "./dist/theme.cjs",
+      "require": "./dist/theme.js",
       "default": "./dist/theme.mjs"
     },
     "./sidemenu": {
       "types": "./dist/sidemenu.d.ts",
       "import": "./dist/sidemenu.mjs",
-      "require": "./dist/sidemenu.cjs",
+      "require": "./dist/sidemenu.js",
       "default": "./dist/sidemenu.mjs"
     },
     "./styles.css": "./dist/styles.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "designSystemInstructions.md"
   ],
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
@@ -84,6 +86,7 @@
   },
   "scripts": {
     "build": "tsup && pnpm run build:css",
+    "prepublishOnly": "pnpm run build",
     "build:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify",
     "typecheck": "tsc --noEmit",
     "size": "size-limit"
