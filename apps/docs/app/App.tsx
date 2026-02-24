@@ -25,7 +25,6 @@ import {
   KezelVariant,
   KezelMode,
   NavButton,
-  Sidesheet,
   SideMenu,
   Tabs,
   TabsList,
@@ -39,6 +38,7 @@ import {
 } from "kz-design-system";
 import {
   DropdownButton,
+  DropdownTriggerVariant,
   type DropdownButtonItem,
 } from "kz-design-system/dropdown";
 
@@ -1006,11 +1006,11 @@ export default function App() {
             <DropdownButton
               trigger={{
                 label: "Ghost trigger",
-                variant: "ghost",
+                variant: DropdownTriggerVariant.Ghost,
               }}
               items={[
-                { key: "1", label: "Item one", onSelect: () => { } },
-                { key: "2", label: "Item two", onSelect: () => { } },
+                { key: "1", label: "Item one", onSelect: () => {} },
+                { key: "2", label: "Item two", onSelect: () => {} },
               ]}
               align="start"
               sideOffset={6}
@@ -1054,18 +1054,14 @@ export default function App() {
           )}
         </section>
 
-        {/* Sidesheet with NavButton — direct link, selected link, dropdown with submenu */}
+        {/* NavButton — direct link, selected link, dropdown with submenu (use SideMenu for full sidebar) */}
         <section className="flex flex-col items-center gap-4 w-full">
           <Typography variant={TypographyVariantEnum.H2}>
-            Sidesheet & NavButton
+            NavButton
           </Typography>
           <Typography variant={TypographyVariantEnum.Caption}>
-            Nav buttons: direct link, selected link, dropdown with submenu. All
-            tokenized; override via{" "}
-            <code className="text-xs bg-black/10 dark:bg-white/10 px-1 rounded">
-              tokens
-            </code>
-            .
+            Nav buttons: direct link, selected link, dropdown with submenu. For
+            full sidebar navigation use SideMenu. All tokenized.
           </Typography>
           <div
             className="flex w-full max-w-md rounded-xl overflow-hidden border border-[var(--kz-color-border-subtle)]"
@@ -1074,7 +1070,10 @@ export default function App() {
               background: "var(--kz-color-surface-background)",
             }}
           >
-            <Sidesheet>
+            <aside
+              className="kz-sidesheet"
+              style={{ minWidth: 240 }}
+            >
               <NavButton
                 type="dropdown"
                 icon={
@@ -1085,8 +1084,8 @@ export default function App() {
                   {
                     label: "Overview",
                     subMenu: [
-                      { label: "Sub overview 1", onClick: () => { } },
-                      { label: "Sub overview 2", onClick: () => { } },
+                      { label: "Sub overview 1", onClick: () => {} },
+                      { label: "Sub overview 2", onClick: () => {} },
                     ],
                   },
                   { label: "Trends", onClick: () => setNavSelected(null) },
@@ -1110,7 +1109,7 @@ export default function App() {
                 selected={false}
                 onClick={() => setNavSelected(null)}
               />
-            </Sidesheet>
+            </aside>
             <div
               className="flex-1 p-4 flex items-center justify-center text-[var(--kz-color-text-muted)]"
               style={{ background: "var(--kz-color-surface-base)" }}

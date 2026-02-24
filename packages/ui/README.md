@@ -24,6 +24,24 @@ yarn add kz-design-system
 
 **Peer dependencies:** `react` and `react-dom` (^18.0.0 or ^19.0.0). Install them if they are not already in your project.
 
+### Updating to a new version
+
+If you use a range (e.g. `^0.0.1`), reinstall or update to get the latest:
+
+```bash
+pnpm update kz-design-system
+# or
+npm update kz-design-system
+# or
+yarn upgrade kz-design-system
+```
+
+To install a specific version (e.g. 0.0.2):
+
+```bash
+pnpm add kz-design-system@0.0.2
+```
+
 ## Styles
 
 Import the design system CSS once in your app (e.g. in your root layout or `_app.tsx`):
