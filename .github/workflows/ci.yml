@@ -46,8 +46,9 @@ jobs:
       - name: Bundle size
         run: pnpm run size
 
-  # Requires: repo Settings → Actions → General → "Allow GitHub Actions to create and approve pull requests".
-  # If that is disabled by org policy, add a PAT with repo scope as secret GH_PAT and the workflow will use it.
+  # Changesets flow: (1) Push to main WITH changesets → action CREATES "chore: version packages" PR (no publish).
+  # (2) MERGE that PR into main → action runs again with no changesets → PUBLISHES to npm.
+  # So 0.0.4 will only publish after you merge the version PR. Requires PR permission (or GH_PAT) and NPM_TOKEN.
   publish:
     needs: build-and-test
     runs-on: ubuntu-latest
