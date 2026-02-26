@@ -8,6 +8,7 @@ import {
   Button,
   ButtonVariant,
   ButtonSize,
+  Checkbox,
 } from "kz-design-system";
 import React from "react";
 
@@ -203,6 +204,61 @@ export const ExampleOverride: StoryObj = {
       description: {
         story:
           "Example: override brand and accent tokens via the `tokens` prop.",
+      },
+    },
+  },
+};
+
+export const NeumorphicShadowOverride: StoryObj = {
+  render: () => (
+    <KezelThemeProvider
+      variant={KezelVariant.Neumorphic}
+      mode={KezelMode.Light}
+      tokens={{
+        "shadow.neumorphic.raised.sm":
+          "3px 3px 6px 0 rgba(163, 177, 198, 0.6), -3px -3px 6px 0 #fff",
+        "shadow.neumorphic.inset.sm":
+          "3px 3px 6px 0 rgba(163, 177, 198, 0.4) inset, -3px -3px 6px 0 #fff inset",
+        "shadow.neumorphic.raised.lg":
+          "6px 6px 14px 0 rgba(163, 177, 198, 0.5), -6px -6px 14px 0 #fff",
+      }}
+    >
+      <div
+        style={{
+          padding: 24,
+          background: "var(--kz-color-surface-background)",
+          minHeight: 200,
+        }}
+      >
+        <p style={{ marginBottom: 16, color: "var(--kz-color-text-primary)" }}>
+          Neumorphic variant with overridden shadow tokens (raised.sm, inset.sm,
+          raised.lg). Buttons, checkbox, input, and tabs use these shadows.
+        </p>
+        <div style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "center" }}>
+          <Button
+            variant={ButtonVariant.Primary}
+            size={ButtonSize.Md}
+            onClick={() => {}}
+          >
+            Primary
+          </Button>
+          <Button
+            variant={ButtonVariant.Secondary}
+            size={ButtonSize.Md}
+            onClick={() => {}}
+          >
+            Secondary
+          </Button>
+          <Checkbox>Checkbox</Checkbox>
+        </div>
+      </div>
+    </KezelThemeProvider>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Example: override neumorphic shadow tokens (shadow.neumorphic.raised.sm, shadow.neumorphic.inset.sm, shadow.neumorphic.raised.lg, shadow.neumorphic.raised.md) via the `tokens` prop. Use with Neumorphic variant.",
       },
     },
   },
