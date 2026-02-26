@@ -175,13 +175,24 @@ export const WithIcon: Story = {
   render: (args) => (
     <Tabs {...args}>
       <TabsList>
-        <TabsTrigger value="tab1" icon={<Icon name={IconName.Search} size="sm" color="currentColor" />}>
+        <TabsTrigger
+          value="tab1"
+          icon={<Icon name={IconName.Search} size="sm" color="currentColor" />}
+        >
           Search
         </TabsTrigger>
-        <TabsTrigger value="tab2" icon={<Icon name={IconName.BarChart2} size="sm" color="currentColor" />}>
+        <TabsTrigger
+          value="tab2"
+          icon={
+            <Icon name={IconName.BarChart2} size="sm" color="currentColor" />
+          }
+        >
           Analytics
         </TabsTrigger>
-        <TabsTrigger value="tab3" icon={<Icon name={IconName.Shield} size="sm" color="currentColor" />}>
+        <TabsTrigger
+          value="tab3"
+          icon={<Icon name={IconName.Shield} size="sm" color="currentColor" />}
+        >
           Security
         </TabsTrigger>
       </TabsList>

@@ -1,6 +1,11 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { ButtonVariant, ButtonSize, ButtonType, ButtonAspectRatio } from "../../constants/enum";
+import {
+  ButtonVariant,
+  ButtonSize,
+  ButtonType,
+  ButtonAspectRatio,
+} from "../../constants/enum";
 import { buttonVariants, type ButtonVariants } from "./button.variants";
 import { Icon, IconName } from "../../icon/Icon";
 import { cn } from "../../utils/cn";

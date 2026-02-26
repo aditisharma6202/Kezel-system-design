@@ -1,9 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-  RadioButton,
-  RadioSize,
-} from "kz-design-system";
+import { RadioButton, RadioSize } from "kz-design-system";
 
 const meta: Meta<typeof RadioButton> = {
   title: "Design System/RadioButton",

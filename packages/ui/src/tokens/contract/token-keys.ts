@@ -7,6 +7,7 @@ export const TOKEN_KEYS = [
   "color.brand.accent",
   "color.brand.accent.hover",
   "color.brand.accent.active",
+  "color.brand.accent.dark",
   "color.brand.inverse",
 
   // Surface
@@ -62,6 +63,10 @@ export const TOKEN_KEYS = [
   "shadow.focus",
   "shadow.neumorphic.light",
   "shadow.neumorphic.dark",
+  "shadow.neumorphic.raised.sm",
+  "shadow.neumorphic.raised.md",
+  "shadow.neumorphic.raised.lg",
+  "shadow.neumorphic.inset.sm",
 
   // Effects
   "effect.blur.sm",

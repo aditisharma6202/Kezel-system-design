@@ -21,7 +21,14 @@ function resolveIcon(
 ): React.ReactNode {
   if (icon == null) return null;
   if (typeof icon === "string") {
-    return <Icon name={icon as IconName} size={14} color="currentColor" className={className} />;
+    return (
+      <Icon
+        name={icon as IconName}
+        size={14}
+        color="currentColor"
+        className={className}
+      />
+    );
   }
   return icon;
 }
@@ -74,7 +81,11 @@ function SideMenuLinkExpanded({
         onClick={(e) => {
           if (!node.external && node.href && onNavigate) {
             e.preventDefault();
-            onNavigate({ id: node.id, href: node.href, actionId: node.actionId });
+            onNavigate({
+              id: node.id,
+              href: node.href,
+              actionId: node.actionId,
+            });
           }
         }}
       >
@@ -133,7 +144,11 @@ function SideMenuGroupExpanded({
       >
         {icon && <span className="kz-sidemenu-item-icon">{icon}</span>}
         <span className="kz-sidemenu-item-label">{node.label}</span>
-        <ChevronDown className="kz-sidemenu-group-chevron" size={14} aria-hidden />
+        <ChevronDown
+          className="kz-sidemenu-group-chevron"
+          size={14}
+          aria-hidden
+        />
       </Collapsible.Trigger>
       <Collapsible.Content>
         <div
@@ -187,7 +202,11 @@ function SideMenuGroupItemRow({
           disabled={item.disabled}
         >
           <span className="kz-sidemenu-item-label">{item.label}</span>
-          <ChevronDown className="kz-sidemenu-group-chevron" size={12} aria-hidden />
+          <ChevronDown
+            className="kz-sidemenu-group-chevron"
+            size={12}
+            aria-hidden
+          />
         </Collapsible.Trigger>
         <Collapsible.Content>
           <div className="kz-sidemenu-sublist">
@@ -317,7 +336,9 @@ function CollapsedFlyout({
 
   return (
     <DropdownMenuPrimitive.Root open={open} onOpenChange={setOpen}>
-      <DropdownMenuPrimitive.Trigger asChild>{children}</DropdownMenuPrimitive.Trigger>
+      <DropdownMenuPrimitive.Trigger asChild>
+        {children}
+      </DropdownMenuPrimitive.Trigger>
       <DropdownMenuPrimitive.Portal>
         <DropdownMenuPrimitive.Content
           className="kz-sidemenu-flyout"
@@ -417,7 +438,9 @@ const SideMenu = React.forwardRef<HTMLDivElement, SideMenuProps>(
     const [uncontrolledCollapsed, setUncontrolledCollapsed] =
       React.useState(defaultCollapsed);
     const collapsed =
-      controlledCollapsed !== undefined ? controlledCollapsed : uncontrolledCollapsed;
+      controlledCollapsed !== undefined
+        ? controlledCollapsed
+        : uncontrolledCollapsed;
     const setCollapsed = (v: boolean) => {
       if (controlledCollapsed === undefined) setUncontrolledCollapsed(v);
       onCollapsedChange?.(v);
@@ -595,7 +618,11 @@ const SideMenu = React.forwardRef<HTMLDivElement, SideMenuProps>(
               );
             }
             const el = renderItem(node as SideMenuLinkNode | SideMenuGroupNode);
-            if (collapsed && showTooltipsWhenCollapsed && node.type === "link") {
+            if (
+              collapsed &&
+              showTooltipsWhenCollapsed &&
+              node.type === "link"
+            ) {
               return (
                 <div key={node.id} className="kz-sidemenu-tooltip-wrapper">
                   {wrapWithTooltip(el, node.label)}
@@ -612,11 +639,22 @@ const SideMenu = React.forwardRef<HTMLDivElement, SideMenuProps>(
       <TooltipPrimitive.Provider delayDuration={300}>
         <aside
           ref={ref}
-          className={cn("kz-sidemenu", collapsed && "kz-sidemenu--collapsed", className)}
+          className={cn(
+            "kz-sidemenu",
+            collapsed && "kz-sidemenu--collapsed",
+            className
+          )}
           style={{ ...widthStyle, flexShrink: 0 }}
         >
           {(header || collapsible) && (
-            <div className={cn("kz-sidemenu-top", collapsed && collapsible && "kz-sidemenu-top--collapse-on-border")}>
+            <div
+              className={cn(
+                "kz-sidemenu-top",
+                collapsed &&
+                  collapsible &&
+                  "kz-sidemenu-top--collapse-on-border"
+              )}
+            >
               {header && (
                 <div
                   className="kz-sidemenu-header"
@@ -637,11 +675,17 @@ const SideMenu = React.forwardRef<HTMLDivElement, SideMenuProps>(
                     type="button"
                     className="kz-sidemenu-collapse-btn"
                     onClick={() => setCollapsed(!collapsed)}
-                    aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+                    aria-label={
+                      collapsed ? "Expand sidebar" : "Collapse sidebar"
+                    }
                   >
                     <ChevronDown
                       size={16}
-                      style={{ transform: collapsed ? "rotate(-90deg)" : "rotate(90deg)" }}
+                      style={{
+                        transform: collapsed
+                          ? "rotate(-90deg)"
+                          : "rotate(90deg)",
+                      }}
                       aria-hidden
                     />
                   </button>
@@ -652,10 +696,20 @@ const SideMenu = React.forwardRef<HTMLDivElement, SideMenuProps>(
           <nav className="kz-sidemenu-nav" style={gapStyle}>
             {data.map((node) => {
               if (node.type === "section") {
-                return <React.Fragment key={node.id}>{renderSection(node)}</React.Fragment>;
+                return (
+                  <React.Fragment key={node.id}>
+                    {renderSection(node)}
+                  </React.Fragment>
+                );
               }
-              const el = renderItem(node as SideMenuLinkNode | SideMenuGroupNode);
-              if (collapsed && showTooltipsWhenCollapsed && node.type === "link") {
+              const el = renderItem(
+                node as SideMenuLinkNode | SideMenuGroupNode
+              );
+              if (
+                collapsed &&
+                showTooltipsWhenCollapsed &&
+                node.type === "link"
+              ) {
                 return (
                   <div key={node.id} className="kz-sidemenu-tooltip-wrapper">
                     {wrapWithTooltip(el, node.label)}

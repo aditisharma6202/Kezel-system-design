@@ -10,8 +10,10 @@ const trackBase = [
 export const toggleButtonVariants = cva(trackBase, {
   variants: {
     variant: {
-      [ToggleButtonVariant.Default]: "kz-toggle-button-track kz-toggle-button-track--default",
-      [ToggleButtonVariant.Primary]: "kz-toggle-button-track kz-toggle-button-track--primary",
+      [ToggleButtonVariant.Default]:
+        "kz-toggle-button-track kz-toggle-button-track--default",
+      [ToggleButtonVariant.Primary]:
+        "kz-toggle-button-track kz-toggle-button-track--primary",
       [ToggleButtonVariant.Container]: [
         "kz-toggle-button-track",
         "bg-[var(--kz-color-surface-base)] border border-[var(--kz-color-border-default)]",

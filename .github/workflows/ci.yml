@@ -37,6 +37,9 @@ jobs:
       - name: Lint
         run: pnpm exec eslint packages apps/docs/app apps/docs/stories apps/docs/.storybook
 
+      - name: Format check
+        run: pnpm run format:check
+
       - name: Build
         run: pnpm run build
 

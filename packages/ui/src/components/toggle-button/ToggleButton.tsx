@@ -1,15 +1,14 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import {
-  ToggleButtonVariant,
-  ToggleButtonSize,
-} from "../../constants/enum";
+import { ToggleButtonVariant, ToggleButtonSize } from "../../constants/enum";
 import { toggleButtonVariants } from "./toggle-button.variants";
 import { Icon, IconName } from "../../icon/Icon";
 import { cn } from "../../utils/cn";
 
-export interface ToggleButtonProps
-  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "onChange"> {
+export interface ToggleButtonProps extends Omit<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  "onChange"
+> {
   variant?: ToggleButtonVariant;
   size?: ToggleButtonSize;
   fullWidth?: boolean;
@@ -88,18 +87,18 @@ const ToggleButton = React.forwardRef<HTMLButtonElement, ToggleButtonProps>(
 
     if (asChild) {
       const slotProps = {
-          ...props,
-          ref,
-          type: "button" as const,
-          role: "switch" as const,
-          "aria-pressed": pressed,
-          "aria-checked": pressed,
-          "data-state": pressed ? "on" : "off",
-          className: wrapperClassName,
-          onClick: handleClick,
-          disabled: isDisabled,
-          "aria-busy": loading,
-        };
+        ...props,
+        ref,
+        type: "button" as const,
+        role: "switch" as const,
+        "aria-pressed": pressed,
+        "aria-checked": pressed,
+        "data-state": pressed ? "on" : "off",
+        className: wrapperClassName,
+        onClick: handleClick,
+        disabled: isDisabled,
+        "aria-busy": loading,
+      };
       return (
         <Slot {...(slotProps as React.ComponentProps<typeof Slot>)}>
           {children}

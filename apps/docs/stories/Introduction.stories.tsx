@@ -1,6 +1,10 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Typography, TypographyVariantEnum, TypographyToneEnum } from "kz-design-system";
+import {
+  Typography,
+  TypographyVariantEnum,
+  TypographyToneEnum,
+} from "kz-design-system";
 
 const meta: Meta = {
   title: "Design System/Introduction",
@@ -38,7 +42,10 @@ const components = [
 export const Overview: Story = {
   render: () => (
     <div style={{ maxWidth: 560 }}>
-      <Typography variant={TypographyVariantEnum.H1} style={{ marginBottom: 8 }}>
+      <Typography
+        variant={TypographyVariantEnum.H1}
+        style={{ marginBottom: 8 }}
+      >
         Kezel Design System
       </Typography>
       <Typography
@@ -47,10 +54,13 @@ export const Overview: Story = {
         style={{ marginBottom: 24 }}
       >
         Use the <strong>Variant</strong> (Standard / Neumorphic) and{" "}
-        <strong>Mode</strong> (Light / Dark) toolbar at the top to switch themes.
-        All components respond to these settings.
+        <strong>Mode</strong> (Light / Dark) toolbar at the top to switch
+        themes. All components respond to these settings.
       </Typography>
-      <Typography variant={TypographyVariantEnum.H2} style={{ marginBottom: 12 }}>
+      <Typography
+        variant={TypographyVariantEnum.H2}
+        style={{ marginBottom: 12 }}
+      >
         Components
       </Typography>
       <ul

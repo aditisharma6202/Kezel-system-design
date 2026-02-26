@@ -55,11 +55,7 @@ import "kz-design-system/styles.css";
 Wrap your app (or the part of the tree that uses the design system) with `KezelThemeProvider` so that theme (variant and mode) and optional token overrides are applied.
 
 ```tsx
-import {
-  KezelThemeProvider,
-  KezelVariant,
-  KezelMode,
-} from "kz-design-system";
+import { KezelThemeProvider, KezelVariant, KezelMode } from "kz-design-system";
 
 function App() {
   return (
@@ -120,12 +116,12 @@ import { Icon, IconName } from "kz-design-system/icon";
 
 ## Package structure
 
-- **Button, ToggleButton, Checkbox, RadioButton** – form and action controls  
-- **Typography, TextInput** – text and inputs  
-- **Dropdown, DropdownButton, Dialog** – overlays and menus  
-- **Table** – data table with selection, sort, pagination, actions  
-- **Tabs, Tooltip, SideMenu, Sidesheet, NavButton** – layout and navigation  
-- **Icon, iconRegistry, IconName** – icon set  
-- **KezelThemeProvider, KezelVariant, KezelMode** – theme and tokens  
+- **Button, ToggleButton, Checkbox, RadioButton** – form and action controls
+- **Typography, TextInput** – text and inputs
+- **Dropdown, DropdownButton, Dialog** – overlays and menus
+- **Table** – data table with selection, sort, pagination, actions
+- **Tabs, Tooltip, SideMenu, Sidesheet, NavButton** – layout and navigation
+- **Icon, iconRegistry, IconName** – icon set
+- **KezelThemeProvider, KezelVariant, KezelMode** – theme and tokens
 
 All components live under `packages/ui/src/components/` and consume design tokens from the theme provider.

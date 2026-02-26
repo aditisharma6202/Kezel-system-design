@@ -12,7 +12,11 @@ import {
 } from "./dropdown";
 import { DropdownTriggerVariant } from "../../constants/enum";
 import { Button } from "../button";
-import { ButtonVariant, ButtonSize, ButtonAspectRatio } from "../../constants/enum";
+import {
+  ButtonVariant,
+  ButtonSize,
+  ButtonAspectRatio,
+} from "../../constants/enum";
 import { Icon, IconName } from "../../icon";
 import type {
   DropdownButtonProps,
@@ -20,8 +24,12 @@ import type {
   DropdownButtonVariant,
 } from "./dropdown.types";
 
-function mapVariant(v: DropdownButtonVariant | undefined): DropdownTriggerVariant {
-  return v === "ghost" ? DropdownTriggerVariant.Ghost : DropdownTriggerVariant.Default;
+function mapVariant(
+  v: DropdownButtonVariant | undefined
+): DropdownTriggerVariant {
+  return v === "ghost"
+    ? DropdownTriggerVariant.Ghost
+    : DropdownTriggerVariant.Default;
 }
 
 function renderItems(items: DropdownButtonItem[]): React.ReactNode {
@@ -35,15 +43,10 @@ function renderItems(items: DropdownButtonItem[]): React.ReactNode {
     if (item.type === "submenu") {
       return (
         <DropdownSub key={item.key}>
-          <DropdownSubTrigger
-            disabled={item.disabled}
-            startIcon={item.icon}
-          >
+          <DropdownSubTrigger disabled={item.disabled} startIcon={item.icon}>
             {item.label}
           </DropdownSubTrigger>
-          <DropdownSubContent>
-            {renderItems(item.items)}
-          </DropdownSubContent>
+          <DropdownSubContent>{renderItems(item.items)}</DropdownSubContent>
         </DropdownSub>
       );
     }
@@ -76,24 +79,28 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({
   const triggerVariant = mapVariant(trigger.variant);
   const showChevron = trigger.showChevron !== false;
   const iconOnly = trigger.iconOnly === true;
-  const triggerContent =
-    iconOnly ? (
-      <Button
-        variant={ButtonVariant.Ghost}
-        size={ButtonSize.Sm}
-        aspectRatio={ButtonAspectRatio.Square}
-        aria-label={trigger.ariaLabel ?? "Actions"}
-      >
-        <Icon name={IconName.EllipsisVertical} size="sm" color="currentColor" aria-hidden />
-      </Button>
-    ) : trigger.icon != null ? (
-      <>
-        {trigger.icon}
-        {trigger.label != null ? trigger.label : null}
-      </>
-    ) : (
-      trigger.label
-    );
+  const triggerContent = iconOnly ? (
+    <Button
+      variant={ButtonVariant.Ghost}
+      size={ButtonSize.Sm}
+      aspectRatio={ButtonAspectRatio.Square}
+      aria-label={trigger.ariaLabel ?? "Actions"}
+    >
+      <Icon
+        name={IconName.EllipsisVertical}
+        size="sm"
+        color="currentColor"
+        aria-hidden
+      />
+    </Button>
+  ) : trigger.icon != null ? (
+    <>
+      {trigger.icon}
+      {trigger.label != null ? trigger.label : null}
+    </>
+  ) : (
+    trigger.label
+  );
 
   return (
     <Dropdown>

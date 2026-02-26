@@ -71,17 +71,17 @@ export default function App() {
   const actionsDropdownItems: DropdownButtonItem[] = [
     { type: "label", key: "l1", label: "Actions" },
     { type: "separator", key: "s1" },
-    { key: "new", label: "New file", onSelect: () => { } },
-    { key: "copy", label: "Copy link", onSelect: () => { } },
-    { key: "edit", label: "Edit", onSelect: () => { } },
+    { key: "new", label: "New file", onSelect: () => {} },
+    { key: "copy", label: "Copy link", onSelect: () => {} },
+    { key: "edit", label: "Edit", onSelect: () => {} },
     { type: "separator", key: "s2" },
     {
       type: "submenu",
       key: "more",
       label: "More options",
       items: [
-        { key: "subA", label: "Sub option A", onSelect: () => { } },
-        { key: "subB", label: "Sub option B", onSelect: () => { } },
+        { key: "subA", label: "Sub option A", onSelect: () => {} },
+        { key: "subB", label: "Sub option B", onSelect: () => {} },
       ],
     },
   ];
@@ -300,7 +300,7 @@ export default function App() {
             <Button
               variant={ButtonVariant.Ghost}
               size={ButtonSize.Sm}
-              onClick={() => { }}
+              onClick={() => {}}
               asChild
             >
               <a href="https://www.google.com">Google</a>
@@ -318,49 +318,49 @@ export default function App() {
             <Button
               variant={ButtonVariant.Primary}
               size={ButtonSize.Md}
-              onClick={() => { }}
+              onClick={() => {}}
             >
               Primary
             </Button>
             <Button
               variant={ButtonVariant.Secondary}
               size={ButtonSize.Md}
-              onClick={() => { }}
+              onClick={() => {}}
             >
               Secondary
             </Button>
             <Button
               variant={ButtonVariant.Outline}
               size={ButtonSize.Md}
-              onClick={() => { }}
+              onClick={() => {}}
             >
               Outline
             </Button>
             <Button
               variant={ButtonVariant.Ghost}
               size={ButtonSize.Md}
-              onClick={() => { }}
+              onClick={() => {}}
             >
               Ghost
             </Button>
             <Button
               variant={ButtonVariant.Success}
               size={ButtonSize.Md}
-              onClick={() => { }}
+              onClick={() => {}}
             >
               Success
             </Button>
             <Button
               variant={ButtonVariant.Warning}
               size={ButtonSize.Md}
-              onClick={() => { }}
+              onClick={() => {}}
             >
               Warning
             </Button>
             <Button
               variant={ButtonVariant.Error}
               size={ButtonSize.Md}
-              onClick={() => { }}
+              onClick={() => {}}
             >
               Error
             </Button>
@@ -368,7 +368,7 @@ export default function App() {
               variant={ButtonVariant.Primary}
               size={ButtonSize.Md}
               disabled
-              onClick={() => { }}
+              onClick={() => {}}
             >
               Disabled
             </Button>
@@ -376,7 +376,7 @@ export default function App() {
               variant={ButtonVariant.Primary}
               size={ButtonSize.Md}
               loading
-              onClick={() => { }}
+              onClick={() => {}}
             >
               Loading
             </Button>
@@ -391,21 +391,21 @@ export default function App() {
               variant={ButtonVariant.Primary}
               size={ButtonSize.Sm}
               aspectRatio={ButtonAspectRatio.Square}
-              onClick={() => { }}
+              onClick={() => {}}
             >
               <Icon name={IconName.BarChart2} size="sm" color="currentColor" />
             </Button>
             <Button
               variant={ButtonVariant.Primary}
               size={ButtonSize.Md}
-              onClick={() => { }}
+              onClick={() => {}}
             >
               Medium
             </Button>
             <Button
               variant={ButtonVariant.Primary}
               size={ButtonSize.Lg}
-              onClick={() => { }}
+              onClick={() => {}}
             >
               Large
             </Button>
@@ -435,7 +435,7 @@ export default function App() {
                     key={`${v}-${s}`}
                     variant={v}
                     size={s}
-                    onClick={() => { }}
+                    onClick={() => {}}
                   >
                     {v} {s}
                   </Button>
@@ -451,13 +451,14 @@ export default function App() {
             Toggle button
           </Typography>
           <Typography variant={TypographyVariantEnum.Caption}>
-            Default, Primary, and Container variants. Pressed state uses theme tokens.
+            Default, Primary, and Container variants. Pressed state uses theme
+            tokens.
           </Typography>
           <div className="flex flex-wrap gap-2 justify-center items-center">
             <ToggleButton
               variant={ToggleButtonVariant.Default}
               size={ToggleButtonSize.Md}
-              onPressedChange={() => { }}
+              onPressedChange={() => {}}
             >
               Default
             </ToggleButton>
@@ -465,14 +466,14 @@ export default function App() {
               variant={ToggleButtonVariant.Primary}
               size={ToggleButtonSize.Md}
               defaultPressed
-              onPressedChange={() => { }}
+              onPressedChange={() => {}}
             >
               Primary (default on)
             </ToggleButton>
             <ToggleButton
               variant={ToggleButtonVariant.Container}
               size={ToggleButtonSize.Md}
-              onPressedChange={() => { }}
+              onPressedChange={() => {}}
             >
               Container
             </ToggleButton>
@@ -481,21 +482,21 @@ export default function App() {
             <ToggleButton
               variant={ToggleButtonVariant.Primary}
               size={ToggleButtonSize.Sm}
-              onPressedChange={() => { }}
+              onPressedChange={() => {}}
             >
               Sm
             </ToggleButton>
             <ToggleButton
               variant={ToggleButtonVariant.Primary}
               size={ToggleButtonSize.Md}
-              onPressedChange={() => { }}
+              onPressedChange={() => {}}
             >
               Md
             </ToggleButton>
             <ToggleButton
               variant={ToggleButtonVariant.Primary}
               size={ToggleButtonSize.Lg}
-              onPressedChange={() => { }}
+              onPressedChange={() => {}}
             >
               Lg
             </ToggleButton>
@@ -505,7 +506,7 @@ export default function App() {
               variant={ToggleButtonVariant.Default}
               size={ToggleButtonSize.Md}
               disabled
-              onPressedChange={() => { }}
+              onPressedChange={() => {}}
             >
               Disabled (off)
             </ToggleButton>
@@ -514,7 +515,7 @@ export default function App() {
               size={ToggleButtonSize.Md}
               disabled
               defaultPressed
-              onPressedChange={() => { }}
+              onPressedChange={() => {}}
             >
               Disabled (on)
             </ToggleButton>
@@ -523,17 +524,17 @@ export default function App() {
 
         {/* Checkbox */}
         <section className="flex flex-col items-center gap-4">
-          <Typography variant={TypographyVariantEnum.H2}>
-            Checkbox
-          </Typography>
+          <Typography variant={TypographyVariantEnum.H2}>Checkbox</Typography>
           <Typography variant={TypographyVariantEnum.Caption}>
-            Standard and neumorphic styles; use Variant toolbar. Sizes: sm (16px), md (20px), lg (24px). All tokens overridable via KezelThemeProvider.
+            Standard and neumorphic styles; use Variant toolbar. Sizes: sm
+            (16px), md (20px), lg (24px). All tokens overridable via
+            KezelThemeProvider.
           </Typography>
           <div className="flex flex-wrap gap-6 justify-center items-center">
             <Checkbox
               size={CheckboxSize.Sm}
               variant={CheckboxVariant.Default}
-              onCheckedChange={() => { }}
+              onCheckedChange={() => {}}
             >
               Sm unchecked
             </Checkbox>
@@ -541,7 +542,7 @@ export default function App() {
               size={CheckboxSize.Md}
               variant={CheckboxVariant.Default}
               defaultChecked
-              onCheckedChange={() => { }}
+              onCheckedChange={() => {}}
             >
               Md checked
             </Checkbox>
@@ -549,7 +550,7 @@ export default function App() {
               size={CheckboxSize.Lg}
               variant={CheckboxVariant.Default}
               indeterminate
-              onCheckedChange={() => { }}
+              onCheckedChange={() => {}}
             >
               Lg indeterminate
             </Checkbox>
@@ -558,7 +559,7 @@ export default function App() {
             <Checkbox
               size={CheckboxSize.Md}
               variant={CheckboxVariant.Container}
-              onCheckedChange={() => { }}
+              onCheckedChange={() => {}}
             >
               Container unchecked
             </Checkbox>
@@ -566,7 +567,7 @@ export default function App() {
               size={CheckboxSize.Md}
               variant={CheckboxVariant.Default}
               disabled
-              onCheckedChange={() => { }}
+              onCheckedChange={() => {}}
             >
               Disabled off
             </Checkbox>
@@ -575,7 +576,7 @@ export default function App() {
               variant={CheckboxVariant.Default}
               disabled
               defaultChecked
-              onCheckedChange={() => { }}
+              onCheckedChange={() => {}}
             >
               Disabled on
             </Checkbox>
@@ -587,7 +588,8 @@ export default function App() {
             Radio button
           </Typography>
           <Typography variant={TypographyVariantEnum.Caption}>
-            Standard and neumorphic; sm 16px, md 20px, lg 24px. Disabled 50% opacity. All tokens overridable via KezelThemeProvider.
+            Standard and neumorphic; sm 16px, md 20px, lg 24px. Disabled 50%
+            opacity. All tokens overridable via KezelThemeProvider.
           </Typography>
           <div className="flex flex-wrap gap-6 justify-center items-center">
             <RadioButton
@@ -624,7 +626,7 @@ export default function App() {
               value="off"
               size={RadioSize.Md}
               disabled
-              onChange={() => { }}
+              onChange={() => {}}
             >
               Disabled off
             </RadioButton>
@@ -634,7 +636,7 @@ export default function App() {
               size={RadioSize.Md}
               disabled
               defaultChecked
-              onChange={() => { }}
+              onChange={() => {}}
             >
               Disabled on
             </RadioButton>
@@ -799,8 +801,8 @@ export default function App() {
         <section className="flex flex-col items-center gap-6 w-full max-w-3xl">
           <Typography variant={TypographyVariantEnum.H2}>Table</Typography>
           <Typography variant={TypographyVariantEnum.Caption}>
-            Selection, sorting UI, actions, sticky header, and pagination. Switch
-            theme and mode to see flat table styles.
+            Selection, sorting UI, actions, sticky header, and pagination.
+            Switch theme and mode to see flat table styles.
           </Typography>
           <div className="w-full">
             <Table<TableRow>
@@ -949,7 +951,7 @@ export default function App() {
               label="Disabled"
               value="Disabled value"
               placeHolder="Placeholder"
-              onValueChange={() => { }}
+              onValueChange={() => {}}
               variant={TextInputVariant.Default}
               disabled
             />
@@ -1018,8 +1020,8 @@ export default function App() {
             <DropdownButton
               trigger={{ label: "No chevron", showChevron: false }}
               items={[
-                { key: "a", label: "Option A", onSelect: () => { } },
-                { key: "b", label: "Option B", onSelect: () => { } },
+                { key: "a", label: "Option A", onSelect: () => {} },
+                { key: "b", label: "Option B", onSelect: () => {} },
               ]}
               align="start"
               sideOffset={6}
@@ -1032,12 +1034,12 @@ export default function App() {
                   prev
                     ? undefined
                     : ({
-                      "component.dropdown.trigger.bg": "#fef3c7",
-                      "component.dropdown.trigger.text": "#92400e",
-                      "component.dropdown.item.text.selected": "#b45309",
-                      "component.dropdown.item.bg.hover":
-                        "rgba(245, 158, 11, 0.15)",
-                    } as Partial<Record<TokenKey, string>>)
+                        "component.dropdown.trigger.bg": "#fef3c7",
+                        "component.dropdown.trigger.text": "#92400e",
+                        "component.dropdown.item.text.selected": "#b45309",
+                        "component.dropdown.item.bg.hover":
+                          "rgba(245, 158, 11, 0.15)",
+                      } as Partial<Record<TokenKey, string>>)
                 )
               }
             >
@@ -1056,9 +1058,7 @@ export default function App() {
 
         {/* NavButton — direct link, selected link, dropdown with submenu (use SideMenu for full sidebar) */}
         <section className="flex flex-col items-center gap-4 w-full">
-          <Typography variant={TypographyVariantEnum.H2}>
-            NavButton
-          </Typography>
+          <Typography variant={TypographyVariantEnum.H2}>NavButton</Typography>
           <Typography variant={TypographyVariantEnum.Caption}>
             Nav buttons: direct link, selected link, dropdown with submenu. For
             full sidebar navigation use SideMenu. All tokenized.
@@ -1070,14 +1070,15 @@ export default function App() {
               background: "var(--kz-color-surface-background)",
             }}
           >
-            <aside
-              className="kz-sidesheet"
-              style={{ minWidth: 240 }}
-            >
+            <aside className="kz-sidesheet" style={{ minWidth: 240 }}>
               <NavButton
                 type="dropdown"
                 icon={
-                  <Icon name={IconName.BarChart2} size="sm" color="currentColor" />
+                  <Icon
+                    name={IconName.BarChart2}
+                    size="sm"
+                    color="currentColor"
+                  />
                 }
                 label="Analytics"
                 menuOptions={[
@@ -1095,7 +1096,9 @@ export default function App() {
               />
               <NavButton
                 type="link"
-                icon={<Icon name={IconName.Shield} size="sm" color="currentColor" />}
+                icon={
+                  <Icon name={IconName.Shield} size="sm" color="currentColor" />
+                }
                 label="Security"
                 selected={navSelected === "security"}
                 onClick={() => setNavSelected("security")}
@@ -1103,7 +1106,11 @@ export default function App() {
               <NavButton
                 type="link"
                 icon={
-                  <Icon name={IconName.CheckCircle} size="sm" color="currentColor" />
+                  <Icon
+                    name={IconName.CheckCircle}
+                    size="sm"
+                    color="currentColor"
+                  />
                 }
                 label="Direct link (unselected)"
                 selected={false}
@@ -1154,7 +1161,6 @@ export default function App() {
                     Logo
                   </div>
                 </>
-
               }
               showTooltipsWhenCollapsed
               flyoutSide="right"
@@ -1172,7 +1178,6 @@ export default function App() {
                 Main content. Sidebar uses neumorphic/standard tokens (border,
                 background, shadow).
               </Typography>
-
             </div>
           </div>
         </section>

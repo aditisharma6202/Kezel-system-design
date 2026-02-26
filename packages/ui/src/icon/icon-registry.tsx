@@ -15,6 +15,14 @@ import {
   ArrowDown,
   ArrowUpDown,
   EllipsisVertical,
+  Sun,
+  Moon,
+  Settings,
+  LogOut,
+  User,
+  FileText,
+  LockOpen,
+  Calendar,
 } from "lucide-react";
 
 /** Use IconName.* so users discover available icons. Values match registry keys. */
@@ -34,6 +42,14 @@ export enum IconName {
   ArrowDown = "arrow-down",
   ArrowUpDown = "arrow-up-down",
   EllipsisVertical = "ellipsis-vertical",
+  Sun = "sun",
+  Moon = "moon",
+  LogOut = "log-out",
+  Settings = "settings",
+  User = "user",
+  FileText = "file-text",
+  LockOpen = "lock-open",
+  Calendar = "calendar",
 }
 
 export const iconRegistry: Record<IconName, LucideIcon> = {
@@ -52,4 +68,12 @@ export const iconRegistry: Record<IconName, LucideIcon> = {
   [IconName.ArrowDown]: ArrowDown,
   [IconName.ArrowUpDown]: ArrowUpDown,
   [IconName.EllipsisVertical]: EllipsisVertical,
+  [IconName.Sun]: Sun,
+  [IconName.Moon]: Moon,
+  [IconName.LogOut]: LogOut,
+  [IconName.Settings]: Settings,
+  [IconName.User]: User,
+  [IconName.FileText]: FileText,
+  [IconName.LockOpen]: LockOpen,
+  [IconName.Calendar]: Calendar,
 };

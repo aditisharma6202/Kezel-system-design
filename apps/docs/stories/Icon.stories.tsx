@@ -10,7 +10,7 @@ const meta: Meta<typeof Icon> = {
     docs: {
       description: {
         component:
-          "Use **IconName** enum for the `name` prop so you get autocomplete and type safety. Sizes: xs, sm, md, lg. Use the **Variant** and **Mode** toolbar to see theme context.",
+          "Icons are driven by the **icon registry** (`packages/ui/src/icon/icon-registry.tsx`): add entries to the **IconName** enum and **iconRegistry** there; they appear here and across the design system. Use **IconName** for the `name` prop for autocomplete and type safety. Sizes: xs, sm, md, lg. Use the **Variant** and **Mode** toolbar to see theme context.",
       },
     },
   },
@@ -24,7 +24,8 @@ const meta: Meta<typeof Icon> = {
     name: {
       control: "select",
       options: Object.values(IconName),
-      description: "Icon from IconName enum (search, circle-alert, check-circle, etc.).",
+      description:
+        "Icon from IconName enum (search, circle-alert, check-circle, etc.).",
     },
     size: {
       control: "select",
@@ -90,7 +91,8 @@ export const AllIcons: Story = {
   parameters: {
     docs: {
       description: {
-        story: "All icons in the registry. Use IconName.<name> in code.",
+        story:
+          "All icons from the registry (icon-registry.tsx). Add new icons there to IconName and iconRegistry; they will appear here and in the Icon component.",
       },
     },
   },
@@ -99,20 +101,68 @@ export const AllIcons: Story = {
 export const Sizes: Story = {
   render: () => (
     <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
-        <Icon name={IconName.CheckCircle} size="xs" color="currentColor" aria-hidden />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 4,
+        }}
+      >
+        <Icon
+          name={IconName.CheckCircle}
+          size="xs"
+          color="currentColor"
+          aria-hidden
+        />
         <span style={{ fontSize: 11 }}>xs</span>
       </div>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
-        <Icon name={IconName.CheckCircle} size="sm" color="currentColor" aria-hidden />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 4,
+        }}
+      >
+        <Icon
+          name={IconName.CheckCircle}
+          size="sm"
+          color="currentColor"
+          aria-hidden
+        />
         <span style={{ fontSize: 11 }}>sm</span>
       </div>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
-        <Icon name={IconName.CheckCircle} size="md" color="currentColor" aria-hidden />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 4,
+        }}
+      >
+        <Icon
+          name={IconName.CheckCircle}
+          size="md"
+          color="currentColor"
+          aria-hidden
+        />
         <span style={{ fontSize: 11 }}>md</span>
       </div>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
-        <Icon name={IconName.CheckCircle} size="lg" color="currentColor" aria-hidden />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 4,
+        }}
+      >
+        <Icon
+          name={IconName.CheckCircle}
+          size="lg"
+          color="currentColor"
+          aria-hidden
+        />
         <span style={{ fontSize: 11 }}>lg</span>
       </div>
     </div>
@@ -122,9 +172,24 @@ export const Sizes: Story = {
 export const WithColor: Story = {
   render: () => (
     <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-      <Icon name={IconName.CheckCircle} size="md" color="var(--kz-color-status-success)" aria-hidden />
-      <Icon name={IconName.CircleAlert} size="md" color="var(--kz-color-status-error)" aria-hidden />
-      <Icon name={IconName.TriangleAlert} size="md" color="var(--kz-color-status-warning)" aria-hidden />
+      <Icon
+        name={IconName.CheckCircle}
+        size="md"
+        color="var(--kz-color-status-success)"
+        aria-hidden
+      />
+      <Icon
+        name={IconName.CircleAlert}
+        size="md"
+        color="var(--kz-color-status-error)"
+        aria-hidden
+      />
+      <Icon
+        name={IconName.TriangleAlert}
+        size="md"
+        color="var(--kz-color-status-warning)"
+        aria-hidden
+      />
       <Icon name={IconName.BarChart2} size="md" color="#18AB9F" aria-hidden />
     </div>
   ),

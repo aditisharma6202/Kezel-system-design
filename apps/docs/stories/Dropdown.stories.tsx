@@ -56,7 +56,8 @@ const meta: Meta<typeof DropdownButton> = {
   },
   argTypes: {
     trigger: {
-      description: "Trigger config: label, icon, variant (default | ghost), showChevron.",
+      description:
+        "Trigger config: label, icon, variant (default | ghost), showChevron.",
     },
     items: {
       description: "Array of item, label, separator, or submenu descriptors.",

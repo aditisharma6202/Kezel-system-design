@@ -29,7 +29,10 @@ export {
   radioButtonVariants,
   RadioSize,
 } from "./components/radio-button";
-export type { RadioButtonProps, RadioButtonVariants } from "./components/radio-button";
+export type {
+  RadioButtonProps,
+  RadioButtonVariants,
+} from "./components/radio-button";
 export {
   Typography,
   typographyVariants,
@@ -85,12 +88,7 @@ export {
   TooltipColor,
 } from "./components/tooltip";
 export type { TooltipProps } from "./components/tooltip";
-export {
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
-} from "./components/tabs";
+export { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/tabs";
 export type {
   TabsVariant,
   TabsSize,

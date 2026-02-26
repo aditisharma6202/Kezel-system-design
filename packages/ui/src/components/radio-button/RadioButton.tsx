@@ -3,11 +3,10 @@ import { RadioSize } from "../../constants/enum";
 import { radioButtonVariants } from "./radio-button.variants";
 import { cn } from "../../utils/cn";
 
-export interface RadioButtonProps
-  extends Omit<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    "size" | "type" | "onChange"
-  > {
+export interface RadioButtonProps extends Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  "size" | "type" | "onChange"
+> {
   size?: RadioSize;
   value: string;
   checked?: boolean;
@@ -34,9 +33,11 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
   ) => {
     const inputRef = React.useRef<HTMLInputElement>(null);
     const mergedRef = (el: HTMLInputElement | null) => {
-      (inputRef as React.MutableRefObject<HTMLInputElement | null>).current = el;
+      (inputRef as React.MutableRefObject<HTMLInputElement | null>).current =
+        el;
       if (typeof ref === "function") ref(el);
-      else if (ref) (ref as React.MutableRefObject<HTMLInputElement | null>).current = el;
+      else if (ref)
+        (ref as React.MutableRefObject<HTMLInputElement | null>).current = el;
     };
 
     const rootClassName = cn(radioButtonVariants({ size }), className);

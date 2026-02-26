@@ -1,10 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-  Checkbox,
-  CheckboxSize,
-  CheckboxVariant,
-} from "kz-design-system";
+import { Checkbox, CheckboxSize, CheckboxVariant } from "kz-design-system";
 
 const meta: Meta<typeof Checkbox> = {
   title: "Design System/Checkbox",
@@ -136,11 +132,7 @@ export const Controlled: Story = {
   render: function ControlledStory(args) {
     const [checked, setChecked] = React.useState(false);
     return (
-      <Checkbox
-        {...args}
-        checked={checked}
-        onCheckedChange={setChecked}
-      >
+      <Checkbox {...args} checked={checked} onCheckedChange={setChecked}>
         {checked ? "Checked" : "Unchecked"}
       </Checkbox>
     );

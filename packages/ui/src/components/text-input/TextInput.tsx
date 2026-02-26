@@ -175,7 +175,14 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
               aria-hidden
             >
               <Icon
-                name={stateIcon[state as TextInputState.Error | TextInputState.Success | TextInputState.Warning]}
+                name={
+                  stateIcon[
+                    state as
+                      | TextInputState.Error
+                      | TextInputState.Success
+                      | TextInputState.Warning
+                  ]
+                }
                 size={size === TextInputSize.Sm ? 14 : 16}
                 color={
                   state === TextInputState.Error

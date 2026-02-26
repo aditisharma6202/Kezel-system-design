@@ -35,7 +35,8 @@ const meta: Meta<typeof ToggleButton> = {
     variant: {
       control: "select",
       options: Object.values(ToggleButtonVariant),
-      description: "Visual variant: Default (secondary-like), Primary, or Container (outline-like).",
+      description:
+        "Visual variant: Default (secondary-like), Primary, or Container (outline-like).",
     },
     size: {
       control: "select",
@@ -48,7 +49,8 @@ const meta: Meta<typeof ToggleButton> = {
     },
     pressed: {
       control: "boolean",
-      description: "Controlled pressed state. Omit to use uncontrolled (defaultPressed).",
+      description:
+        "Controlled pressed state. Omit to use uncontrolled (defaultPressed).",
     },
     defaultPressed: {
       control: "boolean",
@@ -154,11 +156,7 @@ export const Controlled: Story = {
   render: function ControlledStory(args) {
     const [pressed, setPressed] = React.useState(false);
     return (
-      <ToggleButton
-        {...args}
-        pressed={pressed}
-        onPressedChange={setPressed}
-      >
+      <ToggleButton {...args} pressed={pressed} onPressedChange={setPressed}>
         {pressed ? "On" : "Off"}
       </ToggleButton>
     );

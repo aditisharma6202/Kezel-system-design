@@ -7,7 +7,6 @@ export interface IconProps extends Omit<
   React.SVGAttributes<SVGSVGElement>,
   "color"
 > {
-  /** Use IconName.* (e.g. IconName.Loader2) for discoverability. */
   name: IconName;
   size?: IconSizeKey | number;
   color?: string;

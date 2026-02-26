@@ -75,7 +75,10 @@ const meta: Meta<typeof SideMenu> = {
   tags: ["autodocs"],
   argTypes: {
     data: { control: false },
-    selectedId: { control: "text", description: "ID of the selected option (link or group item/sub-item)." },
+    selectedId: {
+      control: "text",
+      description: "ID of the selected option (link or group item/sub-item).",
+    },
     collapsible: { control: "boolean" },
     collapsed: { control: "boolean" },
     defaultCollapsed: { control: "boolean" },
@@ -85,7 +88,14 @@ const meta: Meta<typeof SideMenu> = {
   },
   decorators: [
     (Story) => (
-      <div style={{ display: "flex", minHeight: 420, width: "100%", maxWidth: 320 }}>
+      <div
+        style={{
+          display: "flex",
+          minHeight: 420,
+          width: "100%",
+          maxWidth: 320,
+        }}
+      >
         <Story />
         <div
           style={{
@@ -129,7 +139,8 @@ export const WithSelectedItem: Story = {
   parameters: {
     docs: {
       description: {
-        story: "When a group has a selected option (e.g. Trends), the Analytics trigger shows text and icon in #18AB9F; no background (bg is for hover only).",
+        story:
+          "When a group has a selected option (e.g. Trends), the Analytics trigger shows text and icon in #18AB9F; no background (bg is for hover only).",
       },
     },
   },
@@ -147,7 +158,8 @@ export const WithSelectedSubItem: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Selected ID is a sub-option (Sub overview 1); Analytics trigger still shows active color.",
+        story:
+          "Selected ID is a sub-option (Sub overview 1); Analytics trigger still shows active color.",
       },
     },
   },
@@ -164,7 +176,8 @@ export const Collapsed: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Collapsed sidebar: icons only, collapse button on border (round). Hover over group icon to open flyout; flyout uses same bg as sidemenu with inset shadow.",
+        story:
+          "Collapsed sidebar: icons only, collapse button on border (round). Hover over group icon to open flyout; flyout uses same bg as sidemenu with inset shadow.",
       },
     },
   },
@@ -182,7 +195,8 @@ export const CollapsedWithSelected: Story = {
   parameters: {
     docs: {
       description: {
-        story: "When collapsed and a flyout option is selected, the group icon is #18AB9F.",
+        story:
+          "When collapsed and a flyout option is selected, the group icon is #18AB9F.",
       },
     },
   },
@@ -196,7 +210,13 @@ export const WithHeaderAndFooter: Story = {
     showTooltipsWhenCollapsed: true,
     header: <span style={{ padding: "8px 12px", fontWeight: 600 }}>_Logo</span>,
     footer: (
-      <span style={{ padding: "8px 12px", fontSize: 12, color: "var(--kz-color-text-muted)" }}>
+      <span
+        style={{
+          padding: "8px 12px",
+          fontSize: 12,
+          color: "var(--kz-color-text-muted)",
+        }}
+      >
         Footer
       </span>
     ),
@@ -205,7 +225,9 @@ export const WithHeaderAndFooter: Story = {
 
 export const Interactive: Story = {
   render: function InteractiveStory(args) {
-    const [selectedId, setSelectedId] = React.useState<string | undefined>("dashboard");
+    const [selectedId, setSelectedId] = React.useState<string | undefined>(
+      "dashboard"
+    );
     const [collapsed, setCollapsed] = React.useState(false);
     return (
       <SideMenu
@@ -217,14 +239,17 @@ export const Interactive: Story = {
         onNavigate={({ id }) => setSelectedId(id)}
         collapsible
         showTooltipsWhenCollapsed
-        header={<span style={{ padding: "8px 12px", fontWeight: 600 }}>_Logo</span>}
+        header={
+          <span style={{ padding: "8px 12px", fontWeight: 600 }}>_Logo</span>
+        }
       />
     );
   },
   parameters: {
     docs: {
       description: {
-        story: "Click items to set selection; use collapse control to toggle. Demonstrates selected state and flyout when collapsed.",
+        story:
+          "Click items to set selection; use collapse control to toggle. Demonstrates selected state and flyout when collapsed.",
       },
     },
   },

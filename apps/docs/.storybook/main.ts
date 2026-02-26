@@ -39,7 +39,10 @@ const config: StorybookConfig = {
     ];
     config.resolve.alias = {
       ...config.resolve.alias,
-      "kz-design-system/styles.css": path.join(designSystemRoot, "dist/styles.css"),
+      "kz-design-system/styles.css": path.join(
+        designSystemRoot,
+        "dist/styles.css"
+      ),
     };
     return config;
   },

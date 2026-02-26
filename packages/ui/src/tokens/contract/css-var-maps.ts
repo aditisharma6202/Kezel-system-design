@@ -8,6 +8,7 @@ export const tokenToCssVar: Record<TokenKey, `--kz-${string}`> = {
   "color.brand.accent": "--kz-color-brand-accent",
   "color.brand.accent.hover": "--kz-color-brand-accent-hover",
   "color.brand.accent.active": "--kz-color-brand-accent-active",
+  "color.brand.accent.dark": "--kz-color-brand-accent-dark",
   "color.brand.inverse": "--kz-color-brand-inverse",
 
   "color.surface.background": "--kz-color-surface-background",
@@ -58,6 +59,10 @@ export const tokenToCssVar: Record<TokenKey, `--kz-${string}`> = {
   "shadow.focus": "--kz-shadow-focus",
   "shadow.neumorphic.light": "--kz-shadow-neumorphic-light",
   "shadow.neumorphic.dark": "--kz-shadow-neumorphic-dark",
+  "shadow.neumorphic.raised.sm": "--kz-shadow-neumorphic-raised-sm",
+  "shadow.neumorphic.raised.md": "--kz-shadow-neumorphic-raised-md",
+  "shadow.neumorphic.raised.lg": "--kz-shadow-neumorphic-raised-lg",
+  "shadow.neumorphic.inset.sm": "--kz-shadow-neumorphic-inset-sm",
 
   "effect.blur.sm": "--kz-effect-blur-sm",
   "effect.blur.md": "--kz-effect-blur-md",
@@ -173,26 +178,44 @@ export const tokenToCssVar: Record<TokenKey, `--kz-${string}`> = {
   "component.button.disabled.opacity": "--kz-component-button-disabled-opacity",
   "component.button.loading.opacity": "--kz-component-button-loading-opacity",
 
-  "component.toggle-button.default.bg": "--kz-component-toggle-button-default-bg",
-  "component.toggle-button.default.bg.pressed": "--kz-component-toggle-button-default-bg-pressed",
-  "component.toggle-button.default.text": "--kz-component-toggle-button-default-text",
-  "component.toggle-button.default.text.pressed": "--kz-component-toggle-button-default-text-pressed",
-  "component.toggle-button.primary.bg": "--kz-component-toggle-button-primary-bg",
-  "component.toggle-button.primary.bg.pressed": "--kz-component-toggle-button-primary-bg-pressed",
-  "component.toggle-button.primary.text": "--kz-component-toggle-button-primary-text",
-  "component.toggle-button.primary.text.pressed": "--kz-component-toggle-button-primary-text-pressed",
-  "component.toggle-button.container.bg": "--kz-component-toggle-button-container-bg",
-  "component.toggle-button.container.bg.pressed": "--kz-component-toggle-button-container-bg-pressed",
-  "component.toggle-button.container.text": "--kz-component-toggle-button-container-text",
-  "component.toggle-button.container.text.pressed": "--kz-component-toggle-button-container-text-pressed",
+  "component.toggle-button.default.bg":
+    "--kz-component-toggle-button-default-bg",
+  "component.toggle-button.default.bg.pressed":
+    "--kz-component-toggle-button-default-bg-pressed",
+  "component.toggle-button.default.text":
+    "--kz-component-toggle-button-default-text",
+  "component.toggle-button.default.text.pressed":
+    "--kz-component-toggle-button-default-text-pressed",
+  "component.toggle-button.primary.bg":
+    "--kz-component-toggle-button-primary-bg",
+  "component.toggle-button.primary.bg.pressed":
+    "--kz-component-toggle-button-primary-bg-pressed",
+  "component.toggle-button.primary.text":
+    "--kz-component-toggle-button-primary-text",
+  "component.toggle-button.primary.text.pressed":
+    "--kz-component-toggle-button-primary-text-pressed",
+  "component.toggle-button.container.bg":
+    "--kz-component-toggle-button-container-bg",
+  "component.toggle-button.container.bg.pressed":
+    "--kz-component-toggle-button-container-bg-pressed",
+  "component.toggle-button.container.text":
+    "--kz-component-toggle-button-container-text",
+  "component.toggle-button.container.text.pressed":
+    "--kz-component-toggle-button-container-text-pressed",
   "component.toggle-button.radius": "--kz-component-toggle-button-radius",
-  "component.toggle-button.disabled.opacity": "--kz-component-toggle-button-disabled-opacity",
-  "component.toggle-button.loading.opacity": "--kz-component-toggle-button-loading-opacity",
-  "component.toggle-button.pressed.shadow": "--kz-component-toggle-button-pressed-shadow",
-  "component.toggle-button.track.off.bg": "--kz-component-toggle-button-track-off-bg",
-  "component.toggle-button.track.on.bg": "--kz-component-toggle-button-track-on-bg",
+  "component.toggle-button.disabled.opacity":
+    "--kz-component-toggle-button-disabled-opacity",
+  "component.toggle-button.loading.opacity":
+    "--kz-component-toggle-button-loading-opacity",
+  "component.toggle-button.pressed.shadow":
+    "--kz-component-toggle-button-pressed-shadow",
+  "component.toggle-button.track.off.bg":
+    "--kz-component-toggle-button-track-off-bg",
+  "component.toggle-button.track.on.bg":
+    "--kz-component-toggle-button-track-on-bg",
   "component.toggle-button.thumb.bg": "--kz-component-toggle-button-thumb-bg",
-  "component.toggle-button.thumb.shadow": "--kz-component-toggle-button-thumb-shadow",
+  "component.toggle-button.thumb.shadow":
+    "--kz-component-toggle-button-thumb-shadow",
 
   "component.checkbox.size.sm": "--kz-component-checkbox-size-sm",
   "component.checkbox.size.md": "--kz-component-checkbox-size-md",
@@ -205,13 +228,20 @@ export const tokenToCssVar: Record<TokenKey, `--kz-${string}`> = {
   "component.checkbox.on.border": "--kz-component-checkbox-on-border",
   "component.checkbox.on.shadow": "--kz-component-checkbox-on-shadow",
   "component.checkbox.icon.color": "--kz-component-checkbox-icon-color",
-  "component.checkbox.disabled.opacity": "--kz-component-checkbox-disabled-opacity",
-  "component.checkbox.container.off.bg": "--kz-component-checkbox-container-off-bg",
-  "component.checkbox.container.off.border": "--kz-component-checkbox-container-off-border",
-  "component.checkbox.container.off.shadow": "--kz-component-checkbox-container-off-shadow",
-  "component.checkbox.container.on.bg": "--kz-component-checkbox-container-on-bg",
-  "component.checkbox.container.on.border": "--kz-component-checkbox-container-on-border",
-  "component.checkbox.container.on.shadow": "--kz-component-checkbox-container-on-shadow",
+  "component.checkbox.disabled.opacity":
+    "--kz-component-checkbox-disabled-opacity",
+  "component.checkbox.container.off.bg":
+    "--kz-component-checkbox-container-off-bg",
+  "component.checkbox.container.off.border":
+    "--kz-component-checkbox-container-off-border",
+  "component.checkbox.container.off.shadow":
+    "--kz-component-checkbox-container-off-shadow",
+  "component.checkbox.container.on.bg":
+    "--kz-component-checkbox-container-on-bg",
+  "component.checkbox.container.on.border":
+    "--kz-component-checkbox-container-on-border",
+  "component.checkbox.container.on.shadow":
+    "--kz-component-checkbox-container-on-shadow",
 
   "component.radio.size.sm": "--kz-component-radio-size-sm",
   "component.radio.size.md": "--kz-component-radio-size-md",
@@ -232,10 +262,14 @@ export const tokenToCssVar: Record<TokenKey, `--kz-${string}`> = {
   "component.tabs.list.shadow": "--kz-component-tabs-list-shadow",
   "component.tabs.list.pill.bg": "--kz-component-tabs-list-pill-bg",
   "component.tabs.trigger.text": "--kz-component-tabs-trigger-text",
-  "component.tabs.trigger.selected.text": "--kz-component-tabs-trigger-selected-text",
-  "component.tabs.trigger.selected.underline": "--kz-component-tabs-trigger-selected-underline",
-  "component.tabs.trigger.selected.bg": "--kz-component-tabs-trigger-selected-bg",
-  "component.tabs.trigger.selected.shadow": "--kz-component-tabs-trigger-selected-shadow",
+  "component.tabs.trigger.selected.text":
+    "--kz-component-tabs-trigger-selected-text",
+  "component.tabs.trigger.selected.underline":
+    "--kz-component-tabs-trigger-selected-underline",
+  "component.tabs.trigger.selected.bg":
+    "--kz-component-tabs-trigger-selected-bg",
+  "component.tabs.trigger.selected.shadow":
+    "--kz-component-tabs-trigger-selected-shadow",
   "component.tabs.trigger.radius": "--kz-component-tabs-trigger-radius",
   "component.tabs.content.padding": "--kz-component-tabs-content-padding",
 
@@ -370,9 +404,12 @@ export const tokenToCssVar: Record<TokenKey, `--kz-${string}`> = {
   "component.table.sticky.row.top": "--kz-component-table-sticky-row-top",
   "component.table.footer.bg": "--kz-component-table-footer-bg",
   "component.table.pagination.bg": "--kz-component-table-pagination-bg",
-  "component.table.pagination.active.bg": "--kz-component-table-pagination-active-bg",
-  "component.table.pagination.active.shadow": "--kz-component-table-pagination-active-shadow",
-  "component.table.pagination.hover.shadow": "--kz-component-table-pagination-hover-shadow",
+  "component.table.pagination.active.bg":
+    "--kz-component-table-pagination-active-bg",
+  "component.table.pagination.active.shadow":
+    "--kz-component-table-pagination-active-shadow",
+  "component.table.pagination.hover.shadow":
+    "--kz-component-table-pagination-hover-shadow",
 
   "component.filter.panel.bg": "--kz-component-filter-panel-bg",
   "component.filter.panel.border": "--kz-component-filter-panel-border",

@@ -132,7 +132,7 @@ export const DropdownWithSelectedOption: Story = {
     docs: {
       description: {
         story:
-          "When dropdown is closed and an option is selected, pass selectedOptionLabel (e.g. \"Trends\") so the trigger icon and text use #18AB9F.",
+          'When dropdown is closed and an option is selected, pass selectedOptionLabel (e.g. "Trends") so the trigger icon and text use #18AB9F.',
       },
     },
   },
@@ -171,7 +171,9 @@ export const Hover: Story = {
       />
       <NavButton
         type="dropdown"
-        icon={<Icon name={IconName.CheckCircle} size="sm" color="currentColor" />}
+        icon={
+          <Icon name={IconName.CheckCircle} size="sm" color="currentColor" />
+        }
         label="Settings"
         menuOptions={[{ label: "Option", onClick: () => {} }]}
       />
@@ -193,7 +195,9 @@ export const InSidesheet: Story = {
       <Sidesheet>
         <NavButton
           type="dropdown"
-          icon={<Icon name={IconName.BarChart2} size="sm" color="currentColor" />}
+          icon={
+            <Icon name={IconName.BarChart2} size="sm" color="currentColor" />
+          }
           label="Analytics"
           selectedOptionLabel="Trends"
           menuOptions={[
@@ -217,7 +221,9 @@ export const InSidesheet: Story = {
         />
         <NavButton
           type="link"
-          icon={<Icon name={IconName.CheckCircle} size="sm" color="currentColor" />}
+          icon={
+            <Icon name={IconName.CheckCircle} size="sm" color="currentColor" />
+          }
           label="Settings"
           selected={false}
           onClick={() => {}}

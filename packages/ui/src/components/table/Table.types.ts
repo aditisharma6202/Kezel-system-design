@@ -31,6 +31,8 @@ export interface TableProps<TData> {
   data: TData[];
   columns: TableColumn<TData>[];
   size?: TableSize;
+  /** When true, the table can scroll horizontally when columns overflow (e.g. many columns or custom widths). */
+  horizontalScroll?: boolean;
   stickyHeader?: boolean;
   getRowSticky?: (row: TData, index: number) => boolean;
   caption?: string;

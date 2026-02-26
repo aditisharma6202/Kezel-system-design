@@ -36,11 +36,10 @@ const MinusIcon = () => (
   </svg>
 );
 
-export interface CheckboxProps
-  extends Omit<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    "size" | "type" | "onChange"
-  > {
+export interface CheckboxProps extends Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  "size" | "type" | "onChange"
+> {
   size?: CheckboxSize;
   variant?: CheckboxVariant;
   checked?: boolean;
@@ -52,7 +51,7 @@ export interface CheckboxProps
 }
 
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-    (
+  (
     {
       className,
       size = CheckboxSize.Md,
@@ -72,9 +71,11 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       React.useState(defaultChecked);
     const inputRef = React.useRef<HTMLInputElement>(null);
     const mergedRef = (el: HTMLInputElement | null) => {
-      (inputRef as React.MutableRefObject<HTMLInputElement | null>).current = el;
+      (inputRef as React.MutableRefObject<HTMLInputElement | null>).current =
+        el;
       if (typeof ref === "function") ref(el);
-      else if (ref) (ref as React.MutableRefObject<HTMLInputElement | null>).current = el;
+      else if (ref)
+        (ref as React.MutableRefObject<HTMLInputElement | null>).current = el;
     };
 
     const isControlled = controlledChecked !== undefined;
@@ -91,13 +92,13 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       onChange?.(e);
     };
 
-    const state =
-      indeterminate ? "indeterminate" : checked ? "checked" : "unchecked";
+    const state = indeterminate
+      ? "indeterminate"
+      : checked
+        ? "checked"
+        : "unchecked";
 
-    const rootClassName = cn(
-      checkboxVariants({ size, variant }),
-      className
-    );
+    const rootClassName = cn(checkboxVariants({ size, variant }), className);
 
     const boxSizeClass = {
       [CheckboxSize.Sm]: "kz-checkbox-box--sm",

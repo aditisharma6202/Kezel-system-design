@@ -54,7 +54,9 @@ export const Default: Story = {
       <>
         <NavButton
           type="dropdown"
-          icon={<Icon name={IconName.BarChart2} size="sm" color="currentColor" />}
+          icon={
+            <Icon name={IconName.BarChart2} size="sm" color="currentColor" />
+          }
           label="Analytics"
           menuOptions={[
             { label: "Trends", onClick: () => {} },
@@ -108,7 +110,9 @@ export const WithNavButtons: Story = {
       />
       <NavButton
         type="link"
-        icon={<Icon name={IconName.CheckCircle} size="sm" color="currentColor" />}
+        icon={
+          <Icon name={IconName.CheckCircle} size="sm" color="currentColor" />
+        }
         label="Settings"
         onClick={() => {}}
       />

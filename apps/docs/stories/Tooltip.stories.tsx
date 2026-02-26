@@ -59,7 +59,10 @@ const meta: Meta<typeof Tooltip> = {
       options: Object.values(TooltipColor),
       description: "Color variant: default, inverse, success, warning, error.",
     },
-    icon: { control: false, description: "Optional icon ReactNode before content." },
+    icon: {
+      control: false,
+      description: "Optional icon ReactNode before content.",
+    },
     delayDuration: {
       control: "number",
       description: "Delay in ms before showing.",
@@ -80,7 +83,11 @@ export const Default: Story = {
   args: {
     content: "Hover to see tooltip",
     children: (
-      <Button variant={ButtonVariant.Outline} size={ButtonSize.Md} onClick={() => {}}>
+      <Button
+        variant={ButtonVariant.Outline}
+        size={ButtonSize.Md}
+        onClick={() => {}}
+      >
         Hover me
       </Button>
     ),
@@ -89,7 +96,14 @@ export const Default: Story = {
 
 export const Sizes: Story = {
   render: (args) => (
-    <div style={{ display: "flex", gap: 16, alignItems: "center", flexWrap: "wrap" }}>
+    <div
+      style={{
+        display: "flex",
+        gap: 16,
+        alignItems: "center",
+        flexWrap: "wrap",
+      }}
+    >
       <Tooltip {...args} content="Small tooltip" size={TooltipSize.Sm}>
         <button type="button" style={{ padding: "8px 12px" }}>
           Sm
@@ -100,7 +114,11 @@ export const Sizes: Story = {
           Md
         </button>
       </Tooltip>
-      <Tooltip {...args} content="Large tooltip with more text" size={TooltipSize.Lg}>
+      <Tooltip
+        {...args}
+        content="Large tooltip with more text"
+        size={TooltipSize.Lg}
+      >
         <button type="button" style={{ padding: "8px 12px" }}>
           Lg
         </button>
@@ -139,7 +157,9 @@ export const Positions: Story = {
         </Tooltip>
       </div>
       <div style={{ gridColumn: 2, display: "flex", justifyContent: "center" }}>
-        <span style={{ color: "var(--kz-color-text-muted)", fontSize: 12 }}>Trigger</span>
+        <span style={{ color: "var(--kz-color-text-muted)", fontSize: 12 }}>
+          Trigger
+        </span>
       </div>
       <div style={{ display: "flex", justifyContent: "flex-start" }}>
         <Tooltip {...args} content="Right" position={TooltipPosition.Right}>
@@ -155,7 +175,9 @@ export const Positions: Story = {
   ),
   parameters: {
     docs: {
-      description: { story: "Tooltip position (side): top, right, bottom, left." },
+      description: {
+        story: "Tooltip position (side): top, right, bottom, left.",
+      },
     },
   },
 };
@@ -204,7 +226,11 @@ export const WithIcon: Story = {
     content: "Save your changes",
     icon: <Icon name={IconName.CircleAlert} size="sm" color="currentColor" />,
     children: (
-      <Button variant={ButtonVariant.Ghost} size={ButtonSize.Md} onClick={() => {}}>
+      <Button
+        variant={ButtonVariant.Ghost}
+        size={ButtonSize.Md}
+        onClick={() => {}}
+      >
         With icon
       </Button>
     ),

@@ -6,11 +6,7 @@ import { Button, ButtonVariant, ButtonSize } from "../button";
 import { DropdownButton } from "../dropdown";
 import type { DropdownButtonItem } from "../dropdown";
 import { Icon, IconName } from "../../icon";
-import type {
-  TableProps,
-  TableColumn,
-  SortDirection,
-} from "./Table.types";
+import type { TableProps, TableColumn, SortDirection } from "./Table.types";
 
 function nextSortDirection(current: SortDirection): SortDirection {
   if (current === null) return "asc";
@@ -32,6 +28,7 @@ function TableInner<TData>(
     data,
     columns,
     size = "md",
+    horizontalScroll = false,
     stickyHeader = false,
     getRowSticky,
     caption,
@@ -143,7 +140,12 @@ function TableInner<TData>(
       if (end < totalPages - 1) pages.push("ellipsis");
       pages.push(totalPages);
     }
-    return { pages, totalPages, startItem: (page - 1) * pageSize + 1, endItem: Math.min(page * pageSize, total) };
+    return {
+      pages,
+      totalPages,
+      startItem: (page - 1) * pageSize + 1,
+      endItem: Math.min(page * pageSize, total),
+    };
   }, [pagination]);
 
   const defaultHeader = (
@@ -232,7 +234,8 @@ function TableInner<TData>(
           id={tableId}
           aria-describedby={caption ? captionId : undefined}
           className={cn(
-            "w-full border-collapse bg-[var(--kz-component-table-surface)]",
+            "border-collapse bg-[var(--kz-component-table-surface)]",
+            horizontalScroll ? "min-w-full w-max" : "w-full",
             tableClassName
           )}
         >
@@ -249,7 +252,8 @@ function TableInner<TData>(
                   className={cn(
                     "kz-table-th w-[var(--kz-space-10)] border-b border-[var(--kz-component-table-row-border)] bg-[var(--kz-component-table-header-bg)]",
                     sizeClass,
-                    stickyHeader && "sticky top-0 z-10 bg-[var(--kz-component-table-header-bg)]"
+                    stickyHeader &&
+                      "sticky top-0 z-10 bg-[var(--kz-component-table-header-bg)]"
                   )}
                   style={{ width: "var(--kz-space-10)" }}
                 >
@@ -286,7 +290,8 @@ function TableInner<TData>(
                       "kz-table-th border-b border-[var(--kz-component-table-row-border)] bg-[var(--kz-component-table-header-bg)]",
                       sizeClass,
                       alignClasses[align],
-                      stickyHeader && "sticky top-0 z-10 bg-[var(--kz-component-table-header-bg)]"
+                      stickyHeader &&
+                        "sticky top-0 z-10 bg-[var(--kz-component-table-header-bg)]"
                     )}
                     style={style}
                   >
@@ -297,15 +302,30 @@ function TableInner<TData>(
                         className="inline-flex items-center gap-1 w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--kz-color-border-focus)] rounded-[var(--kz-radius-sm)]"
                       >
                         {col.header}
-                        <span className="inline-flex text-[var(--kz-color-text-muted)]" aria-hidden>
+                        <span
+                          className="inline-flex text-[var(--kz-color-text-muted)]"
+                          aria-hidden
+                        >
                           {isActive && sort?.direction === "asc" && (
-                            <Icon name={IconName.ArrowUp} size="sm" color="currentColor" />
+                            <Icon
+                              name={IconName.ArrowUp}
+                              size="sm"
+                              color="currentColor"
+                            />
                           )}
                           {isActive && sort?.direction === "desc" && (
-                            <Icon name={IconName.ArrowDown} size="sm" color="currentColor" />
+                            <Icon
+                              name={IconName.ArrowDown}
+                              size="sm"
+                              color="currentColor"
+                            />
                           )}
                           {!isActive && (
-                            <Icon name={IconName.ArrowUpDown} size="sm" color="currentColor" />
+                            <Icon
+                              name={IconName.ArrowUpDown}
+                              size="sm"
+                              color="currentColor"
+                            />
                           )}
                         </span>
                       </button>
@@ -321,7 +341,8 @@ function TableInner<TData>(
                   className={cn(
                     "kz-table-th text-right w-[var(--kz-space-24)] border-b border-[var(--kz-component-table-row-border)] bg-[var(--kz-component-table-header-bg)]",
                     sizeClass,
-                    stickyHeader && "sticky top-0 z-10 bg-[var(--kz-component-table-header-bg)]"
+                    stickyHeader &&
+                      "sticky top-0 z-10 bg-[var(--kz-component-table-header-bg)]"
                   )}
                 >
                   {actionsHeader ?? ""}
@@ -334,9 +355,14 @@ function TableInner<TData>(
               <tr>
                 <td
                   colSpan={
-                    columns.length + (selectableRows ? 1 : 0) + (actions ? 1 : 0)
+                    columns.length +
+                    (selectableRows ? 1 : 0) +
+                    (actions ? 1 : 0)
                   }
-                  className={cn("kz-table-td text-center text-[var(--kz-color-text-muted)]", sizeClass)}
+                  className={cn(
+                    "kz-table-td text-center text-[var(--kz-color-text-muted)]",
+                    sizeClass
+                  )}
                 >
                   Loading…
                 </td>
@@ -345,9 +371,14 @@ function TableInner<TData>(
               <tr>
                 <td
                   colSpan={
-                    columns.length + (selectableRows ? 1 : 0) + (actions ? 1 : 0)
+                    columns.length +
+                    (selectableRows ? 1 : 0) +
+                    (actions ? 1 : 0)
                   }
-                  className={cn("kz-table-td text-center text-[var(--kz-color-text-muted)]", sizeClass)}
+                  className={cn(
+                    "kz-table-td text-center text-[var(--kz-color-text-muted)]",
+                    sizeClass
+                  )}
                 >
                   {emptyState ?? "No data"}
                 </td>
@@ -366,9 +397,7 @@ function TableInner<TData>(
                     )}
                   >
                     {selectableRows && (
-                      <td
-                        className={cn("kz-table-td", sizeClass)}
-                      >
+                      <td className={cn("kz-table-td", sizeClass)}>
                         <Checkbox
                           size={CheckboxSize.Sm}
                           variant={CheckboxVariant.Default}
@@ -401,9 +430,7 @@ function TableInner<TData>(
                       );
                     })}
                     {actions && (
-                      <td
-                        className={cn("kz-table-td text-right", sizeClass)}
-                      >
+                      <td className={cn("kz-table-td text-right", sizeClass)}>
                         {actions(row)}
                       </td>
                     )}
@@ -428,7 +455,12 @@ function TableInner<TData>(
               className="kz-table-pagination-prev-next"
               aria-label="Previous page"
             >
-              <Icon name={IconName.ChevronLeft} size="sm" color="currentColor" aria-hidden />
+              <Icon
+                name={IconName.ChevronLeft}
+                size="sm"
+                color="currentColor"
+                aria-hidden
+              />
             </Button>
             {pageRange.pages.map((p, i) =>
               p === "ellipsis" ? (
@@ -458,7 +490,12 @@ function TableInner<TData>(
               className="kz-table-pagination-prev-next"
               aria-label="Next page"
             >
-              <Icon name={IconName.ChevronRight} size="sm" color="currentColor" aria-hidden />
+              <Icon
+                name={IconName.ChevronRight}
+                size="sm"
+                color="currentColor"
+                aria-hidden
+              />
             </Button>
           </div>
           {onPageSizeChange && (
@@ -487,4 +524,9 @@ const Table = React.forwardRef(TableInner) as <TData>(
 ) => React.ReactElement;
 
 export { Table };
-export type { TableProps, TableColumn, TableSortState, TablePaginationState } from "./Table.types";
+export type {
+  TableProps,
+  TableColumn,
+  TableSortState,
+  TablePaginationState,
+} from "./Table.types";

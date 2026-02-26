@@ -4,9 +4,10 @@
   --kz-color-brand-primary: #00a99d;
   --kz-color-brand-primary-hover: #008b81;
   --kz-color-brand-primary-active: #006c64;
-  --kz-color-brand-accent: #26b8ae;
+  --kz-color-brand-accent: #18AB9F;
   --kz-color-brand-accent-hover: #1fa399;
   --kz-color-brand-accent-active: #198a81;
+  --kz-color-brand-accent-dark: #00bba7;
 
   --kz-color-surface-background: #0a0a0a;
   --kz-color-surface-base: #111827;
@@ -60,9 +61,14 @@
 
   --kz-shadow-focus: 0 0 0 3px rgba(0, 169, 157, 0.35);
 
+  --kz-shadow-neumorphic-raised-sm: none;
+  --kz-shadow-neumorphic-raised-md: none;
+  --kz-shadow-neumorphic-raised-lg: none;
+  --kz-shadow-neumorphic-inset-sm: none;
+
   --kz-component-input-bg: #1f2933;
   --kz-component-input-border: #374151;
-  --kz-component-input-border-focus: #00a99d;
+  --kz-component-input-border-focus: var(--kz-color-brand-primary);
   --kz-component-input-border-disabled: #4b5563;
   --kz-component-input-text: #f9fafb;
   --kz-component-input-placeholder: #9ca3af;
@@ -87,7 +93,7 @@
   --kz-component-dropdown-trigger-border: #364153;
   --kz-component-dropdown-trigger-border-open: #364153;
   --kz-component-dropdown-trigger-text: #99a1af;
-  --kz-component-dropdown-trigger-text-selected: #18AB9F;
+  --kz-component-dropdown-trigger-text-selected: var(--kz-color-brand-accent);
   --kz-component-dropdown-trigger-shadow: none;
   --kz-component-dropdown-trigger-shadow-open: none;
   --kz-component-dropdown-trigger-radius: 8px;
@@ -97,7 +103,7 @@
   --kz-component-dropdown-content-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   --kz-component-dropdown-content-radius: 8px;
   --kz-component-dropdown-item-text: #99a1af;
-  --kz-component-dropdown-item-text-selected: #18AB9F;
+  --kz-component-dropdown-item-text-selected: var(--kz-color-brand-accent);
   --kz-component-dropdown-item-bg-hover: rgba(0, 150, 137, 0.2);
 
   /* Component: Nav button (standard dark) */
@@ -108,13 +114,13 @@
   --kz-component-nav-button-hover-bg: rgba(255, 255, 255, 0.05);
   --kz-component-nav-button-selected-bg: rgba(0, 150, 137, 0.15);
   --kz-component-nav-button-selected-shadow: none;
-  --kz-component-nav-button-selected-icon: #18AB9F;
-  --kz-component-nav-button-selected-text: #18AB9F;
+  --kz-component-nav-button-selected-icon: var(--kz-color-brand-accent);
+  --kz-component-nav-button-selected-text: var(--kz-color-brand-accent);
   --kz-component-nav-button-radius: 5px;
 
   /* Component: Toggle button (standard dark) */
   --kz-component-toggle-button-track-off-bg: #4a5565;
-  --kz-component-toggle-button-track-on-bg: #00bba7;
+  --kz-component-toggle-button-track-on-bg: var(--kz-color-brand-accent-dark);
   --kz-component-toggle-button-thumb-bg: #fff;
   --kz-component-toggle-button-thumb-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
     0 1px 2px -1px rgba(0, 0, 0, 0.1);
@@ -142,8 +148,8 @@
   --kz-component-checkbox-off-bg: #101828;
   --kz-component-checkbox-off-border: 2px solid #4a5565;
   --kz-component-checkbox-off-shadow: none;
-  --kz-component-checkbox-on-bg: #00bba7;
-  --kz-component-checkbox-on-border: 2px solid #00bba7;
+  --kz-component-checkbox-on-bg: var(--kz-color-brand-accent-dark);
+  --kz-component-checkbox-on-border: 2px solid var(--kz-color-brand-accent-dark);
   --kz-component-checkbox-on-shadow: none;
   --kz-component-checkbox-icon-color: #fff;
   --kz-component-checkbox-disabled-opacity: 0.5;
@@ -163,9 +169,9 @@
   --kz-component-radio-off-border: 2px solid #4a5565;
   --kz-component-radio-off-shadow: none;
   --kz-component-radio-on-bg: #022f2e;
-  --kz-component-radio-on-border: 2px solid #00bba7;
+  --kz-component-radio-on-border: 2px solid var(--kz-color-brand-accent-dark);
   --kz-component-radio-on-shadow: none;
-  --kz-component-radio-dot-bg: #00bba7;
+  --kz-component-radio-dot-bg: var(--kz-color-brand-accent-dark);
   --kz-component-radio-dot-shadow: none;
   --kz-component-radio-disabled-opacity: 0.5;
 
@@ -175,8 +181,8 @@
   --kz-component-tabs-list-shadow: none;
   --kz-component-tabs-list-pill-bg: rgba(0, 0, 0, 0.2);
   --kz-component-tabs-trigger-text: var(--kz-color-text-secondary);
-  --kz-component-tabs-trigger-selected-text: #00bba7;
-  --kz-component-tabs-trigger-selected-underline: #00bba7;
+  --kz-component-tabs-trigger-selected-text: var(--kz-color-brand-accent-dark);
+  --kz-component-tabs-trigger-selected-underline: var(--kz-color-brand-accent-dark);
   --kz-component-tabs-trigger-selected-bg: var(--kz-color-surface-base);
   --kz-component-tabs-trigger-selected-shadow: none;
   --kz-component-tabs-trigger-radius: 8px;
@@ -214,7 +220,7 @@
   --kz-component-sidemenu-item-text: var(--kz-color-text-primary);
   --kz-component-sidemenu-item-bg-hover: rgba(255, 255, 255, 0.05);
   --kz-component-sidemenu-item-bg-active: rgba(0, 150, 137, 0.15);
-  --kz-component-sidemenu-item-active-text: #18AB9F;
+  --kz-component-sidemenu-item-active-text: var(--kz-color-brand-accent);
   --kz-component-sidemenu-item-active-link-bg: rgba(0, 150, 137, 0.15);
   --kz-component-sidemenu-item-active-link-shadow: none;
   --kz-component-sidemenu-group-indent-bg: rgba(255, 255, 255, 0.03);

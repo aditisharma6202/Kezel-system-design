@@ -234,7 +234,14 @@ export const NeumorphicShadowOverride: StoryObj = {
           Neumorphic variant with overridden shadow tokens (raised.sm, inset.sm,
           raised.lg). Buttons, checkbox, input, and tabs use these shadows.
         </p>
-        <div style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            gap: 16,
+            flexWrap: "wrap",
+            alignItems: "center",
+          }}
+        >
           <Button
             variant={ButtonVariant.Primary}
             size={ButtonSize.Md}
