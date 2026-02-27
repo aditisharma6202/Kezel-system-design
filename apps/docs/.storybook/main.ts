@@ -40,13 +40,31 @@ const config: StorybookConfig = {
     ];
     config.resolve.alias = {
       ...config.resolve.alias,
-      "kz-design-system/button": path.join(designSystemRoot, "src/components/button/index.ts"),
-      "kz-design-system/dropdown": path.join(designSystemRoot, "src/components/dropdown/index.ts"),
-      "kz-design-system/dialog": path.join(designSystemRoot, "src/components/dialog/index.ts"),
+      "kz-design-system/button": path.join(
+        designSystemRoot,
+        "src/components/button/index.ts"
+      ),
+      "kz-design-system/dropdown": path.join(
+        designSystemRoot,
+        "src/components/dropdown/index.ts"
+      ),
+      "kz-design-system/dialog": path.join(
+        designSystemRoot,
+        "src/components/dialog/index.ts"
+      ),
       "kz-design-system/icon": path.join(designSystemRoot, "src/icon/index.ts"),
-      "kz-design-system/theme": path.join(designSystemRoot, "src/theme/index.ts"),
-      "kz-design-system/sidemenu": path.join(designSystemRoot, "src/components/sidemenu/index.ts"),
-      "kz-design-system/styles.css": path.join(designSystemRoot, "src/styles.css"),
+      "kz-design-system/theme": path.join(
+        designSystemRoot,
+        "src/theme/index.ts"
+      ),
+      "kz-design-system/sidemenu": path.join(
+        designSystemRoot,
+        "src/components/sidemenu/index.ts"
+      ),
+      "kz-design-system/styles.css": path.join(
+        designSystemRoot,
+        "src/styles.css"
+      ),
       "kz-design-system": path.join(designSystemRoot, "src/index.ts"),
     };
     return config;
