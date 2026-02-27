@@ -7,7 +7,8 @@ import {
   ButtonAspectRatio,
 } from "../../constants/enum";
 import { buttonVariants, type ButtonVariants } from "./button.variants";
-import { Icon, IconName } from "../../icon/Icon";
+import { Loader2 } from "lucide-react";
+import { iconSize } from "../../icon/icon-sizes";
 import { cn } from "../../utils/cn";
 
 export interface ButtonProps extends Omit<
@@ -78,10 +79,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {loading && (
-          <Icon
-            name={IconName.Loader2}
+          <Loader2
             className="kz-button-spinner"
-            size="md"
+            size={iconSize.md}
             color="currentColor"
           />
         )}
