@@ -169,6 +169,81 @@ export const Sizes: Story = {
   ),
 };
 
+const chartAndKanbanIcons: IconName[] = [
+  IconName.ChartArea,
+  IconName.ChartBar,
+  IconName.ChartBarBig,
+  IconName.ChartBarDecreasing,
+  IconName.ChartBarIncreasing,
+  IconName.ChartBarStacked,
+  IconName.ChartCandlestick,
+  IconName.ChartColumn,
+  IconName.ChartColumnBig,
+  IconName.ChartColumnDecreasing,
+  IconName.ChartColumnIncreasing,
+  IconName.ChartColumnStacked,
+  IconName.ChartGantt,
+  IconName.ChartLine,
+  IconName.ChartNetwork,
+  IconName.ChartNoAxesColumn,
+  IconName.ChartNoAxesColumnDecreasing,
+  IconName.ChartNoAxesColumnIncreasing,
+  IconName.ChartNoAxesCombined,
+  IconName.ChartNoAxesGantt,
+  IconName.ChartPie,
+  IconName.ChartScatter,
+  IconName.ChartSpline,
+  IconName.FolderKanban,
+  IconName.Kanban,
+  IconName.SquareChartGantt,
+  IconName.SquareDashedKanban,
+  IconName.SquareKanban,
+  IconName.TrendingDown,
+  IconName.TrendingUp,
+  IconName.TrendingUpDown,
+];
+
+export const ChartsAndKanban: Story = {
+  render: () => (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))",
+        gap: 16,
+        alignItems: "center",
+      }}
+    >
+      {chartAndKanbanIcons.map((name) => (
+        <div
+          key={name}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 8,
+            padding: 12,
+            background: "var(--kz-color-surface-raised)",
+            borderRadius: 8,
+          }}
+        >
+          <Icon name={name} size="md" color="currentColor" aria-hidden />
+          <span style={{ fontSize: 11, color: "var(--kz-color-text-muted)" }}>
+            {name}
+          </span>
+        </div>
+      ))}
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Chart, kanban, and trending icons added to the registry. Covers area, bar, column, candlestick, gantt, line, network, pie, scatter, spline, no-axes variants, folder-kanban, kanban, square variants, and trending directions.",
+      },
+    },
+  },
+};
+
 export const WithColor: Story = {
   render: () => (
     <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
