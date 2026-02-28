@@ -10,10 +10,13 @@ const Dropdown = DropdownMenuPrimitive.Root;
 export interface DropdownTriggerProps extends React.ComponentPropsWithoutRef<
   typeof DropdownMenuPrimitive.Trigger
 > {
-  /** Visual style: default (filled/bordered) or ghost (minimal, like ghost button). */
   variant?: DropdownTriggerVariant;
-  /** When true (default), shows a chevron icon after children. Set false to hide it. */
+
   showChevron?: boolean;
+
+  startIcon?: React.ReactNode;
+
+  endIcon?: React.ReactNode;
 }
 
 const DropdownTrigger = React.forwardRef<
@@ -27,6 +30,8 @@ const DropdownTrigger = React.forwardRef<
       className,
       variant = DropdownTriggerVariant.Default,
       showChevron = true,
+      startIcon,
+      endIcon,
       children,
       ...props
     },
@@ -34,17 +39,25 @@ const DropdownTrigger = React.forwardRef<
   ) => {
     const isGhost = variant === DropdownTriggerVariant.Ghost;
     const triggerContent =
-      asChild || !showChevron ? (
+      asChild ? (
         children
       ) : (
         <>
+          {startIcon ? (
+            <span className="kz-dropdown-trigger-icon-start">{startIcon}</span>
+          ) : null}
           {children}
-          <Icon
-            name={IconName.ChevronDown}
-            className="kz-dropdown-trigger-chevron"
-            size="sm"
-            aria-hidden
-          />
+          {endIcon ? (
+            <span className="kz-dropdown-trigger-icon-end">{endIcon}</span>
+          ) : null}
+          {showChevron ? (
+            <Icon
+              name={IconName.ChevronDown}
+              className="kz-dropdown-trigger-chevron"
+              size="sm"
+              aria-hidden
+            />
+          ) : null}
         </>
       );
 

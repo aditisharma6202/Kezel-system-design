@@ -3,14 +3,13 @@
 .kz-sidemenu {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  height: 100%;
   padding: 12px 8px;
   background: var(--kz-component-sidemenu-bg);
   border-right: 1px solid var(--kz-component-sidemenu-border);
   box-shadow: var(--kz-component-sidemenu-shadow, none);
   gap: var(--kz-component-sidemenu-gap, 4px);
-  overflow-x: hidden;
-  transition: width 0.25s ease;
+  overflow: hidden;
 }
 
 .kz-sidemenu--collapsed {
@@ -75,6 +74,31 @@
   background: var(--kz-component-sidemenu-item-bg-hover);
 }
 
+/* Outer collapse button — sibling of <aside>, not clipped by overflow:hidden */
+.kz-sidemenu-collapse-btn-wrap--outer {
+  position: absolute;
+  right: 0;
+  top: 22px;
+  transform: translateX(50%);
+  z-index: 10;
+}
+
+.kz-sidemenu-collapse-btn-wrap--outer .kz-sidemenu-collapse-btn {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  background: var(--kz-component-sidemenu-bg);
+  border: 1px solid var(--kz-component-sidemenu-border);
+}
+
+.kz-sidemenu-collapse-btn-wrap--outer .kz-sidemenu-collapse-btn:hover {
+  background: var(--kz-component-sidemenu-item-bg-hover);
+}
+
 .kz-sidemenu-header {
   flex-shrink: 0;
   margin-bottom: 8px;
@@ -86,6 +110,8 @@
   flex-direction: column;
   gap: var(--kz-component-sidemenu-gap, 4px);
   min-width: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .kz-sidemenu-footer {
@@ -233,18 +259,15 @@
   transform: rotate(180deg);
 }
 
-/* Submenu (group trigger) icon when not selected */
-.kz-sidemenu-group-trigger:not(.kz-sidemenu-item--active) .kz-sidemenu-item-icon {
-  color: #2C344059;
-}
-
-/* When a group/dropdown has a selected option: only text + icon color, no bg (bg is for hover only) */
+/* When a group/dropdown has a selected option: same bg + inset shadow as link buttons */
 .kz-sidemenu-group-trigger.kz-sidemenu-item--active {
-  background: transparent;
+  background: var(--kz-component-sidemenu-item-active-link-bg, var(--kz-component-sidemenu-item-bg-active));
+  box-shadow: var(--kz-component-sidemenu-item-active-link-shadow, none);
 }
 
 .kz-sidemenu-flyout-trigger .kz-sidemenu-item--active {
-  background: transparent;
+  background: var(--kz-component-sidemenu-item-active-link-bg, var(--kz-component-sidemenu-item-bg-active));
+  box-shadow: var(--kz-component-sidemenu-item-active-link-shadow, none);
 }
 
 .kz-sidemenu-group-trigger.kz-sidemenu-item--active .kz-sidemenu-item-icon,
@@ -256,6 +279,11 @@
 /* Collapsed: when a group has a selected option, icon uses active color (no bg) */
 .kz-sidemenu-flyout-trigger .kz-sidemenu-item--active .kz-sidemenu-item-icon {
   color: var(--kz-component-sidemenu-item-active-text, #18AB9F);
+}
+
+/* Selected option inside a group/dropdown: inset shadow to match link buttons */
+.kz-sidemenu-group-content .kz-sidemenu-item--active {
+  box-shadow: var(--kz-component-sidemenu-item-active-link-shadow, none);
 }
 
 .kz-sidemenu-group-content {

@@ -43,7 +43,7 @@ function renderItems(items: DropdownButtonItem[]): React.ReactNode {
     if (item.type === "submenu") {
       return (
         <DropdownSub key={item.key}>
-          <DropdownSubTrigger disabled={item.disabled} startIcon={item.icon}>
+          <DropdownSubTrigger disabled={item.disabled} startIcon={item.icon} endIcon={item.endIcon}>
             {item.label}
           </DropdownSubTrigger>
           <DropdownSubContent>{renderItems(item.items)}</DropdownSubContent>
@@ -59,6 +59,7 @@ function renderItems(items: DropdownButtonItem[]): React.ReactNode {
           it.onSelect?.();
         }}
         startIcon={it.icon}
+        endIcon={it.endIcon}
         shortcut={it.shortcut}
       >
         {it.label}

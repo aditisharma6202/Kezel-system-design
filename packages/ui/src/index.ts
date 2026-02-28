@@ -58,14 +58,6 @@ export {
   TextInputState,
 } from "./components/text-input";
 export type { TextInputProps } from "./components/text-input";
-export { NavButton } from "./components/nav-button";
-export type {
-  NavButtonProps,
-  NavButtonLinkProps,
-  NavButtonDropdownProps,
-  NavButtonOption,
-  NavButtonType,
-} from "./components/nav-button";
 export { Sidesheet } from "./components/sidesheet";
 export type { SidesheetProps } from "./components/sidesheet";
 export { SideMenu } from "./components/sidemenu";
@@ -148,6 +140,13 @@ export {
   OverrideMode,
 } from "./providers/KezelThemeProvider";
 export type { KezelThemeProviderProps } from "./providers/KezelThemeProvider";
+export {
+  Avatar,
+  avatarVariants,
+  AvatarSize,
+  AvatarStatus,
+} from "./components/avatar";
+export type { AvatarProps, AvatarVariants } from "./components/avatar";
 export { TOKEN_KEYS } from "./tokens/contract/token-keys";
 export { tokenToCssVar } from "./tokens/contract/css-var-maps";
 export type { TokenKey } from "./tokens/contract/token-keys";

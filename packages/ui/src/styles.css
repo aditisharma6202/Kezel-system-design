@@ -15,6 +15,7 @@
 @import "./styles/radio-button.css";
 @import "./styles/tabs.css";
 @import "./styles/table.css";
+@import "./styles/avatar.css";
 
 @tailwind base;
 @tailwind components;

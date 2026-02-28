@@ -24,7 +24,6 @@ import {
   KezelThemeProvider,
   KezelVariant,
   KezelMode,
-  NavButton,
   SideMenu,
   Tabs,
   TabsList,
@@ -38,9 +37,16 @@ import {
 } from "kz-design-system";
 import {
   DropdownButton,
+  Dropdown,
+  DropdownTrigger,
+  DropdownContent,
+  DropdownItem,
+  DropdownSeparator,
+  DropdownLabel,
   DropdownTriggerVariant,
   type DropdownButtonItem,
 } from "kz-design-system/dropdown";
+import { Avatar, AvatarSize, AvatarStatus } from "kz-design-system";
 
 type TableRow = { id: string; name: string; role: string; status: string };
 const TABLE_DATA: TableRow[] = [
@@ -85,9 +91,6 @@ export default function App() {
       ],
     },
   ];
-  const [navSelected, setNavSelected] = React.useState<
-    "analytics" | "security" | null
-  >("analytics");
   const [sidemenuSelectedId, setSidemenuSelectedId] = React.useState<
     string | undefined
   >(undefined);
@@ -1056,73 +1059,72 @@ export default function App() {
           )}
         </section>
 
-        {/* NavButton — direct link, selected link, dropdown with submenu (use SideMenu for full sidebar) */}
-        <section className="flex flex-col items-center gap-4 w-full">
-          <Typography variant={TypographyVariantEnum.H2}>NavButton</Typography>
+        {/* Avatar */}
+        <section className="flex flex-col items-center gap-4 w-full max-w-md">
+          <Typography variant={TypographyVariantEnum.H2}>Avatar</Typography>
           <Typography variant={TypographyVariantEnum.Caption}>
-            Nav buttons: direct link, selected link, dropdown with submenu. For
-            full sidebar navigation use SideMenu. All tokenized.
+            Circle avatar with online status indicator. Sizes: sm, md, lg, xl.
+            Fallback: initials or default icon.
           </Typography>
-          <div
-            className="flex w-full max-w-md rounded-xl overflow-hidden border border-[var(--kz-color-border-subtle)]"
-            style={{
-              minHeight: 320,
-              background: "var(--kz-color-surface-background)",
-            }}
-          >
-            <aside className="kz-sidesheet" style={{ minWidth: 240 }}>
-              <NavButton
-                type="dropdown"
-                icon={
-                  <Icon
-                    name={IconName.BarChart2}
-                    size="sm"
-                    color="currentColor"
+          <div className="flex flex-wrap gap-4 justify-center items-end">
+            <Avatar
+              src="https://i.pravatar.cc/128?u=alice"
+              alt="Alice"
+              size={AvatarSize.Sm}
+              status={AvatarStatus.Online}
+            />
+            <Avatar
+              src="https://i.pravatar.cc/128?u=bob"
+              alt="Bob"
+              size={AvatarSize.Md}
+              status={AvatarStatus.Online}
+            />
+            <Avatar
+              src="https://i.pravatar.cc/128?u=carol"
+              alt="Carol"
+              size={AvatarSize.Lg}
+              status={AvatarStatus.Busy}
+            />
+            <Avatar
+              size={AvatarSize.Xl}
+              initials="JD"
+              status={AvatarStatus.Online}
+            />
+            <Avatar size={AvatarSize.Md} />
+            <Avatar
+              size={AvatarSize.Lg}
+              initials="AB"
+              status={AvatarStatus.Away}
+            />
+          </div>
+
+          <Typography variant={TypographyVariantEnum.H3}>
+            Avatar as dropdown trigger
+          </Typography>
+          <div className="flex flex-wrap gap-4 justify-center items-center">
+            <Dropdown>
+              <DropdownTrigger asChild showChevron={false}>
+                <button
+                  type="button"
+                  className="rounded-full cursor-pointer bg-transparent border-none p-0"
+                >
+                  <Avatar
+                    src="https://i.pravatar.cc/128?u=alice"
+                    alt="Alice"
+                    size={AvatarSize.Md}
+                    status={AvatarStatus.Online}
                   />
-                }
-                label="Analytics"
-                menuOptions={[
-                  {
-                    label: "Overview",
-                    subMenu: [
-                      { label: "Sub overview 1", onClick: () => {} },
-                      { label: "Sub overview 2", onClick: () => {} },
-                    ],
-                  },
-                  { label: "Trends", onClick: () => setNavSelected(null) },
-                  { label: "Engagement", onClick: () => setNavSelected(null) },
-                  { label: "Conversion", onClick: () => setNavSelected(null) },
-                ]}
-              />
-              <NavButton
-                type="link"
-                icon={
-                  <Icon name={IconName.Shield} size="sm" color="currentColor" />
-                }
-                label="Security"
-                selected={navSelected === "security"}
-                onClick={() => setNavSelected("security")}
-              />
-              <NavButton
-                type="link"
-                icon={
-                  <Icon
-                    name={IconName.CheckCircle}
-                    size="sm"
-                    color="currentColor"
-                  />
-                }
-                label="Direct link (unselected)"
-                selected={false}
-                onClick={() => setNavSelected(null)}
-              />
-            </aside>
-            <div
-              className="flex-1 p-4 flex items-center justify-center text-[var(--kz-color-text-muted)]"
-              style={{ background: "var(--kz-color-surface-base)" }}
-            >
-              Main content area
-            </div>
+                </button>
+              </DropdownTrigger>
+              <DropdownContent align="end" sideOffset={6}>
+                <DropdownLabel>Alice Johnson</DropdownLabel>
+                <DropdownSeparator />
+                <DropdownItem onSelect={() => {}}>Profile</DropdownItem>
+                <DropdownItem onSelect={() => {}}>Settings</DropdownItem>
+                <DropdownSeparator />
+                <DropdownItem onSelect={() => {}}>Sign out</DropdownItem>
+              </DropdownContent>
+            </Dropdown>
           </div>
         </section>
 

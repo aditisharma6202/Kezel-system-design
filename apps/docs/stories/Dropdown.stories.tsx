@@ -16,6 +16,7 @@ import {
   DropdownSubContent,
   DropdownTriggerVariant,
 } from "kz-design-system/dropdown";
+import { Avatar, AvatarSize, AvatarStatus } from "kz-design-system";
 
 const actionsItems: DropdownButtonItem[] = [
   { type: "label", key: "menu", label: "Menu" },
@@ -140,6 +141,48 @@ export const NoChevron: Story = {
       description: {
         story:
           "Chevron icon hidden. Use when the trigger already indicates expandability (e.g. icon button).",
+      },
+    },
+  },
+};
+
+export const AvatarTrigger: Story = {
+  render: () => (
+    <Dropdown>
+      <DropdownTrigger asChild showChevron={false}>
+        <button
+          type="button"
+          style={{
+            background: "transparent",
+            border: "none",
+            padding: 0,
+            cursor: "pointer",
+            borderRadius: "50%",
+          }}
+        >
+          <Avatar
+            src="https://i.pravatar.cc/128?u=alice"
+            alt="Alice"
+            size={AvatarSize.Md}
+            status={AvatarStatus.Online}
+          />
+        </button>
+      </DropdownTrigger>
+      <DropdownContent align="end" sideOffset={6}>
+        <DropdownLabel>Alice Johnson</DropdownLabel>
+        <DropdownSeparator />
+        <DropdownItem onSelect={() => {}}>Profile</DropdownItem>
+        <DropdownItem onSelect={() => {}}>Settings</DropdownItem>
+        <DropdownSeparator />
+        <DropdownItem onSelect={() => {}}>Sign out</DropdownItem>
+      </DropdownContent>
+    </Dropdown>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Avatar used as a dropdown trigger via the compound API with `asChild`. Shows online status indicator.",
       },
     },
   },

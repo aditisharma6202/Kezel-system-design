@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Sidesheet, NavButton, Icon, IconName } from "kz-design-system";
+import { Sidesheet } from "kz-design-system";
 
 const meta: Meta<typeof Sidesheet> = {
   title: "Design System/Sidesheet",
@@ -10,7 +10,7 @@ const meta: Meta<typeof Sidesheet> = {
     docs: {
       description: {
         component:
-          "Side panel for navigation (e.g. NavButton list). Nav dropdowns open in-flow (items below move down); submenus open below their trigger. Width and styles are tokenized (component.sidesheet.*). Override via KezelThemeProvider tokens.",
+          "Side panel for navigation. Width and styles are tokenized (component.sidesheet.*). Override via KezelThemeProvider tokens. Use SideMenu for full sidebar navigation.",
       },
     },
   },
@@ -51,71 +51,9 @@ type Story = StoryObj<typeof Sidesheet>;
 export const Default: Story = {
   args: {
     children: (
-      <>
-        <NavButton
-          type="dropdown"
-          icon={
-            <Icon name={IconName.BarChart2} size="sm" color="currentColor" />
-          }
-          label="Analytics"
-          menuOptions={[
-            { label: "Trends", onClick: () => {} },
-            { label: "Engagement", onClick: () => {} },
-          ]}
-        />
-        <NavButton
-          type="link"
-          icon={<Icon name={IconName.Shield} size="sm" color="currentColor" />}
-          label="Security"
-          selected={false}
-          onClick={() => {}}
-        />
-      </>
+      <div style={{ padding: 12, color: "var(--kz-color-text-primary)" }}>
+        Sidesheet content
+      </div>
     ),
   },
-};
-
-export const WithNavButtons: Story = {
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Open the Analytics dropdown to see the menu push items below down; open Overview submenu to see it open below the trigger.",
-      },
-    },
-  },
-  render: () => (
-    <Sidesheet>
-      <NavButton
-        type="dropdown"
-        icon={<Icon name={IconName.BarChart2} size="sm" color="currentColor" />}
-        label="Analytics"
-        menuOptions={[
-          {
-            label: "Overview",
-            subMenu: [
-              { label: "Sub 1", onClick: () => {} },
-              { label: "Sub 2", onClick: () => {} },
-            ],
-          },
-          { label: "Trends", onClick: () => {} },
-        ]}
-      />
-      <NavButton
-        type="link"
-        icon={<Icon name={IconName.Shield} size="sm" color="currentColor" />}
-        label="Security"
-        selected
-        onClick={() => {}}
-      />
-      <NavButton
-        type="link"
-        icon={
-          <Icon name={IconName.CheckCircle} size="sm" color="currentColor" />
-        }
-        label="Settings"
-        onClick={() => {}}
-      />
-    </Sidesheet>
-  ),
 };

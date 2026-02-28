@@ -32,7 +32,6 @@ const components = [
   "Dropdown",
   "Icon",
   "Typography",
-  "NavButton",
   "Sidesheet",
   "SideMenu",
   "Tooltip",

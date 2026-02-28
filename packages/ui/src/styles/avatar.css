@@ -1,0 +1,68 @@
+/* Avatar — tokenized; override via KezelThemeProvider tokens. */
+
+.kz-avatar {
+  box-shadow: none;
+}
+
+/* Fallback: initials text */
+.kz-avatar-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: var(--kz-color-surface-muted);
+  color: var(--kz-color-text-secondary);
+  font-family: Inter, system-ui, sans-serif;
+  font-weight: 500;
+  line-height: 1;
+  user-select: none;
+  text-transform: uppercase;
+}
+
+/* Fallback: icon */
+.kz-avatar-fallback-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: var(--kz-color-surface-muted);
+  color: var(--kz-color-text-muted);
+}
+
+/* Status indicator — base */
+.kz-avatar-status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 9999px;
+  background: var(--kz-color-status-success);
+  border: 2px solid var(--kz-color-surface-background);
+  box-shadow: none;
+}
+
+/* Status indicator — size scaling */
+.kz-avatar-status--sm {
+  width: 8px;
+  height: 8px;
+  border-width: 1.5px;
+}
+
+.kz-avatar-status--md {
+  width: 10px;
+  height: 10px;
+  border-width: 2px;
+}
+
+.kz-avatar-status--lg {
+  width: 12px;
+  height: 12px;
+  border-width: 2px;
+}
+
+.kz-avatar-status--xl {
+  width: 14px;
+  height: 14px;
+  border-width: 2.5px;
+}

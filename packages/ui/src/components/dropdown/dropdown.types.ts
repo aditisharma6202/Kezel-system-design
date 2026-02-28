@@ -12,6 +12,7 @@ export type DropdownButtonItem =
       onSelect?: () => void;
       disabled?: boolean;
       icon?: React.ReactNode;
+      endIcon?: React.ReactNode;
       shortcut?: string;
     }
   | { type: "label"; key: string; label: React.ReactNode }
@@ -23,6 +24,7 @@ export type DropdownButtonItem =
       items: DropdownButtonItem[];
       disabled?: boolean;
       icon?: React.ReactNode;
+      endIcon?: React.ReactNode;
     };
 
 export interface DropdownButtonTrigger {

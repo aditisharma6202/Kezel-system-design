@@ -179,3 +179,17 @@ export enum RadioSize {
   Md = "md",
   Lg = "lg",
 }
+
+export enum AvatarSize {
+  Sm = "sm",
+  Md = "md",
+  Lg = "lg",
+  Xl = "xl",
+}
+
+export enum AvatarStatus {
+  Online = "online",
+  Busy = "busy",
+  Away = "away",
+  Offline = "offline",
+}
