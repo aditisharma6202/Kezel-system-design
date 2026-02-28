@@ -18,6 +18,7 @@ export interface SideMenuLinkNode extends BaseNode {
 export interface SideMenuGroupItemSubItem {
   id: string;
   label: string;
+  icon?: IconName | React.ReactNode;
   href?: string;
   actionId?: string;
   disabled?: boolean;
@@ -26,6 +27,7 @@ export interface SideMenuGroupItemSubItem {
 export interface SideMenuGroupItem {
   id: string;
   label: string;
+  icon?: IconName | React.ReactNode;
   href?: string;
   actionId?: string;
   disabled?: boolean;

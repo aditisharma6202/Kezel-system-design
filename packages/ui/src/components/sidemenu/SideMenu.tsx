@@ -187,8 +187,16 @@ function SideMenuGroupItemRow({
   const selected = selectedId === item.id;
   const hasSub = item.subItems && item.subItems.length > 0;
   const [subOpen, setSubOpen] = React.useState(false);
+  const icon = resolveIcon(item.icon, "kz-sidemenu-item-icon");
 
   const paddingLeft = 12 + level * 12;
+
+  const labelContent = (
+    <>
+      {icon && <span className="kz-sidemenu-item-icon">{icon}</span>}
+      <span className="kz-sidemenu-item-label">{item.label}</span>
+    </>
+  );
 
   if (hasSub && item.subItems!.length > 0) {
     return (
@@ -204,7 +212,7 @@ function SideMenuGroupItemRow({
           style={{ paddingLeft }}
           disabled={item.disabled}
         >
-          <span className="kz-sidemenu-item-label">{item.label}</span>
+          {labelContent}
           <ChevronDown
             className="kz-sidemenu-group-chevron"
             size={12}
@@ -243,7 +251,7 @@ function SideMenuGroupItemRow({
         onNavigate?.({ id: item.id, href: item.href, actionId: item.actionId });
       }}
     >
-      <span className="kz-sidemenu-item-label">{item.label}</span>
+      {labelContent}
     </a>
   ) : (
     <button
@@ -260,7 +268,7 @@ function SideMenuGroupItemRow({
         onNavigate?.({ id: item.id, href: item.href, actionId: item.actionId })
       }
     >
-      <span className="kz-sidemenu-item-label">{item.label}</span>
+      {labelContent}
     </button>
   );
   return el;
@@ -278,6 +286,13 @@ function SideMenuGroupSubItemRow({
   paddingLeft: number;
 }) {
   const selected = selectedId === sub.id;
+  const icon = resolveIcon(sub.icon, "kz-sidemenu-item-icon");
+  const labelContent = (
+    <>
+      {icon && <span className="kz-sidemenu-item-icon">{icon}</span>}
+      <span className="kz-sidemenu-item-label">{sub.label}</span>
+    </>
+  );
   const el = sub.href ? (
     <a
       href={sub.href}
@@ -294,7 +309,7 @@ function SideMenuGroupSubItemRow({
         onNavigate?.({ id: sub.id, href: sub.href, actionId: sub.actionId });
       }}
     >
-      <span className="kz-sidemenu-item-label">{sub.label}</span>
+      {labelContent}
     </a>
   ) : (
     <button
@@ -312,7 +327,7 @@ function SideMenuGroupSubItemRow({
         onNavigate?.({ id: sub.id, href: sub.href, actionId: sub.actionId })
       }
     >
-      <span className="kz-sidemenu-item-label">{sub.label}</span>
+      {labelContent}
     </button>
   );
   return el;

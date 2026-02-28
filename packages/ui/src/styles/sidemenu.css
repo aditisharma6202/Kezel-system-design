@@ -281,9 +281,16 @@
   color: var(--kz-component-sidemenu-item-active-text, #18AB9F);
 }
 
-/* Selected option inside a group/dropdown: inset shadow to match link buttons */
+/* Selected option inside a group/dropdown: bg + inset shadow to match link buttons */
 .kz-sidemenu-group-content .kz-sidemenu-item--active {
+  background: var(--kz-component-sidemenu-item-active-link-bg, var(--kz-component-sidemenu-item-bg-active));
+  border-radius: 5px;
   box-shadow: var(--kz-component-sidemenu-item-active-link-shadow, none);
+}
+
+.kz-sidemenu-group-content .kz-sidemenu-item--active .kz-sidemenu-item-icon,
+.kz-sidemenu-group-content .kz-sidemenu-item--active .kz-sidemenu-item-label {
+  color: var(--kz-component-sidemenu-item-active-text, #18AB9F);
 }
 
 .kz-sidemenu-group-content {
