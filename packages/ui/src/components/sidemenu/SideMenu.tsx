@@ -449,9 +449,7 @@ const SideMenu = React.forwardRef<HTMLDivElement, SideMenuProps>(
       onCollapsedChange?.(v);
     };
 
-    const [openGroups, setOpenGroups] = React.useState<Set<string>>(
-      new Set()
-    );
+    const [openGroups, setOpenGroups] = React.useState<Set<string>>(new Set());
     const toggleGroup = React.useCallback((id: string, isOpen: boolean) => {
       setOpenGroups((prev) => {
         const next = new Set(prev);
@@ -727,9 +725,7 @@ const SideMenu = React.forwardRef<HTMLDivElement, SideMenuProps>(
                 <ChevronDown
                   size={16}
                   style={{
-                    transform: collapsed
-                      ? "rotate(-90deg)"
-                      : "rotate(90deg)",
+                    transform: collapsed ? "rotate(-90deg)" : "rotate(90deg)",
                   }}
                   aria-hidden
                 />

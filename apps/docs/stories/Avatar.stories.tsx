@@ -95,7 +95,9 @@ export const DefaultIcon: Story = {
 export const CustomFallbackIcon: Story = {
   args: {
     size: AvatarSize.Md,
-    fallbackIcon: <Icon name={IconName.Shield} size="sm" color="currentColor" />,
+    fallbackIcon: (
+      <Icon name={IconName.Shield} size="sm" color="currentColor" />
+    ),
   },
   parameters: {
     docs: {

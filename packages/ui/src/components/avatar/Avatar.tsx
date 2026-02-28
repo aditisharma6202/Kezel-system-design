@@ -33,7 +33,7 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
       className,
       ...props
     },
-    ref,
+    ref
   ) => {
     const [imgError, setImgError] = React.useState(false);
 
@@ -81,7 +81,7 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
         )}
       </div>
     );
-  },
+  }
 );
 
 Avatar.displayName = "Avatar";

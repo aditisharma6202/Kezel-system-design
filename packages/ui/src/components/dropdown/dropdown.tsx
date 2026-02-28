@@ -38,28 +38,27 @@ const DropdownTrigger = React.forwardRef<
     ref
   ) => {
     const isGhost = variant === DropdownTriggerVariant.Ghost;
-    const triggerContent =
-      asChild ? (
-        children
-      ) : (
-        <>
-          {startIcon ? (
-            <span className="kz-dropdown-trigger-icon-start">{startIcon}</span>
-          ) : null}
-          {children}
-          {endIcon ? (
-            <span className="kz-dropdown-trigger-icon-end">{endIcon}</span>
-          ) : null}
-          {showChevron ? (
-            <Icon
-              name={IconName.ChevronDown}
-              className="kz-dropdown-trigger-chevron"
-              size="sm"
-              aria-hidden
-            />
-          ) : null}
-        </>
-      );
+    const triggerContent = asChild ? (
+      children
+    ) : (
+      <>
+        {startIcon ? (
+          <span className="kz-dropdown-trigger-icon-start">{startIcon}</span>
+        ) : null}
+        {children}
+        {endIcon ? (
+          <span className="kz-dropdown-trigger-icon-end">{endIcon}</span>
+        ) : null}
+        {showChevron ? (
+          <Icon
+            name={IconName.ChevronDown}
+            className="kz-dropdown-trigger-chevron"
+            size="sm"
+            aria-hidden
+          />
+        ) : null}
+      </>
+    );
 
     return (
       <DropdownMenuPrimitive.Trigger
