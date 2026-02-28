@@ -244,6 +244,61 @@ export const ChartsAndKanban: Story = {
   },
 };
 
+const generalIcons: IconName[] = [
+  IconName.Atom,
+  IconName.GitBranch,
+  IconName.Clipboard,
+  IconName.Palette,
+  IconName.Gauge,
+  IconName.Filter,
+  IconName.Grid3x3,
+  IconName.RadioTower,
+  IconName.BadgeCheck,
+  IconName.Wallet,
+  IconName.DollarSign,
+];
+
+export const General: Story = {
+  render: () => (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))",
+        gap: 16,
+        alignItems: "center",
+      }}
+    >
+      {generalIcons.map((name) => (
+        <div
+          key={name}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 8,
+            padding: 12,
+            background: "var(--kz-color-surface-raised)",
+            borderRadius: 8,
+          }}
+        >
+          <Icon name={name} size="md" color="currentColor" aria-hidden />
+          <span style={{ fontSize: 11, color: "var(--kz-color-text-muted)" }}>
+            {name}
+          </span>
+        </div>
+      ))}
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "General-purpose icons: atom, git-branch, clipboard, palette, gauge, filter, grid, radio-tower, badge-check, wallet, dollar-sign.",
+      },
+    },
+  },
+};
+
 export const WithColor: Story = {
   render: () => (
     <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
