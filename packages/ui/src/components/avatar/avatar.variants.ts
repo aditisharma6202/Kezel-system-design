@@ -4,7 +4,7 @@ import { AvatarSize } from "../../constants/enum";
 const base = [
   "kz-avatar",
   "relative inline-flex items-center justify-center",
-  "rounded-full overflow-hidden",
+  "rounded-full",
   "shrink-0",
   "[box-shadow:none]",
 ].join(" ");

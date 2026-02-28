@@ -4,6 +4,14 @@
   box-shadow: none;
 }
 
+/* Image — clip to circle */
+.kz-avatar-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
 /* Fallback: initials text */
 .kz-avatar-initials {
   display: flex;
@@ -11,7 +19,9 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  background: var(--kz-color-surface-muted);
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--kz-component-tabs-list-pill-bg, var(--kz-color-surface-muted));
   color: var(--kz-color-text-secondary);
   font-family: Inter, system-ui, sans-serif;
   font-weight: 500;
@@ -27,7 +37,9 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  background: var(--kz-color-surface-muted);
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--kz-component-tabs-list-pill-bg, var(--kz-color-surface-muted));
   color: var(--kz-color-text-muted);
 }
 

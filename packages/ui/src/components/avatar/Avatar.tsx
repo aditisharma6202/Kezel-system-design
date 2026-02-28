@@ -53,13 +53,15 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
         {...props}
       >
         {showImage ? (
-          <img
-            src={src}
-            alt={alt}
-            className="h-full w-full object-cover"
-            onError={() => setImgError(true)}
-            draggable={false}
-          />
+          <span className="kz-avatar-image">
+            <img
+              src={src}
+              alt={alt}
+              className="h-full w-full object-cover"
+              onError={() => setImgError(true)}
+              draggable={false}
+            />
+          </span>
         ) : initials ? (
           <span className="kz-avatar-initials" aria-hidden="true">
             {initials}
