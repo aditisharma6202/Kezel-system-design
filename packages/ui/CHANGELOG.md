@@ -1,5 +1,11 @@
 # kz-design-system
 
+## 0.0.7
+
+### Patch Changes
+
+- 2828503: icon registory and sidemenu
+
 ## 0.0.6
 
 ### Patch Changes
