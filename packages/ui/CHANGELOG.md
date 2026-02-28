@@ -1,5 +1,11 @@
 # kz-design-system
 
+## 0.0.9
+
+### Patch Changes
+
+- c91b7c7: icon
+
 ## 0.0.8
 
 ### Patch Changes
