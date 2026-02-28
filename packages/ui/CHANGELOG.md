@@ -1,5 +1,11 @@
 # kz-design-system
 
+## 0.0.6
+
+### Patch Changes
+
+- 42c6c82: icon-registory
+
 ## 0.0.5
 
 ### Patch Changes
