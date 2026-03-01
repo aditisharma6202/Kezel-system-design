@@ -18,6 +18,48 @@
       "require": "./dist/button.js",
       "default": "./dist/button.mjs"
     },
+    "./toggle-button": {
+      "types": "./dist/toggle-button.d.ts",
+      "import": "./dist/toggle-button.mjs",
+      "require": "./dist/toggle-button.js",
+      "default": "./dist/toggle-button.mjs"
+    },
+    "./checkbox": {
+      "types": "./dist/checkbox.d.ts",
+      "import": "./dist/checkbox.mjs",
+      "require": "./dist/checkbox.js",
+      "default": "./dist/checkbox.mjs"
+    },
+    "./radio-button": {
+      "types": "./dist/radio-button.d.ts",
+      "import": "./dist/radio-button.mjs",
+      "require": "./dist/radio-button.js",
+      "default": "./dist/radio-button.mjs"
+    },
+    "./typography": {
+      "types": "./dist/typography.d.ts",
+      "import": "./dist/typography.mjs",
+      "require": "./dist/typography.js",
+      "default": "./dist/typography.mjs"
+    },
+    "./text-input": {
+      "types": "./dist/text-input.d.ts",
+      "import": "./dist/text-input.mjs",
+      "require": "./dist/text-input.js",
+      "default": "./dist/text-input.mjs"
+    },
+    "./text-area": {
+      "types": "./dist/text-area.d.ts",
+      "import": "./dist/text-area.mjs",
+      "require": "./dist/text-area.js",
+      "default": "./dist/text-area.mjs"
+    },
+    "./number-input": {
+      "types": "./dist/number-input.d.ts",
+      "import": "./dist/number-input.mjs",
+      "require": "./dist/number-input.js",
+      "default": "./dist/number-input.mjs"
+    },
     "./dropdown": {
       "types": "./dist/dropdown.d.ts",
       "import": "./dist/dropdown.mjs",
@@ -47,6 +89,96 @@
       "import": "./dist/sidemenu.mjs",
       "require": "./dist/sidemenu.js",
       "default": "./dist/sidemenu.mjs"
+    },
+    "./sidesheet": {
+      "types": "./dist/sidesheet.d.ts",
+      "import": "./dist/sidesheet.mjs",
+      "require": "./dist/sidesheet.js",
+      "default": "./dist/sidesheet.mjs"
+    },
+    "./tooltip": {
+      "types": "./dist/tooltip.d.ts",
+      "import": "./dist/tooltip.mjs",
+      "require": "./dist/tooltip.js",
+      "default": "./dist/tooltip.mjs"
+    },
+    "./tabs": {
+      "types": "./dist/tabs.d.ts",
+      "import": "./dist/tabs.mjs",
+      "require": "./dist/tabs.js",
+      "default": "./dist/tabs.mjs"
+    },
+    "./table": {
+      "types": "./dist/table.d.ts",
+      "import": "./dist/table.mjs",
+      "require": "./dist/table.js",
+      "default": "./dist/table.mjs"
+    },
+    "./avatar": {
+      "types": "./dist/avatar.d.ts",
+      "import": "./dist/avatar.mjs",
+      "require": "./dist/avatar.js",
+      "default": "./dist/avatar.mjs"
+    },
+    "./date-time-picker": {
+      "types": "./dist/date-time-picker.d.ts",
+      "import": "./dist/date-time-picker.mjs",
+      "require": "./dist/date-time-picker.js",
+      "default": "./dist/date-time-picker.mjs"
+    },
+    "./date-range-picker": {
+      "types": "./dist/date-range-picker.d.ts",
+      "import": "./dist/date-range-picker.mjs",
+      "require": "./dist/date-range-picker.js",
+      "default": "./dist/date-range-picker.mjs"
+    },
+    "./color-picker": {
+      "types": "./dist/color-picker.d.ts",
+      "import": "./dist/color-picker.mjs",
+      "require": "./dist/color-picker.js",
+      "default": "./dist/color-picker.mjs"
+    },
+    "./icon-picker": {
+      "types": "./dist/icon-picker.d.ts",
+      "import": "./dist/icon-picker.mjs",
+      "require": "./dist/icon-picker.js",
+      "default": "./dist/icon-picker.mjs"
+    },
+    "./file-uploader": {
+      "types": "./dist/file-uploader.d.ts",
+      "import": "./dist/file-uploader.mjs",
+      "require": "./dist/file-uploader.js",
+      "default": "./dist/file-uploader.mjs"
+    },
+    "./select": {
+      "types": "./dist/select.d.ts",
+      "import": "./dist/select.mjs",
+      "require": "./dist/select.js",
+      "default": "./dist/select.mjs"
+    },
+    "./sidepanel": {
+      "types": "./dist/sidepanel.d.ts",
+      "import": "./dist/sidepanel.mjs",
+      "require": "./dist/sidepanel.js",
+      "default": "./dist/sidepanel.mjs"
+    },
+    "./form-group": {
+      "types": "./dist/form-group.d.ts",
+      "import": "./dist/form-group.mjs",
+      "require": "./dist/form-group.js",
+      "default": "./dist/form-group.mjs"
+    },
+    "./modal": {
+      "types": "./dist/modal.d.ts",
+      "import": "./dist/modal.mjs",
+      "require": "./dist/modal.js",
+      "default": "./dist/modal.mjs"
+    },
+    "./toast": {
+      "types": "./dist/toast.d.ts",
+      "import": "./dist/toast.mjs",
+      "require": "./dist/toast.js",
+      "default": "./dist/toast.mjs"
     },
     "./styles.css": "./dist/styles.css"
   },
