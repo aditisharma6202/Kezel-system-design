@@ -56,6 +56,11 @@ function TableInner<TData>(
     pageSizeOptions = [10, 20, 50],
     loading,
     emptyState,
+    onDeleteSelected,
+    editingCell,
+    onEditingCellChange,
+    onSave,
+    onCancel,
     className,
     tableClassName,
     headerClassName,
@@ -147,6 +152,48 @@ function TableInner<TData>(
       endItem: Math.min(page * pageSize, total),
     };
   }, [pagination]);
+
+  /* ── Inline cell editing ── */
+
+  const [draftValue, setDraftValue] = React.useState("");
+
+  React.useEffect(() => {
+    if (editingCell == null) {
+      setDraftValue("");
+      return;
+    }
+    const row = data.find((r, i) => getRowId(r, i) === editingCell.rowId);
+    if (!row) return;
+    const col = columns.find((c) => c.key === editingCell.columnKey);
+    if (!col) return;
+    const val = col.accessor ? col.accessor(row) : "";
+    setDraftValue(String(val ?? ""));
+  }, [editingCell, data, columns, getRowId]);
+
+  const handleEditCellClick = React.useCallback(
+    (rowId: string, columnKey: string) => {
+      onEditingCellChange?.({ rowId, columnKey });
+    },
+    [onEditingCellChange]
+  );
+
+  const handleCellSave = React.useCallback(() => {
+    if (editingCell != null) {
+      onSave?.(editingCell.rowId, editingCell.columnKey, draftValue);
+      onEditingCellChange?.(null);
+    }
+  }, [editingCell, draftValue, onSave, onEditingCellChange]);
+
+  const handleCellCancel = React.useCallback(() => {
+    onCancel?.();
+    onEditingCellChange?.(null);
+  }, [onCancel, onEditingCellChange]);
+
+  const handleDeleteSelected = React.useCallback(() => {
+    if (!onDeleteSelected) return;
+    const ids = Object.keys(selectedRowIds).filter((id) => selectedRowIds[id]);
+    if (ids.length > 0) onDeleteSelected(ids);
+  }, [selectedRowIds, onDeleteSelected]);
 
   const defaultHeader = (
     <div
@@ -388,12 +435,15 @@ function TableInner<TData>(
                 const rowId = getRowId(row, index);
                 const isSelected = !!selectedRowIds[rowId];
                 const isSticky = getRowSticky?.(row, index) ?? false;
+                const hasEditingCell =
+                  editingCell != null && editingCell.rowId === rowId;
                 return (
                   <tr
                     key={rowId}
                     className={cn(
                       "kz-table-tr border-b border-[var(--kz-component-table-row-border)] last:border-b-0 hover:bg-[var(--kz-component-table-row-hover-bg)] transition-colors duration-[var(--kz-motion-duration-normal)]",
-                      isSticky && "kz-table-tr--sticky"
+                      isSticky && "kz-table-tr--sticky",
+                      hasEditingCell && "kz-table-tr--editing"
                     )}
                   >
                     {selectableRows && (
@@ -415,17 +465,67 @@ function TableInner<TData>(
                       if (col.minWidth) style.minWidth = col.minWidth;
                       if (col.maxWidth) style.maxWidth = col.maxWidth;
                       const align = col.align ?? "left";
+                      const isCellEditing =
+                        editingCell != null &&
+                        editingCell.rowId === rowId &&
+                        editingCell.columnKey === col.key;
+
+                      if (isCellEditing) {
+                        const onChange = (v: string) => setDraftValue(v);
+                        return (
+                          <td
+                            key={col.key}
+                            className={cn(
+                              "kz-table-td text-[var(--kz-color-text-primary)]",
+                              sizeClass,
+                              alignClasses[align]
+                            )}
+                            style={style}
+                          >
+                            {col.editCell ? (
+                              col.editCell(row, draftValue, onChange)
+                            ) : (
+                              <TextInput
+                                label=""
+                                placeHolder=""
+                                value={draftValue}
+                                onValueChange={onChange}
+                                size={TextInputSize.Sm}
+                                variant={TextInputVariant.Default}
+                              />
+                            )}
+                          </td>
+                        );
+                      }
+
                       return (
                         <td
                           key={col.key}
                           className={cn(
                             "kz-table-td text-[var(--kz-color-text-primary)]",
                             sizeClass,
-                            alignClasses[align]
+                            alignClasses[align],
+                            col.editable && "kz-table-td--editable"
                           )}
                           style={style}
                         >
                           {getCellContent(row, col)}
+                          {col.editable && (
+                            <button
+                              type="button"
+                              className="kz-table-cell-edit-icon"
+                              aria-label={`Edit ${col.header}`}
+                              onClick={() =>
+                                handleEditCellClick(rowId, col.key)
+                              }
+                            >
+                              <Icon
+                                name={IconName.Pencil}
+                                size={14}
+                                color="currentColor"
+                              />
+                            </button>
+                          )}
                         </td>
                       );
                     })}
@@ -441,78 +541,128 @@ function TableInner<TData>(
           </tbody>
         </table>
       </div>
-      {pagination && pageRange && onPageChange && (
-        <div className="kz-table-footer flex flex-wrap items-center justify-between gap-3 border-t border-[var(--kz-component-table-row-border)] bg-[var(--kz-component-table-footer-bg)] px-[var(--kz-space-4)] py-[var(--kz-space-3)]">
-          <div className="text-sm text-[var(--kz-color-text-secondary)]">
-            {pageRange.startItem}–{pageRange.endItem} of {pagination.total}
-          </div>
-          <div className="flex items-center gap-1">
-            <Button
-              variant={ButtonVariant.Ghost}
-              size={ButtonSize.Sm}
-              onClick={() => onPageChange(pagination.page - 1)}
-              disabled={pagination.page <= 1}
-              className="kz-table-pagination-prev-next"
-              aria-label="Previous page"
-            >
-              <Icon
-                name={IconName.ChevronLeft}
-                size="sm"
-                color="currentColor"
-                aria-hidden
-              />
-            </Button>
-            {pageRange.pages.map((p, i) =>
-              p === "ellipsis" ? (
-                <span
-                  key={`e-${i}`}
-                  className="px-2 text-[var(--kz-color-text-muted)]"
-                >
-                  …
-                </span>
-              ) : (
-                <button
-                  key={p}
-                  type="button"
-                  data-active={p === pagination.page}
-                  onClick={() => onPageChange(p)}
-                  className="kz-table-pagination-page min-w-[var(--kz-space-8)] h-[var(--kz-space-8)] rounded-[var(--kz-radius-sm)] text-sm font-medium text-[var(--kz-color-text-primary)] bg-transparent border border-transparent hover:bg-[var(--kz-color-surface-muted)] hover:shadow-[var(--kz-component-table-pagination-hover-shadow)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--kz-color-border-focus)] data-[active=true]:bg-[var(--kz-component-table-pagination-active-bg)] data-[active=true]:shadow-[var(--kz-component-table-pagination-active-shadow)]"
-                >
-                  {p}
-                </button>
-              )
+      {((pagination && pageRange && onPageChange) ||
+        (someSelected && onDeleteSelected) ||
+        editingCell != null) && (
+        <div className="kz-table-footer flex items-center border-t border-[var(--kz-component-table-row-border)] bg-[var(--kz-component-table-footer-bg)] px-[var(--kz-space-4)] py-[var(--kz-space-3)]">
+          {/* Left: delete selected */}
+          <div className="flex items-center gap-[var(--kz-space-2)] shrink-0">
+            {someSelected && onDeleteSelected && (
+              <Button
+                variant={ButtonVariant.Ghost}
+                size={ButtonSize.Sm}
+                onClick={handleDeleteSelected}
+                className="text-[var(--kz-color-error)] hover:text-[var(--kz-color-error)] hover:bg-[var(--kz-color-error-subtle)]"
+                aria-label="Delete selected rows"
+              >
+                <Icon
+                  name={IconName.Trash2}
+                  size={14}
+                  color="currentColor"
+                  aria-hidden
+                />
+                <span className="ml-1">Delete ({selectedCount})</span>
+              </Button>
             )}
-            <Button
-              variant={ButtonVariant.Ghost}
-              size={ButtonSize.Sm}
-              onClick={() => onPageChange(pagination.page + 1)}
-              disabled={pagination.page >= pageRange.totalPages}
-              className="kz-table-pagination-prev-next"
-              aria-label="Next page"
-            >
-              <Icon
-                name={IconName.ChevronRight}
-                size="sm"
-                color="currentColor"
-                aria-hidden
-              />
-            </Button>
           </div>
-          {onPageSizeChange && (
-            <DropdownButton
-              trigger={{
-                label: String(pagination.pageSize),
-                showChevron: true,
-              }}
-              items={pageSizeOptions.map(
-                (n): DropdownButtonItem => ({
-                  key: String(n),
-                  label: String(n),
-                  onSelect: () => onPageSizeChange(n),
-                })
+          {/* Center: pagination */}
+          {pagination && pageRange && onPageChange ? (
+            <div className="flex flex-wrap items-center justify-center gap-3 flex-1 min-w-0">
+              <div className="text-sm text-[var(--kz-color-text-secondary)]">
+                {pageRange.startItem}–{pageRange.endItem} of {pagination.total}
+              </div>
+              <div className="flex items-center gap-1">
+                <Button
+                  variant={ButtonVariant.Ghost}
+                  size={ButtonSize.Sm}
+                  onClick={() => onPageChange(pagination.page - 1)}
+                  disabled={pagination.page <= 1}
+                  className="kz-table-pagination-prev-next"
+                  aria-label="Previous page"
+                >
+                  <Icon
+                    name={IconName.ChevronLeft}
+                    size="sm"
+                    color="currentColor"
+                    aria-hidden
+                  />
+                </Button>
+                {pageRange.pages.map((p, i) =>
+                  p === "ellipsis" ? (
+                    <span
+                      key={`e-${i}`}
+                      className="px-2 text-[var(--kz-color-text-muted)]"
+                    >
+                      …
+                    </span>
+                  ) : (
+                    <button
+                      key={p}
+                      type="button"
+                      data-active={p === pagination.page}
+                      onClick={() => onPageChange(p)}
+                      className="kz-table-pagination-page min-w-[var(--kz-space-8)] h-[var(--kz-space-8)] rounded-[var(--kz-radius-sm)] text-sm font-medium text-[var(--kz-color-text-primary)] bg-transparent border border-transparent hover:bg-[var(--kz-color-surface-muted)] hover:shadow-[var(--kz-component-table-pagination-hover-shadow)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--kz-color-border-focus)] data-[active=true]:bg-[var(--kz-component-table-pagination-active-bg)] data-[active=true]:shadow-[var(--kz-component-table-pagination-active-shadow)]"
+                    >
+                      {p}
+                    </button>
+                  )
+                )}
+                <Button
+                  variant={ButtonVariant.Ghost}
+                  size={ButtonSize.Sm}
+                  onClick={() => onPageChange(pagination.page + 1)}
+                  disabled={pagination.page >= pageRange.totalPages}
+                  className="kz-table-pagination-prev-next"
+                  aria-label="Next page"
+                >
+                  <Icon
+                    name={IconName.ChevronRight}
+                    size="sm"
+                    color="currentColor"
+                    aria-hidden
+                  />
+                </Button>
+              </div>
+              {onPageSizeChange && (
+                <DropdownButton
+                  trigger={{
+                    label: String(pagination.pageSize),
+                    showChevron: true,
+                  }}
+                  items={pageSizeOptions.map(
+                    (n): DropdownButtonItem => ({
+                      key: String(n),
+                      label: String(n),
+                      onSelect: () => onPageSizeChange(n),
+                    })
+                  )}
+                />
               )}
-            />
+            </div>
+          ) : (
+            <div className="flex-1" />
           )}
+          {/* Right: save / cancel */}
+          <div className="flex items-center gap-[var(--kz-space-2)] shrink-0 ml-[var(--kz-space-3)]">
+            {editingCell != null && (
+              <>
+                <Button
+                  variant={ButtonVariant.Outline}
+                  size={ButtonSize.Sm}
+                  onClick={handleCellCancel}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  variant={ButtonVariant.Primary}
+                  size={ButtonSize.Sm}
+                  onClick={handleCellSave}
+                >
+                  Save
+                </Button>
+              </>
+            )}
+          </div>
         </div>
       )}
     </div>

@@ -1,0 +1,238 @@
+/* ── Root ── */
+.kz-color-picker-root {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--kz-space-1);
+  width: 100%;
+}
+
+/* ── Label ── */
+.kz-color-picker-label {
+  display: block;
+}
+
+/* ── Input wrapper ── */
+.kz-color-picker-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--kz-space-2);
+  width: 100%;
+  border-radius: var(--kz-component-input-radius);
+  border: 1px solid var(--kz-component-input-border);
+  background: var(--kz-component-input-bg);
+  box-shadow: var(--kz-component-input-shadow);
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+  cursor: pointer;
+}
+
+.kz-color-picker-wrapper:focus-within {
+  border-color: var(--kz-component-input-border-focus);
+  outline: none;
+}
+
+.kz-color-picker-wrapper--container {
+  background: transparent;
+  box-shadow: none;
+  border-radius: var(--kz-component-input-container-radius);
+  border: 1px solid var(--kz-component-input-container-border);
+}
+
+.kz-color-picker-wrapper--ghost {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  border-radius: var(--kz-radius-none);
+}
+
+.kz-color-picker-wrapper--error {
+  border-color: var(--kz-color-status-error-border);
+}
+.kz-color-picker-wrapper--error:focus-within {
+  border-color: var(--kz-color-status-error-border);
+}
+
+.kz-color-picker-wrapper--success {
+  border-color: var(--kz-color-status-success-border);
+}
+.kz-color-picker-wrapper--success:focus-within {
+  border-color: var(--kz-color-status-success-border);
+}
+
+.kz-color-picker-wrapper--warning {
+  border-color: var(--kz-color-status-warning-border);
+}
+.kz-color-picker-wrapper--warning:focus-within {
+  border-color: var(--kz-color-status-warning-border);
+}
+
+.kz-color-picker-wrapper:has(input:disabled) {
+  border-color: var(--kz-component-input-border-disabled);
+  cursor: not-allowed;
+}
+
+.kz-color-picker-wrapper--sm {
+  min-height: var(--kz-component-button-height-sm);
+  padding: var(--kz-space-1) 10px;
+}
+.kz-color-picker-wrapper--md {
+  min-height: var(--kz-component-button-height-md);
+  padding: var(--kz-space-2) var(--kz-space-3);
+}
+.kz-color-picker-wrapper--lg {
+  min-height: var(--kz-component-button-height-lg);
+  padding: 10px 14px;
+}
+
+/* ── Input ── */
+.kz-color-picker-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font-family: var(--kz-typography-font-family);
+  font-size: var(--kz-font-size-sm);
+  font-weight: var(--kz-font-weight-regular);
+  line-height: 20px;
+  color: var(--kz-component-input-text);
+}
+
+.kz-color-picker-input::placeholder {
+  color: var(--kz-component-input-placeholder);
+}
+
+.kz-color-picker-input:focus {
+  outline: none;
+}
+
+.kz-color-picker-input:disabled {
+  cursor: not-allowed;
+}
+
+.kz-color-picker-input--sm {
+  font-size: var(--kz-font-size-xs);
+  line-height: 16px;
+}
+.kz-color-picker-input--lg {
+  font-size: var(--kz-font-size-md);
+  line-height: 24px;
+}
+
+/* ── Icon & Toggle ── */
+.kz-color-picker-icon,
+.kz-color-picker-toggle {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--kz-component-input-icon);
+}
+
+.kz-color-picker-toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.15s;
+}
+
+.kz-color-picker-toggle:disabled {
+  cursor: not-allowed;
+  opacity: var(--kz-component-button-disabled-opacity);
+}
+
+.kz-color-picker-wrapper--open .kz-color-picker-toggle {
+  transform: rotate(180deg);
+}
+
+/* ── Swatch preview in trigger ── */
+.kz-color-picker-swatch-preview {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--kz-radius-sm);
+  border: 1px solid var(--kz-color-border-subtle);
+  flex-shrink: 0;
+}
+
+/* ── Popover ── */
+.kz-color-picker-popover {
+  z-index: 50;
+  border-radius: var(--kz-radius-md);
+  border: 1px solid var(--kz-color-border-subtle);
+  background: var(--kz-color-surface-base);
+  box-shadow: var(--kz-shadow-elevation-3);
+  padding: var(--kz-space-3);
+  animation: kz-color-picker-fade-in 0.15s ease-out;
+}
+
+[data-variant="neumorphic"] .kz-color-picker-popover {
+  border-color: transparent;
+  box-shadow: var(--kz-shadow-neumorphic-raised-md);
+}
+
+@keyframes kz-color-picker-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Swatch grid ── */
+.kz-color-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: var(--kz-space-1);
+}
+
+/* ── Individual swatch ── */
+.kz-color-picker-swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--kz-radius-sm);
+  border: 1px solid var(--kz-color-border-subtle);
+  cursor: pointer;
+  padding: 0;
+  transition:
+    transform 0.1s,
+    outline-color 0.1s,
+    box-shadow 0.1s;
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+}
+
+.kz-color-picker-swatch:hover {
+  transform: scale(1.15);
+  outline-color: var(--kz-color-brand-accent);
+}
+
+.kz-color-picker-swatch:focus-visible {
+  outline-color: var(--kz-color-brand-accent);
+}
+
+.kz-color-picker-swatch--selected {
+  outline-color: var(--kz-color-brand-accent);
+  transform: scale(1.05);
+}
+
+[data-variant="neumorphic"] .kz-color-picker-swatch--selected {
+  box-shadow: var(--kz-shadow-neumorphic-inset-sm);
+  outline-color: var(--kz-color-brand-accent);
+}
+
+/* ── Footer ── */
+.kz-color-picker-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--kz-space-2);
+  padding-top: var(--kz-space-2);
+  margin-top: var(--kz-space-2);
+  border-top: 1px solid var(--kz-color-border-subtle);
+}
+
+[data-variant="neumorphic"] .kz-color-picker-footer {
+  border-top-color: transparent;
+}

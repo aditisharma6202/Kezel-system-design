@@ -1,0 +1,149 @@
+.kz-number-input-root {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.kz-number-input-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  border-radius: var(--kz-component-input-radius);
+  border: 1px solid var(--kz-component-input-border);
+  background: var(--kz-component-input-bg);
+  box-shadow: var(--kz-component-input-shadow);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.kz-number-input-wrapper:focus-within {
+  border-color: var(--kz-component-input-border-focus);
+  outline: none;
+}
+
+.kz-number-input-wrapper--container {
+  background: transparent;
+  box-shadow: none;
+  border-radius: var(--kz-component-input-container-radius);
+  border: 1px solid var(--kz-component-input-container-border);
+}
+
+.kz-number-input-wrapper--ghost {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+}
+
+.kz-number-input-wrapper--error {
+  border-color: var(--kz-color-status-error-border);
+}
+
+.kz-number-input-wrapper--error:focus-within {
+  border-color: var(--kz-color-status-error-border);
+}
+
+.kz-number-input-wrapper--success {
+  border-color: var(--kz-color-status-success-border);
+}
+
+.kz-number-input-wrapper--success:focus-within {
+  border-color: var(--kz-color-status-success-border);
+}
+
+.kz-number-input-wrapper--warning {
+  border-color: var(--kz-color-status-warning-border);
+}
+
+.kz-number-input-wrapper--warning:focus-within {
+  border-color: var(--kz-color-status-warning-border);
+}
+
+.kz-number-input-wrapper:has(input:disabled) {
+  border-color: var(--kz-component-input-border-disabled);
+}
+
+.kz-number-input-wrapper--sm {
+  min-height: 32px;
+}
+
+.kz-number-input-wrapper--md {
+  min-height: 40px;
+}
+
+.kz-number-input-wrapper--lg {
+  min-height: 48px;
+}
+
+.kz-number-input-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font-family: var(--kz-typography-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--kz-component-input-text);
+  text-align: center;
+  -moz-appearance: textfield;
+}
+
+.kz-number-input-input::-webkit-outer-spin-button,
+.kz-number-input-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.kz-number-input-input::placeholder {
+  color: var(--kz-component-input-placeholder);
+}
+
+.kz-number-input-input:focus {
+  outline: none;
+}
+
+.kz-number-input-input--sm {
+  font-size: 12px;
+  line-height: 16px;
+  padding: 4px 4px;
+}
+
+.kz-number-input-input--md {
+  padding: 8px 4px;
+}
+
+.kz-number-input-input--lg {
+  font-size: 16px;
+  line-height: 24px;
+  padding: 10px 4px;
+}
+
+.kz-number-input-stepper {
+  flex-shrink: 0;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.kz-number-input-stepper:first-child {
+  border-right: 1px solid var(--kz-component-input-border);
+  border-radius: var(--kz-component-input-radius) 0 0
+    var(--kz-component-input-radius) !important;
+}
+
+.kz-number-input-stepper:last-child {
+  border-left: 1px solid var(--kz-component-input-border);
+  border-radius: 0 var(--kz-component-input-radius)
+    var(--kz-component-input-radius) 0 !important;
+}
+
+.kz-number-input-wrapper--ghost .kz-number-input-stepper:first-child {
+  border-right: none;
+  border-radius: 0 !important;
+}
+
+.kz-number-input-wrapper--ghost .kz-number-input-stepper:last-child {
+  border-left: none;
+  border-radius: 0 !important;
+}

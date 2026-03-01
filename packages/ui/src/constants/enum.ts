@@ -56,6 +56,8 @@ export enum TypographyVariant {
   H1 = "h1",
   H2 = "h2",
   H3 = "h3",
+  H4 = "h4",
+  H5 = "h5",
   Body = "body",
   Small = "small",
   Caption = "caption",
@@ -192,4 +194,18 @@ export enum AvatarStatus {
   Busy = "busy",
   Away = "away",
   Offline = "offline",
+}
+
+export enum ToastVariant {
+  Success = "success",
+  Error = "error",
+  Warning = "warning",
+  Info = "info",
+}
+
+export enum ToastPosition {
+  TopRight = "top-right",
+  TopLeft = "top-left",
+  BottomRight = "bottom-right",
+  BottomLeft = "bottom-left",
 }

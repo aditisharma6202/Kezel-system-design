@@ -1,0 +1,249 @@
+/* ── Root ── */
+.kz-file-uploader-root {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--kz-space-1);
+  width: 100%;
+}
+
+/* ── Label ── */
+.kz-file-uploader-label {
+  display: block;
+}
+
+/* ── Hidden file input ── */
+.kz-file-uploader-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Wrapper (TextInput-style) ── */
+.kz-file-uploader-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--kz-space-2);
+  width: 100%;
+  border-radius: var(--kz-component-input-radius);
+  border: 1px solid var(--kz-component-input-border);
+  background: var(--kz-component-input-bg);
+  box-shadow: var(--kz-component-input-shadow);
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+
+.kz-file-uploader-wrapper:focus-within {
+  border-color: var(--kz-component-input-border-focus);
+  outline: none;
+}
+
+/* ── Variant: container ── */
+.kz-file-uploader-wrapper--container {
+  background: transparent;
+  box-shadow: none;
+  border-radius: var(--kz-component-input-container-radius);
+  border: 1px solid var(--kz-component-input-container-border);
+}
+
+/* ── Variant: ghost ── */
+.kz-file-uploader-wrapper--ghost {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  border-radius: var(--kz-radius-none);
+}
+
+/* ── State overrides ── */
+.kz-file-uploader-wrapper--error {
+  border-color: var(--kz-color-status-error-border);
+}
+.kz-file-uploader-wrapper--error:focus-within {
+  border-color: var(--kz-color-status-error-border);
+}
+
+.kz-file-uploader-wrapper--success {
+  border-color: var(--kz-color-status-success-border);
+}
+.kz-file-uploader-wrapper--success:focus-within {
+  border-color: var(--kz-color-status-success-border);
+}
+
+.kz-file-uploader-wrapper--warning {
+  border-color: var(--kz-color-status-warning-border);
+}
+.kz-file-uploader-wrapper--warning:focus-within {
+  border-color: var(--kz-color-status-warning-border);
+}
+
+/* ── Disabled ── */
+.kz-file-uploader-wrapper--disabled {
+  border-color: var(--kz-component-input-border-disabled);
+  cursor: not-allowed;
+}
+
+/* ── Dragover ── */
+.kz-file-uploader-wrapper--dragover {
+  border-color: var(--kz-color-brand-accent);
+  background: var(--kz-component-button-ghost-bg-hover);
+}
+
+/* ── Size overrides ── */
+.kz-file-uploader-wrapper--sm {
+  min-height: var(--kz-component-button-height-sm);
+  padding: var(--kz-space-1) 10px;
+}
+.kz-file-uploader-wrapper--md {
+  min-height: var(--kz-component-button-height-md);
+  padding: var(--kz-space-2) var(--kz-space-3);
+}
+.kz-file-uploader-wrapper--lg {
+  min-height: var(--kz-component-button-height-lg);
+  padding: 10px 14px;
+}
+
+/* ── Icon ── */
+.kz-file-uploader-icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--kz-component-input-icon);
+}
+
+/* ── Placeholder text ── */
+.kz-file-uploader-text {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--kz-typography-font-family);
+  font-size: var(--kz-font-size-sm);
+  font-weight: var(--kz-font-weight-regular);
+  line-height: 20px;
+  color: var(--kz-component-input-placeholder);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kz-file-uploader-text--has-files {
+  color: var(--kz-component-input-text);
+}
+
+.kz-file-uploader-text--sm {
+  font-size: var(--kz-font-size-xs);
+  line-height: 16px;
+}
+.kz-file-uploader-text--lg {
+  font-size: var(--kz-font-size-md);
+  line-height: 24px;
+}
+
+/* ── File list ── */
+.kz-file-uploader-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--kz-space-1);
+}
+
+/* ── File item ── */
+.kz-file-uploader-item {
+  display: flex;
+  align-items: center;
+  gap: var(--kz-space-2);
+  padding: var(--kz-space-2) var(--kz-space-3);
+  border-radius: var(--kz-radius-sm);
+  background: var(--kz-component-button-ghost-bg-hover);
+  transition: background 0.15s;
+}
+
+/* ── Item icon ── */
+.kz-file-uploader-item-icon {
+  flex-shrink: 0;
+  color: var(--kz-component-input-icon);
+}
+
+/* ── Item name ── */
+.kz-file-uploader-item-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--kz-typography-font-family);
+  font-size: var(--kz-font-size-sm);
+  font-weight: var(--kz-font-weight-regular);
+  color: var(--kz-color-text-primary);
+}
+
+/* ── Item size ── */
+.kz-file-uploader-item-size {
+  flex-shrink: 0;
+  font-family: var(--kz-typography-font-family);
+  font-size: var(--kz-font-size-xs);
+  font-weight: var(--kz-font-weight-regular);
+  color: var(--kz-color-text-tertiary);
+}
+
+/* ── Item remove button ── */
+.kz-file-uploader-item-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: var(--kz-space-1);
+  border-radius: var(--kz-radius-sm);
+  color: var(--kz-color-text-tertiary);
+  transition:
+    color 0.15s,
+    background 0.15s;
+}
+
+.kz-file-uploader-item-remove:hover {
+  color: var(--kz-color-text-primary);
+  background: var(--kz-component-button-ghost-bg-hover);
+}
+
+.kz-file-uploader-item-remove:disabled {
+  cursor: not-allowed;
+  opacity: var(--kz-component-button-disabled-opacity);
+}
+
+/* ── Neumorphic overrides ── */
+[data-variant="neumorphic"] .kz-file-uploader-wrapper {
+  border-color: transparent;
+  box-shadow: var(--kz-shadow-neumorphic-inset-sm);
+}
+
+[data-variant="neumorphic"] .kz-file-uploader-wrapper--dragover {
+  border-color: var(--kz-color-brand-accent);
+  box-shadow: var(--kz-shadow-neumorphic-inset-sm);
+}
+
+[data-variant="neumorphic"] .kz-file-uploader-wrapper--error {
+  border-color: var(--kz-color-status-error-border);
+}
+
+[data-variant="neumorphic"] .kz-file-uploader-wrapper--success {
+  border-color: var(--kz-color-status-success-border);
+}
+
+[data-variant="neumorphic"] .kz-file-uploader-wrapper--warning {
+  border-color: var(--kz-color-status-warning-border);
+}
+
+[data-variant="neumorphic"] .kz-file-uploader-item {
+  background: var(--kz-component-button-ghost-bg-hover);
+  box-shadow: none;
+}

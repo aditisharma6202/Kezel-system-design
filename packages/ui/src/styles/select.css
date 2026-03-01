@@ -1,0 +1,353 @@
+/* ── Root ── */
+.kz-select-root {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--kz-space-1);
+  width: 100%;
+}
+
+/* ── Label ── */
+.kz-select-label {
+  display: block;
+}
+
+/* ── Wrapper (TextInput-style trigger) ── */
+.kz-select-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--kz-space-2);
+  width: 100%;
+  border-radius: var(--kz-component-input-radius);
+  border: 1px solid var(--kz-component-input-border);
+  background: var(--kz-component-input-bg);
+  box-shadow: var(--kz-component-input-shadow);
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+
+.kz-select-wrapper:focus-within {
+  border-color: var(--kz-component-input-border-focus);
+  outline: none;
+}
+
+/* ── Variant: container ── */
+.kz-select-wrapper--container {
+  background: transparent;
+  box-shadow: none;
+  border-radius: var(--kz-component-input-container-radius);
+  border: 1px solid var(--kz-component-input-container-border);
+}
+
+/* ── Variant: ghost ── */
+.kz-select-wrapper--ghost {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  border-radius: var(--kz-radius-none);
+}
+
+/* ── State overrides ── */
+.kz-select-wrapper--error {
+  border-color: var(--kz-color-status-error-border);
+}
+.kz-select-wrapper--error:focus-within {
+  border-color: var(--kz-color-status-error-border);
+}
+
+.kz-select-wrapper--success {
+  border-color: var(--kz-color-status-success-border);
+}
+.kz-select-wrapper--success:focus-within {
+  border-color: var(--kz-color-status-success-border);
+}
+
+.kz-select-wrapper--warning {
+  border-color: var(--kz-color-status-warning-border);
+}
+.kz-select-wrapper--warning:focus-within {
+  border-color: var(--kz-color-status-warning-border);
+}
+
+/* ── Open state ── */
+.kz-select-wrapper--open {
+  border-color: var(--kz-component-input-border-focus);
+}
+
+/* ── Disabled ── */
+.kz-select-wrapper--disabled {
+  border-color: var(--kz-component-input-border-disabled);
+  cursor: not-allowed;
+}
+
+/* ── Size overrides ── */
+.kz-select-wrapper--sm {
+  min-height: var(--kz-component-button-height-sm);
+  padding: var(--kz-space-1) 10px;
+}
+.kz-select-wrapper--md {
+  min-height: var(--kz-component-button-height-md);
+  padding: var(--kz-space-2) var(--kz-space-3);
+}
+.kz-select-wrapper--lg {
+  min-height: var(--kz-component-button-height-lg);
+  padding: 10px 14px;
+}
+
+/* ── Value text (single mode) ── */
+.kz-select-value {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--kz-typography-font-family);
+  font-size: var(--kz-font-size-sm);
+  font-weight: var(--kz-font-weight-regular);
+  line-height: 20px;
+  color: var(--kz-component-input-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kz-select-value--placeholder {
+  color: var(--kz-component-input-placeholder);
+}
+
+.kz-select-value--sm {
+  font-size: var(--kz-font-size-xs);
+  line-height: 16px;
+}
+.kz-select-value--lg {
+  font-size: var(--kz-font-size-md);
+  line-height: 24px;
+}
+
+/* ── Tags container (multi mode) ── */
+.kz-select-tags {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--kz-space-1);
+  align-items: center;
+}
+
+/* ── Tag chip ── */
+.kz-select-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 1px var(--kz-space-2);
+  border-radius: var(--kz-radius-sm);
+  background: var(--kz-component-button-ghost-bg-hover);
+  font-family: var(--kz-typography-font-family);
+  font-size: var(--kz-font-size-xs);
+  font-weight: var(--kz-font-weight-regular);
+  line-height: 18px;
+  color: var(--kz-color-text-primary);
+  white-space: nowrap;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kz-select-tag-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  color: var(--kz-color-text-tertiary);
+  transition: color 0.15s;
+}
+
+.kz-select-tag-remove:hover {
+  color: var(--kz-color-text-primary);
+}
+
+/* ── Placeholder text in tags mode ── */
+.kz-select-tags-placeholder {
+  font-family: var(--kz-typography-font-family);
+  font-size: var(--kz-font-size-sm);
+  font-weight: var(--kz-font-weight-regular);
+  line-height: 20px;
+  color: var(--kz-component-input-placeholder);
+}
+
+/* ── Toggle icon ── */
+.kz-select-toggle {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--kz-component-input-icon);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.15s;
+}
+
+.kz-select-wrapper--open .kz-select-toggle {
+  transform: rotate(180deg);
+}
+
+.kz-select-toggle:disabled {
+  cursor: not-allowed;
+  opacity: var(--kz-component-button-disabled-opacity);
+}
+
+/* ── Popover ── */
+.kz-select-popover {
+  z-index: 50;
+  border-radius: var(--kz-radius-md);
+  border: 1px solid var(--kz-color-border-subtle);
+  background: var(--kz-color-surface-base);
+  box-shadow: var(--kz-shadow-elevation-3);
+  padding: var(--kz-space-1);
+  animation: kz-select-fade-in 0.15s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes kz-select-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Search input ── */
+.kz-select-search {
+  display: flex;
+  align-items: center;
+  gap: var(--kz-space-2);
+  padding: var(--kz-space-2) var(--kz-space-3);
+  border-bottom: 1px solid var(--kz-color-border-subtle);
+  margin-bottom: var(--kz-space-1);
+}
+
+.kz-select-search-icon {
+  flex-shrink: 0;
+  color: var(--kz-component-input-icon);
+}
+
+.kz-select-search-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font-family: var(--kz-typography-font-family);
+  font-size: var(--kz-font-size-sm);
+  font-weight: var(--kz-font-weight-regular);
+  line-height: 20px;
+  color: var(--kz-component-input-text);
+  outline: none;
+}
+
+.kz-select-search-input::placeholder {
+  color: var(--kz-component-input-placeholder);
+}
+
+/* ── Option list ── */
+.kz-select-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Option item ── */
+.kz-select-item {
+  display: flex;
+  align-items: center;
+  gap: var(--kz-space-2);
+  width: 100%;
+  padding: var(--kz-space-2) var(--kz-space-3);
+  font-family: var(--kz-typography-font-family);
+  font-size: var(--kz-font-size-sm);
+  font-weight: var(--kz-font-weight-regular);
+  line-height: 20px;
+  border: none;
+  border-radius: var(--kz-radius-sm);
+  background: transparent;
+  color: var(--kz-component-input-text);
+  cursor: pointer;
+  outline: none;
+  text-align: left;
+  transition: background 0.1s;
+}
+
+.kz-select-item:hover {
+  background: var(--kz-component-dropdown-item-bg-hover);
+}
+
+.kz-select-item--selected {
+  color: var(--kz-color-brand-accent);
+}
+
+.kz-select-item-check {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 14px;
+  color: var(--kz-color-brand-accent);
+}
+
+.kz-select-item-label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Empty state ── */
+.kz-select-empty {
+  padding: var(--kz-space-3);
+  font-family: var(--kz-typography-font-family);
+  font-size: var(--kz-font-size-sm);
+  color: var(--kz-color-text-tertiary);
+  text-align: center;
+}
+
+/* ── Neumorphic overrides ── */
+[data-variant="neumorphic"] .kz-select-wrapper {
+  border-color: transparent;
+  box-shadow: var(--kz-shadow-neumorphic-inset-sm);
+}
+
+[data-variant="neumorphic"] .kz-select-wrapper--open {
+  border-color: var(--kz-component-input-border-focus);
+}
+
+[data-variant="neumorphic"] .kz-select-wrapper--error {
+  border-color: var(--kz-color-status-error-border);
+}
+
+[data-variant="neumorphic"] .kz-select-wrapper--success {
+  border-color: var(--kz-color-status-success-border);
+}
+
+[data-variant="neumorphic"] .kz-select-wrapper--warning {
+  border-color: var(--kz-color-status-warning-border);
+}
+
+[data-variant="neumorphic"] .kz-select-popover {
+  border-color: transparent;
+  box-shadow: var(--kz-shadow-neumorphic-raised-md);
+}
+
+[data-variant="neumorphic"] .kz-select-tag {
+  background: var(--kz-component-button-ghost-bg-hover);
+  box-shadow: none;
+}

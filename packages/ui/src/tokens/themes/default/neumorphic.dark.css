@@ -40,6 +40,8 @@
   --kz-typography-h1-font-size: 24px;
   --kz-typography-h2-font-size: 24px;
   --kz-typography-h3-font-size: 24px;
+  --kz-typography-h4-font-size: 18px;
+  --kz-typography-h5-font-size: 16px;
   --kz-typography-body-font-size: 16px;
   --kz-typography-small-font-size: 14px;
   --kz-typography-caption-font-size: 14px;
@@ -68,6 +70,7 @@
   --kz-shadow-neumorphic-inset-sm:
     2px 2px 4px 0 rgba(20, 24, 32, 0.8) inset,
     -2px -2px 4px 0 rgba(72, 82, 98, 0.4) inset;
+  --kz-shadow-overlay-panel: 0 8px 16px rgba(0, 0, 0, 0.16);
 
   --kz-component-button-radius: 10px;
 

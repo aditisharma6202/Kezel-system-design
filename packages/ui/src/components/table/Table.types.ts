@@ -14,6 +14,14 @@ export interface TableColumn<TData> {
   maxWidth?: string;
   align?: TableAlign;
   sortable?: boolean;
+  /** Whether this column's cells are editable. Enables the pencil icon on hover. */
+  editable?: boolean;
+  /** Custom edit renderer for this column. Defaults to a TextInput. */
+  editCell?: (
+    row: TData,
+    value: string,
+    onChange: (value: string) => void
+  ) => React.ReactNode;
 }
 
 export interface TableSortState {
@@ -50,6 +58,8 @@ export interface TableProps<TData> {
   onRowSelectionChange?: (next: Record<string, boolean>) => void;
   onToggleRow?: (rowId: string, checked: boolean) => void;
   onToggleAll?: (checked: boolean, allRowIds: string[]) => void;
+  /** Fires when the user clicks the delete-selected button. Receives the currently selected row IDs. */
+  onDeleteSelected?: (selectedIds: string[]) => void;
   actions?: (row: TData) => React.ReactNode;
   actionsHeader?: React.ReactNode;
   sort?: TableSortState | null;
@@ -60,6 +70,16 @@ export interface TableProps<TData> {
   pageSizeOptions?: number[];
   loading?: boolean;
   emptyState?: React.ReactNode;
+  /** Controlled: which cell is currently being edited, or null. */
+  editingCell?: { rowId: string; columnKey: string } | null;
+  /** Fires when a cell enters/exits edit mode. */
+  onEditingCellChange?: (
+    cell: { rowId: string; columnKey: string } | null
+  ) => void;
+  /** Fires when the user clicks Save on an edited cell. */
+  onSave?: (rowId: string, columnKey: string, value: string) => void;
+  /** Fires when the user clicks Cancel on an edited cell. */
+  onCancel?: () => void;
   className?: string;
   tableClassName?: string;
   headerClassName?: string;

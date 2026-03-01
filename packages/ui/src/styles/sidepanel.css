@@ -1,0 +1,132 @@
+/* ── Overlay ── */
+.kz-sidepanel-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.2s;
+}
+
+.kz-sidepanel-overlay[data-state="closed"] {
+  opacity: 0;
+}
+.kz-sidepanel-overlay[data-state="open"] {
+  opacity: 1;
+}
+
+/* ── Panel ── */
+.kz-sidepanel {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  background: var(--kz-component-sidemenu-bg);
+  border-right: 1px solid var(--kz-component-sidemenu-border);
+  box-shadow: var(--kz-shadow-overlay-panel);
+  overflow: hidden;
+  transition:
+    transform 0.25s cubic-bezier(0.32, 0.72, 0, 1),
+    width 0.25s ease;
+}
+
+/* ── Side: left (default) ── */
+.kz-sidepanel--left {
+  left: 0;
+  border-right: 1px solid var(--kz-component-sidemenu-border);
+  border-left: none;
+}
+.kz-sidepanel--left[data-state="closed"] {
+  transform: translateX(-100%);
+}
+.kz-sidepanel--left[data-state="open"] {
+  transform: translateX(0);
+}
+
+/* ── Side: right ── */
+.kz-sidepanel--right {
+  right: 0;
+  border-left: 1px solid var(--kz-component-sidemenu-border);
+  border-right: none;
+}
+.kz-sidepanel--right[data-state="closed"] {
+  transform: translateX(100%);
+}
+.kz-sidepanel--right[data-state="open"] {
+  transform: translateX(0);
+}
+
+/* ── Header ── */
+.kz-sidepanel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--kz-space-2);
+  padding: var(--kz-space-3) var(--kz-space-4);
+  border-bottom: 1px solid var(--kz-component-sidemenu-border);
+  flex-shrink: 0;
+}
+
+.kz-sidepanel-header-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Close button ── */
+.kz-sidepanel-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: var(--kz-radius-sm);
+  color: var(--kz-color-text-tertiary);
+  cursor: pointer;
+  transition:
+    color 0.15s,
+    background 0.15s;
+}
+
+.kz-sidepanel-close:hover {
+  color: var(--kz-color-text-primary);
+  background: var(--kz-component-button-ghost-bg-hover);
+}
+
+/* ── Body ── */
+.kz-sidepanel-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--kz-space-4);
+}
+
+/* ── Footer ── */
+.kz-sidepanel-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--kz-space-2);
+  padding: var(--kz-space-3) var(--kz-space-4);
+  border-top: 1px solid var(--kz-component-sidemenu-border);
+  flex-shrink: 0;
+}
+
+/* ── No overlay — add shadow for depth ── */
+.kz-sidepanel--no-overlay {
+  box-shadow: var(--kz-shadow-elevation-4);
+}
+
+/* ── Neumorphic overrides ── */
+[data-variant="neumorphic"] .kz-sidepanel {
+  border-color: transparent;
+}
+
+[data-variant="neumorphic"] .kz-sidepanel-header {
+  border-bottom-color: transparent;
+}
+
+[data-variant="neumorphic"] .kz-sidepanel-footer {
+  border-top-color: transparent;
+}

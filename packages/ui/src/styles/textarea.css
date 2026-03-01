@@ -1,0 +1,127 @@
+.kz-textarea-root {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.kz-textarea-wrapper {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+  border-radius: var(--kz-component-input-radius);
+  border: 1px solid var(--kz-component-input-border);
+  background: var(--kz-component-input-bg);
+  box-shadow: var(--kz-component-input-shadow);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.kz-textarea-wrapper:focus-within {
+  border-color: var(--kz-component-input-border-focus);
+  outline: none;
+}
+
+.kz-textarea-wrapper--container {
+  background: transparent;
+  box-shadow: none;
+  border-radius: var(--kz-component-input-container-radius);
+  border: 1px solid var(--kz-component-input-container-border);
+}
+
+.kz-textarea-wrapper--ghost {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+}
+
+.kz-textarea-wrapper--error {
+  border-color: var(--kz-color-status-error-border);
+}
+
+.kz-textarea-wrapper--error:focus-within {
+  border-color: var(--kz-color-status-error-border);
+}
+
+.kz-textarea-wrapper--success {
+  border-color: var(--kz-color-status-success-border);
+}
+
+.kz-textarea-wrapper--success:focus-within {
+  border-color: var(--kz-color-status-success-border);
+}
+
+.kz-textarea-wrapper--warning {
+  border-color: var(--kz-color-status-warning-border);
+}
+
+.kz-textarea-wrapper--warning:focus-within {
+  border-color: var(--kz-color-status-warning-border);
+}
+
+.kz-textarea-wrapper:has(textarea:disabled) {
+  border-color: var(--kz-component-input-border-disabled);
+}
+
+[data-variant="standard"] .kz-textarea-state-icon {
+  display: none;
+}
+
+.kz-textarea-wrapper--sm {
+  padding: 6px 10px;
+}
+
+.kz-textarea-wrapper--md {
+  padding: 8px 12px;
+}
+
+.kz-textarea-wrapper--lg {
+  padding: 10px 14px;
+}
+
+.kz-textarea-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font-family: var(--kz-typography-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--kz-component-input-text);
+}
+
+.kz-textarea-input::placeholder {
+  color: var(--kz-component-input-placeholder);
+}
+
+.kz-textarea-input:focus {
+  outline: none;
+}
+
+.kz-textarea-input--sm {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.kz-textarea-input--lg {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.kz-textarea-adornment,
+.kz-textarea-clear {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--kz-component-input-icon);
+  margin-top: 2px;
+}
+
+.kz-textarea-state-icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}

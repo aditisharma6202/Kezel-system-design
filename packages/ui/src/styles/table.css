@@ -33,3 +33,45 @@
 .kz-table-footer .kz-table-pagination-prev-next:hover:not(:disabled) {
   box-shadow: var(--kz-component-table-pagination-hover-shadow);
 }
+
+/* ── Inline editing ── */
+
+.kz-table-td--editable {
+  position: relative;
+  cursor: pointer;
+}
+
+.kz-table-cell-edit-icon {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.15s;
+  color: var(--kz-color-text-tertiary);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 2px;
+  border-radius: var(--kz-radius-sm);
+}
+
+.kz-table-tr:hover .kz-table-cell-edit-icon {
+  opacity: 1;
+}
+
+.kz-table-cell-edit-icon:hover {
+  color: var(--kz-color-text-primary);
+}
+
+.kz-table-tr--editing {
+  background: var(--kz-color-surface-muted);
+}
+
+.kz-table-tr--editing:hover {
+  background: var(--kz-color-surface-muted);
+}
+

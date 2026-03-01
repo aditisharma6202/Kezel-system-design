@@ -63,6 +63,18 @@
   --kz-typography-h3-line-height: 28px;
   --kz-typography-h3-letter-spacing: -0.449px;
 
+  --kz-typography-h4-color: #101828;
+  --kz-typography-h4-font-size: 18px;
+  --kz-typography-h4-font-weight: 600;
+  --kz-typography-h4-line-height: 24px;
+  --kz-typography-h4-letter-spacing: -0.252px;
+
+  --kz-typography-h5-color: #101828;
+  --kz-typography-h5-font-size: 16px;
+  --kz-typography-h5-font-weight: 600;
+  --kz-typography-h5-line-height: 22px;
+  --kz-typography-h5-letter-spacing: -0.176px;
+
   --kz-typography-body-color: #364153;
   --kz-typography-body-font-size: 16px;
   --kz-typography-body-font-weight: 400;
@@ -122,6 +134,7 @@
   --kz-shadow-elevation-3: 0 4px 8px rgba(0, 0, 0, 0.12);
   --kz-shadow-elevation-4: 0 8px 16px rgba(0, 0, 0, 0.16);
   --kz-shadow-elevation-5: 0 12px 24px rgba(0, 0, 0, 0.2);
+  --kz-shadow-overlay-panel: 0 8px 24px rgba(0, 0, 0, 0.5);
   --kz-shadow-inset-1: inset 0 1px 2px rgba(0, 0, 0, 0.05);
   --kz-shadow-inset-2: inset 0 2px 4px rgba(0, 0, 0, 0.08);
   --kz-shadow-focus: 0 0 0 3px rgba(0, 102, 204, 0.25);
@@ -217,6 +230,7 @@
 
   /* Component: Button — Ghost */
   --kz-component-button-ghost-bg: transparent;
+  --kz-component-button-ghost-bg-hover: #F3F4F6;
   --kz-component-button-ghost-text: #364153;
 
   /* Component: Button — Success, Warning, Error (standard: with hover) */

@@ -4,6 +4,8 @@
 @import "./tokens/themes/default/neumorphic.dark.css";
 @import "./styles/typography.css";
 @import "./styles/text-input.css";
+@import "./styles/textarea.css";
+@import "./styles/number-input.css";
 @import "./styles/button.css";
 @import "./styles/dropdown.css";
 @import "./styles/nav-button.css";
@@ -16,6 +18,15 @@
 @import "./styles/tabs.css";
 @import "./styles/table.css";
 @import "./styles/avatar.css";
+@import "./styles/date-time-picker.css";
+@import "./styles/color-picker.css";
+@import "./styles/icon-picker.css";
+@import "./styles/file-uploader.css";
+@import "./styles/select.css";
+@import "./styles/sidepanel.css";
+@import "./styles/form-group.css";
+@import "./styles/modal.css";
+@import "./styles/toast.css";
 
 @tailwind base;
 @tailwind components;

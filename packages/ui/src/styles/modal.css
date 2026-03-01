@@ -1,0 +1,131 @@
+/* ── Overlay ── */
+.kz-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: var(--kz-color-surface-overlay);
+  transition: opacity 0.2s;
+}
+
+.kz-modal-overlay[data-state="closed"] {
+  opacity: 0;
+}
+.kz-modal-overlay[data-state="open"] {
+  opacity: 1;
+}
+
+/* ── Panel ── */
+.kz-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 32px);
+  max-height: calc(100vh - 64px);
+  background: var(--kz-color-surface-base);
+  border: 1px solid var(--kz-color-border-subtle);
+  border-radius: var(--kz-radius-lg);
+  box-shadow: var(--kz-shadow-overlay-panel);
+  overflow: hidden;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+
+.kz-modal[data-state="closed"] {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.95);
+}
+.kz-modal[data-state="open"] {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* ── Sizes ── */
+.kz-modal--sm {
+  max-width: 400px;
+}
+.kz-modal--md {
+  max-width: 520px;
+}
+.kz-modal--lg {
+  max-width: 680px;
+}
+.kz-modal--xl {
+  max-width: 860px;
+}
+.kz-modal--full {
+  max-width: 95vw;
+}
+
+/* ── Header ── */
+.kz-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--kz-space-2);
+  padding: var(--kz-space-3) var(--kz-space-4);
+  border-bottom: 1px solid var(--kz-color-border-subtle);
+  flex-shrink: 0;
+}
+
+.kz-modal-header-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Close button ── */
+.kz-modal-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: var(--kz-radius-sm);
+  color: var(--kz-color-text-tertiary);
+  cursor: pointer;
+  transition:
+    color 0.15s,
+    background 0.15s;
+}
+
+.kz-modal-close:hover {
+  color: var(--kz-color-text-primary);
+  background: var(--kz-component-button-ghost-bg-hover);
+}
+
+/* ── Body ── */
+.kz-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--kz-space-4);
+}
+
+/* ── Footer ── */
+.kz-modal-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--kz-space-2);
+  padding: var(--kz-space-3) var(--kz-space-4);
+  border-top: 1px solid var(--kz-color-border-subtle);
+  flex-shrink: 0;
+}
+
+/* ── Neumorphic overrides ── */
+[data-variant="neumorphic"] .kz-modal {
+  border-color: transparent;
+  box-shadow: var(--kz-shadow-neumorphic-raised-md);
+}
+
+[data-variant="neumorphic"] .kz-modal-header {
+  border-bottom-color: transparent;
+}
+
+[data-variant="neumorphic"] .kz-modal-footer {
+  border-top-color: transparent;
+}

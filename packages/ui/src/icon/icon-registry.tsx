@@ -99,6 +99,8 @@ import {
   Settings2,
   LayoutGrid,
   Terminal,
+  Pencil,
+  Trash2,
 } from "lucide-react";
 
 /** Use IconName.* so users discover available icons. Values match registry keys. */
@@ -202,6 +204,8 @@ export enum IconName {
   Settings2 = "settings-2",
   LayoutGrid = "layout-grid",
   Terminal = "terminal",
+  Pencil = "pencil",
+  Trash2 = "trash-2",
 }
 
 export const iconRegistry: Record<IconName, LucideIcon> = {
@@ -304,4 +308,6 @@ export const iconRegistry: Record<IconName, LucideIcon> = {
   [IconName.Settings2]: Settings2,
   [IconName.LayoutGrid]: LayoutGrid,
   [IconName.Terminal]: Terminal,
+  [IconName.Pencil]: Pencil,
+  [IconName.Trash2]: Trash2,
 };

@@ -1,0 +1,112 @@
+/* ── Toast viewport ── */
+
+.kz-toast-viewport {
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: var(--kz-space-3);
+  padding: var(--kz-space-4);
+  max-width: 420px;
+  width: 100%;
+  pointer-events: none;
+}
+
+.kz-toast-viewport--top-right {
+  top: 0;
+  right: 0;
+}
+
+.kz-toast-viewport--top-left {
+  top: 0;
+  left: 0;
+}
+
+.kz-toast-viewport--bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+.kz-toast-viewport--bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+/* ── Individual toast ── */
+
+.kz-toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--kz-space-3);
+  padding: var(--kz-space-3) var(--kz-space-4);
+  border-radius: var(--kz-radius-md);
+  border: 1px solid var(--kz-color-border-default);
+  background: var(--kz-color-surface-raised);
+  box-shadow: var(--kz-shadow-elevation-3);
+  animation: kz-toast-enter 0.25s ease-out;
+}
+
+/* Variant left-border accent */
+.kz-toast--success {
+  border-left: 3px solid var(--kz-color-status-success);
+}
+
+.kz-toast--error {
+  border-left: 3px solid var(--kz-color-status-error);
+}
+
+.kz-toast--warning {
+  border-left: 3px solid var(--kz-color-status-warning);
+}
+
+.kz-toast--info {
+  border-left: 3px solid var(--kz-color-status-info);
+}
+
+/* Icon color per variant */
+.kz-toast--success .kz-toast-icon {
+  color: var(--kz-color-status-success);
+}
+
+.kz-toast--error .kz-toast-icon {
+  color: var(--kz-color-status-error);
+}
+
+.kz-toast--warning .kz-toast-icon {
+  color: var(--kz-color-status-warning);
+}
+
+.kz-toast--info .kz-toast-icon {
+  color: var(--kz-color-status-info);
+}
+
+/* Close button */
+.kz-toast-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: var(--kz-radius-sm);
+  color: var(--kz-color-text-muted);
+  transition: color 0.15s;
+}
+
+.kz-toast-close:hover {
+  color: var(--kz-color-text-primary);
+}
+
+/* Enter animation */
+@keyframes kz-toast-enter {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

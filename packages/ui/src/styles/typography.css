@@ -27,6 +27,24 @@
   letter-spacing: var(--kz-typography-h3-letter-spacing, var(--kz-typography-letter-spacing-primary));
 }
 
+.kz-typography-h4 {
+  color: var(--kz-typography-h4-color, var(--kz-typography-color-primary));
+  font-family: var(--kz-typography-font-family);
+  font-weight: var(--kz-typography-h4-font-weight, var(--kz-typography-font-weight));
+  font-size: var(--kz-typography-h4-font-size);
+  line-height: var(--kz-typography-h4-line-height, var(--kz-typography-line-height-primary));
+  letter-spacing: var(--kz-typography-h4-letter-spacing, var(--kz-typography-letter-spacing-primary));
+}
+
+.kz-typography-h5 {
+  color: var(--kz-typography-h5-color, var(--kz-typography-color-primary));
+  font-family: var(--kz-typography-font-family);
+  font-weight: var(--kz-typography-h5-font-weight, var(--kz-typography-font-weight));
+  font-size: var(--kz-typography-h5-font-size);
+  line-height: var(--kz-typography-h5-line-height, var(--kz-typography-line-height-primary));
+  letter-spacing: var(--kz-typography-h5-letter-spacing, var(--kz-typography-letter-spacing-primary));
+}
+
 .kz-typography-body {
   color: var(--kz-typography-body-color, var(--kz-typography-color-primary));
   font-family: var(--kz-typography-font-family);

@@ -1,0 +1,51 @@
+/* ── Root ── */
+.kz-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kz-space-1);
+  width: 100%;
+}
+
+/* fieldset reset */
+fieldset.kz-form-group {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Legend / Label ── */
+.kz-form-group-legend {
+  display: block;
+}
+
+legend.kz-form-group-legend {
+  padding: 0;
+}
+
+/* ── Required asterisk ── */
+.kz-form-group--required .kz-form-group-legend::after {
+  content: " *";
+  color: var(--kz-color-status-error-border);
+}
+
+/* ── Content ── */
+.kz-form-group-content {
+  display: flex;
+  gap: var(--kz-space-2);
+}
+
+.kz-form-group-content--vertical {
+  flex-direction: column;
+}
+
+.kz-form-group-content--horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+/* ── Disabled ── */
+.kz-form-group--disabled .kz-form-group-content {
+  opacity: 0.5;
+  pointer-events: none;
+}

@@ -31,6 +31,8 @@
   --kz-typography-h1-font-size: 24px;
   --kz-typography-h2-font-size: 24px;
   --kz-typography-h3-font-size: 24px;
+  --kz-typography-h4-font-size: 18px;
+  --kz-typography-h5-font-size: 16px;
   --kz-typography-body-font-size: 16px;
   --kz-typography-small-font-size: 14px;
   --kz-typography-caption-font-size: 14px;
@@ -60,6 +62,7 @@
   --kz-shadow-neumorphic-raised-md: 4px 4px 8px 0 rgba(163, 177, 198, 0.5), -4px -4px 8px 0 #fff;
   --kz-shadow-neumorphic-raised-lg: 4px 4px 12px 0 rgba(163, 177, 198, 0.5), -4px -4px 12px 0 #fff;
   --kz-shadow-neumorphic-inset-sm: 2px 2px 4px 0 #c3cad3 inset, -2px -2px 4px 0 #fff inset;
+  --kz-shadow-overlay-panel: 0 8px 24px rgba(0, 0, 0, 0.5);
 
   /* Radius */
   --kz-radius-md: 10px;
