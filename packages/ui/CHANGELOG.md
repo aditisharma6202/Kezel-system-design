@@ -1,5 +1,11 @@
 # kz-design-system
 
+## 0.0.12
+
+### Patch Changes
+
+- 8d85184: updated components
+
 ## 0.0.10
 
 ### Patch Changes
