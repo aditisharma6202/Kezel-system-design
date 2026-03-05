@@ -130,7 +130,7 @@
   border: none;
   border-radius: 6px;
   background: transparent;
-  color: var(--kz-dd-item-text);
+  color: var(--kz-component-dropdown-trigger-text);
   cursor: pointer;
   outline: none;
   text-align: left;
@@ -185,10 +185,13 @@
 
 .kz-dropdown-label {
   padding: 8px 12px;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.5;
+  font-family: var(--kz-typography-font-family);
+  font-weight: var(--kz-typography-label-font-weight, var(--kz-typography-font-weight));
+  font-size: var(--kz-typography-label-font-size);
+  line-height: var(--kz-typography-label-line-height, var(--kz-typography-line-height-secondary));
+  letter-spacing: var(--kz-typography-label-letter-spacing, var(--kz-typography-letter-spacing-secondary));
   border-radius: 6px;
+  color: var(	--kz-color-text-primary);
   opacity: 0.8;
 }
 .kz-dropdown-separator {

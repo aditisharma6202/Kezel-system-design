@@ -40,6 +40,7 @@ import SidePanelShowcase from "./components/SidePanelShowcase";
 import FormGroupShowcase from "./components/FormGroupShowcase";
 import ModalShowcase from "./components/ModalShowcase";
 import ToastShowcase from "./components/ToastShowcase";
+import CardShowcase from "./components/CardShowcase";
 
 type SectionId =
   | "typography"
@@ -64,7 +65,8 @@ type SectionId =
   | "side-panel"
   | "form-group"
   | "modal"
-  | "toast";
+  | "toast"
+  | "card";
 
 const docsMenuData: SideMenuNode[] = [
   {
@@ -268,6 +270,13 @@ const docsMenuData: SideMenuNode[] = [
         icon: IconName.Shield,
         href: "#",
       },
+      {
+        type: "link",
+        id: "card",
+        label: "Card",
+        icon: IconName.LayoutGrid,
+        href: "#",
+      },
     ],
   },
 ];
@@ -387,6 +396,7 @@ export default function App() {
               {activeSection === "form-group" && <FormGroupShowcase />}
               {activeSection === "modal" && <ModalShowcase />}
               {activeSection === "toast" && <ToastShowcase />}
+              {activeSection === "card" && <CardShowcase />}
             </main>
           </div>
         </div>

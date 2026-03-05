@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as RadixDialog from "@radix-ui/react-dialog";
-import { cn } from "../../utils/cn";
 import { Icon, IconName } from "../../icon";
+import { cn } from "../../utils/cn";
 
 /* ── Types ── */
 
@@ -27,10 +27,16 @@ export interface SidePanelProps {
 
   /** Accessible title for screen readers. Default: "Panel" */
   title?: string;
-  /** Content for the header area (left of close button). */
+  /** Fully customisable header area — accepts any ReactNode (buttons, breadcrumbs, etc.). Rendered left of the close button. */
   header?: React.ReactNode;
-  /** Content for the footer area. */
+  /** Fully customisable footer area — accepts any ReactNode. */
   footer?: React.ReactNode;
+  /** Keep the header pinned at the top while the body scrolls. Default: true */
+  stickyHeader?: boolean;
+  /** Keep the footer pinned at the bottom while the body scrolls. Default: true */
+  stickyFooter?: boolean;
+  /** Hide the built-in close button. Default: false */
+  hideCloseButton?: boolean;
 
   children?: React.ReactNode;
   className?: string;
@@ -51,12 +57,38 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
       title = "Panel",
       header,
       footer,
+      stickyHeader = true,
+      stickyFooter = true,
+      hideCloseButton = false,
       children,
       className,
     },
     ref
   ) => {
     const resolvedWidth = typeof width === "number" ? `${width}px` : width;
+
+    const headerEl =
+      header != null || !hideCloseButton ? (
+        <div className="kz-sidepanel-header">
+          <div className="kz-sidepanel-header-content">{header}</div>
+          {!hideCloseButton && (
+            <RadixDialog.Close asChild>
+              <button
+                type="button"
+                className="kz-sidepanel-close"
+                aria-label="Close panel"
+              >
+                <Icon name={IconName.X} size={16} />
+              </button>
+            </RadixDialog.Close>
+          )}
+        </div>
+      ) : null;
+
+    const footerEl =
+      footer != null ? (
+        <div className="kz-sidepanel-footer">{footer}</div>
+      ) : null;
 
     return (
       <RadixDialog.Root open={open} onOpenChange={onOpenChange}>
@@ -101,26 +133,13 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
             >
               {title}
             </RadixDialog.Title>
-            {header != null && (
-              <div className="kz-sidepanel-header">
-                <div className="kz-sidepanel-header-content">{header}</div>
-                <RadixDialog.Close asChild>
-                  <button
-                    type="button"
-                    className="kz-sidepanel-close"
-                    aria-label="Close panel"
-                  >
-                    <Icon name={IconName.X} size={16} />
-                  </button>
-                </RadixDialog.Close>
-              </div>
-            )}
-
-            <div className="kz-sidepanel-body">{children}</div>
-
-            {footer != null && (
-              <div className="kz-sidepanel-footer">{footer}</div>
-            )}
+            {stickyHeader && headerEl}
+            <div className="kz-sidepanel-scroll">
+              {!stickyHeader && headerEl}
+              <div className="kz-sidepanel-body">{children}</div>
+              {!stickyFooter && footerEl}
+            </div>
+            {stickyFooter && footerEl}
           </RadixDialog.Content>
         </RadixDialog.Portal>
       </RadixDialog.Root>

@@ -395,7 +395,10 @@
   /* Component: Card */
   --kz-component-card-bg: #ffffff;
   --kz-component-card-border: #e4e7eb;
-  --kz-component-card-shadow: var(--kz-shadow-elevation-1);
+  --kz-component-card-shadow-sm: var(--kz-shadow-elevation-1);
+  --kz-component-card-shadow-md: var(--kz-shadow-elevation-2);
+  --kz-component-card-shadow-lg: var(--kz-shadow-elevation-3);
+  --kz-component-card-shadow: var(--kz-component-card-shadow-sm);
   --kz-component-card-radius: var(--kz-radius-md);
 
   /* Component: Canvas / Tile */

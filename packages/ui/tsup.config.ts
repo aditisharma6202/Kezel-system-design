@@ -31,6 +31,7 @@ export default defineConfig({
     "form-group": "src/components/form-group/index.ts",
     modal: "src/components/modal/index.ts",
     toast: "src/components/toast/index.ts",
+    card: "src/components/card/index.ts",
   },
   format: ["esm", "cjs"],
   dts: true,

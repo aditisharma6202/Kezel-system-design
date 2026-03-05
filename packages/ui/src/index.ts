@@ -56,6 +56,7 @@ export {
   TextInputVariant,
   TextInputSize,
   TextInputState,
+  TextInputType,
 } from "./components/text-input";
 export type { TextInputProps } from "./components/text-input";
 export { TextArea } from "./components/text-area";
@@ -189,6 +190,8 @@ export type {
   ToastContextValue,
 } from "./components/toast";
 export { ToastVariant, ToastPosition } from "./constants/enum";
+export { Card, CardShadow } from "./components/card";
+export type { CardProps, CardSize, CardPadding } from "./components/card";
 export { TOKEN_KEYS } from "./tokens/contract/token-keys";
 export { tokenToCssVar } from "./tokens/contract/css-var-maps";
 export type { TokenKey } from "./tokens/contract/token-keys";

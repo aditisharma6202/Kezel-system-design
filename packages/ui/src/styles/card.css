@@ -1,0 +1,95 @@
+/* ── Card ── */
+
+.kz-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--kz-component-card-bg);
+  border: 1px solid var(--kz-component-card-border);
+  border-radius: var(--kz-component-card-radius);
+  box-shadow: var(--kz-component-card-shadow);
+  color: var(--kz-color-text-primary);
+  transition:
+    box-shadow var(--kz-motion-duration-normal, 200ms) var(--kz-motion-easing-standard, ease),
+    transform var(--kz-motion-duration-normal, 200ms) var(--kz-motion-easing-standard, ease);
+}
+
+/* Shadow variants */
+.kz-card--shadow-sm {
+  box-shadow: var(--kz-component-card-shadow-sm);
+}
+
+.kz-card--shadow-md {
+  box-shadow: var(--kz-component-card-shadow-md);
+}
+
+.kz-card--shadow-lg {
+  box-shadow: var(--kz-component-card-shadow-lg);
+}
+
+.kz-card--flat {
+  box-shadow: none;
+}
+
+.kz-card--hoverable:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    var(--kz-component-card-shadow-md),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.kz-card--clickable {
+  cursor: pointer;
+  outline: none;
+}
+
+.kz-card--clickable:focus-visible {
+  outline: 2px solid var(--kz-color-brand-accent, #18ab9f);
+  outline-offset: 2px;
+}
+
+/* Cover (image/media) */
+.kz-card-cover {
+  flex-shrink: 0;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.kz-card-cover > img,
+.kz-card-cover > video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Header */
+.kz-card-header {
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--kz-component-card-border);
+}
+
+/* Body */
+.kz-card-body {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+/* Footer */
+.kz-card-footer {
+  flex-shrink: 0;
+  border-top: 1px solid var(--kz-component-card-border);
+}
+
+/* Padding variants */
+.kz-card-padding--sm {
+  padding: var(--kz-space-2, 8px);
+}
+
+.kz-card-padding--md {
+  padding: var(--kz-space-4, 16px);
+}
+
+.kz-card-padding--lg {
+  padding: var(--kz-space-6, 24px);
+}

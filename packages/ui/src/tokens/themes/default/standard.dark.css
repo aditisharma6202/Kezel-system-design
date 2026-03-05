@@ -206,6 +206,15 @@
   --kz-component-table-pagination-active-shadow: none;
   --kz-component-table-pagination-hover-shadow: none;
 
+  /* Component: Card (standard dark) */
+  --kz-component-card-bg: var(--kz-color-surface-raised);
+  --kz-component-card-border: var(--kz-color-border-default);
+  --kz-component-card-shadow-sm: var(--kz-shadow-elevation-1);
+  --kz-component-card-shadow-md: var(--kz-shadow-elevation-2);
+  --kz-component-card-shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.45);
+  --kz-component-card-shadow: var(--kz-component-card-shadow-sm);
+  --kz-component-card-radius: var(--kz-radius-md);
+
   /* Component: Nav dropdown menu (standard dark) */
   --kz-component-nav-dropdown-menu-bg: #1f2933;
   --kz-component-nav-dropdown-menu-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);

@@ -27,6 +27,7 @@
 @import "./styles/form-group.css";
 @import "./styles/modal.css";
 @import "./styles/toast.css";
+@import "./styles/card.css";
 
 @tailwind base;
 @tailwind components;

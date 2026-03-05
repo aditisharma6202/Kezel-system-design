@@ -279,13 +279,13 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
                       onClick={() => handleItemClick(opt.value)}
                     >
                       {multiple ? (
-                        <Checkbox
-                          size={CheckboxSize.Sm}
-                          checked={isSelected}
-                          onCheckedChange={() => handleItemClick(opt.value)}
-                          onClick={(e) => e.stopPropagation()}
-                          tabIndex={-1}
-                        />
+                        <span className="pointer-events-none">
+                          <Checkbox
+                            size={CheckboxSize.Sm}
+                            checked={isSelected}
+                            tabIndex={-1}
+                          />
+                        </span>
                       ) : (
                         <span className="kz-select-item-check">
                           {isSelected && (

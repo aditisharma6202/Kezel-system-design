@@ -126,6 +126,16 @@ export enum TextInputState {
   Warning = "warning",
 }
 
+export enum TextInputType {
+  Text = "text",
+  Email = "email",
+  Password = "password",
+  Number = "number",
+  Search = "search",
+  Tel = "tel",
+  Url = "url",
+}
+
 export enum TooltipSize {
   Sm = "sm",
   Md = "md",
@@ -201,6 +211,12 @@ export enum ToastVariant {
   Error = "error",
   Warning = "warning",
   Info = "info",
+}
+
+export enum CardShadow {
+  Sm = "sm",
+  Md = "md",
+  Lg = "lg",
 }
 
 export enum ToastPosition {

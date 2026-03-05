@@ -96,10 +96,15 @@
   background: var(--kz-component-button-ghost-bg-hover);
 }
 
-/* ── Body ── */
-.kz-sidepanel-body {
+/* ── Scrollable area ── */
+.kz-sidepanel-scroll {
   flex: 1;
   overflow-y: auto;
+  min-height: 0;
+}
+
+/* ── Body ── */
+.kz-sidepanel-body {
   padding: var(--kz-space-4);
 }
 

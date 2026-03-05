@@ -1,6 +1,12 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Table, Button, ButtonVariant, ButtonSize } from "kz-design-system";
+import {
+  Table,
+  Button,
+  ButtonVariant,
+  ButtonSize,
+  Select,
+} from "kz-design-system";
 import {
   DropdownButton,
   type DropdownButtonItem,
@@ -60,7 +66,7 @@ const meta: Meta<typeof Table<Row>> = {
     docs: {
       description: {
         component:
-          "Data table with selection, sorting, sticky header, sticky row (getRowSticky), actions column, search, and pagination. **Horizontal scroll**: set **horizontalScroll** when you have many columns so the table scrolls horizontally instead of squeezing. **Column sizes**: use **width**, **minWidth**, and **maxWidth** on each column (e.g. `width: '120px'`, `minWidth: '80px'`, `maxWidth: '300px'`) for customizable column widths; combine with horizontalScroll for wide tables. Use the Variant and Mode toolbar to switch themes.",
+          "Data table with selection, sorting, sticky header, sticky row (getRowSticky), actions column, search, and pagination. **Horizontal scroll**: set **horizontalScroll** when you have many columns so the table scrolls horizontally instead of squeezing. **Column sizes**: use **width**, **minWidth**, and **maxWidth** on each column (e.g. `width: '120px'`, `minWidth: '80px'`, `maxWidth: '300px'`) for customizable column widths; combine with horizontalScroll for wide tables.\n\nThe typings now allow you to specify a generic edit value type per column. Example:\n```ts\ninterface MyRow { id: string; date: Date; }\nconst columns: TableColumn<MyRow, Date>[] = [\n  { key: 'date', header: 'Date', accessor: r => r.date.toLocaleString(), editable: true, getEditValue: r => r.date, editCell: (row, val, onChange) => (\n      <DateTimePicker value={val} onChange={onChange} />\n  ) },\n];\n```\nUse this when you need complex inputs like date pickers. Use the Variant and Mode toolbar to switch themes.",
       },
     },
   },
@@ -506,4 +512,109 @@ export const CustomColumnWidths: Story = {
       </div>
     ),
   ],
+};
+
+/**
+ * Demonstrates customizable edit cells using the `editCell` prop.
+ * You can use any input component (TextInput, Select, DateRangePicker, etc.)
+ * for editing different column types.
+ */
+function TableWithCustomEditCells() {
+  const [editingCell, setEditingCell] = React.useState<{
+    rowId: string;
+    columnKey: string;
+  } | null>(null);
+  const [data, setData] = React.useState(sampleData);
+
+  const editableColumns = [
+    {
+      key: "name",
+      header: "Name",
+      accessor: (row: Row) => row.name,
+      sortable: true,
+      editable: true,
+      // Default TextInput (no editCell needed)
+    },
+    {
+      key: "role",
+      header: "Role",
+      accessor: (row: Row) => row.role,
+      sortable: true,
+      editable: true,
+      // Custom edit cell using Select
+      editCell: (row: Row, value: string, onChange: (v: string) => void) => (
+        <Select
+          label=""
+          value={value}
+          onChange={onChange as (v: string | string[]) => void}
+          options={[
+            { value: "Admin", label: "Admin" },
+            { value: "Editor", label: "Editor" },
+            { value: "Viewer", label: "Viewer" },
+          ]}
+        />
+      ),
+    },
+    {
+      key: "status",
+      header: "Status",
+      accessor: (row: Row) => row.status,
+      editable: true,
+      // Custom edit cell using Select
+      editCell: (row: Row, value: string, onChange: (v: string) => void) => (
+        <Select
+          label=""
+          value={value}
+          onChange={onChange as (v: string | string[]) => void}
+          options={[
+            { value: "Active", label: "Active" },
+            { value: "Inactive", label: "Inactive" },
+          ]}
+        />
+      ),
+    },
+  ];
+
+  const handleSave = (rowId: string, columnKey: string, value: string) => {
+    setData((prevData) =>
+      prevData.map((row) =>
+        row.id === rowId ? { ...row, [columnKey]: value } : row
+      )
+    );
+    setEditingCell(null);
+  };
+
+  return (
+    <Table<Row>
+      data={data}
+      columns={editableColumns}
+      getRowId={(r) => r.id}
+      size="md"
+      title="Editable Cells"
+      description="Click the pencil icon to edit. Name uses default TextInput. Role and Status use Select dropdowns."
+      editingCell={editingCell}
+      onEditingCellChange={setEditingCell}
+      onSave={handleSave}
+      onCancel={() => setEditingCell(null)}
+      actions={() => (
+        <DropdownButton
+          trigger={{ iconOnly: true, ariaLabel: "Actions" }}
+          items={makeActions()}
+        />
+      )}
+      actionsHeader=""
+    />
+  );
+}
+
+export const CustomEditCells: Story = {
+  render: () => <TableWithCustomEditCells />,
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Use the **editCell** prop on a column to customize the edit input. Pass any input component like Select, DateRangePicker, TextArea, etc. The **value** parameter can be any type (string, object, array, etc.), not just strings. Use **getEditValue** if you need to transform the display value for editing.",
+      },
+    },
+  },
 };

@@ -1,6 +1,6 @@
 {
   "name": "kz-design-system",
-  "version": "0.0.11",
+  "version": "0.0.13",
   "description": "Production-ready React design system",
   "sideEffects": [
     "**/*.css"
@@ -179,6 +179,12 @@
       "import": "./dist/toast.mjs",
       "require": "./dist/toast.js",
       "default": "./dist/toast.mjs"
+    },
+    "./card": {
+      "types": "./dist/card.d.ts",
+      "import": "./dist/card.mjs",
+      "require": "./dist/card.js",
+      "default": "./dist/card.mjs"
     },
     "./styles.css": "./dist/styles.css"
   },

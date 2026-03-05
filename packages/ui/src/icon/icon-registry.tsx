@@ -101,6 +101,8 @@ import {
   Terminal,
   Pencil,
   Trash2,
+  Eye,
+  EyeOff,
 } from "lucide-react";
 
 /** Use IconName.* so users discover available icons. Values match registry keys. */
@@ -206,6 +208,8 @@ export enum IconName {
   Terminal = "terminal",
   Pencil = "pencil",
   Trash2 = "trash-2",
+  Eye = "eye",
+  EyeOff = "eye-off",
 }
 
 export const iconRegistry: Record<IconName, LucideIcon> = {
@@ -310,4 +314,6 @@ export const iconRegistry: Record<IconName, LucideIcon> = {
   [IconName.Terminal]: Terminal,
   [IconName.Pencil]: Pencil,
   [IconName.Trash2]: Trash2,
+  [IconName.Eye]: Eye,
+  [IconName.EyeOff]: EyeOff,
 };

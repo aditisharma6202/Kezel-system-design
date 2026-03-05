@@ -8,6 +8,7 @@ import {
   Typography,
   TypographyVariantEnum,
   Table,
+  Select,
 } from "kz-design-system";
 import { DropdownButton } from "kz-design-system/dropdown";
 
@@ -134,12 +135,22 @@ export default function TableShowcase() {
         />
       </div>
 
+      {/* ── Sticky Columns Table ── */}
+      <Typography variant={TypographyVariantEnum.H3}>
+        Sticky Columns (Horizontal Scroll)
+      </Typography>
+      <Typography variant={TypographyVariantEnum.Caption}>
+        Checkbox and Actions columns stay fixed while the rest scrolls
+        horizontally. Resize the browser or use a narrow container to see it in
+        action.
+      </Typography>
+      <StickyColumnsTableDemo />
+
       {/* ── Editable Table ── */}
       <Typography variant={TypographyVariantEnum.H3}>Editable Table</Typography>
       <Typography variant={TypographyVariantEnum.Caption}>
         Hover over a cell to see the edit icon. Click it to edit that cell. Name
-        and Role columns are editable. Select rows and use the delete button in
-        the footer.
+        uses a text input, while Role and Status use Select dropdowns.
       </Typography>
       <EditableTableDemo />
     </section>
@@ -172,6 +183,7 @@ function EditableTableDemo() {
       accessor: (row: TableRow) => row.name,
       sortable: true,
       editable: true,
+      // Default TextInput
     },
     {
       key: "role",
@@ -179,11 +191,47 @@ function EditableTableDemo() {
       accessor: (row: TableRow) => row.role,
       sortable: true,
       editable: true,
+      // Custom edit cell using Select
+      editCell: (
+        row: TableRow,
+        value: string,
+        onChange: (v: string) => void
+      ) => (
+        <Select
+          label=""
+          value={value}
+          // Select.onChange expects string|string[]; our handler accepts string,
+          // so cast to satisfy signature since we only use single select here.
+          onChange={onChange as (v: string | string[]) => void}
+          options={[
+            { value: "Admin", label: "Admin" },
+            { value: "Editor", label: "Editor" },
+            { value: "Viewer", label: "Viewer" },
+          ]}
+        />
+      ),
     },
     {
       key: "status",
       header: "Status",
       accessor: (row: TableRow) => row.status,
+      editable: true,
+      // Custom edit cell using Select
+      editCell: (
+        row: TableRow,
+        value: string,
+        onChange: (v: string) => void
+      ) => (
+        <Select
+          label=""
+          value={value}
+          onChange={onChange as (v: string | string[]) => void}
+          options={[
+            { value: "Active", label: "Active" },
+            { value: "Inactive", label: "Inactive" },
+          ]}
+        />
+      ),
     },
   ];
 
@@ -205,7 +253,7 @@ function EditableTableDemo() {
         size="md"
         caption="Editable users table"
         title="Editable Users"
-        description="Click the pencil icon to edit a cell"
+        description="Click the pencil icon to edit. Name uses TextInput, Role and Status use Select dropdowns."
         getRowId={(row) => row.id}
         editingCell={editingCell}
         onEditingCellChange={setEditingCell}
@@ -252,6 +300,150 @@ function EditableTableDemo() {
           setPagination((p) => ({ ...p, pageSize, page: 1 }))
         }
         pageSizeOptions={[5, 10, 20]}
+      />
+    </div>
+  );
+}
+
+type WideRow = {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+  department: string;
+  location: string;
+  phone: string;
+  status: string;
+};
+
+const WIDE_DATA: WideRow[] = [
+  {
+    id: "1",
+    name: "Alice",
+    email: "alice@example.com",
+    role: "Admin",
+    department: "Engineering",
+    location: "New York",
+    phone: "+1-555-0101",
+    status: "Active",
+  },
+  {
+    id: "2",
+    name: "Bob",
+    email: "bob@example.com",
+    role: "Editor",
+    department: "Marketing",
+    location: "London",
+    phone: "+44-20-7946",
+    status: "Active",
+  },
+  {
+    id: "3",
+    name: "Carol",
+    email: "carol@example.com",
+    role: "Viewer",
+    department: "Sales",
+    location: "Tokyo",
+    phone: "+81-3-1234",
+    status: "Inactive",
+  },
+  {
+    id: "4",
+    name: "Dave",
+    email: "dave@example.com",
+    role: "Editor",
+    department: "Design",
+    location: "Berlin",
+    phone: "+49-30-5678",
+    status: "Active",
+  },
+  {
+    id: "5",
+    name: "Eve",
+    email: "eve@example.com",
+    role: "Admin",
+    department: "Engineering",
+    location: "Sydney",
+    phone: "+61-2-9876",
+    status: "Active",
+  },
+];
+
+function StickyColumnsTableDemo() {
+  const [selectedRowIds, setSelectedRowIds] = React.useState<
+    Record<string, boolean>
+  >({});
+
+  const wideColumns = [
+    {
+      key: "name",
+      header: "Name",
+      accessor: (r: WideRow) => r.name,
+      minWidth: "150px",
+    },
+    {
+      key: "email",
+      header: "Email",
+      accessor: (r: WideRow) => r.email,
+      minWidth: "200px",
+    },
+    {
+      key: "role",
+      header: "Role",
+      accessor: (r: WideRow) => r.role,
+      minWidth: "120px",
+    },
+    {
+      key: "department",
+      header: "Department",
+      accessor: (r: WideRow) => r.department,
+      minWidth: "150px",
+    },
+    {
+      key: "location",
+      header: "Location",
+      accessor: (r: WideRow) => r.location,
+      minWidth: "150px",
+    },
+    {
+      key: "phone",
+      header: "Phone",
+      accessor: (r: WideRow) => r.phone,
+      minWidth: "150px",
+    },
+    {
+      key: "status",
+      header: "Status",
+      accessor: (r: WideRow) => r.status,
+      minWidth: "120px",
+    },
+  ];
+
+  return (
+    <div className="w-full max-w-2xl">
+      <Table<WideRow>
+        data={WIDE_DATA}
+        columns={wideColumns}
+        size="md"
+        horizontalScroll
+        stickyColumns
+        caption="Wide users table with sticky columns"
+        title="Team Directory"
+        description="Scroll horizontally — checkbox and actions stay pinned"
+        selectableRows
+        selectedRowIds={selectedRowIds}
+        getRowId={(row) => row.id}
+        onRowSelectionChange={setSelectedRowIds}
+        actions={() => (
+          <DropdownButton
+            trigger={{ iconOnly: true, ariaLabel: "Row actions" }}
+            items={[
+              { key: "edit", label: "Edit", onSelect: () => {} },
+              { key: "delete", label: "Delete", onSelect: () => {} },
+            ]}
+          />
+        )}
+        actionsHeader="Actions"
       />
     </div>
   );

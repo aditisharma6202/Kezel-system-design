@@ -4,6 +4,7 @@ import {
   TextInputVariant,
   TextInputSize,
   TextInputState,
+  TextInputType,
 } from "../../constants/enum";
 import { Typography } from "../typography";
 import { TypographyVariantEnum } from "../typography/typography-variants";
@@ -12,10 +13,11 @@ import { Icon, IconName } from "../../icon";
 
 export interface TextInputProps extends Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
-  "size"
+  "size" | "type"
 > {
   size?: TextInputSize;
   variant?: TextInputVariant;
+  type?: TextInputType;
 
   label?: string;
   helperText?: string;
@@ -41,6 +43,15 @@ export interface TextInputProps extends Omit<
   containerClassName?: string;
   inputClassName?: string;
   showStateIcon?: boolean;
+
+  inputMode?: React.HTMLAttributes<HTMLInputElement>["inputMode"];
+
+  /** Email: trim and lowercase value before calling onValueChange */
+  normalizeEmail?: boolean;
+  /** Number: allow negative values (default false) */
+  allowNegative?: boolean;
+  /** Number: allow decimal values (default false) */
+  allowDecimal?: boolean;
 }
 
 const stateIcon: Record<
@@ -52,11 +63,38 @@ const stateIcon: Record<
   [TextInputState.Warning]: IconName.TriangleAlert,
 };
 
+/** Regex to strip characters invalid for the configured number mode. */
+const buildNumberPattern = (
+  allowNegative: boolean,
+  allowDecimal: boolean
+): RegExp => {
+  let allowed = "0-9";
+  if (allowNegative) allowed += "\\-";
+  if (allowDecimal) allowed += ".";
+  return new RegExp(`[^${allowed}]`, "g");
+};
+
+/** Returns true if the string is a structurally valid number for the given mode. */
+const isValidNumber = (
+  val: string,
+  allowNegative: boolean,
+  allowDecimal: boolean
+): boolean => {
+  if (val === "" || val === "-") return true;
+  let pattern = "^";
+  if (allowNegative) pattern += "-?";
+  pattern += "\\d*";
+  if (allowDecimal) pattern += "(\\.\\d*)?";
+  pattern += "$";
+  return new RegExp(pattern).test(val);
+};
+
 const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
   (
     {
       size = TextInputSize.Md,
       variant = TextInputVariant.Default,
+      type = TextInputType.Text,
       label,
       helperText,
       description,
@@ -77,10 +115,21 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
       inputClassName,
       disabled,
       showStateIcon = true,
+      inputMode: inputModeProp,
+      normalizeEmail = false,
+      allowNegative = false,
+      allowDecimal = false,
       ...inputProps
     },
     ref
   ) => {
+    const uniqueId = React.useId();
+    const inputId = inputProps.id ?? `kz-text-input-${uniqueId}`;
+    const messageId = `kz-text-input-message-${uniqueId}`;
+    const helperId = `kz-text-input-helper-${uniqueId}`;
+
+    const [isPasswordVisible, setIsPasswordVisible] = React.useState(false);
+
     const stateMessage =
       state === TextInputState.Error
         ? errorText
@@ -91,14 +140,56 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
             : undefined;
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const next = e.target.value;
+      let next = e.target.value;
+
       if (maxLength != null && next.length > maxLength) return;
+
+      if (type === TextInputType.Number) {
+        next = next.replace(
+          buildNumberPattern(allowNegative, allowDecimal),
+          ""
+        );
+        if (!isValidNumber(next, allowNegative, allowDecimal)) return;
+      }
+
+      if (type === TextInputType.Email && normalizeEmail) {
+        next = next.trim().toLowerCase();
+      }
+
       onValueChange(next);
     };
 
     const handleClear = () => {
       onValueChange("");
     };
+
+    const togglePasswordVisibility = () => {
+      setIsPasswordVisible((prev) => !prev);
+    };
+
+    // Resolve the actual HTML input type
+    let resolvedType: string = type;
+    if (type === TextInputType.Password) {
+      resolvedType = isPasswordVisible ? "text" : "password";
+    }
+
+    // Resolve inputMode: explicit prop wins, otherwise derive from type
+    let resolvedInputMode = inputModeProp;
+    if (resolvedInputMode == null) {
+      if (type === TextInputType.Email) resolvedInputMode = "email";
+      else if (type === TextInputType.Tel) resolvedInputMode = "tel";
+      else if (type === TextInputType.Url) resolvedInputMode = "url";
+      else if (type === TextInputType.Number) resolvedInputMode = "decimal";
+      else if (type === TextInputType.Search) resolvedInputMode = "search";
+    }
+
+    // Resolve autoComplete for email
+    const resolvedAutoComplete =
+      type === TextInputType.Email && inputProps.autoComplete == null
+        ? "email"
+        : inputProps.autoComplete;
+
+    const isDisabled = disabled ?? loading;
 
     const wrapperClass = cn(
       "kz-text-input-wrapper",
@@ -118,7 +209,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
     return (
       <div className={rootClass}>
         {label != null && label !== "" && (
-          <label className="kz-text-input-label">
+          <label className="kz-text-input-label" htmlFor={inputId}>
             <Typography variant={TypographyVariantEnum.Label}>
               {label}
             </Typography>
@@ -137,21 +228,28 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
           )}
           <input
             ref={ref}
-            type="text"
+            id={inputId}
+            type={resolvedType}
             value={value}
             placeholder={placeHolder}
             onChange={handleChange}
-            disabled={disabled ?? loading}
+            disabled={isDisabled}
             maxLength={maxLength}
             className={inputClass}
             aria-invalid={state === TextInputState.Error}
             aria-describedby={
               stateMessage != null
-                ? "text-input-message"
+                ? messageId
                 : helperText != null
-                  ? "text-input-helper"
+                  ? helperId
                   : undefined
             }
+            {...(resolvedInputMode != null
+              ? { inputMode: resolvedInputMode }
+              : {})}
+            {...(resolvedAutoComplete != null
+              ? { autoComplete: resolvedAutoComplete }
+              : {})}
             {...inputProps}
           />
           {clearable && value.length > 0 && !loading && (
@@ -162,6 +260,19 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
               aria-label="Clear"
             >
               ×
+            </button>
+          )}
+          {type === TextInputType.Password && !isDisabled && (
+            <button
+              type="button"
+              onClick={togglePasswordVisibility}
+              className="kz-text-input-adornment kz-text-input-adornment--end"
+              aria-label={isPasswordVisible ? "Hide password" : "Show password"}
+            >
+              <Icon
+                name={isPasswordVisible ? IconName.EyeOff : IconName.Eye}
+                size={size === TextInputSize.Sm ? 14 : 16}
+              />
             </button>
           )}
           {endAdornment != null && (
@@ -197,7 +308,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
         </div>
         {stateMessage != null && stateMessage !== "" && (
           <Typography
-            id="text-input-message"
+            id={messageId}
             variant={
               state === TextInputState.Error
                 ? TypographyVariantEnum.Error
@@ -212,10 +323,7 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
         {helperText != null &&
           helperText !== "" &&
           state === TextInputState.Default && (
-            <Typography
-              id="text-input-helper"
-              variant={TypographyVariantEnum.Caption}
-            >
+            <Typography id={helperId} variant={TypographyVariantEnum.Caption}>
               {helperText}
             </Typography>
           )}

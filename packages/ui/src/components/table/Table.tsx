@@ -14,21 +14,22 @@ function nextSortDirection(current: SortDirection): SortDirection {
   return null;
 }
 
-function getCellContent<TData>(
+function getCellContent<TData, TEditValue = string>(
   row: TData,
-  column: TableColumn<TData>
+  column: TableColumn<TData, TEditValue>
 ): React.ReactNode {
   if (column.cell) return column.cell(row);
   if (column.accessor) return column.accessor(row);
   return null;
 }
 
-function TableInner<TData>(
+function TableInner<TData, TEditValue = string>(
   {
     data,
     columns,
     size = "md",
     horizontalScroll = false,
+    stickyColumns = false,
     stickyHeader = false,
     getRowSticky,
     caption,
@@ -65,7 +66,7 @@ function TableInner<TData>(
     tableClassName,
     headerClassName,
     containerClassName,
-  }: TableProps<TData>,
+  }: TableProps<TData, TEditValue>,
   ref: React.Ref<HTMLDivElement>
 ) {
   const captionId = React.useId();
@@ -155,19 +156,29 @@ function TableInner<TData>(
 
   /* ── Inline cell editing ── */
 
-  const [draftValue, setDraftValue] = React.useState("");
+  const [draftValue, setDraftValue] = React.useState<TEditValue | null>(null);
 
   React.useEffect(() => {
     if (editingCell == null) {
-      setDraftValue("");
+      setDraftValue(null);
       return;
     }
     const row = data.find((r, i) => getRowId(r, i) === editingCell.rowId);
     if (!row) return;
     const col = columns.find((c) => c.key === editingCell.columnKey);
     if (!col) return;
-    const val = col.accessor ? col.accessor(row) : "";
-    setDraftValue(String(val ?? ""));
+
+    // Use getEditValue if provided, otherwise fall back to accessor
+    let val: TEditValue;
+    if (col.getEditValue) {
+      val = col.getEditValue(row);
+    } else if (col.accessor) {
+      val = col.accessor(row) as TEditValue;
+    } else {
+      val = "" as TEditValue;
+    }
+
+    setDraftValue(val ?? ("" as TEditValue));
   }, [editingCell, data, columns, getRowId]);
 
   const handleEditCellClick = React.useCallback(
@@ -178,7 +189,7 @@ function TableInner<TData>(
   );
 
   const handleCellSave = React.useCallback(() => {
-    if (editingCell != null) {
+    if (editingCell != null && draftValue != null) {
       onSave?.(editingCell.rowId, editingCell.columnKey, draftValue);
       onEditingCellChange?.(null);
     }
@@ -300,7 +311,10 @@ function TableInner<TData>(
                     "kz-table-th w-[var(--kz-space-10)] border-b border-[var(--kz-component-table-row-border)] bg-[var(--kz-component-table-header-bg)]",
                     sizeClass,
                     stickyHeader &&
-                      "sticky top-0 z-10 bg-[var(--kz-component-table-header-bg)]"
+                      "sticky top-0 z-10 bg-[var(--kz-component-table-header-bg)]",
+                    stickyColumns &&
+                      horizontalScroll &&
+                      "sticky left-0 z-20 bg-[var(--kz-component-table-header-bg)]"
                   )}
                   style={{ width: "var(--kz-space-10)" }}
                 >
@@ -389,7 +403,10 @@ function TableInner<TData>(
                     "kz-table-th text-right w-[var(--kz-space-24)] border-b border-[var(--kz-component-table-row-border)] bg-[var(--kz-component-table-header-bg)]",
                     sizeClass,
                     stickyHeader &&
-                      "sticky top-0 z-10 bg-[var(--kz-component-table-header-bg)]"
+                      "sticky top-0 z-10 bg-[var(--kz-component-table-header-bg)]",
+                    stickyColumns &&
+                      horizontalScroll &&
+                      "sticky right-0 z-20 bg-[var(--kz-component-table-header-bg)]"
                   )}
                 >
                   {actionsHeader ?? ""}
@@ -447,7 +464,15 @@ function TableInner<TData>(
                     )}
                   >
                     {selectableRows && (
-                      <td className={cn("kz-table-td", sizeClass)}>
+                      <td
+                        className={cn(
+                          "kz-table-td",
+                          sizeClass,
+                          stickyColumns &&
+                            horizontalScroll &&
+                            "sticky left-0 z-10 bg-[var(--kz-component-table-surface)]"
+                        )}
+                      >
                         <Checkbox
                           size={CheckboxSize.Sm}
                           variant={CheckboxVariant.Default}
@@ -471,7 +496,7 @@ function TableInner<TData>(
                         editingCell.columnKey === col.key;
 
                       if (isCellEditing) {
-                        const onChange = (v: string) => setDraftValue(v);
+                        const onChange = (v: TEditValue) => setDraftValue(v);
                         return (
                           <td
                             key={col.key}
@@ -483,13 +508,19 @@ function TableInner<TData>(
                             style={style}
                           >
                             {col.editCell ? (
-                              col.editCell(row, draftValue, onChange)
+                              col.editCell(
+                                row,
+                                draftValue ?? ("" as TEditValue),
+                                onChange
+                              )
                             ) : (
                               <TextInput
                                 label=""
                                 placeHolder=""
-                                value={draftValue}
-                                onValueChange={onChange}
+                                value={String(draftValue ?? "")}
+                                onValueChange={(v) =>
+                                  setDraftValue(v as TEditValue)
+                                }
                                 size={TextInputSize.Sm}
                                 variant={TextInputVariant.Default}
                               />
@@ -530,7 +561,15 @@ function TableInner<TData>(
                       );
                     })}
                     {actions && (
-                      <td className={cn("kz-table-td text-right", sizeClass)}>
+                      <td
+                        className={cn(
+                          "kz-table-td text-right",
+                          sizeClass,
+                          stickyColumns &&
+                            horizontalScroll &&
+                            "sticky right-0 z-10 bg-[var(--kz-component-table-surface)]"
+                        )}
+                      >
                         {actions(row)}
                       </td>
                     )}
@@ -669,8 +708,8 @@ function TableInner<TData>(
   );
 }
 
-const Table = React.forwardRef(TableInner) as <TData>(
-  props: TableProps<TData> & { ref?: React.Ref<HTMLDivElement> }
+const Table = React.forwardRef(TableInner) as <TData, TEditValue = string>(
+  props: TableProps<TData, TEditValue> & { ref?: React.Ref<HTMLDivElement> }
 ) => React.ReactElement;
 
 export { Table };

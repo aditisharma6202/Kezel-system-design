@@ -4,4 +4,5 @@ export {
   TextInputVariant,
   TextInputSize,
   TextInputState,
+  TextInputType,
 } from "../../constants/enum";

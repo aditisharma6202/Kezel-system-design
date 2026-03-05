@@ -2,20 +2,22 @@
 :root.dark[data-variant="neumorphic"] {
   --kz-color-surface-background: #2c3440;
   --kz-color-surface-base: #2c3440;
+  --kz-color-surface-raised: #323c48;
   --kz-color-surface-sunken: #252b35;
 
   --kz-color-text-primary: oklch(0.985 0 0);
   --kz-color-text-muted: #8a94a6;
   --kz-color-border-default: oklch(0.269 0 0);
+  --kz-color-border-subtle: rgba(255, 255, 255, 0.12);
 
   /* Brand accent (centralized for ThemeProvider) */
   --kz-color-brand-accent: #18ab9f;
   --kz-color-brand-accent-hover: #008a7e;
   --kz-color-brand-accent-active: #007e73;
   --kz-color-brand-accent-dark: #009689;
-  --kz-color-text-link: var(--kz-color-brand-accent);
-  --kz-color-text-link-hover: #22c4b8;
 
+ --kz-color-text-link: #0066cc;
+  --kz-color-text-link-hover: #004c99;
   /* ICON (Neumorphic dark) */
   --kz-color-icon-default: #8a94a6;
 
@@ -232,8 +234,17 @@
   --kz-component-tabs-trigger-radius: 8px;
   --kz-component-tabs-content-padding: 16px;
 
+  /* Component: Card (neumorphic dark) */
+  --kz-component-card-bg: var(--kz-color-surface-base);
+  --kz-component-card-border: transparent;
+  --kz-component-card-shadow-sm: var(--kz-shadow-neumorphic-raised-sm);
+  --kz-component-card-shadow-md: var(--kz-shadow-neumorphic-raised-md);
+  --kz-component-card-shadow-lg: var(--kz-shadow-neumorphic-raised-lg);
+  --kz-component-card-shadow: var(--kz-component-card-shadow-sm);
+  --kz-component-card-radius: var(--kz-radius-md);
+
   --kz-component-table-surface: var(--kz-color-surface-base);
-  --kz-component-table-header-bg: #00000033;
+  --kz-component-table-header-bg: var(--kz-color-surface-raised);
   --kz-component-table-header-border: rgba(255, 255, 255, 0.06);
   --kz-component-table-row-border: rgba(255, 255, 255, 0.06);
   --kz-component-table-row-hover-bg: #00000014;

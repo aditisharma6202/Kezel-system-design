@@ -4,7 +4,7 @@ export type TableSize = "sm" | "md" | "lg";
 export type TableAlign = "left" | "center" | "right";
 export type SortDirection = "asc" | "desc" | null;
 
-export interface TableColumn<TData> {
+export interface TableColumn<TData, TEditValue = string> {
   key: string;
   header: React.ReactNode;
   accessor?: (row: TData) => React.ReactNode;
@@ -16,12 +16,22 @@ export interface TableColumn<TData> {
   sortable?: boolean;
   /** Whether this column's cells are editable. Enables the pencil icon on hover. */
   editable?: boolean;
-  /** Custom edit renderer for this column. Defaults to a TextInput. */
+  /**
+   * Custom edit renderer for this column. Defaults to a TextInput.
+   * You can use any input component like DateRangePicker, Select, etc.
+   * The value type is flexible - can be string, object, array, etc.
+   */
   editCell?: (
     row: TData,
-    value: string,
-    onChange: (value: string) => void
+    value: TEditValue,
+    onChange: (value: TEditValue) => void
   ) => React.ReactNode;
+  /**
+   * Optional: Get the initial value for editing this cell.
+   * If not provided, uses the accessor result (converted to string).
+   * Useful when you need to extract or transform the value for edit mode.
+   */
+  getEditValue?: (row: TData) => TEditValue;
 }
 
 export interface TableSortState {
@@ -35,12 +45,14 @@ export interface TablePaginationState {
   total: number;
 }
 
-export interface TableProps<TData> {
+export interface TableProps<TData, TEditValue = string> {
   data: TData[];
-  columns: TableColumn<TData>[];
+  columns: TableColumn<TData, TEditValue>[];
   size?: TableSize;
   /** When true, the table can scroll horizontally when columns overflow (e.g. many columns or custom widths). */
   horizontalScroll?: boolean;
+  /** When true and horizontalScroll is enabled, the checkbox column (left) and actions column (right) stay fixed while the rest scrolls. */
+  stickyColumns?: boolean;
   stickyHeader?: boolean;
   getRowSticky?: (row: TData, index: number) => boolean;
   caption?: string;
@@ -76,8 +88,8 @@ export interface TableProps<TData> {
   onEditingCellChange?: (
     cell: { rowId: string; columnKey: string } | null
   ) => void;
-  /** Fires when the user clicks Save on an edited cell. */
-  onSave?: (rowId: string, columnKey: string, value: string) => void;
+  /** Fires when the user clicks Save on an edited cell. The value can be any type (string, object, array, etc.). */
+  onSave?: (rowId: string, columnKey: string, value: TEditValue) => void;
   /** Fires when the user clicks Cancel on an edited cell. */
   onCancel?: () => void;
   className?: string;
