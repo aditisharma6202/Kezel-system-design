@@ -193,6 +193,21 @@ export type {
 export { ToastVariant, ToastPosition } from "./constants/enum";
 export { Card, CardShadow } from "./components/card";
 export type { CardProps, CardSize, CardPadding } from "./components/card";
+export { SqlEditor } from "./components/sql-editor";
+export type {
+  SqlEditorProps,
+  SqlEditorQueryResult,
+  SqlEditorSize,
+} from "./components/sql-editor";
+export { QrRenderer } from "./components/qr-renderer";
+export type {
+  QrRendererProps,
+  QrRendererImageProps,
+  QrRendererDataProps,
+  QrRendererDebugInfo,
+  QrPatternStyle,
+  QrErrorCorrectionLevel,
+} from "./components/qr-renderer";
 export { TOKEN_KEYS } from "./tokens/contract/token-keys";
 export { tokenToCssVar } from "./tokens/contract/css-var-maps";
 export type { TokenKey } from "./tokens/contract/token-keys";

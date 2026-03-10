@@ -1,0 +1,114 @@
+/* ── QR Renderer ── */
+
+.kz-qr-renderer-root {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  border-radius: var(--kz-component-input-container-radius);
+  border: 1px solid var(--kz-component-input-border);
+  background: var(--kz-component-input-bg);
+  box-shadow: none;
+  padding: 16px;
+}
+
+/* ── Image container ── */
+
+.kz-qr-renderer-image-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--kz-component-input-container-radius);
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: var(--kz-component-card-shadow);
+}
+
+.kz-qr-renderer-image {
+  display: block;
+  object-fit: contain;
+}
+
+/* ── Center logo overlay ── */
+
+.kz-qr-renderer-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--kz-component-input-container-radius);
+  background: var(--kz-component-input-bg);
+  padding: 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.kz-qr-renderer-logo-img {
+  display: block;
+  border-radius: calc(var(--kz-component-input-container-radius) - 2px);
+  object-fit: contain;
+}
+
+/* ── Footer (label, caption, download) ── */
+
+.kz-qr-renderer-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.kz-qr-renderer-label {
+  font-family: var(--kz-typography-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--kz-component-input-text);
+  text-align: center;
+}
+
+.kz-qr-renderer-caption {
+  font-family: var(--kz-typography-font-family);
+  font-size: 12px;
+  color: var(--kz-component-input-placeholder);
+  text-align: center;
+}
+
+/* ── Debug info ── */
+
+.kz-qr-renderer-debug {
+  width: 100%;
+  border-top: 1px solid var(--kz-component-input-border);
+  padding-top: 10px;
+}
+
+.kz-qr-renderer-debug-title {
+  font-family: var(--kz-typography-font-family);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--kz-component-input-placeholder);
+  margin-bottom: 6px;
+}
+
+.kz-qr-renderer-debug-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 12px;
+}
+
+.kz-qr-renderer-debug-key {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  color: var(--kz-component-input-placeholder);
+}
+
+.kz-qr-renderer-debug-value {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  color: var(--kz-component-input-text);
+}

@@ -41,6 +41,8 @@ import FormGroupShowcase from "./components/FormGroupShowcase";
 import ModalShowcase from "./components/ModalShowcase";
 import ToastShowcase from "./components/ToastShowcase";
 import CardShowcase from "./components/CardShowcase";
+import SqlEditorShowcase from "./components/SqlEditorShowcase";
+import QrRendererShowcase from "./components/QrRendererShowcase";
 
 type SectionId =
   | "typography"
@@ -66,7 +68,9 @@ type SectionId =
   | "form-group"
   | "modal"
   | "toast"
-  | "card";
+  | "card"
+  | "sql-editor"
+  | "qr-renderer";
 
 const docsMenuData: SideMenuNode[] = [
   {
@@ -277,6 +281,20 @@ const docsMenuData: SideMenuNode[] = [
         icon: IconName.LayoutGrid,
         href: "#",
       },
+      {
+        type: "link",
+        id: "sql-editor",
+        label: "SQL Editor",
+        icon: IconName.Search,
+        href: "#",
+      },
+      {
+        type: "link",
+        id: "qr-renderer",
+        label: "QR Renderer",
+        icon: IconName.Search,
+        href: "#",
+      },
     ],
   },
 ];
@@ -397,6 +415,8 @@ export default function App() {
               {activeSection === "modal" && <ModalShowcase />}
               {activeSection === "toast" && <ToastShowcase />}
               {activeSection === "card" && <CardShowcase />}
+              {activeSection === "sql-editor" && <SqlEditorShowcase />}
+              {activeSection === "qr-renderer" && <QrRendererShowcase />}
             </main>
           </div>
         </div>

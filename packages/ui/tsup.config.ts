@@ -32,6 +32,8 @@ export default defineConfig({
     modal: "src/components/modal/index.ts",
     toast: "src/components/toast/index.ts",
     card: "src/components/card/index.ts",
+    "sql-editor": "src/components/sql-editor/index.ts",
+    "qr-renderer": "src/components/qr-renderer/index.ts",
   },
   format: ["esm", "cjs"],
   dts: true,

@@ -28,6 +28,8 @@
 @import "./styles/modal.css";
 @import "./styles/toast.css";
 @import "./styles/card.css";
+@import "./styles/sql-editor.css";
+@import "./styles/qr-renderer.css";
 
 @tailwind base;
 @tailwind components;
