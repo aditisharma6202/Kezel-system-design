@@ -411,7 +411,9 @@ function MultiCellEditableTableDemo() {
         getRowId={(row) => row.id}
         editingCells={editingCells}
         onEditingCellsChange={setEditingCells}
-        onSaveAll={(changes: { rowId: string; columnKey: string; value: string }[]) => {
+        onSaveAll={(
+          changes: { rowId: string; columnKey: string; value: string }[]
+        ) => {
           setData((prev) => {
             const next = [...prev];
             for (const { rowId, columnKey, value } of changes) {

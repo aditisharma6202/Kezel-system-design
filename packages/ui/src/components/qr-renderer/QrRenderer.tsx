@@ -69,9 +69,20 @@ function QrRendererInner(
     return () => {
       cancelled = true;
     };
-  }, [data, size, foregroundColor, backgroundColor, errorCorrectionLevel, isDataMode]);
+  }, [
+    data,
+    size,
+    foregroundColor,
+    backgroundColor,
+    errorCorrectionLevel,
+    isDataMode,
+  ]);
 
-  const imgSrc = isDataMode ? generatedSrc : image ? resolveImageSrc(image) : null;
+  const imgSrc = isDataMode
+    ? generatedSrc
+    : image
+      ? resolveImageSrc(image)
+      : null;
   const logoSize = Math.round(size * logoScale);
 
   const handleDownload = React.useCallback(() => {
@@ -85,10 +96,7 @@ function QrRendererInner(
   }, [imgSrc, downloadFilename]);
 
   return (
-    <div
-      ref={ref}
-      className={cn("kz-qr-renderer-root", className)}
-    >
+    <div ref={ref} className={cn("kz-qr-renderer-root", className)}>
       {/* QR image container */}
       <div
         className="kz-qr-renderer-image-container"
@@ -148,12 +156,8 @@ function QrRendererInner(
       {/* Label and caption */}
       {(label || caption || downloadable) && (
         <div className="kz-qr-renderer-footer">
-          {label && (
-            <div className="kz-qr-renderer-label">{label}</div>
-          )}
-          {caption && (
-            <div className="kz-qr-renderer-caption">{caption}</div>
-          )}
+          {label && <div className="kz-qr-renderer-label">{label}</div>}
+          {caption && <div className="kz-qr-renderer-caption">{caption}</div>}
           {downloadable && (
             <Button
               variant={ButtonVariant.Outline}
@@ -176,7 +180,11 @@ function QrRendererInner(
               <React.Fragment key={key}>
                 <span className="kz-qr-renderer-debug-key">{key}</span>
                 <span className="kz-qr-renderer-debug-value">
-                  {typeof value === "boolean" ? (value ? "true" : "false") : String(value)}
+                  {typeof value === "boolean"
+                    ? value
+                      ? "true"
+                      : "false"
+                    : String(value)}
                 </span>
               </React.Fragment>
             ))}

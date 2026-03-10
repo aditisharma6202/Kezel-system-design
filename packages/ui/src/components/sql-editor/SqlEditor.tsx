@@ -84,10 +84,7 @@ function SqlEditorInner(
   const hasRows = hasResult && !result.error && result.rows.length > 0;
 
   return (
-    <div
-      ref={ref}
-      className={cn("kz-sql-editor-root", className)}
-    >
+    <div ref={ref} className={cn("kz-sql-editor-root", className)}>
       {/* Toolbar */}
       <div className={cn("kz-sql-editor-toolbar", sc.toolbar)}>
         <span className="kz-sql-editor-toolbar-label">{toolbarLabel}</span>
@@ -99,11 +96,7 @@ function SqlEditorInner(
             onClick={handleRun}
             disabled={disabled || loading}
           >
-            <Icon
-              name={IconName.ChevronRight}
-              size={14}
-              color="currentColor"
-            />
+            <Icon name={IconName.ChevronRight} size={14} color="currentColor" />
             <span className="ml-1">
               {loading ? "Running…" : runButtonLabel}
             </span>

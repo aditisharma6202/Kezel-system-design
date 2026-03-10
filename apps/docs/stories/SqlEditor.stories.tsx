@@ -198,10 +198,7 @@ export const ErrorResult: Story = {
 
 export const Disabled: Story = {
   render: () => (
-    <SqlEditorWithState
-      initialValue="-- Read-only query"
-      disabled
-    />
+    <SqlEditorWithState initialValue="-- Read-only query" disabled />
   ),
   parameters: {
     docs: {
@@ -215,16 +212,13 @@ export const Disabled: Story = {
 
 export const Loading: Story = {
   render: () => (
-    <SqlEditorWithState
-      initialValue="SELECT * FROM large_table;"
-      loading
-    />
+    <SqlEditorWithState initialValue="SELECT * FROM large_table;" loading />
   ),
   parameters: {
     docs: {
       description: {
         story:
-          "While loading, the Run button shows \"Running…\" and is disabled.",
+          'While loading, the Run button shows "Running…" and is disabled.',
       },
     },
   },

@@ -1,11 +1,7 @@
 "use client";
 
 import * as React from "react";
-import {
-  Typography,
-  TypographyVariantEnum,
-  SqlEditor,
-} from "kz-design-system";
+import { Typography, TypographyVariantEnum, SqlEditor } from "kz-design-system";
 import type { SqlEditorQueryResult } from "kz-design-system";
 
 /* ── Sample data (acts as our in-memory "database") ── */
@@ -16,25 +12,109 @@ const TABLES: Record<string, { columns: string[]; rows: Row[] }> = {
   users: {
     columns: ["id", "name", "role", "status", "email"],
     rows: [
-      { id: 1, name: "Alice", role: "Admin", status: "Active", email: "alice@example.com" },
-      { id: 2, name: "Bob", role: "Editor", status: "Active", email: "bob@example.com" },
-      { id: 3, name: "Carol", role: "Viewer", status: "Inactive", email: "carol@example.com" },
-      { id: 4, name: "Dave", role: "Editor", status: "Active", email: "dave@example.com" },
-      { id: 5, name: "Eve", role: "Admin", status: "Active", email: "eve@example.com" },
-      { id: 6, name: "Frank", role: "Viewer", status: "Inactive", email: "frank@example.com" },
-      { id: 7, name: "Grace", role: "Editor", status: "Active", email: "grace@example.com" },
-      { id: 8, name: "Henry", role: "Viewer", status: "Active", email: "henry@example.com" },
+      {
+        id: 1,
+        name: "Alice",
+        role: "Admin",
+        status: "Active",
+        email: "alice@example.com",
+      },
+      {
+        id: 2,
+        name: "Bob",
+        role: "Editor",
+        status: "Active",
+        email: "bob@example.com",
+      },
+      {
+        id: 3,
+        name: "Carol",
+        role: "Viewer",
+        status: "Inactive",
+        email: "carol@example.com",
+      },
+      {
+        id: 4,
+        name: "Dave",
+        role: "Editor",
+        status: "Active",
+        email: "dave@example.com",
+      },
+      {
+        id: 5,
+        name: "Eve",
+        role: "Admin",
+        status: "Active",
+        email: "eve@example.com",
+      },
+      {
+        id: 6,
+        name: "Frank",
+        role: "Viewer",
+        status: "Inactive",
+        email: "frank@example.com",
+      },
+      {
+        id: 7,
+        name: "Grace",
+        role: "Editor",
+        status: "Active",
+        email: "grace@example.com",
+      },
+      {
+        id: 8,
+        name: "Henry",
+        role: "Viewer",
+        status: "Active",
+        email: "henry@example.com",
+      },
     ],
   },
   orders: {
     columns: ["id", "user_id", "product", "amount", "date"],
     rows: [
-      { id: 1, user_id: 1, product: "Widget A", amount: 29.99, date: "2025-01-15" },
-      { id: 2, user_id: 2, product: "Widget B", amount: 49.99, date: "2025-02-10" },
-      { id: 3, user_id: 1, product: "Widget C", amount: 19.99, date: "2025-03-05" },
-      { id: 4, user_id: 3, product: "Widget A", amount: 29.99, date: "2025-03-12" },
-      { id: 5, user_id: 5, product: "Widget B", amount: 49.99, date: "2025-04-01" },
-      { id: 6, user_id: 4, product: "Widget D", amount: 99.99, date: "2025-04-20" },
+      {
+        id: 1,
+        user_id: 1,
+        product: "Widget A",
+        amount: 29.99,
+        date: "2025-01-15",
+      },
+      {
+        id: 2,
+        user_id: 2,
+        product: "Widget B",
+        amount: 49.99,
+        date: "2025-02-10",
+      },
+      {
+        id: 3,
+        user_id: 1,
+        product: "Widget C",
+        amount: 19.99,
+        date: "2025-03-05",
+      },
+      {
+        id: 4,
+        user_id: 3,
+        product: "Widget A",
+        amount: 29.99,
+        date: "2025-03-12",
+      },
+      {
+        id: 5,
+        user_id: 5,
+        product: "Widget B",
+        amount: 49.99,
+        date: "2025-04-01",
+      },
+      {
+        id: 6,
+        user_id: 4,
+        product: "Widget D",
+        amount: 99.99,
+        date: "2025-04-20",
+      },
     ],
   },
 };
@@ -63,7 +143,15 @@ function executeQuery(sql: string): SqlEditorQueryResult {
       };
     }
 
-    const [, selectClause, tableName, whereClause, orderCol, orderDir, limitStr] = selectMatch;
+    const [
+      ,
+      selectClause,
+      tableName,
+      whereClause,
+      orderCol,
+      orderDir,
+      limitStr,
+    ] = selectMatch;
     const table = TABLES[tableName.toLowerCase()];
 
     if (!table) {
@@ -80,7 +168,9 @@ function executeQuery(sql: string): SqlEditorQueryResult {
     if (selectClause.trim() === "*") {
       selectedColumns = table.columns;
     } else {
-      selectedColumns = selectClause.split(",").map((c) => c.trim().toLowerCase());
+      selectedColumns = selectClause
+        .split(",")
+        .map((c) => c.trim().toLowerCase());
       for (const col of selectedColumns) {
         if (!table.columns.includes(col)) {
           return {
@@ -110,7 +200,12 @@ function executeQuery(sql: string): SqlEditorQueryResult {
       const [, condCol, operator, strVal, numVal] = condMatch;
       const col = condCol.toLowerCase();
       if (!table.columns.includes(col)) {
-        return { columns: [], rows: [], message: `Column "${col}" not found in WHERE clause.`, error: true };
+        return {
+          columns: [],
+          rows: [],
+          message: `Column "${col}" not found in WHERE clause.`,
+          error: true,
+        };
       }
 
       const compareVal = strVal !== undefined ? strVal : Number(numVal);
@@ -122,8 +217,10 @@ function executeQuery(sql: string): SqlEditorQueryResult {
           const pattern = compareVal.replace(/%/g, ".*").replace(/_/g, ".");
           return new RegExp(`^${pattern}$`, "i").test(String(cellVal));
         }
-        if (op === "=" || op === "==") return String(cellVal) === String(compareVal);
-        if (op === "!=" || op === "<>") return String(cellVal) !== String(compareVal);
+        if (op === "=" || op === "==")
+          return String(cellVal) === String(compareVal);
+        if (op === "!=" || op === "<>")
+          return String(cellVal) !== String(compareVal);
         if (op === ">") return Number(cellVal) > Number(compareVal);
         if (op === "<") return Number(cellVal) < Number(compareVal);
         if (op === ">=") return Number(cellVal) >= Number(compareVal);
@@ -138,7 +235,8 @@ function executeQuery(sql: string): SqlEditorQueryResult {
       resultRows.sort((a, b) => {
         const va = a[col];
         const vb = b[col];
-        if (typeof va === "number" && typeof vb === "number") return (va - vb) * dir;
+        if (typeof va === "number" && typeof vb === "number")
+          return (va - vb) * dir;
         return String(va).localeCompare(String(vb)) * dir;
       });
     }
@@ -183,7 +281,9 @@ const SAMPLE_QUERIES = [
 ];
 
 export default function SqlEditorShowcase() {
-  const [sql, setSql] = React.useState("SELECT * FROM users WHERE status = 'Active'");
+  const [sql, setSql] = React.useState(
+    "SELECT * FROM users WHERE status = 'Active'"
+  );
   const [result, setResult] = React.useState<SqlEditorQueryResult | null>(null);
 
   return (
@@ -232,7 +332,10 @@ export default function SqlEditorShowcase() {
             className="rounded-[var(--kz-component-input-radius)] border border-[var(--kz-component-input-border)] bg-[var(--kz-component-input-bg)] p-3"
             style={{ boxShadow: "var(--kz-component-input-shadow)" }}
           >
-            <div className="text-xs font-semibold uppercase tracking-wide mb-2" style={{ color: "var(--kz-component-input-placeholder)" }}>
+            <div
+              className="text-xs font-semibold uppercase tracking-wide mb-2"
+              style={{ color: "var(--kz-component-input-placeholder)" }}
+            >
               {name}
             </div>
             <div className="flex flex-wrap gap-1">
@@ -246,7 +349,10 @@ export default function SqlEditorShowcase() {
                 </span>
               ))}
             </div>
-            <div className="mt-1 text-xs" style={{ color: "var(--kz-component-input-placeholder)" }}>
+            <div
+              className="mt-1 text-xs"
+              style={{ color: "var(--kz-component-input-placeholder)" }}
+            >
               {table.rows.length} rows
             </div>
           </div>

@@ -54,7 +54,14 @@ export const Default: Story = {
 
 export const CustomColors: Story = {
   render: () => (
-    <div style={{ display: "flex", gap: 24, alignItems: "start", flexWrap: "wrap" }}>
+    <div
+      style={{
+        display: "flex",
+        gap: 24,
+        alignItems: "start",
+        flexWrap: "wrap",
+      }}
+    >
       <QrRenderer
         data="https://kezel.dev"
         size={200}
@@ -90,7 +97,14 @@ export const CustomColors: Story = {
 
 export const ErrorCorrectionLevels: Story = {
   render: () => (
-    <div style={{ display: "flex", gap: 24, alignItems: "start", flexWrap: "wrap" }}>
+    <div
+      style={{
+        display: "flex",
+        gap: 24,
+        alignItems: "start",
+        flexWrap: "wrap",
+      }}
+    >
       <QrRenderer
         data="https://kezel.dev"
         size={180}
@@ -133,7 +147,14 @@ export const ErrorCorrectionLevels: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div style={{ display: "flex", gap: 24, alignItems: "start", flexWrap: "wrap" }}>
+    <div
+      style={{
+        display: "flex",
+        gap: 24,
+        alignItems: "start",
+        flexWrap: "wrap",
+      }}
+    >
       <QrRenderer data="https://kezel.dev" size={120} label="120px" />
       <QrRenderer data="https://kezel.dev" size={200} label="200px" />
       <QrRenderer data="https://kezel.dev" size={300} label="300px" />
@@ -176,9 +197,31 @@ function QrWithColorControls() {
   const [size, setSize] = React.useState(240);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 16, alignItems: "center" }}>
-      <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
-        <label style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13, color: "var(--kz-component-input-text)" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: 16,
+        alignItems: "center",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          gap: 12,
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}
+      >
+        <label
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 6,
+            fontSize: 13,
+            color: "var(--kz-component-input-text)",
+          }}
+        >
           Data
           <input
             type="text"
@@ -195,16 +238,66 @@ function QrWithColorControls() {
             }}
           />
         </label>
-        <label style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13, color: "var(--kz-component-input-text)" }}>
-          FG <input type="color" value={fg} onChange={(e) => setFg(e.target.value)} />
+        <label
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 6,
+            fontSize: 13,
+            color: "var(--kz-component-input-text)",
+          }}
+        >
+          FG{" "}
+          <input
+            type="color"
+            value={fg}
+            onChange={(e) => setFg(e.target.value)}
+          />
         </label>
-        <label style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13, color: "var(--kz-component-input-text)" }}>
-          BG <input type="color" value={bg} onChange={(e) => setBg(e.target.value)} />
+        <label
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 6,
+            fontSize: 13,
+            color: "var(--kz-component-input-text)",
+          }}
+        >
+          BG{" "}
+          <input
+            type="color"
+            value={bg}
+            onChange={(e) => setBg(e.target.value)}
+          />
         </label>
-        <label style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13, color: "var(--kz-component-input-text)" }}>
+        <label
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 6,
+            fontSize: 13,
+            color: "var(--kz-component-input-text)",
+          }}
+        >
           Size
-          <input type="range" min={100} max={400} step={20} value={size} onChange={(e) => setSize(Number(e.target.value))} style={{ width: 80 }} />
-          <span style={{ fontFamily: "monospace", fontSize: 11, color: "var(--kz-component-input-placeholder)" }}>{size}px</span>
+          <input
+            type="range"
+            min={100}
+            max={400}
+            step={20}
+            value={size}
+            onChange={(e) => setSize(Number(e.target.value))}
+            style={{ width: 80 }}
+          />
+          <span
+            style={{
+              fontFamily: "monospace",
+              fontSize: 11,
+              color: "var(--kz-component-input-placeholder)",
+            }}
+          >
+            {size}px
+          </span>
         </label>
       </div>
       <QrRenderer

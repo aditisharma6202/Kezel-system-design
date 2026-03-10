@@ -625,9 +625,7 @@ function TableInner<TData, TEditValue = string>(
                                 label=""
                                 placeHolder=""
                                 value={String(cellDraft ?? "")}
-                                onValueChange={(v) =>
-                                  onChange(v as TEditValue)
-                                }
+                                onValueChange={(v) => onChange(v as TEditValue)}
                                 size={TextInputSize.Sm}
                                 variant={TextInputVariant.Default}
                               />
