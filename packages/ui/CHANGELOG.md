@@ -1,5 +1,11 @@
 # kz-design-system
 
+## 0.0.14
+
+### Patch Changes
+
+- 172354f: card added and minor fixes
+
 ## 0.0.12
 
 ### Patch Changes
