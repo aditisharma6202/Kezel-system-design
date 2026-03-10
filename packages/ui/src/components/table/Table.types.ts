@@ -45,6 +45,13 @@ export interface TablePaginationState {
   total: number;
 }
 
+/** A single pending cell change collected by multi-cell editing. */
+export interface TableCellChange<TEditValue = string> {
+  rowId: string;
+  columnKey: string;
+  value: TEditValue;
+}
+
 export interface TableProps<TData, TEditValue = string> {
   data: TData[];
   columns: TableColumn<TData, TEditValue>[];
@@ -82,6 +89,9 @@ export interface TableProps<TData, TEditValue = string> {
   pageSizeOptions?: number[];
   loading?: boolean;
   emptyState?: React.ReactNode;
+
+  /* ── Single-cell editing (legacy) ── */
+
   /** Controlled: which cell is currently being edited, or null. */
   editingCell?: { rowId: string; columnKey: string } | null;
   /** Fires when a cell enters/exits edit mode. */
@@ -92,6 +102,25 @@ export interface TableProps<TData, TEditValue = string> {
   onSave?: (rowId: string, columnKey: string, value: TEditValue) => void;
   /** Fires when the user clicks Cancel on an edited cell. */
   onCancel?: () => void;
+
+  /* ── Multi-cell editing ── */
+
+  /**
+   * Controlled: set of cells currently in edit mode.
+   * Map of rowId → columnKey → true.
+   * When provided, multi-cell mode is active and `editingCell` is ignored.
+   */
+  editingCells?: Record<string, Record<string, boolean>>;
+  /** Fires when the set of editing cells changes (cell added/removed). */
+  onEditingCellsChange?: (
+    cells: Record<string, Record<string, boolean>>
+  ) => void;
+  /**
+   * Fires when the user clicks Save in multi-cell mode.
+   * Receives all pending changes at once.
+   */
+  onSaveAll?: (changes: TableCellChange<TEditValue>[]) => void;
+
   className?: string;
   tableClassName?: string;
   headerClassName?: string;

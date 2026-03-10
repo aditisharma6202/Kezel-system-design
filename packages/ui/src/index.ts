@@ -100,6 +100,7 @@ export type {
   TableColumn,
   TableSortState,
   TablePaginationState,
+  TableCellChange,
   TableSize,
   TableAlign,
   SortDirection,

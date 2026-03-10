@@ -6,7 +6,12 @@ import { Button, ButtonVariant, ButtonSize } from "../button";
 import { DropdownButton } from "../dropdown";
 import type { DropdownButtonItem } from "../dropdown";
 import { Icon, IconName } from "../../icon";
-import type { TableProps, TableColumn, SortDirection } from "./Table.types";
+import type {
+  TableProps,
+  TableColumn,
+  TableCellChange,
+  SortDirection,
+} from "./Table.types";
 
 function nextSortDirection(current: SortDirection): SortDirection {
   if (current === null) return "asc";
@@ -62,6 +67,9 @@ function TableInner<TData, TEditValue = string>(
     onEditingCellChange,
     onSave,
     onCancel,
+    editingCells,
+    onEditingCellsChange,
+    onSaveAll,
     className,
     tableClassName,
     headerClassName,
@@ -156,9 +164,14 @@ function TableInner<TData, TEditValue = string>(
 
   /* ── Inline cell editing ── */
 
+  // Detect which mode we're in: multi-cell takes precedence
+  const isMultiCellMode = editingCells != null;
+
+  // --- Single-cell draft (legacy) ---
   const [draftValue, setDraftValue] = React.useState<TEditValue | null>(null);
 
   React.useEffect(() => {
+    if (isMultiCellMode) return; // skip in multi-cell mode
     if (editingCell == null) {
       setDraftValue(null);
       return;
@@ -168,7 +181,6 @@ function TableInner<TData, TEditValue = string>(
     const col = columns.find((c) => c.key === editingCell.columnKey);
     if (!col) return;
 
-    // Use getEditValue if provided, otherwise fall back to accessor
     let val: TEditValue;
     if (col.getEditValue) {
       val = col.getEditValue(row);
@@ -177,28 +189,105 @@ function TableInner<TData, TEditValue = string>(
     } else {
       val = "" as TEditValue;
     }
-
     setDraftValue(val ?? ("" as TEditValue));
-  }, [editingCell, data, columns, getRowId]);
+  }, [editingCell, data, columns, getRowId, isMultiCellMode]);
+
+  // --- Multi-cell drafts ---
+  // Map: rowId → columnKey → draft value
+  const [draftValues, setDraftValues] = React.useState<
+    Record<string, Record<string, TEditValue>>
+  >({});
+
+  /** Seed a draft value for a cell when it enters edit mode (multi-cell). */
+  const seedDraft = React.useCallback(
+    (rowId: string, columnKey: string) => {
+      const row = data.find((r, i) => getRowId(r, i) === rowId);
+      if (!row) return;
+      const col = columns.find((c) => c.key === columnKey);
+      if (!col) return;
+
+      let val: TEditValue;
+      if (col.getEditValue) {
+        val = col.getEditValue(row);
+      } else if (col.accessor) {
+        val = col.accessor(row) as TEditValue;
+      } else {
+        val = "" as TEditValue;
+      }
+
+      setDraftValues((prev) => ({
+        ...prev,
+        [rowId]: { ...prev[rowId], [columnKey]: val ?? ("" as TEditValue) },
+      }));
+    },
+    [data, columns, getRowId]
+  );
 
   const handleEditCellClick = React.useCallback(
     (rowId: string, columnKey: string) => {
-      onEditingCellChange?.({ rowId, columnKey });
+      if (isMultiCellMode) {
+        // Add to the editing set
+        const next = {
+          ...editingCells,
+          [rowId]: { ...editingCells[rowId], [columnKey]: true },
+        };
+        onEditingCellsChange?.(next);
+        seedDraft(rowId, columnKey);
+      } else {
+        onEditingCellChange?.({ rowId, columnKey });
+      }
     },
-    [onEditingCellChange]
+    [
+      isMultiCellMode,
+      editingCells,
+      onEditingCellsChange,
+      onEditingCellChange,
+      seedDraft,
+    ]
   );
 
   const handleCellSave = React.useCallback(() => {
-    if (editingCell != null && draftValue != null) {
-      onSave?.(editingCell.rowId, editingCell.columnKey, draftValue);
-      onEditingCellChange?.(null);
+    if (isMultiCellMode) {
+      // Collect all changes
+      const changes: TableCellChange<TEditValue>[] = [];
+      for (const rowId of Object.keys(draftValues)) {
+        for (const columnKey of Object.keys(draftValues[rowId])) {
+          changes.push({
+            rowId,
+            columnKey,
+            value: draftValues[rowId][columnKey],
+          });
+        }
+      }
+      onSaveAll?.(changes);
+      onEditingCellsChange?.({});
+      setDraftValues({});
+    } else {
+      if (editingCell != null && draftValue != null) {
+        onSave?.(editingCell.rowId, editingCell.columnKey, draftValue);
+        onEditingCellChange?.(null);
+      }
     }
-  }, [editingCell, draftValue, onSave, onEditingCellChange]);
+  }, [
+    isMultiCellMode,
+    draftValues,
+    onSaveAll,
+    onEditingCellsChange,
+    editingCell,
+    draftValue,
+    onSave,
+    onEditingCellChange,
+  ]);
 
   const handleCellCancel = React.useCallback(() => {
+    if (isMultiCellMode) {
+      onEditingCellsChange?.({});
+      setDraftValues({});
+    } else {
+      onEditingCellChange?.(null);
+    }
     onCancel?.();
-    onEditingCellChange?.(null);
-  }, [onCancel, onEditingCellChange]);
+  }, [isMultiCellMode, onEditingCellsChange, onEditingCellChange, onCancel]);
 
   const handleDeleteSelected = React.useCallback(() => {
     if (!onDeleteSelected) return;
@@ -292,7 +381,7 @@ function TableInner<TData, TEditValue = string>(
           id={tableId}
           aria-describedby={caption ? captionId : undefined}
           className={cn(
-            "border-collapse bg-[var(--kz-component-table-surface)]",
+            "border-separate border-spacing-0 bg-[var(--kz-component-table-surface)]",
             horizontalScroll ? "min-w-full w-max" : "w-full",
             tableClassName
           )}
@@ -452,8 +541,12 @@ function TableInner<TData, TEditValue = string>(
                 const rowId = getRowId(row, index);
                 const isSelected = !!selectedRowIds[rowId];
                 const isSticky = getRowSticky?.(row, index) ?? false;
-                const hasEditingCell =
-                  editingCell != null && editingCell.rowId === rowId;
+                const hasEditingCell = isMultiCellMode
+                  ? editingCells[rowId] != null &&
+                    Object.keys(editingCells[rowId]).some(
+                      (k) => editingCells[rowId][k]
+                    )
+                  : editingCell != null && editingCell.rowId === rowId;
                 return (
                   <tr
                     key={rowId}
@@ -490,13 +583,31 @@ function TableInner<TData, TEditValue = string>(
                       if (col.minWidth) style.minWidth = col.minWidth;
                       if (col.maxWidth) style.maxWidth = col.maxWidth;
                       const align = col.align ?? "left";
-                      const isCellEditing =
-                        editingCell != null &&
-                        editingCell.rowId === rowId &&
-                        editingCell.columnKey === col.key;
+                      const isCellEditing = isMultiCellMode
+                        ? !!editingCells[rowId]?.[col.key]
+                        : editingCell != null &&
+                          editingCell.rowId === rowId &&
+                          editingCell.columnKey === col.key;
 
                       if (isCellEditing) {
-                        const onChange = (v: TEditValue) => setDraftValue(v);
+                        // In multi-cell mode read/write from draftValues map;
+                        // in single-cell mode use draftValue.
+                        const cellDraft = isMultiCellMode
+                          ? (draftValues[rowId]?.[col.key] ??
+                            ("" as TEditValue))
+                          : (draftValue ?? ("" as TEditValue));
+
+                        const onChange = (v: TEditValue) => {
+                          if (isMultiCellMode) {
+                            setDraftValues((prev) => ({
+                              ...prev,
+                              [rowId]: { ...prev[rowId], [col.key]: v },
+                            }));
+                          } else {
+                            setDraftValue(v);
+                          }
+                        };
+
                         return (
                           <td
                             key={col.key}
@@ -508,18 +619,14 @@ function TableInner<TData, TEditValue = string>(
                             style={style}
                           >
                             {col.editCell ? (
-                              col.editCell(
-                                row,
-                                draftValue ?? ("" as TEditValue),
-                                onChange
-                              )
+                              col.editCell(row, cellDraft, onChange)
                             ) : (
                               <TextInput
                                 label=""
                                 placeHolder=""
-                                value={String(draftValue ?? "")}
+                                value={String(cellDraft ?? "")}
                                 onValueChange={(v) =>
-                                  setDraftValue(v as TEditValue)
+                                  onChange(v as TEditValue)
                                 }
                                 size={TextInputSize.Sm}
                                 variant={TextInputVariant.Default}
@@ -582,7 +689,11 @@ function TableInner<TData, TEditValue = string>(
       </div>
       {((pagination && pageRange && onPageChange) ||
         (someSelected && onDeleteSelected) ||
-        editingCell != null) && (
+        editingCell != null ||
+        (isMultiCellMode &&
+          Object.keys(editingCells).some((rid) =>
+            Object.values(editingCells[rid]).some(Boolean)
+          ))) && (
         <div className="kz-table-footer flex items-center border-t border-[var(--kz-component-table-row-border)] bg-[var(--kz-component-table-footer-bg)] px-[var(--kz-space-4)] py-[var(--kz-space-3)]">
           {/* Left: delete selected */}
           <div className="flex items-center gap-[var(--kz-space-2)] shrink-0">
@@ -683,7 +794,11 @@ function TableInner<TData, TEditValue = string>(
           )}
           {/* Right: save / cancel */}
           <div className="flex items-center gap-[var(--kz-space-2)] shrink-0 ml-[var(--kz-space-3)]">
-            {editingCell != null && (
+            {(editingCell != null ||
+              (isMultiCellMode &&
+                Object.keys(editingCells).some((rid) =>
+                  Object.values(editingCells[rid]).some(Boolean)
+                ))) && (
               <>
                 <Button
                   variant={ButtonVariant.Outline}

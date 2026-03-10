@@ -146,13 +146,25 @@ export default function TableShowcase() {
       </Typography>
       <StickyColumnsTableDemo />
 
-      {/* ── Editable Table ── */}
-      <Typography variant={TypographyVariantEnum.H3}>Editable Table</Typography>
+      {/* ── Editable Table (single-cell, legacy) ── */}
+      <Typography variant={TypographyVariantEnum.H3}>
+        Editable Table (Single Cell)
+      </Typography>
       <Typography variant={TypographyVariantEnum.Caption}>
         Hover over a cell to see the edit icon. Click it to edit that cell. Name
         uses a text input, while Role and Status use Select dropdowns.
       </Typography>
       <EditableTableDemo />
+
+      {/* ── Multi-cell Editable Table ── */}
+      <Typography variant={TypographyVariantEnum.H3}>
+        Multi-Cell Editable Table
+      </Typography>
+      <Typography variant={TypographyVariantEnum.Caption}>
+        Click the pencil icon on multiple cells to edit them all at once. Make
+        your changes, then hit Save to apply everything in a single batch.
+      </Typography>
+      <MultiCellEditableTableDemo />
     </section>
   );
 }
@@ -284,6 +296,147 @@ function EditableTableDemo() {
                 onSelect: () =>
                   setEditingCell({ rowId: row.id, columnKey: "name" }),
               },
+              {
+                key: "delete",
+                label: "Delete",
+                onSelect: () =>
+                  setData((prev) => prev.filter((r) => r.id !== row.id)),
+              },
+            ]}
+          />
+        )}
+        actionsHeader="Actions"
+        pagination={paginationState}
+        onPageChange={(page) => setPagination((p) => ({ ...p, page }))}
+        onPageSizeChange={(pageSize) =>
+          setPagination((p) => ({ ...p, pageSize, page: 1 }))
+        }
+        pageSizeOptions={[5, 10, 20]}
+      />
+    </div>
+  );
+}
+
+function MultiCellEditableTableDemo() {
+  const [data, setData] = React.useState<TableRow[]>(TABLE_DATA);
+  const [editingCells, setEditingCells] = React.useState<
+    Record<string, Record<string, boolean>>
+  >({});
+  const [pagination, setPagination] = React.useState({
+    page: 1,
+    pageSize: 5,
+    total: 0,
+  });
+  const [selectedRowIds, setSelectedRowIds] = React.useState<
+    Record<string, boolean>
+  >({});
+  const [sort, setSort] = React.useState<{
+    key: string;
+    direction: "asc" | "desc" | null;
+  } | null>(null);
+
+  const editableColumns = [
+    {
+      key: "name",
+      header: "Name",
+      accessor: (row: TableRow) => row.name,
+      sortable: true,
+      editable: true,
+    },
+    {
+      key: "role",
+      header: "Role",
+      accessor: (row: TableRow) => row.role,
+      sortable: true,
+      editable: true,
+      editCell: (
+        _row: TableRow,
+        value: string,
+        onChange: (v: string) => void
+      ) => (
+        <Select
+          label=""
+          value={value}
+          onChange={onChange as (v: string | string[]) => void}
+          options={[
+            { value: "Admin", label: "Admin" },
+            { value: "Editor", label: "Editor" },
+            { value: "Viewer", label: "Viewer" },
+          ]}
+        />
+      ),
+    },
+    {
+      key: "status",
+      header: "Status",
+      accessor: (row: TableRow) => row.status,
+      editable: true,
+      editCell: (
+        _row: TableRow,
+        value: string,
+        onChange: (v: string) => void
+      ) => (
+        <Select
+          label=""
+          value={value}
+          onChange={onChange as (v: string | string[]) => void}
+          options={[
+            { value: "Active", label: "Active" },
+            { value: "Inactive", label: "Inactive" },
+          ]}
+        />
+      ),
+    },
+  ];
+
+  const paginatedData = React.useMemo(() => {
+    const start = (pagination.page - 1) * pagination.pageSize;
+    return data.slice(start, start + pagination.pageSize);
+  }, [data, pagination.page, pagination.pageSize]);
+
+  const paginationState = React.useMemo(
+    () => ({ ...pagination, total: data.length }),
+    [pagination, data.length]
+  );
+
+  return (
+    <div className="w-full">
+      <Table<TableRow>
+        data={paginatedData}
+        columns={editableColumns}
+        size="md"
+        caption="Multi-cell editable users table"
+        title="Multi-Cell Edit"
+        description="Click pencil icons on multiple cells, edit them all, then Save once."
+        getRowId={(row) => row.id}
+        editingCells={editingCells}
+        onEditingCellsChange={setEditingCells}
+        onSaveAll={(changes: { rowId: string; columnKey: string; value: string }[]) => {
+          setData((prev) => {
+            const next = [...prev];
+            for (const { rowId, columnKey, value } of changes) {
+              const idx = next.findIndex((r) => r.id === rowId);
+              if (idx !== -1) {
+                next[idx] = { ...next[idx], [columnKey]: value };
+              }
+            }
+            return next;
+          });
+        }}
+        onCancel={() => {}}
+        onDeleteSelected={(ids) => {
+          setData((prev) => prev.filter((row) => !ids.includes(row.id)));
+          setSelectedRowIds({});
+        }}
+        selectableRows
+        selectedRowIds={selectedRowIds}
+        onRowSelectionChange={setSelectedRowIds}
+        sort={sort}
+        onSortChange={setSort}
+        actions={(row) => (
+          <DropdownButton
+            trigger={{ iconOnly: true, ariaLabel: "Row actions" }}
+            items={[
               {
                 key: "delete",
                 label: "Delete",
