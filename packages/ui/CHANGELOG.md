@@ -1,5 +1,12 @@
 # kz-design-system
 
+## 0.0.15
+
+### Patch Changes
+
+- 96c5989: multieditable table
+- f14c03d: qr rendere and sql query editor
+
 ## 0.0.14
 
 ### Patch Changes
