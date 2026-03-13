@@ -1,7 +1,4 @@
-/* ═══════════════════════════════════════════════════════════
-   Base — Invariant tokens shared across ALL themes & modes.
-   Loaded first; theme files override what they need.
-   ═══════════════════════════════════════════════════════════ */
+
 :root {
   /* ── SPACING (8pt base) ── */
   --kz-space-0: 0;
