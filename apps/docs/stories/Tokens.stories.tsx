@@ -19,7 +19,7 @@ const meta: Meta = {
     docs: {
       description: {
         component:
-          "All theme tokens that can be passed to `KezelThemeProvider` via the `tokens` prop. Values must be valid CSS for the corresponding type (e.g. colors as hex/rgb/hsl, shadows as box-shadow values).",
+          "All theme tokens that can be passed to `KezelThemeProvider` via the `tokens` prop (or scoped props: `lightTokens`, `darkTokens`, `standardTokens`, `neumorphicTokens`, `variantModeTokens`). Values must be valid CSS for the corresponding type (e.g. colors as hex/rgb/hsl, shadows as box-shadow values).",
       },
     },
   },
@@ -36,6 +36,7 @@ function groupKeys(keys: readonly string[]): Record<string, string[]> {
     if (parts[0] === "color" && parts[1]) group = `color.${parts[1]}`;
     else if (parts[0] === "component" && parts[1])
       group = `component.${parts[1]}`;
+    else if (parts[0] === "intent") group = "intent";
     else group = parts[0];
     if (!groups[group]) groups[group] = [];
     groups[group].push(key);
@@ -58,12 +59,24 @@ const groupOrder = [
   "font",
   "line",
   "motion",
+  "intent",
   "component.sidebar",
   "component.header",
   "component.button",
+  "component.toggle-button",
+  "component.checkbox",
+  "component.radio",
+  "component.tabs",
   "component.input",
+  "component.dropdown",
+  "component.nav-button",
+  "component.nav-dropdown",
+  "component.sidesheet",
+  "component.sidemenu",
+  "component.tooltip",
   "component.card",
   "component.canvas",
+  "component.table",
   "component.filter",
 ];
 
@@ -85,7 +98,9 @@ function TokenTable() {
             ? group.replace("color.", "Color — ").replace(".", " / ")
             : group === "typography"
               ? "Typography (status colors — override error/success/warning)"
-              : group.charAt(0).toUpperCase() + group.slice(1);
+              : group === "intent"
+                ? "Intent — Semantic middle layer"
+                : group.charAt(0).toUpperCase() + group.slice(1);
         return (
           <div key={group} style={{ marginBottom: 32 }}>
             <h3
@@ -266,6 +281,70 @@ export const NeumorphicShadowOverride: StoryObj = {
       description: {
         story:
           "Example: override neumorphic shadow tokens (shadow.neumorphic.raised.sm, shadow.neumorphic.inset.sm, shadow.neumorphic.raised.lg, shadow.neumorphic.raised.md) via the `tokens` prop. Use with Neumorphic variant.",
+      },
+    },
+  },
+};
+
+export const ScopedOverrides: StoryObj = {
+  render: () => (
+    <KezelThemeProvider
+      variant={KezelVariant.Standard}
+      mode={KezelMode.Light}
+      tokens={{
+        "color.brand.accent": "#009689",
+      }}
+      darkTokens={{
+        "color.surface.background": "#0d1117",
+        "color.surface.base": "#161b22",
+      }}
+      neumorphicTokens={{
+        "shadow.neumorphic.raised.sm":
+          "3px 3px 6px 0 rgba(163, 177, 198, 0.6), -3px -3px 6px 0 #fff",
+      }}
+      variantModeTokens={{
+        "neumorphic.dark": {
+          "color.surface.background": "#1e2530",
+        },
+      }}
+    >
+      <div
+        style={{
+          padding: 24,
+          background: "var(--kz-color-surface-background)",
+          minHeight: 120,
+        }}
+      >
+        <p style={{ marginBottom: 16, color: "var(--kz-color-text-primary)" }}>
+          Scoped overrides: <code>tokens</code> applies to all,{" "}
+          <code>darkTokens</code> only in dark mode,{" "}
+          <code>neumorphicTokens</code> only for neumorphic variant, and{" "}
+          <code>variantModeTokens</code> for specific variant+mode combos.
+        </p>
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+          <Button
+            variant={ButtonVariant.Primary}
+            size={ButtonSize.Md}
+            onClick={() => {}}
+          >
+            Primary
+          </Button>
+          <Button
+            variant={ButtonVariant.Secondary}
+            size={ButtonSize.Md}
+            onClick={() => {}}
+          >
+            Secondary
+          </Button>
+        </div>
+      </div>
+    </KezelThemeProvider>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Demonstrates scoped token overrides via `darkTokens`, `neumorphicTokens`, and `variantModeTokens`. Resolution order: `tokens` → mode-scoped → variant-scoped → `variantModeTokens` (most specific wins).",
       },
     },
   },

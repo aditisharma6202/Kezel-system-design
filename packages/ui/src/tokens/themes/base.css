@@ -1,0 +1,204 @@
+/* ═══════════════════════════════════════════════════════════
+   Base — Invariant tokens shared across ALL themes & modes.
+   Loaded first; theme files override what they need.
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  /* ── SPACING (8pt base) ── */
+  --kz-space-0: 0;
+  --kz-space-1: 4px;
+  --kz-space-2: 8px;
+  --kz-space-3: 12px;
+  --kz-space-4: 16px;
+  --kz-space-5: 20px;
+  --kz-space-6: 24px;
+  --kz-space-8: 32px;
+  --kz-space-10: 40px;
+  --kz-space-12: 48px;
+  --kz-space-16: 64px;
+  --kz-space-20: 80px;
+  --kz-space-24: 96px;
+
+  /* ── RADIUS ── */
+  --kz-radius-none: 0;
+  --kz-radius-xs: 2px;
+  --kz-radius-sm: 4px;
+  --kz-radius-md: 8px;
+  --kz-radius-lg: 12px;
+  --kz-radius-xl: 16px;
+  --kz-radius-full: 9999px;
+
+  /* ── MOTION ── */
+  --kz-motion-duration-fast: 120ms;
+  --kz-motion-duration-normal: 200ms;
+  --kz-motion-duration-slow: 300ms;
+  --kz-motion-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --kz-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+
+  /* ── FONT SCALE ── */
+  --kz-font-family-base: Inter, system-ui, sans-serif;
+  --kz-font-family-mono: ui-monospace, SFMono-Regular, monospace;
+  --kz-font-size-xs: 12px;
+  --kz-font-size-sm: 14px;
+  --kz-font-size-md: 16px;
+  --kz-font-size-lg: 18px;
+  --kz-font-size-xl: 20px;
+  --kz-font-size-2xl: 24px;
+  --kz-font-size-3xl: 30px;
+  --kz-font-weight-regular: 400;
+  --kz-font-weight-medium: 500;
+  --kz-font-weight-semibold: 600;
+  --kz-font-weight-bold: 700;
+  --kz-line-height-sm: 1.4;
+  --kz-line-height-md: 1.5;
+  --kz-line-height-lg: 1.6;
+
+  /* ── EFFECTS ── */
+  --kz-effect-blur-sm: 4px;
+  --kz-effect-blur-md: 8px;
+  --kz-effect-blur-lg: 16px;
+  --kz-effect-glass-opacity: 0.7;
+  --kz-effect-glass-border-opacity: 0.3;
+
+  /* ── TYPOGRAPHY (shared invariants) ── */
+  --kz-typography-font-family: Inter, system-ui, sans-serif;
+  --kz-typography-font-weight: 400;
+  --kz-typography-line-height-primary: 32px;
+  --kz-typography-line-height-secondary: 24px;
+  --kz-typography-letter-spacing-primary: 0.07px;
+  --kz-typography-letter-spacing-secondary: -0.15px;
+  --kz-typography-status-font-size: 12px;
+  --kz-typography-status-line-height: 16px;
+
+  /* ── TYPOGRAPHY per-heading (defaults; themes override as needed) ── */
+  --kz-typography-h1-color: #101828;
+  --kz-typography-h1-font-size: 30px;
+  --kz-typography-h1-font-weight: 700;
+  --kz-typography-h1-line-height: 36px;
+  --kz-typography-h1-letter-spacing: 0.396px;
+
+  --kz-typography-h2-color: #101828;
+  --kz-typography-h2-font-size: 24px;
+  --kz-typography-h2-font-weight: 600;
+  --kz-typography-h2-line-height: 32px;
+  --kz-typography-h2-letter-spacing: 0.07px;
+
+  --kz-typography-h3-color: #101828;
+  --kz-typography-h3-font-size: 20px;
+  --kz-typography-h3-font-weight: 600;
+  --kz-typography-h3-line-height: 28px;
+  --kz-typography-h3-letter-spacing: -0.449px;
+
+  --kz-typography-h4-color: #101828;
+  --kz-typography-h4-font-size: 18px;
+  --kz-typography-h4-font-weight: 600;
+  --kz-typography-h4-line-height: 24px;
+  --kz-typography-h4-letter-spacing: -0.252px;
+
+  --kz-typography-h5-color: #101828;
+  --kz-typography-h5-font-size: 16px;
+  --kz-typography-h5-font-weight: 600;
+  --kz-typography-h5-line-height: 22px;
+  --kz-typography-h5-letter-spacing: -0.176px;
+
+  --kz-typography-body-color: #364153;
+  --kz-typography-body-font-size: 16px;
+  --kz-typography-body-font-weight: 400;
+  --kz-typography-body-line-height: 24px;
+  --kz-typography-body-letter-spacing: -0.312px;
+
+  --kz-typography-small-color: #4a5565;
+  --kz-typography-small-font-size: 14px;
+  --kz-typography-small-font-weight: 400;
+  --kz-typography-small-line-height: 20px;
+  --kz-typography-small-letter-spacing: -0.15px;
+
+  --kz-typography-caption-color: #6a7282;
+  --kz-typography-caption-font-size: 12px;
+  --kz-typography-caption-font-weight: 400;
+  --kz-typography-caption-line-height: 16px;
+  --kz-typography-caption-letter-spacing: 0.6px;
+  --kz-typography-caption-text-transform: uppercase;
+
+  --kz-typography-label-color: #364153;
+  --kz-typography-label-font-size: 14px;
+  --kz-typography-label-font-weight: 500;
+  --kz-typography-label-line-height: 20px;
+  --kz-typography-label-letter-spacing: -0.15px;
+
+  /* ── INTENT — semantic middle layer (themes override these) ── */
+  --kz-intent-interactive-bg: var(--kz-color-surface-base);
+  --kz-intent-interactive-bg-hover: rgba(0, 0, 0, 0.05);
+  --kz-intent-interactive-text: var(--kz-color-text-primary);
+  --kz-intent-interactive-text-selected: var(--kz-color-brand-accent);
+  --kz-intent-interactive-shadow: none;
+  --kz-intent-interactive-shadow-active: none;
+  --kz-intent-interactive-border: var(--kz-color-border-default);
+  --kz-intent-interactive-radius: var(--kz-radius-md);
+
+  --kz-intent-container-bg: var(--kz-color-surface-base);
+  --kz-intent-container-border: var(--kz-color-border-subtle);
+  --kz-intent-container-shadow: none;
+  --kz-intent-container-radius: var(--kz-radius-md);
+
+  /* ── COMPONENT — Structural invariants (sizes, padding) ── */
+
+  /* Button sizes */
+  --kz-component-button-height-sm: 2rem;
+  --kz-component-button-height-md: 2.5rem;
+  --kz-component-button-height-lg: 3rem;
+  --kz-component-button-px-sm: 0.75rem;
+  --kz-component-button-px-md: 1rem;
+  --kz-component-button-px-lg: 1.25rem;
+  --kz-component-button-text-sm: 0.875rem;
+  --kz-component-button-text-md: 0.875rem;
+  --kz-component-button-text-lg: 1rem;
+  --kz-component-button-icon-sm: 1rem;
+  --kz-component-button-icon-md: 1rem;
+  --kz-component-button-icon-lg: 1.25rem;
+  --kz-component-button-loading-opacity: 0.8;
+
+  /* Checkbox sizes */
+  --kz-component-checkbox-size-sm: 16px;
+  --kz-component-checkbox-size-md: 20px;
+  --kz-component-checkbox-size-lg: 24px;
+  --kz-component-checkbox-radius: 4px;
+  --kz-component-checkbox-icon-color: #fff;
+  --kz-component-checkbox-disabled-opacity: 0.5;
+
+  /* Radio sizes */
+  --kz-component-radio-size-sm: 16px;
+  --kz-component-radio-size-md: 20px;
+  --kz-component-radio-size-lg: 24px;
+  --kz-component-radio-radius: 50%;
+  --kz-component-radio-disabled-opacity: 0.5;
+
+  /* Tabs structural */
+  --kz-component-tabs-list-radius: 10px;
+  --kz-component-tabs-trigger-radius: 8px;
+  --kz-component-tabs-content-padding: 16px;
+
+  /* Nav structural */
+  --kz-component-nav-button-gap: 10px;
+  --kz-component-nav-button-radius: 5px;
+  --kz-component-nav-dropdown-menu-radius: 4px;
+
+  /* Sidemenu structural */
+  --kz-component-sidemenu-gap: 4px;
+  --kz-component-sidemenu-icon-gap: 10px;
+
+  /* Sidesheet structural */
+  --kz-component-sidesheet-width: 260px;
+
+  /* Tooltip structural */
+  --kz-component-tooltip-padding-sm: 4px 8px;
+  --kz-component-tooltip-padding-md: 6px 10px;
+  --kz-component-tooltip-padding-lg: 8px 12px;
+  --kz-component-tooltip-max-width-sm: 160px;
+  --kz-component-tooltip-max-width-md: 220px;
+  --kz-component-tooltip-max-width-lg: 320px;
+
+  /* Table structural */
+  --kz-component-table-sticky-row-top: 40px;
+  --kz-component-table-footer-bg: #0000001a;
+  --kz-component-table-pagination-bg: #0000001a;
+}

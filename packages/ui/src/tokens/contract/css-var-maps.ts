@@ -115,6 +115,20 @@ export const tokenToCssVar: Record<TokenKey, `--kz-${string}`> = {
   "motion.easing.standard": "--kz-motion-easing-standard",
   "motion.easing.emphasized": "--kz-motion-easing-emphasized",
 
+  // Intent — semantic middle layer
+  "intent.interactive.bg": "--kz-intent-interactive-bg",
+  "intent.interactive.bg.hover": "--kz-intent-interactive-bg-hover",
+  "intent.interactive.text": "--kz-intent-interactive-text",
+  "intent.interactive.text.selected": "--kz-intent-interactive-text-selected",
+  "intent.interactive.shadow": "--kz-intent-interactive-shadow",
+  "intent.interactive.shadow.active": "--kz-intent-interactive-shadow-active",
+  "intent.interactive.border": "--kz-intent-interactive-border",
+  "intent.interactive.radius": "--kz-intent-interactive-radius",
+  "intent.container.bg": "--kz-intent-container-bg",
+  "intent.container.border": "--kz-intent-container-border",
+  "intent.container.shadow": "--kz-intent-container-shadow",
+  "intent.container.radius": "--kz-intent-container-radius",
+
   "component.sidebar.bg": "--kz-component-sidebar-bg",
   "component.sidebar.border": "--kz-component-sidebar-border",
   "component.sidebar.item.bg": "--kz-component-sidebar-item-bg",
@@ -202,11 +216,6 @@ export const tokenToCssVar: Record<TokenKey, `--kz-${string}`> = {
     "--kz-component-toggle-button-container-text",
   "component.toggle-button.container.text.pressed":
     "--kz-component-toggle-button-container-text-pressed",
-  "component.toggle-button.radius": "--kz-component-toggle-button-radius",
-  "component.toggle-button.disabled.opacity":
-    "--kz-component-toggle-button-disabled-opacity",
-  "component.toggle-button.loading.opacity":
-    "--kz-component-toggle-button-loading-opacity",
   "component.toggle-button.pressed.shadow":
     "--kz-component-toggle-button-pressed-shadow",
   "component.toggle-button.track.off.bg":
@@ -230,18 +239,6 @@ export const tokenToCssVar: Record<TokenKey, `--kz-${string}`> = {
   "component.checkbox.icon.color": "--kz-component-checkbox-icon-color",
   "component.checkbox.disabled.opacity":
     "--kz-component-checkbox-disabled-opacity",
-  "component.checkbox.container.off.bg":
-    "--kz-component-checkbox-container-off-bg",
-  "component.checkbox.container.off.border":
-    "--kz-component-checkbox-container-off-border",
-  "component.checkbox.container.off.shadow":
-    "--kz-component-checkbox-container-off-shadow",
-  "component.checkbox.container.on.bg":
-    "--kz-component-checkbox-container-on-bg",
-  "component.checkbox.container.on.border":
-    "--kz-component-checkbox-container-on-border",
-  "component.checkbox.container.on.shadow":
-    "--kz-component-checkbox-container-on-shadow",
 
   "component.radio.size.sm": "--kz-component-radio-size-sm",
   "component.radio.size.md": "--kz-component-radio-size-md",
@@ -353,15 +350,6 @@ export const tokenToCssVar: Record<TokenKey, `--kz-${string}`> = {
     "--kz-component-sidemenu-group-indent-bg",
   "component.sidemenu.gap": "--kz-component-sidemenu-gap",
   "component.sidemenu.icon.gap": "--kz-component-sidemenu-icon-gap",
-  "component.sidemenu.flyout.menu.bg": "--kz-component-sidemenu-flyout-menu-bg",
-  "component.sidemenu.flyout.menu.shadow":
-    "--kz-component-sidemenu-flyout-menu-shadow",
-  "component.sidemenu.flyout.menu.radius":
-    "--kz-component-sidemenu-flyout-menu-radius",
-  "component.sidemenu.flyout.option.text":
-    "--kz-component-sidemenu-flyout-option-text",
-  "component.sidemenu.flyout.option.hover.bg":
-    "--kz-component-sidemenu-flyout-option-hover-bg",
 
   "component.tooltip.bg": "--kz-component-tooltip-bg",
   "component.tooltip.text": "--kz-component-tooltip-text",

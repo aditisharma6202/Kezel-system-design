@@ -1,8 +1,8 @@
 # Full token reference
 
-Every theme token: **token key** → **CSS variable** → **default value** (with units: px, rem, ms, etc.). Values from Standard light unless noted. Override via `KezelThemeProvider` `tokens` prop. Use in CSS: `var(--kz-...)`.
+Every theme token: **token key** → **CSS variable** → **default value** (with units: px, rem, ms, etc.). Values from Standard light unless noted. Override via `KezelThemeProvider` props: `tokens`, `lightTokens`, `darkTokens`, `standardTokens`, `neumorphicTokens`, or `variantModeTokens`. Use in CSS: `var(--kz-...)`.
 
-Source: `packages/ui/src/tokens/themes/default/standard.css`, `standard.dark.css`, `neumorphic.css`, `neumorphic.dark.css`.
+Source: `packages/ui/src/tokens/themes/base.css`, `default/standard.css`, `standard.dark.css`, `neumorphic.css`, `neumorphic.dark.css`.
 
 ---
 
@@ -190,6 +190,27 @@ _(Neumorphic dark uses different shadow values; see `neumorphic.dark.css`.)_
 
 ---
 
+## Intent — Semantic middle layer
+
+Intent tokens provide a semantic abstraction between primitive tokens and component tokens. Themes override these to automatically style all components that reference them. For example, neumorphic overrides `intent.interactive.shadow` to add raised shadows to all interactive elements.
+
+| Token key                        | CSS variable                          | Default (base.css)                              | Neumorphic override                               |
+| -------------------------------- | ------------------------------------- | ----------------------------------------------- | -------------------------------------------------- |
+| `intent.interactive.bg`          | `--kz-intent-interactive-bg`          | `var(--kz-color-surface-base)`                  | _(inherited)_                                      |
+| `intent.interactive.bg.hover`    | `--kz-intent-interactive-bg-hover`    | `rgba(0, 0, 0, 0.05)`                           | _(inherited)_                                      |
+| `intent.interactive.text`        | `--kz-intent-interactive-text`        | `var(--kz-color-text-primary)`                   | _(inherited)_                                      |
+| `intent.interactive.text.selected` | `--kz-intent-interactive-text-selected` | `var(--kz-color-brand-accent)`              | _(inherited)_                                      |
+| `intent.interactive.shadow`      | `--kz-intent-interactive-shadow`      | `none`                                           | `var(--kz-shadow-neumorphic-raised-sm)`            |
+| `intent.interactive.shadow.active` | `--kz-intent-interactive-shadow-active` | `none`                                       | `var(--kz-shadow-neumorphic-inset-sm)`             |
+| `intent.interactive.border`      | `--kz-intent-interactive-border`      | `var(--kz-color-border-default)`                 | _(inherited)_                                      |
+| `intent.interactive.radius`      | `--kz-intent-interactive-radius`      | `var(--kz-radius-md)`                            | _(inherited)_                                      |
+| `intent.container.bg`            | `--kz-intent-container-bg`            | `var(--kz-color-surface-base)`                   | _(inherited)_                                      |
+| `intent.container.border`        | `--kz-intent-container-border`        | `var(--kz-color-border-subtle)`                  | _(inherited)_                                      |
+| `intent.container.shadow`        | `--kz-intent-container-shadow`        | `none`                                           | `var(--kz-shadow-neumorphic-raised-sm)`            |
+| `intent.container.radius`        | `--kz-intent-container-radius`        | `var(--kz-radius-md)`                            | _(inherited)_                                      |
+
+---
+
 ## Component — Sidebar
 
 | Token key                            | CSS variable                              | Default (Standard light) |
@@ -277,9 +298,6 @@ _(Neumorphic dark uses different shadow values; see `neumorphic.dark.css`.)_
 | `component.toggle-button.container.bg.pressed`   | `--kz-component-toggle-button-container-bg-pressed`   | `var(--kz-color-brand-accent)`                                |
 | `component.toggle-button.container.text`         | `--kz-component-toggle-button-container-text`         | `#101828`                                                     |
 | `component.toggle-button.container.text.pressed` | `--kz-component-toggle-button-container-text-pressed` | `#101828`                                                     |
-| `component.toggle-button.radius`                 | `--kz-component-toggle-button-radius`                 | `var(--kz-component-button-radius)` → `8px`                   |
-| `component.toggle-button.disabled.opacity`       | `--kz-component-toggle-button-disabled-opacity`       | `0.5`                                                         |
-| `component.toggle-button.loading.opacity`        | `--kz-component-toggle-button-loading-opacity`        | `0.8`                                                         |
 | `component.toggle-button.pressed.shadow`         | `--kz-component-toggle-button-pressed-shadow`         | _(neumorphic: var(--kz-shadow-neumorphic-inset-sm))_          |
 | `component.toggle-button.track.off.bg`           | `--kz-component-toggle-button-track-off-bg`           | `#99a1af`                                                     |
 | `component.toggle-button.track.on.bg`            | `--kz-component-toggle-button-track-on-bg`            | `var(--kz-color-brand-accent)`                                |
@@ -304,12 +322,6 @@ _(Neumorphic dark uses different shadow values; see `neumorphic.dark.css`.)_
 | `component.checkbox.on.shadow`            | `--kz-component-checkbox-on-shadow`            | `none`                                   |
 | `component.checkbox.icon.color`           | `--kz-component-checkbox-icon-color`           | `#fff`                                   |
 | `component.checkbox.disabled.opacity`     | `--kz-component-checkbox-disabled-opacity`     | `0.5`                                    |
-| `component.checkbox.container.off.bg`     | `--kz-component-checkbox-container-off-bg`     | same as off.bg                           |
-| `component.checkbox.container.off.border` | `--kz-component-checkbox-container-off-border` | same as off.border                       |
-| `component.checkbox.container.off.shadow` | `--kz-component-checkbox-container-off-shadow` | same as off.shadow                       |
-| `component.checkbox.container.on.bg`      | `--kz-component-checkbox-container-on-bg`      | same as on.bg                            |
-| `component.checkbox.container.on.border`  | `--kz-component-checkbox-container-on-border`  | same as on.border                        |
-| `component.checkbox.container.on.shadow`  | `--kz-component-checkbox-container-on-shadow`  | same as on.shadow                        |
 
 ---
 
@@ -448,11 +460,6 @@ _(Neumorphic dark uses different shadow values; see `neumorphic.dark.css`.)_
 | `component.sidemenu.group.indent.bg`         | `--kz-component-sidemenu-group-indent-bg`         | `rgba(0,0,0,0.02)`                                 |
 | `component.sidemenu.gap`                     | `--kz-component-sidemenu-gap`                     | `4px`                                              |
 | `component.sidemenu.icon.gap`                | `--kz-component-sidemenu-icon-gap`                | `10px`                                             |
-| `component.sidemenu.flyout.menu.bg`          | `--kz-component-sidemenu-flyout-menu-bg`          | `var(--kz-component-sidemenu-bg)`                  |
-| `component.sidemenu.flyout.menu.shadow`      | `--kz-component-sidemenu-flyout-menu-shadow`      | `0 2px 8px rgba(0,0,0,0.08)`                       |
-| `component.sidemenu.flyout.menu.radius`      | `--kz-component-sidemenu-flyout-menu-radius`      | `4px`                                              |
-| `component.sidemenu.flyout.option.text`      | `--kz-component-sidemenu-flyout-option-text`      | `var(--kz-component-nav-dropdown-option-text)`     |
-| `component.sidemenu.flyout.option.hover.bg`  | `--kz-component-sidemenu-flyout-option-hover-bg`  | `var(--kz-component-nav-dropdown-option-hover-bg)` |
 
 ---
 

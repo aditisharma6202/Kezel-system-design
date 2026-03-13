@@ -1,5 +1,5 @@
 .kz-table-surface {
-  box-shadow: none;
+  box-shadow: var(--kz-intent-container-shadow, none);
 }
 
 .kz-table-surface table {

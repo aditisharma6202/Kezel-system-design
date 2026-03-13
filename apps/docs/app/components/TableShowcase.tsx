@@ -9,6 +9,7 @@ import {
   TypographyVariantEnum,
   Table,
   Select,
+  Pagination,
 } from "kz-design-system";
 import { DropdownButton } from "kz-design-system/dropdown";
 
@@ -102,13 +103,17 @@ export default function TableShowcase() {
           onSearchChange={setTableSearchValue}
           searchPlaceholder="Search users…"
           headerRight={
-            <Button
+
+            <div className="m-2">
+               <Button
               variant={ButtonVariant.Primary}
               size={ButtonSize.Sm}
               onClick={() => {}}
             >
               Add user
             </Button>
+            </div>
+           
           }
           selectableRows
           selectedRowIds={tableSelectedRowIds}
@@ -132,6 +137,8 @@ export default function TableShowcase() {
             setTablePagination((p) => ({ ...p, pageSize, page: 1 }))
           }
           pageSizeOptions={[5, 10, 20]}
+          headerClassName="p-2"
+          footerClassName="p-2 py-3"
         />
       </div>
 
@@ -165,6 +172,17 @@ export default function TableShowcase() {
         your changes, then hit Save to apply everything in a single batch.
       </Typography>
       <MultiCellEditableTableDemo />
+
+      {/* ── Standalone Pagination ── */}
+      <Typography variant={TypographyVariantEnum.H3}>
+        Standalone Pagination
+      </Typography>
+      <Typography variant={TypographyVariantEnum.Caption}>
+        Pagination as a standalone component — can be used with charts, lists,
+        or any paginated content. Adapts to standard and neumorphic themes
+        automatically.
+      </Typography>
+      <StandalonePaginationDemo />
     </section>
   );
 }
@@ -599,6 +617,31 @@ function StickyColumnsTableDemo() {
           />
         )}
         actionsHeader="Actions"
+      />
+    </div>
+  );
+}
+
+function StandalonePaginationDemo() {
+  const [page, setPage] = React.useState(1);
+  const [pageSize, setPageSize] = React.useState(10);
+  const total = 87;
+
+  return (
+    <div className="w-full flex flex-col items-center gap-4 rounded-[var(--kz-radius-md)] border border-[var(--kz-color-border-default)] bg-[var(--kz-color-surface-base)] p-6">
+      <div className="text-sm text-[var(--kz-color-text-secondary)]">
+        Showing page {page} of {Math.ceil(total / pageSize)}
+      </div>
+      <Pagination
+        page={page}
+        total={total}
+        pageSize={pageSize}
+        onPageChange={setPage}
+        onPageSizeChange={(s: number) => {
+          setPageSize(s);
+          setPage(1);
+        }}
+        pageSizeOptions={[5, 10, 20, 50]}
       />
     </div>
   );

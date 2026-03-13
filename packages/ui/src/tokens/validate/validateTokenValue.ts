@@ -18,7 +18,7 @@ function categoryForToken(key: TokenKey): TokenCategory {
   if (key.startsWith("line.height.")) return TokenCategory.LineHeight;
   if (key.startsWith("motion.duration.")) return TokenCategory.Duration;
   if (key.startsWith("motion.easing.")) return TokenCategory.Easing;
-  if (key.startsWith("component.")) {
+  if (key.startsWith("intent.") || key.startsWith("component.")) {
     if (key.includes(".shadow") || key.includes(".focus.ring"))
       return TokenCategory.Shadow;
     if (

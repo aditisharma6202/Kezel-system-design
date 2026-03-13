@@ -3,9 +3,8 @@ import { cn } from "../../utils/cn";
 import { Checkbox, CheckboxSize, CheckboxVariant } from "../checkbox";
 import { TextInput, TextInputSize, TextInputVariant } from "../text-input";
 import { Button, ButtonVariant, ButtonSize } from "../button";
-import { DropdownButton } from "../dropdown";
-import type { DropdownButtonItem } from "../dropdown";
 import { Icon, IconName } from "../../icon";
+import { Pagination } from "../pagination";
 import type {
   TableProps,
   TableColumn,
@@ -73,6 +72,7 @@ function TableInner<TData, TEditValue = string>(
     className,
     tableClassName,
     headerClassName,
+    footerClassName,
     containerClassName,
   }: TableProps<TData, TEditValue>,
   ref: React.Ref<HTMLDivElement>
@@ -132,35 +132,7 @@ function TableInner<TData, TEditValue = string>(
     [sort, onSortChange]
   );
 
-  const pageRange = React.useMemo(() => {
-    if (!pagination) return null;
-    const { page, pageSize, total } = pagination;
-    const totalPages = Math.max(1, Math.ceil(total / pageSize));
-    const delta = 2;
-    let start = Math.max(1, page - delta);
-    let end = Math.min(totalPages, page + delta);
-    if (end - start < 2 * delta) {
-      if (start === 1) end = Math.min(totalPages, start + 2 * delta);
-      else end = Math.min(totalPages, end);
-      start = Math.max(1, end - 2 * delta);
-    }
-    const pages: (number | "ellipsis")[] = [];
-    if (start > 1) {
-      pages.push(1);
-      if (start > 2) pages.push("ellipsis");
-    }
-    for (let p = start; p <= end; p++) pages.push(p);
-    if (end < totalPages) {
-      if (end < totalPages - 1) pages.push("ellipsis");
-      pages.push(totalPages);
-    }
-    return {
-      pages,
-      totalPages,
-      startItem: (page - 1) * pageSize + 1,
-      endItem: Math.min(page * pageSize, total),
-    };
-  }, [pagination]);
+  const hasPagination = pagination != null && onPageChange != null;
 
   /* ── Inline cell editing ── */
 
@@ -298,7 +270,7 @@ function TableInner<TData, TEditValue = string>(
   const defaultHeader = (
     <div
       className={cn(
-        "flex flex-wrap items-center justify-between gap-3 w-full",
+        "flex flex-wrap items-center justify-between gap-3 w-full m-[kz-space-4]",
         headerClassName
       )}
     >
@@ -364,7 +336,7 @@ function TableInner<TData, TEditValue = string>(
       {hasHeader && (
         <div
           className={cn(
-            "kz-table-header border-b border-[var(--kz-component-table-row-border)] bg-[var(--kz-component-table-header-bg)] px-[var(--kz-space-4)] py-[var(--kz-space-3)]",
+            "kz-table-header border-b border-[var(--kz-component-table-row-border)] bg-[var(--kz-component-table-header-bg)] px-[var(--kz-space-6)] py-[var(--kz-space-4)]",
             headerClassName
           )}
         >
@@ -685,14 +657,14 @@ function TableInner<TData, TEditValue = string>(
           </tbody>
         </table>
       </div>
-      {((pagination && pageRange && onPageChange) ||
+      {(hasPagination ||
         (someSelected && onDeleteSelected) ||
         editingCell != null ||
         (isMultiCellMode &&
           Object.keys(editingCells).some((rid) =>
             Object.values(editingCells[rid]).some(Boolean)
           ))) && (
-        <div className="kz-table-footer flex items-center border-t border-[var(--kz-component-table-row-border)] bg-[var(--kz-component-table-footer-bg)] px-[var(--kz-space-4)] py-[var(--kz-space-3)]">
+        <div className={cn("kz-table-footer flex items-center border-t border-[var(--kz-component-table-row-border)] bg-[var(--kz-component-table-footer-bg)] px-[var(--kz-space-6)] py-[var(--kz-space-4)]", footerClassName)}>
           {/* Left: delete selected */}
           <div className="flex items-center gap-[var(--kz-space-2)] shrink-0">
             {someSelected && onDeleteSelected && (
@@ -714,78 +686,16 @@ function TableInner<TData, TEditValue = string>(
             )}
           </div>
           {/* Center: pagination */}
-          {pagination && pageRange && onPageChange ? (
-            <div className="flex flex-wrap items-center justify-center gap-3 flex-1 min-w-0">
-              <div className="text-sm text-[var(--kz-color-text-secondary)]">
-                {pageRange.startItem}–{pageRange.endItem} of {pagination.total}
-              </div>
-              <div className="flex items-center gap-1">
-                <Button
-                  variant={ButtonVariant.Ghost}
-                  size={ButtonSize.Sm}
-                  onClick={() => onPageChange(pagination.page - 1)}
-                  disabled={pagination.page <= 1}
-                  className="kz-table-pagination-prev-next"
-                  aria-label="Previous page"
-                >
-                  <Icon
-                    name={IconName.ChevronLeft}
-                    size="sm"
-                    color="currentColor"
-                    aria-hidden
-                  />
-                </Button>
-                {pageRange.pages.map((p, i) =>
-                  p === "ellipsis" ? (
-                    <span
-                      key={`e-${i}`}
-                      className="px-2 text-[var(--kz-color-text-muted)]"
-                    >
-                      …
-                    </span>
-                  ) : (
-                    <button
-                      key={p}
-                      type="button"
-                      data-active={p === pagination.page}
-                      onClick={() => onPageChange(p)}
-                      className="kz-table-pagination-page min-w-[var(--kz-space-8)] h-[var(--kz-space-8)] rounded-[var(--kz-radius-sm)] text-sm font-medium text-[var(--kz-color-text-primary)] bg-transparent border border-transparent hover:bg-[var(--kz-color-surface-muted)] hover:shadow-[var(--kz-component-table-pagination-hover-shadow)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--kz-color-border-focus)] data-[active=true]:bg-[var(--kz-component-table-pagination-active-bg)] data-[active=true]:shadow-[var(--kz-component-table-pagination-active-shadow)]"
-                    >
-                      {p}
-                    </button>
-                  )
-                )}
-                <Button
-                  variant={ButtonVariant.Ghost}
-                  size={ButtonSize.Sm}
-                  onClick={() => onPageChange(pagination.page + 1)}
-                  disabled={pagination.page >= pageRange.totalPages}
-                  className="kz-table-pagination-prev-next"
-                  aria-label="Next page"
-                >
-                  <Icon
-                    name={IconName.ChevronRight}
-                    size="sm"
-                    color="currentColor"
-                    aria-hidden
-                  />
-                </Button>
-              </div>
-              {onPageSizeChange && (
-                <DropdownButton
-                  trigger={{
-                    label: String(pagination.pageSize),
-                    showChevron: true,
-                  }}
-                  items={pageSizeOptions.map(
-                    (n): DropdownButtonItem => ({
-                      key: String(n),
-                      label: String(n),
-                      onSelect: () => onPageSizeChange(n),
-                    })
-                  )}
-                />
-              )}
+          {hasPagination ? (
+            <div className="flex-1 min-w-0">
+              <Pagination
+                page={pagination.page}
+                total={pagination.total}
+                pageSize={pagination.pageSize}
+                onPageChange={onPageChange}
+                onPageSizeChange={onPageSizeChange}
+                pageSizeOptions={pageSizeOptions}
+              />
             </div>
           ) : (
             <div className="flex-1" />

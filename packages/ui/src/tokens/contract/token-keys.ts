@@ -124,6 +124,20 @@ export const TOKEN_KEYS = [
   "motion.easing.standard",
   "motion.easing.emphasized",
 
+  // Intent — semantic middle layer
+  "intent.interactive.bg",
+  "intent.interactive.bg.hover",
+  "intent.interactive.text",
+  "intent.interactive.text.selected",
+  "intent.interactive.shadow",
+  "intent.interactive.shadow.active",
+  "intent.interactive.border",
+  "intent.interactive.radius",
+  "intent.container.bg",
+  "intent.container.border",
+  "intent.container.shadow",
+  "intent.container.radius",
+
   // Component — Sidebar
   "component.sidebar.bg",
   "component.sidebar.border",
@@ -193,9 +207,6 @@ export const TOKEN_KEYS = [
   "component.toggle-button.container.bg.pressed",
   "component.toggle-button.container.text",
   "component.toggle-button.container.text.pressed",
-  "component.toggle-button.radius",
-  "component.toggle-button.disabled.opacity",
-  "component.toggle-button.loading.opacity",
   "component.toggle-button.pressed.shadow",
   "component.toggle-button.track.off.bg",
   "component.toggle-button.track.on.bg",
@@ -215,12 +226,6 @@ export const TOKEN_KEYS = [
   "component.checkbox.on.shadow",
   "component.checkbox.icon.color",
   "component.checkbox.disabled.opacity",
-  "component.checkbox.container.off.bg",
-  "component.checkbox.container.off.border",
-  "component.checkbox.container.off.shadow",
-  "component.checkbox.container.on.bg",
-  "component.checkbox.container.on.border",
-  "component.checkbox.container.on.shadow",
 
   // Component — Radio
   "component.radio.size.sm",
@@ -319,11 +324,6 @@ export const TOKEN_KEYS = [
   "component.sidemenu.group.indent.bg",
   "component.sidemenu.gap",
   "component.sidemenu.icon.gap",
-  "component.sidemenu.flyout.menu.bg",
-  "component.sidemenu.flyout.menu.shadow",
-  "component.sidemenu.flyout.menu.radius",
-  "component.sidemenu.flyout.option.text",
-  "component.sidemenu.flyout.option.hover.bg",
 
   // Component — Tooltip
   "component.tooltip.bg",

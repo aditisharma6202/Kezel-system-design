@@ -1,74 +1,99 @@
+/* Standard — Dark (only overrides from standard light) */
 :root[data-variant="standard"][data-mode="dark"],
 :root.dark[data-variant="standard"] {
-  /* Brand (same as light; can override for dark if needed) */
+  /* ── BRAND ── */
   --kz-color-brand-primary: #00a99d;
   --kz-color-brand-primary-hover: #008b81;
   --kz-color-brand-primary-active: #006c64;
-  --kz-color-brand-accent: #18AB9F;
+  --kz-color-brand-accent: #18ab9f;
   --kz-color-brand-accent-hover: #1fa399;
   --kz-color-brand-accent-active: #198a81;
   --kz-color-brand-accent-dark: #00bba7;
 
+  /* ── SURFACE ── */
   --kz-color-surface-background: #0a0a0a;
   --kz-color-surface-base: #111827;
   --kz-color-surface-raised: #1f2933;
   --kz-color-surface-sunken: #374151;
   --kz-color-surface-muted: #1f2933;
 
+  /* ── TEXT ── */
   --kz-color-text-primary: #f9fafb;
   --kz-color-text-secondary: #d1d5db;
   --kz-color-text-muted: #9ca3af;
 
+  /* ── ICON ── */
   --kz-color-icon-default: #ffffff;
 
-  /* TYPOGRAPHY (Standard dark) */
-  --kz-typography-font-family: Inter, system-ui, sans-serif;
-  --kz-typography-font-weight: 400;
+  /* ── TYPOGRAPHY ── */
   --kz-typography-color-primary: var(--kz-color-text-primary);
   --kz-typography-color-secondary: var(--kz-color-text-muted);
-  --kz-typography-line-height-primary: 32px;
-  --kz-typography-line-height-secondary: 24px;
-  --kz-typography-letter-spacing-primary: 0.07px;
-  --kz-typography-letter-spacing-secondary: -0.15px;
+  --kz-typography-error-color: var(--kz-color-status-error);
+  --kz-typography-success-color: var(--kz-color-status-success);
+  --kz-typography-warning-color: var(--kz-color-status-warning);
 
+  /* Typography per-heading colors */
   --kz-typography-h1-color: #ffffff;
   --kz-typography-h2-color: #ffffff;
   --kz-typography-h3-color: #ffffff;
+  --kz-typography-h4-color: #ffffff;
+  --kz-typography-h5-color: #ffffff;
   --kz-typography-body-color: #d1d5dc;
   --kz-typography-small-color: #99a1af;
   --kz-typography-caption-color: #6a7282;
   --kz-typography-label-color: #d1d5dc;
 
-  --kz-typography-h1-font-size: 24px;
-  --kz-typography-h2-font-size: 20px;
-  --kz-typography-h3-font-size: 18px;
-  --kz-typography-h4-font-size: 16px;
-  --kz-typography-h5-font-size: 14px;
-  --kz-typography-body-font-size: 16px;
-  --kz-typography-small-font-size: 14px;
-  --kz-typography-caption-font-size: 14px;
-  --kz-typography-label-font-size: 16px;
-
-  --kz-typography-error-color: var(--kz-color-status-error);
-  --kz-typography-success-color: var(--kz-color-status-success);
-  --kz-typography-warning-color: var(--kz-color-status-warning);
-  --kz-typography-status-font-size: 12px;
-  --kz-typography-status-line-height: 16px;
-
+  /* ── BORDER ── */
   --kz-color-border-default: #374151;
   --kz-color-border-subtle: #2d3748;
 
+  /* ── SHADOW ── */
   --kz-shadow-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.4);
   --kz-shadow-elevation-2: 0 2px 4px rgba(0, 0, 0, 0.45);
   --kz-shadow-overlay-panel: 0 8px 16px rgba(0, 0, 0, 0.16);
-
   --kz-shadow-focus: 0 0 0 3px rgba(0, 169, 157, 0.35);
 
-  --kz-shadow-neumorphic-raised-sm: none;
-  --kz-shadow-neumorphic-raised-md: none;
-  --kz-shadow-neumorphic-raised-lg: none;
-  --kz-shadow-neumorphic-inset-sm: none;
+  /* ── INTENT ── */
+  --kz-intent-container-shadow: var(--kz-shadow-elevation-1);
 
+  /* ── BUTTON ── */
+  --kz-component-button-secondary-bg: #1e2939;
+  --kz-component-button-secondary-bg-hover: #263244;
+  --kz-component-button-secondary-bg-active: #2d3a4d;
+  --kz-component-button-secondary-text: #f9fafb;
+  --kz-component-button-ghost-bg-hover: #1e2939;
+  --kz-component-button-outline-bg: #101828;
+  --kz-component-button-outline-bg-hover: #1a2332;
+  --kz-component-button-outline-border: #364153;
+  --kz-component-button-outline-text: #f9fafb;
+
+  /* ── TOGGLE BUTTON ── */
+  --kz-component-toggle-button-track-off-bg: #4a5565;
+  --kz-component-toggle-button-track-on-bg: var(--kz-color-brand-accent-dark);
+  --kz-component-toggle-button-thumb-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+
+  /* ── CHECKBOX ── */
+  --kz-component-checkbox-off-bg: #101828;
+  --kz-component-checkbox-off-border: 2px solid #4a5565;
+  --kz-component-checkbox-on-bg: var(--kz-color-brand-accent-dark);
+  --kz-component-checkbox-on-border: 2px solid var(--kz-color-brand-accent-dark);
+
+  /* ── RADIO ── */
+  --kz-component-radio-off-bg: #101828;
+  --kz-component-radio-off-border: 2px solid #4a5565;
+  --kz-component-radio-on-bg: #022f2e;
+  --kz-component-radio-on-border: 2px solid var(--kz-color-brand-accent-dark);
+  --kz-component-radio-dot-bg: var(--kz-color-brand-accent-dark);
+
+  /* ── TABS ── */
+  --kz-component-tabs-list-bg: var(--kz-color-surface-raised);
+  --kz-component-tabs-list-pill-bg: rgba(0, 0, 0, 0.2);
+  --kz-component-tabs-trigger-selected-text: var(--kz-color-brand-accent-dark);
+  --kz-component-tabs-trigger-selected-underline: var(--kz-color-brand-accent-dark);
+
+  /* ── INPUT ── */
   --kz-component-input-bg: #1f2933;
   --kz-component-input-border: #374151;
   --kz-component-input-border-focus: var(--kz-color-brand-primary);
@@ -76,195 +101,71 @@
   --kz-component-input-text: #f9fafb;
   --kz-component-input-placeholder: #9ca3af;
   --kz-component-input-icon: #9ca3af;
-  --kz-component-input-container-radius: 8px;
   --kz-component-input-container-border: #4b5563;
 
-  /* Component: Button — Secondary (standard dark) */
-  --kz-component-button-secondary-bg: #1e2939;
-  --kz-component-button-secondary-bg-hover: #263244;
-  --kz-component-button-secondary-bg-active: #2d3a4d;
-  --kz-component-button-secondary-text: #f9fafb;
-
-  /* Component: Button — Ghost (standard dark) */
-  --kz-component-button-ghost-bg-hover: #1E2939;
-
-  /* Component: Button — Outline (standard dark: #101828 bg; hover 8% lighter) */
-  --kz-component-button-outline-bg: #101828;
-  --kz-component-button-outline-bg-hover: #1a2332;
-  --kz-component-button-outline-border: #364153;
-  --kz-component-button-outline-text: #f9fafb;
-
-  /* Component: Dropdown (standard dark) */
+  /* ── DROPDOWN ── */
   --kz-component-dropdown-trigger-bg: #101828;
   --kz-component-dropdown-trigger-border: #364153;
   --kz-component-dropdown-trigger-border-open: #364153;
   --kz-component-dropdown-trigger-text: #99a1af;
   --kz-component-dropdown-trigger-text-selected: var(--kz-color-brand-accent);
-  --kz-component-dropdown-trigger-shadow: none;
-  --kz-component-dropdown-trigger-shadow-open: none;
-  --kz-component-dropdown-trigger-radius: 8px;
   --kz-component-dropdown-trigger-focus-ring: 0 0 0 2px rgba(0, 150, 137, 0.35);
   --kz-component-dropdown-content-bg: #101828;
   --kz-component-dropdown-content-border: #364153;
   --kz-component-dropdown-content-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --kz-component-dropdown-content-radius: 8px;
   --kz-component-dropdown-item-text: #99a1af;
   --kz-component-dropdown-item-text-selected: var(--kz-color-brand-accent);
   --kz-component-dropdown-item-bg-hover: rgba(0, 150, 137, 0.2);
 
-  /* Component: Nav button (standard dark) */
+  /* ── NAV BUTTON ── */
   --kz-component-nav-button-icon: #9ca3af;
   --kz-component-nav-button-text: #d1d5db;
-  --kz-component-nav-button-gap: 10px;
   --kz-component-nav-button-chevron: #9ca3af;
   --kz-component-nav-button-hover-bg: rgba(255, 255, 255, 0.05);
   --kz-component-nav-button-selected-bg: rgba(0, 150, 137, 0.15);
-  --kz-component-nav-button-selected-shadow: none;
   --kz-component-nav-button-selected-icon: var(--kz-color-brand-accent);
   --kz-component-nav-button-selected-text: var(--kz-color-brand-accent);
-  --kz-component-nav-button-radius: 5px;
 
-  /* Component: Toggle button (standard dark) */
-  --kz-component-toggle-button-track-off-bg: #4a5565;
-  --kz-component-toggle-button-track-on-bg: var(--kz-color-brand-accent-dark);
-  --kz-component-toggle-button-thumb-bg: #fff;
-  --kz-component-toggle-button-thumb-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
-    0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  --kz-component-toggle-button-default-bg: var(--kz-component-button-secondary-bg);
-  --kz-component-toggle-button-default-bg-pressed: var(--kz-component-button-secondary-bg-active);
-  --kz-component-toggle-button-default-text: var(--kz-component-button-secondary-text);
-  --kz-component-toggle-button-default-text-pressed: var(--kz-component-button-secondary-text);
-  --kz-component-toggle-button-primary-bg: var(--kz-component-button-secondary-bg);
-  --kz-component-toggle-button-primary-bg-pressed: var(--kz-component-button-primary-bg);
-  --kz-component-toggle-button-primary-text: var(--kz-component-button-secondary-text);
-  --kz-component-toggle-button-primary-text-pressed: var(--kz-component-button-primary-text);
-  --kz-component-toggle-button-container-bg: var(--kz-component-toggle-button-track-off-bg);
-  --kz-component-toggle-button-container-bg-pressed: var(--kz-component-toggle-button-track-on-bg);
-  --kz-component-toggle-button-container-text: var(--kz-component-button-outline-text);
-  --kz-component-toggle-button-container-text-pressed: var(--kz-component-button-outline-text);
-  --kz-component-toggle-button-radius: var(--kz-component-button-radius);
-  --kz-component-toggle-button-disabled-opacity: 0.5;
-  --kz-component-toggle-button-loading-opacity: var(--kz-component-button-loading-opacity);
-
-  /* Component: Checkbox (standard dark) */
-  --kz-component-checkbox-size-sm: 16px;
-  --kz-component-checkbox-size-md: 20px;
-  --kz-component-checkbox-size-lg: 24px;
-  --kz-component-checkbox-radius: 4px;
-  --kz-component-checkbox-off-bg: #101828;
-  --kz-component-checkbox-off-border: 2px solid #4a5565;
-  --kz-component-checkbox-off-shadow: none;
-  --kz-component-checkbox-on-bg: var(--kz-color-brand-accent-dark);
-  --kz-component-checkbox-on-border: 2px solid var(--kz-color-brand-accent-dark);
-  --kz-component-checkbox-on-shadow: none;
-  --kz-component-checkbox-icon-color: #fff;
-  --kz-component-checkbox-disabled-opacity: 0.5;
-  --kz-component-checkbox-container-off-bg: var(--kz-component-checkbox-off-bg);
-  --kz-component-checkbox-container-off-border: var(--kz-component-checkbox-off-border);
-  --kz-component-checkbox-container-off-shadow: var(--kz-component-checkbox-off-shadow);
-  --kz-component-checkbox-container-on-bg: var(--kz-component-checkbox-on-bg);
-  --kz-component-checkbox-container-on-border: var(--kz-component-checkbox-on-border);
-  --kz-component-checkbox-container-on-shadow: var(--kz-component-checkbox-on-shadow);
-
-  /* Component: Radio (standard dark) */
-  --kz-component-radio-size-sm: 16px;
-  --kz-component-radio-size-md: 20px;
-  --kz-component-radio-size-lg: 24px;
-  --kz-component-radio-radius: 50%;
-  --kz-component-radio-off-bg: #101828;
-  --kz-component-radio-off-border: 2px solid #4a5565;
-  --kz-component-radio-off-shadow: none;
-  --kz-component-radio-on-bg: #022f2e;
-  --kz-component-radio-on-border: 2px solid var(--kz-color-brand-accent-dark);
-  --kz-component-radio-on-shadow: none;
-  --kz-component-radio-dot-bg: var(--kz-color-brand-accent-dark);
-  --kz-component-radio-dot-shadow: none;
-  --kz-component-radio-disabled-opacity: 0.5;
-
-  /* Component: Tabs (standard dark) */
-  --kz-component-tabs-list-bg: var(--kz-color-surface-raised);
-  --kz-component-tabs-list-radius: 10px;
-  --kz-component-tabs-list-shadow: none;
-  --kz-component-tabs-list-pill-bg: rgba(0, 0, 0, 0.2);
-  --kz-component-tabs-trigger-text: var(--kz-color-text-secondary);
-  --kz-component-tabs-trigger-selected-text: var(--kz-color-brand-accent-dark);
-  --kz-component-tabs-trigger-selected-underline: var(--kz-color-brand-accent-dark);
-  --kz-component-tabs-trigger-selected-bg: var(--kz-color-surface-base);
-  --kz-component-tabs-trigger-selected-shadow: none;
-  --kz-component-tabs-trigger-radius: 8px;
-  --kz-component-tabs-content-padding: 16px;
-
-  --kz-component-table-surface: var(--kz-color-surface-base);
-  --kz-component-table-header-bg: var(--kz-color-surface-raised);
-  --kz-component-table-header-border: var(--kz-color-border-default);
-  --kz-component-table-row-border: var(--kz-color-border-default);
-  --kz-component-table-row-hover-bg: rgba(255, 255, 255, 0.05);
-  --kz-component-table-sticky-row-top: 40px;
-  --kz-component-table-footer-bg: #0000001a;
-  --kz-component-table-pagination-bg: #0000001a;
-  --kz-component-table-pagination-active-bg: var(--kz-color-surface-muted);
-  --kz-component-table-pagination-active-shadow: none;
-  --kz-component-table-pagination-hover-shadow: none;
-
-  /* Component: Card (standard dark) */
-  --kz-component-card-bg: var(--kz-color-surface-raised);
-  --kz-component-card-border: var(--kz-color-border-default);
-  --kz-component-card-shadow-sm: var(--kz-shadow-elevation-1);
-  --kz-component-card-shadow-md: var(--kz-shadow-elevation-2);
-  --kz-component-card-shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.45);
-  --kz-component-card-shadow: var(--kz-component-card-shadow-sm);
-  --kz-component-card-radius: var(--kz-radius-md);
-
-  /* Component: Nav dropdown menu (standard dark) */
+  /* ── NAV DROPDOWN MENU ── */
   --kz-component-nav-dropdown-menu-bg: #1f2933;
   --kz-component-nav-dropdown-menu-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --kz-component-nav-dropdown-menu-radius: 4px;
   --kz-component-nav-dropdown-option-text: #9ca3af;
   --kz-component-nav-dropdown-option-hover-bg: rgba(0, 150, 137, 0.15);
 
-  /* Component: Sidesheet (standard dark) */
-  --kz-component-sidesheet-bg: var(--kz-color-surface-base);
-  --kz-component-sidesheet-width: 260px;
+  /* ── SIDESHEET ── */
   --kz-component-sidesheet-border: var(--kz-color-border-default);
 
-  /* Component: Sidemenu (standard dark) */
-  --kz-component-sidemenu-bg: var(--kz-color-surface-base);
+  /* ── SIDEMENU ── */
   --kz-component-sidemenu-border: var(--kz-color-border-default);
-  --kz-component-sidemenu-shadow: none;
-  --kz-component-sidemenu-section-label-text: var(--kz-color-text-muted);
-  --kz-component-sidemenu-item-text: var(--kz-color-text-primary);
   --kz-component-sidemenu-item-bg-hover: rgba(255, 255, 255, 0.05);
   --kz-component-sidemenu-item-bg-active: rgba(0, 150, 137, 0.15);
   --kz-component-sidemenu-item-active-text: var(--kz-color-brand-accent);
   --kz-component-sidemenu-item-active-link-bg: rgba(0, 150, 137, 0.15);
-  --kz-component-sidemenu-item-active-link-shadow: none;
   --kz-component-sidemenu-group-indent-bg: rgba(255, 255, 255, 0.03);
-  --kz-component-sidemenu-gap: 4px;
-  --kz-component-sidemenu-icon-gap: 10px;
-  --kz-component-sidemenu-flyout-menu-bg: var(--kz-component-sidemenu-bg);
-  --kz-component-sidemenu-flyout-menu-shadow: var(--kz-component-nav-dropdown-menu-shadow);
-  --kz-component-sidemenu-flyout-menu-radius: var(--kz-component-nav-dropdown-menu-radius);
-  --kz-component-sidemenu-flyout-option-text: var(--kz-component-nav-dropdown-option-text);
-  --kz-component-sidemenu-flyout-option-hover-bg: var(--kz-component-nav-dropdown-option-hover-bg);
 
-  /* Component: Tooltip (standard dark) */
+  /* ── TOOLTIP ── */
   --kz-component-tooltip-bg: #f9fafb;
   --kz-component-tooltip-text: #111827;
-  --kz-component-tooltip-border: transparent;
   --kz-component-tooltip-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-  --kz-component-tooltip-radius: 6px;
-  --kz-component-tooltip-padding-sm: 4px 8px;
-  --kz-component-tooltip-padding-md: 6px 10px;
-  --kz-component-tooltip-padding-lg: 8px 12px;
-  --kz-component-tooltip-max-width-sm: 160px;
-  --kz-component-tooltip-max-width-md: 220px;
-  --kz-component-tooltip-max-width-lg: 320px;
   --kz-component-tooltip-inverse-bg: #1f2933;
   --kz-component-tooltip-inverse-text: #f9fafb;
   --kz-component-tooltip-success-bg: #00c950;
-  --kz-component-tooltip-success-text: #ffffff;
-  --kz-component-tooltip-warning-bg: #f59e0b;
-  --kz-component-tooltip-warning-text: #ffffff;
   --kz-component-tooltip-error-bg: #fb2c36;
-  --kz-component-tooltip-error-text: #ffffff;
+
+  /* ── CARD ── */
+  --kz-component-card-bg: var(--kz-color-surface-raised);
+  --kz-component-card-border: var(--kz-color-border-default);
+  --kz-component-card-shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.45);
+
+  /* ── TABLE ── */
+  --kz-component-table-header-bg: var(--kz-color-surface-raised);
+  --kz-component-table-row-hover-bg: rgba(255, 255, 255, 0.05);
+
+  /* ── PAGINATION ── */
+  --kz-component-pagination-nav-hover-bg: rgba(255, 255, 255, 0.08);
+  --kz-component-pagination-nav-active-bg: rgba(255, 255, 255, 0.12);
+  --kz-component-pagination-page-hover-bg: rgba(255, 255, 255, 0.08);
+  --kz-component-pagination-page-active-bg: rgba(255, 255, 255, 0.12);
+  --kz-component-pagination-page-selected-bg: var(--kz-color-brand-accent);
+  --kz-component-pagination-page-selected-text: #ffffff;
 }

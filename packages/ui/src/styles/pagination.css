@@ -1,0 +1,69 @@
+/* ── Pagination ── */
+
+.kz-pagination {
+  font-family: inherit;
+}
+
+/* Shared button base */
+.kz-pagination-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--kz-space-8, 32px);
+  height: var(--kz-space-8, 32px);
+  border-radius: var(--kz-component-pagination-radius, var(--kz-radius-sm, 6px));
+  font-size: var(--kz-font-size-sm, 14px);
+  font-weight: var(--kz-font-weight-medium, 500);
+  color: var(--kz-color-text-primary);
+  background: var(--kz-component-pagination-btn-bg, transparent);
+  border: var(--kz-component-pagination-btn-border, 1px solid transparent);
+  box-shadow: var(--kz-component-pagination-btn-shadow, none);
+  cursor: pointer;
+  transition:
+    background var(--kz-motion-duration-normal, 150ms),
+    box-shadow var(--kz-motion-duration-normal, 150ms),
+    color var(--kz-motion-duration-normal, 150ms);
+  user-select: none;
+  padding: 0 4px;
+}
+
+.kz-pagination-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--kz-color-border-focus, rgba(24, 171, 159, 0.4));
+}
+
+.kz-pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Nav buttons (prev / next) ── */
+.kz-pagination-nav:hover:not(:disabled) {
+  background: var(--kz-component-pagination-nav-hover-bg, var(--kz-color-surface-muted));
+  box-shadow: var(--kz-component-pagination-nav-hover-shadow, none);
+}
+
+.kz-pagination-nav:active:not(:disabled) {
+  background: var(--kz-component-pagination-nav-active-bg, var(--kz-color-surface-sunken));
+  box-shadow: var(--kz-component-pagination-nav-active-shadow, none);
+}
+
+/* ── Page number buttons ── */
+.kz-pagination-page:hover:not(:disabled):not([data-active]) {
+  background: var(--kz-component-pagination-page-hover-bg, var(--kz-color-surface-muted));
+  box-shadow: var(--kz-component-pagination-page-hover-shadow, none);
+}
+
+.kz-pagination-page:active:not(:disabled) {
+  background: var(--kz-component-pagination-page-active-bg, var(--kz-color-surface-sunken));
+  box-shadow: var(--kz-component-pagination-page-active-shadow, none);
+}
+
+/* Selected / current page */
+.kz-pagination-page[data-active] {
+  background: var(--kz-component-pagination-page-selected-bg, var(--kz-color-surface-muted));
+  color: var(--kz-component-pagination-page-selected-text, var(--kz-color-text-primary));
+  box-shadow: var(--kz-component-pagination-page-selected-shadow, none);
+  border-color: var(--kz-component-pagination-page-selected-border, transparent);
+}

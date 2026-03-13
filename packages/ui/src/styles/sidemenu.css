@@ -348,10 +348,10 @@
 .kz-sidemenu-flyout {
   min-width: 180px;
   padding: 4px;
-  border-radius: var(--kz-component-sidemenu-flyout-menu-radius, var(--kz-component-nav-dropdown-menu-radius, 4px));
-  background: var(--kz-component-sidemenu-flyout-menu-bg, var(--kz-component-sidemenu-bg, var(--kz-component-nav-dropdown-menu-bg, #f5f6f8)));
+  border-radius: var(--kz-component-nav-dropdown-menu-radius, 4px);
+  background: var(--kz-component-sidemenu-bg, var(--kz-component-nav-dropdown-menu-bg, #f5f6f8));
   box-shadow:
-    var(--kz-component-sidemenu-flyout-menu-shadow, var(--kz-component-nav-dropdown-menu-shadow)),
+    var(--kz-component-nav-dropdown-menu-shadow),
     1px 1px 2px 0 rgba(0, 0, 0, 0.06) inset;
   z-index: 1000;
   max-height: min(80vh, 320px);
@@ -371,7 +371,7 @@
   border: none;
   border-radius: 4px;
   background: transparent;
-  color: var(--kz-component-sidemenu-flyout-option-text, var(--kz-component-nav-dropdown-option-text, #52606d));
+  color: var(--kz-component-nav-dropdown-option-text, #52606d);
   font-size: 12.5px;
   cursor: pointer;
   outline: none;
@@ -380,7 +380,7 @@
 
 .kz-sidemenu-flyout-item:hover,
 .kz-sidemenu-flyout-item[data-highlighted] {
-  background: var(--kz-component-sidemenu-flyout-option-hover-bg, var(--kz-component-nav-dropdown-option-hover-bg));
+  background: var(--kz-component-nav-dropdown-option-hover-bg);
 }
 
 .kz-sidemenu-flyout-item a,

@@ -105,6 +105,8 @@ export type {
   TableAlign,
   SortDirection,
 } from "./components/table";
+export { Pagination } from "./components/pagination";
+export type { PaginationProps } from "./components/pagination";
 export { Icon, iconRegistry, iconSize, IconName, size } from "./icon";
 export type { IconProps, IconSizeKey } from "./icon";
 export {

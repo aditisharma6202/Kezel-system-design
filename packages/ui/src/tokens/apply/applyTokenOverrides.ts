@@ -5,6 +5,14 @@ import { OverrideMode } from "../../constants/enum";
 
 export type TokenOverrides = Partial<Record<TokenKey, string>>;
 
+/** Remove all previously applied token overrides from an element's inline style */
+export function clearTokenOverrides(el: HTMLElement) {
+  const vars = Object.values(tokenToCssVar);
+  for (const cssVar of vars) {
+    el.style.removeProperty(cssVar);
+  }
+}
+
 export function applyTokenOverrides(
   el: HTMLElement,
   overrides: TokenOverrides | undefined,

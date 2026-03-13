@@ -124,5 +124,6 @@ export interface TableProps<TData, TEditValue = string> {
   className?: string;
   tableClassName?: string;
   headerClassName?: string;
+  footerClassName?: string;
   containerClassName?: string;
 }

@@ -35,54 +35,17 @@
   pointer-events: none;
 }
 
-[data-variant="standard"] .kz-checkbox--default .kz-checkbox-box[data-state="unchecked"] {
+/* Unchecked — both default and container variants use the same off tokens */
+.kz-checkbox-box[data-state="unchecked"] {
   background: var(--kz-component-checkbox-off-bg);
   border: var(--kz-component-checkbox-off-border);
   box-shadow: var(--kz-component-checkbox-off-shadow);
 }
 
-[data-variant="standard"] .kz-checkbox--default .kz-checkbox-box[data-state="checked"],
-[data-variant="standard"] .kz-checkbox--default .kz-checkbox-box[data-state="indeterminate"] {
+/* Checked / Indeterminate — both variants use the same on tokens */
+.kz-checkbox-box[data-state="checked"],
+.kz-checkbox-box[data-state="indeterminate"] {
   background: var(--kz-component-checkbox-on-bg);
   border: var(--kz-component-checkbox-on-border);
   box-shadow: var(--kz-component-checkbox-on-shadow);
-}
-
-[data-variant="standard"] .kz-checkbox--container .kz-checkbox-box[data-state="unchecked"] {
-  background: var(--kz-component-checkbox-container-off-bg);
-  border: var(--kz-component-checkbox-container-off-border);
-  box-shadow: var(--kz-component-checkbox-container-off-shadow);
-}
-
-[data-variant="standard"] .kz-checkbox--container .kz-checkbox-box[data-state="checked"],
-[data-variant="standard"] .kz-checkbox--container .kz-checkbox-box[data-state="indeterminate"] {
-  background: var(--kz-component-checkbox-container-on-bg);
-  border: var(--kz-component-checkbox-container-on-border);
-  box-shadow: var(--kz-component-checkbox-container-on-shadow);
-}
-
-[data-variant="neumorphic"] .kz-checkbox--default .kz-checkbox-box[data-state="unchecked"] {
-  background: var(--kz-component-checkbox-off-bg);
-  border: var(--kz-component-checkbox-off-border);
-  box-shadow: var(--kz-component-checkbox-off-shadow);
-}
-
-[data-variant="neumorphic"] .kz-checkbox--default .kz-checkbox-box[data-state="checked"],
-[data-variant="neumorphic"] .kz-checkbox--default .kz-checkbox-box[data-state="indeterminate"] {
-  background: var(--kz-component-checkbox-on-bg);
-  border: var(--kz-component-checkbox-on-border);
-  box-shadow: var(--kz-component-checkbox-on-shadow);
-}
-
-[data-variant="neumorphic"] .kz-checkbox--container .kz-checkbox-box[data-state="unchecked"] {
-  background: var(--kz-component-checkbox-container-off-bg);
-  border: var(--kz-component-checkbox-container-off-border);
-  box-shadow: var(--kz-component-checkbox-container-off-shadow);
-}
-
-[data-variant="neumorphic"] .kz-checkbox--container .kz-checkbox-box[data-state="checked"],
-[data-variant="neumorphic"] .kz-checkbox--container .kz-checkbox-box[data-state="indeterminate"] {
-  background: var(--kz-component-checkbox-container-on-bg);
-  border: var(--kz-component-checkbox-container-on-border);
-  box-shadow: var(--kz-component-checkbox-container-on-shadow);
 }

@@ -1,3 +1,4 @@
+@import "./tokens/themes/base.css";
 @import "./tokens/themes/default/standard.css";
 @import "./tokens/themes/default/standard.dark.css";
 @import "./tokens/themes/default/neumorphic.css";
@@ -17,6 +18,7 @@
 @import "./styles/radio-button.css";
 @import "./styles/tabs.css";
 @import "./styles/table.css";
+@import "./styles/pagination.css";
 @import "./styles/avatar.css";
 @import "./styles/date-time-picker.css";
 @import "./styles/color-picker.css";
