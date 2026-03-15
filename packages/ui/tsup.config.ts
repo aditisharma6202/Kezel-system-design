@@ -35,6 +35,7 @@ export default defineConfig({
     "sql-editor": "src/components/sql-editor/index.ts",
     "qr-renderer": "src/components/qr-renderer/index.ts",
     loader: "src/components/loader/index.ts",
+    pagination: "src/components/pagination/index.ts",
     skeleton: "src/components/skeleton/index.ts",
   },
   format: ["esm", "cjs"],

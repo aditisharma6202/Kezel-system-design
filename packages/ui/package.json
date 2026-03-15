@@ -1,6 +1,6 @@
 {
   "name": "kz-design-system",
-  "version": "0.0.15",
+  "version": "0.0.17",
   "description": "Production-ready React design system",
   "sideEffects": [
     "**/*.css"
@@ -203,6 +203,12 @@
       "import": "./dist/loader.mjs",
       "require": "./dist/loader.js",
       "default": "./dist/loader.mjs"
+    },
+    "./pagination": {
+      "types": "./dist/pagination.d.ts",
+      "import": "./dist/pagination.mjs",
+      "require": "./dist/pagination.js",
+      "default": "./dist/pagination.mjs"
     },
     "./skeleton": {
       "types": "./dist/skeleton.d.ts",
