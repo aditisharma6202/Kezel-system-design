@@ -61,6 +61,8 @@ export interface TableProps<TData, TEditValue = string> {
   /** When true and horizontalScroll is enabled, the checkbox column (left) and actions column (right) stay fixed while the rest scrolls. */
   stickyColumns?: boolean;
   stickyHeader?: boolean;
+  /** Max height of the scrollable area (CSS value, e.g. "60vh", "400px"). Only applies when stickyHeader is true. Default: none (fills parent). */
+  maxHeight?: string;
   getRowSticky?: (row: TData, index: number) => boolean;
   caption?: string;
   header?: React.ReactNode;

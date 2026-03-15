@@ -49,6 +49,7 @@ import CardShowcase from "./components/CardShowcase";
 import SqlEditorShowcase from "./components/SqlEditorShowcase";
 import QrRendererShowcase from "./components/QrRendererShowcase";
 import SkeletonShowcase from "./components/SkeletonShowcase";
+import TableFullShowcase from "./components/TableFullShowcase";
 
 type SectionId =
   | "typography"
@@ -77,7 +78,8 @@ type SectionId =
   | "card"
   | "sql-editor"
   | "qr-renderer"
-  | "skeleton";
+  | "skeleton"
+  | "table-full";
 
 const docsMenuData: SideMenuNode[] = [
   {
@@ -309,6 +311,13 @@ const docsMenuData: SideMenuNode[] = [
         icon: IconName.LayoutGrid,
         href: "#",
       },
+      {
+        type: "link",
+        id: "table-full",
+        label: "Table (50 rows)",
+        icon: IconName.BarChart2,
+        href: "#",
+      },
     ],
   },
 ];
@@ -468,6 +477,7 @@ export default function App() {
               {activeSection === "sql-editor" && <SqlEditorShowcase />}
               {activeSection === "qr-renderer" && <QrRendererShowcase />}
               {activeSection === "skeleton" && <SkeletonShowcase />}
+              {activeSection === "table-full" && <TableFullShowcase />}
             </main>
           </div>
         </div>

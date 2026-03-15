@@ -63,7 +63,9 @@ const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
       >
         {showItemRange && total > 0 && (
           <div className="kz-pagination-range text-sm text-[var(--kz-color-text-secondary)]">
-            {range.startItem}–{range.endItem} of {total}
+            {range.totalPages <= 1
+              ? `${total} items`
+              : `${range.startItem}–${range.endItem} of ${total}`}
           </div>
         )}
 

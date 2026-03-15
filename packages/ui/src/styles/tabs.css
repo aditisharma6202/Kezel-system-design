@@ -248,7 +248,7 @@
 
 /* ── Floating menu ── */
 .kz-tabs-subtrigger-menu {
-  z-index: 51;
+  z-index: 9999;
   min-width: 120px;
   border-radius: var(--kz-radius-md);
   border: 1px solid var(--kz-color-border-subtle);

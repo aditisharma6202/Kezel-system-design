@@ -35,6 +35,7 @@ function TableInner<TData, TEditValue = string>(
     horizontalScroll = false,
     stickyColumns = false,
     stickyHeader = false,
+    maxHeight,
     getRowSticky,
     caption,
     header: headerProp,
@@ -345,9 +346,10 @@ function TableInner<TData, TEditValue = string>(
       )}
       <div
         className={cn(
-          "kz-table-scroll overflow-auto",
-          stickyHeader && "max-h-[60vh]"
+          "kz-table-scroll overflow-auto flex-1",
+          stickyHeader && !maxHeight && "max-h-full"
         )}
+        style={maxHeight ? { maxHeight } : undefined}
       >
         <table
           id={tableId}
