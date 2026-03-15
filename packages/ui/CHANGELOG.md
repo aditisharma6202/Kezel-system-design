@@ -1,5 +1,11 @@
 # kz-design-system
 
+## 0.0.16
+
+### Patch Changes
+
+- a0c1f73: components added
+
 ## 0.0.15
 
 ### Patch Changes
