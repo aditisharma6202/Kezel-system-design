@@ -91,7 +91,7 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
       ) : null;
 
     return (
-      <RadixDialog.Root open={open} onOpenChange={onOpenChange}>
+      <RadixDialog.Root open={open} onOpenChange={onOpenChange} modal={overlay}>
         <RadixDialog.Portal>
           {overlay && (
             <RadixDialog.Overlay
@@ -115,7 +115,9 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
               closeOnEscape ? undefined : (e) => e.preventDefault()
             }
             onInteractOutside={
-              closeOnOverlayClick ? undefined : (e) => e.preventDefault()
+              !overlay || !closeOnOverlayClick
+                ? (e) => e.preventDefault()
+                : undefined
             }
           >
             <RadixDialog.Title

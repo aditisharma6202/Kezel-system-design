@@ -198,6 +198,12 @@
       "require": "./dist/qr-renderer.js",
       "default": "./dist/qr-renderer.mjs"
     },
+    "./loader": {
+      "types": "./dist/loader.d.ts",
+      "import": "./dist/loader.mjs",
+      "require": "./dist/loader.js",
+      "default": "./dist/loader.mjs"
+    },
     "./styles.css": "./dist/styles.css"
   },
   "files": [

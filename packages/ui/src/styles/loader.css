@@ -1,0 +1,115 @@
+/* ── Loader ── */
+
+.kz-loader {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kz-space-2, 8px);
+}
+
+/* ── Sizes ── */
+.kz-loader--sm { --kz-loader-size: 16px; }
+.kz-loader--md { --kz-loader-size: 24px; }
+.kz-loader--lg { --kz-loader-size: 36px; }
+.kz-loader--xl { --kz-loader-size: 48px; }
+
+/* ── Spinner ── */
+.kz-loader-spinner {
+  width: var(--kz-loader-size);
+  height: var(--kz-loader-size);
+  animation: kz-loader-rotate 0.8s linear infinite;
+}
+
+.kz-loader-track {
+  stroke: var(--kz-color-border-subtle, rgba(0, 0, 0, 0.1));
+}
+
+.kz-loader-indicator {
+  stroke: var(--kz-color-brand-accent);
+  stroke-dasharray: 44 62;
+}
+
+@keyframes kz-loader-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ── Dots ── */
+.kz-loader-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--kz-loader-size) * 0.3);
+}
+
+.kz-loader-dot {
+  width: calc(var(--kz-loader-size) * 0.35);
+  height: calc(var(--kz-loader-size) * 0.35);
+  border-radius: 50%;
+  background: var(--kz-color-brand-accent);
+  animation: kz-loader-bounce 1.2s ease-in-out infinite;
+}
+
+.kz-loader-dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.kz-loader-dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes kz-loader-bounce {
+  0%, 80%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ── Pulse ── */
+.kz-loader-pulse {
+  width: var(--kz-loader-size);
+  height: var(--kz-loader-size);
+  border-radius: 50%;
+  background: var(--kz-color-brand-accent);
+  animation: kz-loader-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes kz-loader-pulse {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(0.8);
+  }
+}
+
+/* ── Label ── */
+.kz-loader-label {
+  font-family: var(--kz-typography-font-family);
+  font-size: var(--kz-font-size-sm);
+  font-weight: var(--kz-font-weight-regular);
+  color: var(--kz-color-text-secondary);
+  line-height: 1.4;
+}
+
+/* ── Full-page overlay ── */
+.kz-loader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--kz-color-surface-background, rgba(255, 255, 255, 0.6));
+  backdrop-filter: blur(2px);
+}

@@ -10,6 +10,9 @@ import {
   ButtonSize,
   Icon,
   IconName,
+  Select,
+  TextInput,
+  TextInputSize,
 } from "kz-design-system";
 
 const LONG_CONTENT = Array.from({ length: 20 }, (_, i) => (
@@ -26,6 +29,10 @@ export default function SidePanelShowcase() {
   const [noOverlayOpen, setNoOverlayOpen] = React.useState(false);
   const [customHeaderOpen, setCustomHeaderOpen] = React.useState(false);
   const [scrollableOpen, setScrollableOpen] = React.useState(false);
+  const [formOpen, setFormOpen] = React.useState(false);
+  const [formName, setFormName] = React.useState("");
+  const [formEmail, setFormEmail] = React.useState("");
+  const [formNotes, setFormNotes] = React.useState("");
 
   return (
     <section className="flex flex-col items-center gap-4 w-full max-w-lg">
@@ -257,6 +264,100 @@ export default function SidePanelShowcase() {
           }
         >
           <div className="flex flex-col gap-4">{LONG_CONTENT}</div>
+        </SidePanel>
+
+        {/* With form controls — Select scroll + Tab focus */}
+        <Typography variant={TypographyVariantEnum.H3}>
+          With Form Controls
+        </Typography>
+        <Button
+          variant={ButtonVariant.Primary}
+          size={ButtonSize.Md}
+          onClick={() => setFormOpen(true)}
+        >
+          Open Form Panel
+        </Button>
+        <SidePanel
+          open={formOpen}
+          onOpenChange={setFormOpen}
+          width="420px"
+          header={
+            <Typography variant={TypographyVariantEnum.Label}>
+              Create Record
+            </Typography>
+          }
+          footer={
+            <div className="flex gap-2 justify-end w-full">
+              <Button
+                variant={ButtonVariant.Outline}
+                size={ButtonSize.Sm}
+                onClick={() => setFormOpen(false)}
+              >
+                Cancel
+              </Button>
+              <Button
+                variant={ButtonVariant.Primary}
+                size={ButtonSize.Sm}
+                onClick={() => setFormOpen(false)}
+              >
+                Save
+              </Button>
+            </div>
+          }
+        >
+          <div className="flex flex-col gap-4">
+            <TextInput
+              label="Name"
+              placeHolder="Enter name"
+              value={formName}
+              onValueChange={setFormName}
+              size={TextInputSize.Md}
+            />
+            <Select
+              label="Country"
+              multiple
+              triggerLabel="Countries"
+              placeholder="Select countries…"
+              options={[
+                { value: "us", label: "United States" },
+                { value: "uk", label: "United Kingdom" },
+                { value: "ca", label: "Canada" },
+                { value: "de", label: "Germany" },
+                { value: "fr", label: "France" },
+                { value: "jp", label: "Japan" },
+                { value: "au", label: "Australia" },
+                { value: "br", label: "Brazil" },
+                { value: "in", label: "India" },
+                { value: "mx", label: "Mexico" },
+                { value: "kr", label: "South Korea" },
+                { value: "it", label: "Italy" },
+              ]}
+            />
+            <TextInput
+              label="Email"
+              placeHolder="Enter email"
+              value={formEmail}
+              onValueChange={setFormEmail}
+              size={TextInputSize.Md}
+            />
+            <Select
+              label="Role"
+              placeholder="Select role…"
+              options={[
+                { value: "admin", label: "Admin" },
+                { value: "editor", label: "Editor" },
+                { value: "viewer", label: "Viewer" },
+                { value: "moderator", label: "Moderator" },
+              ]}
+            />
+            <TextInput
+              label="Notes"
+              placeHolder="Additional notes"
+              value={formNotes}
+              onValueChange={setFormNotes}
+              size={TextInputSize.Md}
+            />
+          </div>
         </SidePanel>
       </div>
     </section>

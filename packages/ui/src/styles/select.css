@@ -22,12 +22,16 @@
   background: var(--kz-component-input-bg);
   box-shadow: var(--kz-component-input-shadow);
   cursor: pointer;
+  font: inherit;
+  color: inherit;
+  text-align: left;
   transition:
     border-color 0.15s,
     box-shadow 0.15s;
 }
 
-.kz-select-wrapper:focus-within {
+.kz-select-wrapper:focus-within,
+.kz-select-wrapper:focus-visible {
   border-color: var(--kz-component-input-border-focus);
   outline: none;
 }
@@ -46,6 +50,16 @@
   box-shadow: none;
   border: none;
   border-radius: var(--kz-radius-none);
+  padding: 0;
+  min-height: auto;
+}
+
+.kz-select-wrapper--ghost:focus-within,
+.kz-select-wrapper--ghost:focus-visible,
+.kz-select-wrapper--ghost.kz-select-wrapper--open {
+  border: none;
+  box-shadow: none;
+  outline: none;
 }
 
 /* ── State overrides ── */
@@ -201,25 +215,46 @@
 
 /* ── Popover ── */
 .kz-select-popover {
-  z-index: 50;
+  z-index: 51;
+  min-width: 120px;
   border-radius: var(--kz-radius-md);
   border: 1px solid var(--kz-color-border-subtle);
   background: var(--kz-color-surface-base);
   box-shadow: var(--kz-shadow-elevation-3);
   padding: var(--kz-space-1);
-  animation: kz-select-fade-in 0.15s ease-out;
   display: flex;
   flex-direction: column;
 }
 
-@keyframes kz-select-fade-in {
+.kz-select-popover[data-state="open"] {
+  animation: kz-select-in 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.kz-select-popover[data-state="closed"] {
+  animation: kz-select-out 0.15s ease forwards;
+}
+
+@keyframes kz-select-in {
   from {
     opacity: 0;
     transform: translateY(-4px);
+    filter: blur(2px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes kz-select-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-4px);
   }
 }
 
@@ -324,6 +359,16 @@
 [data-variant="neumorphic"] .kz-select-wrapper {
   border-color: transparent;
   box-shadow: var(--kz-shadow-neumorphic-inset-sm);
+}
+
+[data-variant="neumorphic"] .kz-select-wrapper--ghost,
+[data-variant="neumorphic"] .kz-select-wrapper--ghost:focus-within,
+[data-variant="neumorphic"] .kz-select-wrapper--ghost:focus-visible,
+[data-variant="neumorphic"] .kz-select-wrapper--ghost.kz-select-wrapper--open {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
 }
 
 [data-variant="neumorphic"] .kz-select-wrapper--open {

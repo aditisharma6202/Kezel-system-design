@@ -664,7 +664,12 @@ function TableInner<TData, TEditValue = string>(
           Object.keys(editingCells).some((rid) =>
             Object.values(editingCells[rid]).some(Boolean)
           ))) && (
-        <div className={cn("kz-table-footer flex items-center border-t border-[var(--kz-component-table-row-border)] bg-[var(--kz-component-table-footer-bg)] px-[var(--kz-space-6)] py-[var(--kz-space-4)]", footerClassName)}>
+        <div
+          className={cn(
+            "kz-table-footer flex items-center border-t border-[var(--kz-component-table-row-border)] bg-[var(--kz-component-table-footer-bg)] px-[var(--kz-space-6)] py-[var(--kz-space-4)]",
+            footerClassName
+          )}
+        >
           {/* Left: delete selected */}
           <div className="flex items-center gap-[var(--kz-space-2)] shrink-0">
             {someSelected && onDeleteSelected && (

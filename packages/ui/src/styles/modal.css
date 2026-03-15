@@ -4,14 +4,24 @@
   inset: 0;
   z-index: 50;
   background: var(--kz-color-surface-overlay);
-  transition: opacity 0.2s;
+}
+
+.kz-modal-overlay[data-state="open"] {
+  animation: kz-modal-overlay-in 0.25s ease forwards;
 }
 
 .kz-modal-overlay[data-state="closed"] {
-  opacity: 0;
+  animation: kz-modal-overlay-out 0.2s ease forwards;
 }
-.kz-modal-overlay[data-state="open"] {
-  opacity: 1;
+
+@keyframes kz-modal-overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes kz-modal-overlay-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
 /* ── Panel ── */
@@ -29,18 +39,39 @@
   border-radius: var(--kz-radius-lg);
   box-shadow: var(--kz-shadow-overlay-panel);
   overflow: hidden;
-  transition:
-    opacity 0.2s,
-    transform 0.2s;
+  transform: translate(-50%, -50%);
+}
+
+.kz-modal[data-state="open"] {
+  animation: kz-modal-in 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .kz-modal[data-state="closed"] {
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0.95);
+  animation: kz-modal-out 0.2s ease forwards;
 }
-.kz-modal[data-state="open"] {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
+
+@keyframes kz-modal-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes kz-modal-out {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
 }
 
 /* ── Sizes ── */

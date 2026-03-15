@@ -162,7 +162,14 @@
   background: var(--kz-color-surface-base);
   box-shadow: var(--kz-shadow-elevation-3);
   padding: var(--kz-space-3);
-  animation: kz-color-picker-fade-in 0.15s ease-out;
+}
+
+.kz-color-picker-popover[data-state="open"] {
+  animation: kz-color-picker-in 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.kz-color-picker-popover[data-state="closed"] {
+  animation: kz-color-picker-out 0.15s ease forwards;
 }
 
 [data-variant="neumorphic"] .kz-color-picker-popover {
@@ -170,14 +177,27 @@
   box-shadow: var(--kz-shadow-neumorphic-raised-md);
 }
 
-@keyframes kz-color-picker-fade-in {
+@keyframes kz-color-picker-in {
   from {
     opacity: 0;
     transform: translateY(-4px);
+    filter: blur(2px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes kz-color-picker-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-4px);
   }
 }
 

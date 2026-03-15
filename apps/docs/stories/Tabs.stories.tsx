@@ -5,6 +5,7 @@ import {
   TabsList,
   TabsTrigger,
   TabsContent,
+  SubTabsTrigger,
   Icon,
   IconName,
 } from "kz-design-system";
@@ -201,6 +202,40 @@ export const WithIcon: Story = {
       <TabsContent value="tab3">Security content.</TabsContent>
     </Tabs>
   ),
+};
+
+function WithSubTabsRender(args: React.ComponentProps<typeof Tabs>) {
+  const [value, setValue] = React.useState("tab1");
+  return (
+    <Tabs {...args} value={value} onValueChange={setValue}>
+      <TabsList>
+        <TabsTrigger value="tab1">Overview</TabsTrigger>
+        <SubTabsTrigger
+          label="Reports"
+          activeValue={value}
+          subTabs={[
+            { value: "report-daily", label: "Daily" },
+            { value: "report-weekly", label: "Weekly" },
+            { value: "report-monthly", label: "Monthly" },
+          ]}
+        />
+        <TabsTrigger value="tab3">Settings</TabsTrigger>
+      </TabsList>
+      <TabsContent value="tab1">Overview content.</TabsContent>
+      <TabsContent value="report-daily">Daily report content.</TabsContent>
+      <TabsContent value="report-weekly">Weekly report content.</TabsContent>
+      <TabsContent value="report-monthly">Monthly report content.</TabsContent>
+      <TabsContent value="tab3">Settings content.</TabsContent>
+    </Tabs>
+  );
+}
+
+export const WithSubTabs: Story = {
+  args: {
+    variant: "pill",
+    size: "md",
+  },
+  render: (args) => <WithSubTabsRender {...args} />,
 };
 
 export const FullWidth: Story = {

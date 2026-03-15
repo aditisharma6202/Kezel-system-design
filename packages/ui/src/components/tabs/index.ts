@@ -1,4 +1,10 @@
-export { Tabs, TabsList, TabsTrigger, TabsContent } from "./Tabs";
+export {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+  SubTabsTrigger,
+} from "./Tabs";
 export type {
   TabsVariant,
   TabsSize,
@@ -6,4 +12,6 @@ export type {
   TabsListProps,
   TabsTriggerProps,
   TabsContentProps,
+  SubTabsTriggerProps,
+  SubTabOption,
 } from "./Tabs";

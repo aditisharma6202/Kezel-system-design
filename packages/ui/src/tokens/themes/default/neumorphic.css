@@ -206,18 +206,18 @@
 
   /* ── PAGINATION ── */
   --kz-component-pagination-radius: 10px;
-  --kz-component-pagination-btn-bg: var(--kz-color-surface-base);
+  --kz-component-pagination-btn-bg: transparent;
   --kz-component-pagination-btn-border: none;
   --kz-component-pagination-btn-shadow: none;
-  --kz-component-pagination-nav-hover-bg: var(--kz-color-surface-base);
+  --kz-component-pagination-nav-hover-bg: transparent;
   --kz-component-pagination-nav-hover-shadow: none;
-  --kz-component-pagination-nav-active-bg: var(--kz-color-surface-base);
+  --kz-component-pagination-nav-active-bg: transparent;
   --kz-component-pagination-nav-active-shadow: var(--kz-shadow-neumorphic-inset-sm);
-  --kz-component-pagination-page-hover-bg: var(--kz-color-surface-base);
+  --kz-component-pagination-page-hover-bg: transparent;
   --kz-component-pagination-page-hover-shadow: none;
-  --kz-component-pagination-page-active-bg: var(--kz-color-surface-base);
+  --kz-component-pagination-page-active-bg: transparent;
   --kz-component-pagination-page-active-shadow: var(--kz-shadow-neumorphic-inset-sm);
-  --kz-component-pagination-page-selected-bg: var(--kz-color-surface-base);
+  --kz-component-pagination-page-selected-bg: transparent;
   --kz-component-pagination-page-selected-text: var(--kz-color-brand-accent);
   --kz-component-pagination-page-selected-shadow: var(--kz-shadow-neumorphic-inset-sm);
   --kz-component-pagination-page-selected-border: transparent;

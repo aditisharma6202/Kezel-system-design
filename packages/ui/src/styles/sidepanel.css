@@ -4,14 +4,24 @@
   inset: 0;
   z-index: 50;
   background: rgba(0, 0, 0, 0.5);
-  transition: opacity 0.2s;
+}
+
+.kz-sidepanel-overlay[data-state="open"] {
+  animation: kz-sidepanel-overlay-in 0.25s ease forwards;
 }
 
 .kz-sidepanel-overlay[data-state="closed"] {
-  opacity: 0;
+  animation: kz-sidepanel-overlay-out 0.2s ease forwards;
 }
-.kz-sidepanel-overlay[data-state="open"] {
-  opacity: 1;
+
+@keyframes kz-sidepanel-overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes kz-sidepanel-overlay-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
 /* ── Panel ── */
@@ -26,22 +36,31 @@
   border-right: 1px solid var(--kz-component-sidemenu-border);
   box-shadow: var(--kz-shadow-overlay-panel);
   overflow: hidden;
-  transition:
-    transform 0.25s cubic-bezier(0.32, 0.72, 0, 1),
-    width 0.25s ease;
 }
 
-/* ── Side: left (default) ── */
+/* ── Side: left ── */
 .kz-sidepanel--left {
   left: 0;
   border-right: 1px solid var(--kz-component-sidemenu-border);
   border-left: none;
 }
-.kz-sidepanel--left[data-state="closed"] {
-  transform: translateX(-100%);
-}
+
 .kz-sidepanel--left[data-state="open"] {
-  transform: translateX(0);
+  animation: kz-sidepanel-left-in 0.3s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+.kz-sidepanel--left[data-state="closed"] {
+  animation: kz-sidepanel-left-out 0.25s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+@keyframes kz-sidepanel-left-in {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes kz-sidepanel-left-out {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
 }
 
 /* ── Side: right ── */
@@ -50,17 +69,29 @@
   border-left: 1px solid var(--kz-component-sidemenu-border);
   border-right: none;
 }
-.kz-sidepanel--right[data-state="closed"] {
-  transform: translateX(100%);
-}
+
 .kz-sidepanel--right[data-state="open"] {
-  transform: translateX(0);
+  animation: kz-sidepanel-right-in 0.3s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+.kz-sidepanel--right[data-state="closed"] {
+  animation: kz-sidepanel-right-out 0.25s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+@keyframes kz-sidepanel-right-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes kz-sidepanel-right-out {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
 }
 
 /* ── Header ── */
 .kz-sidepanel-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: var(--kz-space-2);
   padding: var(--kz-space-3) var(--kz-space-4);

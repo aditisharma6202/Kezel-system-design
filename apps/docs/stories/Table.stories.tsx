@@ -618,3 +618,237 @@ export const CustomEditCells: Story = {
     },
   },
 };
+
+/**
+ * Multi-cell editing: open multiple cells at once, then save all changes in one action.
+ */
+function TableWithMultiCellEdit() {
+  const [data, setData] = React.useState(sampleData);
+  const [editingCells, setEditingCells] = React.useState<
+    Record<string, Record<string, boolean>>
+  >({});
+  const [selectedRowIds, setSelectedRowIds] = React.useState<
+    Record<string, boolean>
+  >({});
+
+  const editableColumns = [
+    {
+      key: "name",
+      header: "Name",
+      accessor: (row: Row) => row.name,
+      sortable: true,
+      editable: true,
+    },
+    {
+      key: "role",
+      header: "Role",
+      accessor: (row: Row) => row.role,
+      sortable: true,
+      editable: true,
+      editCell: (_row: Row, value: string, onChange: (v: string) => void) => (
+        <Select
+          label=""
+          value={value}
+          onChange={onChange as (v: string | string[]) => void}
+          options={[
+            { value: "Admin", label: "Admin" },
+            { value: "Editor", label: "Editor" },
+            { value: "Viewer", label: "Viewer" },
+          ]}
+        />
+      ),
+    },
+    {
+      key: "status",
+      header: "Status",
+      accessor: (row: Row) => row.status,
+      editable: true,
+      editCell: (_row: Row, value: string, onChange: (v: string) => void) => (
+        <Select
+          label=""
+          value={value}
+          onChange={onChange as (v: string | string[]) => void}
+          options={[
+            { value: "Active", label: "Active" },
+            { value: "Inactive", label: "Inactive" },
+          ]}
+        />
+      ),
+    },
+  ];
+
+  return (
+    <Table<Row>
+      data={data}
+      columns={editableColumns}
+      getRowId={(r) => r.id}
+      size="md"
+      title="Multi-Cell Edit"
+      description="Click pencil icons on multiple cells, edit them all, then Save once."
+      editingCells={editingCells}
+      onEditingCellsChange={setEditingCells}
+      onSaveAll={(
+        changes: { rowId: string; columnKey: string; value: string }[]
+      ) => {
+        setData((prev) => {
+          const next = [...prev];
+          for (const { rowId, columnKey, value } of changes) {
+            const idx = next.findIndex((r) => r.id === rowId);
+            if (idx !== -1) {
+              next[idx] = { ...next[idx], [columnKey]: value };
+            }
+          }
+          return next;
+        });
+      }}
+      onCancel={() => {}}
+      onDeleteSelected={(ids) => {
+        setData((prev) => prev.filter((row) => !ids.includes(row.id)));
+        setSelectedRowIds({});
+      }}
+      selectableRows
+      selectedRowIds={selectedRowIds}
+      onRowSelectionChange={setSelectedRowIds}
+      actions={() => (
+        <DropdownButton
+          trigger={{ iconOnly: true, ariaLabel: "Actions" }}
+          items={makeActions()}
+        />
+      )}
+      actionsHeader="Actions"
+    />
+  );
+}
+
+export const MultiCellEdit: Story = {
+  render: () => <TableWithMultiCellEdit />,
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Use **editingCells** (multi-cell) instead of **editingCell** (single-cell) to allow editing multiple cells at once. Use **onSaveAll** to receive all changes in a single callback. Great for batch-editing workflows.",
+      },
+    },
+  },
+};
+
+type WideRow2 = Row & {
+  email: string;
+  department: string;
+  location: string;
+  phone: string;
+};
+
+const stickyWideData: WideRow2[] = sampleData.slice(0, 5).map((r, i) => ({
+  ...r,
+  email: `${r.name.toLowerCase()}@example.com`,
+  department: ["Engineering", "Marketing", "Sales", "Design", "Support"][i % 5],
+  location: ["New York", "London", "Tokyo", "Berlin", "Sydney"][i % 5],
+  phone: [
+    "+1-555-0101",
+    "+44-20-7946",
+    "+81-3-1234",
+    "+49-30-5678",
+    "+61-2-9876",
+  ][i % 5],
+}));
+
+function TableWithStickyColumns() {
+  const [selectedRowIds, setSelectedRowIds] = React.useState<
+    Record<string, boolean>
+  >({});
+
+  const wideColumns = [
+    {
+      key: "name",
+      header: "Name",
+      accessor: (r: WideRow2) => r.name,
+      minWidth: "150px",
+    },
+    {
+      key: "email",
+      header: "Email",
+      accessor: (r: WideRow2) => r.email,
+      minWidth: "200px",
+    },
+    {
+      key: "role",
+      header: "Role",
+      accessor: (r: WideRow2) => r.role,
+      minWidth: "120px",
+    },
+    {
+      key: "department",
+      header: "Department",
+      accessor: (r: WideRow2) => r.department,
+      minWidth: "150px",
+    },
+    {
+      key: "location",
+      header: "Location",
+      accessor: (r: WideRow2) => r.location,
+      minWidth: "150px",
+    },
+    {
+      key: "phone",
+      header: "Phone",
+      accessor: (r: WideRow2) => r.phone,
+      minWidth: "150px",
+    },
+    {
+      key: "status",
+      header: "Status",
+      accessor: (r: WideRow2) => r.status,
+      minWidth: "120px",
+    },
+  ];
+
+  return (
+    <Table<WideRow2>
+      data={stickyWideData}
+      columns={wideColumns}
+      getRowId={(r) => r.id}
+      size="md"
+      horizontalScroll
+      stickyColumns
+      title="Team Directory"
+      description="Scroll horizontally — checkbox and actions stay pinned"
+      selectableRows
+      selectedRowIds={selectedRowIds}
+      onRowSelectionChange={setSelectedRowIds}
+      actions={() => (
+        <DropdownButton
+          trigger={{ iconOnly: true, ariaLabel: "Actions" }}
+          items={makeActions()}
+        />
+      )}
+      actionsHeader="Actions"
+    />
+  );
+}
+
+export const StickyColumns: Story = {
+  render: () => <TableWithStickyColumns />,
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Use **stickyColumns** with **horizontalScroll** to pin the checkbox column and actions column while the middle columns scroll. Great for wide tables with many fields.",
+      },
+    },
+  },
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          padding: 24,
+          background: "var(--kz-color-surface-background)",
+          width: "100%",
+          maxWidth: 640,
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
+};

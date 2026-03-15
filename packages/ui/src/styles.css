@@ -32,6 +32,7 @@
 @import "./styles/card.css";
 @import "./styles/sql-editor.css";
 @import "./styles/qr-renderer.css";
+@import "./styles/loader.css";
 
 @tailwind base;
 @tailwind components;

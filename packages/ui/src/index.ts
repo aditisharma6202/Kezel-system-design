@@ -85,7 +85,13 @@ export {
   TooltipColor,
 } from "./components/tooltip";
 export type { TooltipProps } from "./components/tooltip";
-export { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/tabs";
+export {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+  SubTabsTrigger,
+} from "./components/tabs";
 export type {
   TabsVariant,
   TabsSize,
@@ -93,6 +99,8 @@ export type {
   TabsListProps,
   TabsTriggerProps,
   TabsContentProps,
+  SubTabsTriggerProps,
+  SubTabOption,
 } from "./components/tabs";
 export { Table } from "./components/table";
 export type {
@@ -210,6 +218,12 @@ export type {
   QrPatternStyle,
   QrErrorCorrectionLevel,
 } from "./components/qr-renderer";
+export { Loader } from "./components/loader";
+export type {
+  LoaderProps,
+  LoaderSize,
+  LoaderVariant,
+} from "./components/loader";
 export { TOKEN_KEYS } from "./tokens/contract/token-keys";
 export { tokenToCssVar } from "./tokens/contract/css-var-maps";
 export type { TokenKey } from "./tokens/contract/token-keys";

@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from "react";
 import {
   Typography,
   TypographyVariantEnum,
@@ -7,11 +8,16 @@ import {
   TabsList,
   TabsTrigger,
   TabsContent,
+  SubTabsTrigger,
   Icon,
   IconName,
 } from "kz-design-system";
 
 export default function TabsShowcase() {
+  const [subTabValue, setSubTabValue] = React.useState("overview");
+  const [subTabUnderlineValue, setSubTabUnderlineValue] =
+    React.useState("overview");
+
   return (
     <section className="flex flex-col items-center gap-8 w-full max-w-2xl">
       <Typography variant={TypographyVariantEnum.H2}>Tabs</Typography>
@@ -163,6 +169,80 @@ export default function TabsShowcase() {
             <TabsContent value="f1">Full width tab 1 content.</TabsContent>
             <TabsContent value="f2">Full width tab 2 content.</TabsContent>
             <TabsContent value="f3">Full width tab 3 content.</TabsContent>
+          </Tabs>
+        </div>
+
+        <div>
+          <Typography variant={TypographyVariantEnum.H3} className="mb-2">
+            With Sub Tabs (Pill)
+          </Typography>
+          <Tabs
+            variant="pill"
+            size="md"
+            value={subTabValue}
+            onValueChange={setSubTabValue}
+          >
+            <TabsList>
+              <TabsTrigger value="overview">Overview</TabsTrigger>
+              <SubTabsTrigger
+                label="Reports"
+                activeValue={subTabValue}
+                subTabs={[
+                  { value: "report-daily", label: "Daily" },
+                  { value: "report-weekly", label: "Weekly" },
+                  { value: "report-monthly", label: "Monthly" },
+                ]}
+              />
+              <TabsTrigger value="settings">Settings</TabsTrigger>
+            </TabsList>
+            <TabsContent value="overview">Overview content.</TabsContent>
+            <TabsContent value="report-daily">
+              Daily report content.
+            </TabsContent>
+            <TabsContent value="report-weekly">
+              Weekly report content.
+            </TabsContent>
+            <TabsContent value="report-monthly">
+              Monthly report content.
+            </TabsContent>
+            <TabsContent value="settings">Settings content.</TabsContent>
+          </Tabs>
+        </div>
+
+        <div>
+          <Typography variant={TypographyVariantEnum.H3} className="mb-2">
+            With Sub Tabs (Underline)
+          </Typography>
+          <Tabs
+            variant="underline"
+            size="md"
+            value={subTabUnderlineValue}
+            onValueChange={setSubTabUnderlineValue}
+          >
+            <TabsList>
+              <TabsTrigger value="overview">Overview</TabsTrigger>
+              <SubTabsTrigger
+                label="Reports"
+                activeValue={subTabUnderlineValue}
+                subTabs={[
+                  { value: "report-daily", label: "Daily" },
+                  { value: "report-weekly", label: "Weekly" },
+                  { value: "report-monthly", label: "Monthly" },
+                ]}
+              />
+              <TabsTrigger value="settings">Settings</TabsTrigger>
+            </TabsList>
+            <TabsContent value="overview">Overview content.</TabsContent>
+            <TabsContent value="report-daily">
+              Daily report content.
+            </TabsContent>
+            <TabsContent value="report-weekly">
+              Weekly report content.
+            </TabsContent>
+            <TabsContent value="report-monthly">
+              Monthly report content.
+            </TabsContent>
+            <TabsContent value="settings">Settings content.</TabsContent>
           </Tabs>
         </div>
       </div>

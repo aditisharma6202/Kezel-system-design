@@ -186,13 +186,41 @@ export const NoOverlay: Story = {
               No Overlay
             </Typography>
           }
+          footer={
+            <div
+              style={{
+                display: "flex",
+                gap: 8,
+                justifyContent: "flex-end",
+                width: "100%",
+              }}
+            >
+              <Button
+                variant={ButtonVariant.Outline}
+                size={ButtonSize.Sm}
+                onClick={() => setOpen(false)}
+              >
+                Close
+              </Button>
+            </div>
+          }
         >
           <Typography variant={TypographyVariantEnum.Body}>
-            This panel has no backdrop overlay.
+            No backdrop overlay. The rest of the page remains accessible and
+            interactive. Clicking outside does not close the panel — use the
+            close button or the X.
           </Typography>
         </SidePanel>
       </>
     );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "With **overlay={false}**, the panel has no backdrop, the rest of the page stays interactive, and clicking outside does not close the panel. Users must explicitly close it via the X or a button.",
+      },
+    },
   },
 };
 

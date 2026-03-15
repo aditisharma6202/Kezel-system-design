@@ -34,6 +34,7 @@ export default defineConfig({
     card: "src/components/card/index.ts",
     "sql-editor": "src/components/sql-editor/index.ts",
     "qr-renderer": "src/components/qr-renderer/index.ts",
+    loader: "src/components/loader/index.ts",
   },
   format: ["esm", "cjs"],
   dts: true,

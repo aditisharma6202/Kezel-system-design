@@ -49,6 +49,15 @@ export interface SelectProps {
   helperText?: string;
   description?: string;
 
+  /** Shows a fixed label in the trigger instead of the selected value/tags. In multi mode, appends the count. */
+  triggerLabel?: string;
+
+  /** Custom render function for the trigger display. Receives selected values and all options. Overrides triggerLabel and default rendering. */
+  renderValue?: (
+    selected: string[],
+    options: SelectOption[]
+  ) => React.ReactNode;
+
   className?: string;
 }
 
@@ -85,6 +94,8 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
       label,
       helperText,
       description,
+      triggerLabel,
+      renderValue,
       className,
     },
     ref
@@ -116,6 +127,35 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
     const [open, setOpen] = React.useState(false);
     const [search, setSearch] = React.useState("");
     const searchRef = React.useRef<HTMLInputElement>(null);
+    const popoverContentRef = React.useRef<HTMLDivElement>(null);
+
+    // Document-level capture listeners to unblock scroll inside the portaled
+    // popover when rendered inside a Radix Dialog. react-remove-scroll adds
+    // its own capture-phase listener on document that blocks wheel/touchmove
+    // for elements outside the Dialog. We register ours to run first and call
+    // stopImmediatePropagation when the target is inside our popover.
+    React.useEffect(() => {
+      if (!open) return;
+
+      const allow = (e: Event) => {
+        const node = popoverContentRef.current;
+        if (node && node.contains(e.target as Node)) {
+          e.stopImmediatePropagation();
+        }
+      };
+
+      document.addEventListener("wheel", allow, { capture: true });
+      document.addEventListener("touchmove", allow, { capture: true });
+
+      return () => {
+        document.removeEventListener("wheel", allow, {
+          capture: true,
+        } as EventListenerOptions);
+        document.removeEventListener("touchmove", allow, {
+          capture: true,
+        } as EventListenerOptions);
+      };
+    }, [open]);
 
     const filteredOptions = React.useMemo(() => {
       if (!search) return options;
@@ -196,29 +236,52 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
         )}
 
         <Popover.Root open={open} onOpenChange={handleOpenChange}>
-          <Popover.Trigger asChild disabled={disabled}>
-            <div className={wrapperClass}>
-              {multiple ? (
-                <div className="kz-select-tags">
-                  {selected.length === 0 && (
-                    <span className="kz-select-tags-placeholder">
-                      {placeholder}
-                    </span>
-                  )}
-                  {selected.map((val) => (
-                    <span key={val} className="kz-select-tag">
-                      {getLabel(val)}
-                      <button
-                        type="button"
-                        className="kz-select-tag-remove"
-                        onClick={(e) => handleTagRemove(e, val)}
-                        aria-label={`Remove ${getLabel(val)}`}
-                      >
-                        <Icon name={IconName.X} size={10} />
-                      </button>
-                    </span>
-                  ))}
-                </div>
+          <Popover.Trigger asChild>
+            <button
+              type="button"
+              disabled={disabled}
+              className={wrapperClass}
+              aria-expanded={open}
+              aria-haspopup="listbox"
+            >
+              {renderValue != null ? (
+                <span className={valueClass}>
+                  {selected.length > 0
+                    ? renderValue(selected, options)
+                    : placeholder}
+                </span>
+              ) : multiple ? (
+                triggerLabel != null ? (
+                  <span className={valueClass}>
+                    {selected.length > 0
+                      ? `${triggerLabel} (${selected.length})`
+                      : triggerLabel}
+                  </span>
+                ) : (
+                  <div className="kz-select-tags">
+                    {selected.length === 0 && (
+                      <span className="kz-select-tags-placeholder">
+                        {placeholder}
+                      </span>
+                    )}
+                    {selected.map((val) => (
+                      <span key={val} className="kz-select-tag">
+                        {getLabel(val)}
+                        <span
+                          role="button"
+                          tabIndex={-1}
+                          className="kz-select-tag-remove"
+                          onClick={(e) => handleTagRemove(e, val)}
+                          aria-label={`Remove ${getLabel(val)}`}
+                        >
+                          <Icon name={IconName.X} size={10} />
+                        </span>
+                      </span>
+                    ))}
+                  </div>
+                )
+              ) : triggerLabel != null ? (
+                <span className={valueClass}>{triggerLabel}</span>
               ) : (
                 <span className={valueClass}>
                   {selected.length > 0 ? getLabel(selected[0]) : placeholder}
@@ -227,11 +290,12 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
               <span className="kz-select-toggle">
                 <Icon name={IconName.ChevronDown} size={iconSize} />
               </span>
-            </div>
+            </button>
           </Popover.Trigger>
 
           <Popover.Portal>
             <Popover.Content
+              ref={popoverContentRef}
               className="kz-select-popover"
               sideOffset={4}
               align="start"

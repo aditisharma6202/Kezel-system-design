@@ -204,3 +204,49 @@ export const Disabled: Story = {
     </div>
   ),
 };
+
+export const TriggerLabel: Story = {
+  render: () => (
+    <div style={{ width: 320 }}>
+      <MultiControlled label="With Trigger Label" triggerLabel="Fruits" />
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Use **triggerLabel** to show a fixed label in the trigger instead of tag chips. In multi mode it appends the count, e.g. "Fruits (3)".',
+      },
+    },
+  },
+};
+
+export const RenderValue: Story = {
+  render: function RenderValueStory() {
+    const [value, setValue] = React.useState<string[]>([
+      "apple",
+      "banana",
+      "cherry",
+    ]);
+    return (
+      <div style={{ width: 320 }}>
+        <Select
+          label="Custom Render"
+          options={FRUIT_OPTIONS}
+          multiple
+          value={value}
+          onChange={(v) => setValue(v as string[])}
+          renderValue={(selected) => `${selected.length} selected`}
+        />
+      </div>
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Use **renderValue** for fully custom trigger display. Here it renders "3 selected" instead of individual tags or a trigger label.',
+      },
+    },
+  },
+};

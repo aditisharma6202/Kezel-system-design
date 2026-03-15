@@ -194,20 +194,20 @@ _(Neumorphic dark uses different shadow values; see `neumorphic.dark.css`.)_
 
 Intent tokens provide a semantic abstraction between primitive tokens and component tokens. Themes override these to automatically style all components that reference them. For example, neumorphic overrides `intent.interactive.shadow` to add raised shadows to all interactive elements.
 
-| Token key                        | CSS variable                          | Default (base.css)                              | Neumorphic override                               |
-| -------------------------------- | ------------------------------------- | ----------------------------------------------- | -------------------------------------------------- |
-| `intent.interactive.bg`          | `--kz-intent-interactive-bg`          | `var(--kz-color-surface-base)`                  | _(inherited)_                                      |
-| `intent.interactive.bg.hover`    | `--kz-intent-interactive-bg-hover`    | `rgba(0, 0, 0, 0.05)`                           | _(inherited)_                                      |
-| `intent.interactive.text`        | `--kz-intent-interactive-text`        | `var(--kz-color-text-primary)`                   | _(inherited)_                                      |
-| `intent.interactive.text.selected` | `--kz-intent-interactive-text-selected` | `var(--kz-color-brand-accent)`              | _(inherited)_                                      |
-| `intent.interactive.shadow`      | `--kz-intent-interactive-shadow`      | `none`                                           | `var(--kz-shadow-neumorphic-raised-sm)`            |
-| `intent.interactive.shadow.active` | `--kz-intent-interactive-shadow-active` | `none`                                       | `var(--kz-shadow-neumorphic-inset-sm)`             |
-| `intent.interactive.border`      | `--kz-intent-interactive-border`      | `var(--kz-color-border-default)`                 | _(inherited)_                                      |
-| `intent.interactive.radius`      | `--kz-intent-interactive-radius`      | `var(--kz-radius-md)`                            | _(inherited)_                                      |
-| `intent.container.bg`            | `--kz-intent-container-bg`            | `var(--kz-color-surface-base)`                   | _(inherited)_                                      |
-| `intent.container.border`        | `--kz-intent-container-border`        | `var(--kz-color-border-subtle)`                  | _(inherited)_                                      |
-| `intent.container.shadow`        | `--kz-intent-container-shadow`        | `none`                                           | `var(--kz-shadow-neumorphic-raised-sm)`            |
-| `intent.container.radius`        | `--kz-intent-container-radius`        | `var(--kz-radius-md)`                            | _(inherited)_                                      |
+| Token key                          | CSS variable                            | Default (base.css)               | Neumorphic override                     |
+| ---------------------------------- | --------------------------------------- | -------------------------------- | --------------------------------------- |
+| `intent.interactive.bg`            | `--kz-intent-interactive-bg`            | `var(--kz-color-surface-base)`   | _(inherited)_                           |
+| `intent.interactive.bg.hover`      | `--kz-intent-interactive-bg-hover`      | `rgba(0, 0, 0, 0.05)`            | _(inherited)_                           |
+| `intent.interactive.text`          | `--kz-intent-interactive-text`          | `var(--kz-color-text-primary)`   | _(inherited)_                           |
+| `intent.interactive.text.selected` | `--kz-intent-interactive-text-selected` | `var(--kz-color-brand-accent)`   | _(inherited)_                           |
+| `intent.interactive.shadow`        | `--kz-intent-interactive-shadow`        | `none`                           | `var(--kz-shadow-neumorphic-raised-sm)` |
+| `intent.interactive.shadow.active` | `--kz-intent-interactive-shadow-active` | `none`                           | `var(--kz-shadow-neumorphic-inset-sm)`  |
+| `intent.interactive.border`        | `--kz-intent-interactive-border`        | `var(--kz-color-border-default)` | _(inherited)_                           |
+| `intent.interactive.radius`        | `--kz-intent-interactive-radius`        | `var(--kz-radius-md)`            | _(inherited)_                           |
+| `intent.container.bg`              | `--kz-intent-container-bg`              | `var(--kz-color-surface-base)`   | _(inherited)_                           |
+| `intent.container.border`          | `--kz-intent-container-border`          | `var(--kz-color-border-subtle)`  | _(inherited)_                           |
+| `intent.container.shadow`          | `--kz-intent-container-shadow`          | `none`                           | `var(--kz-shadow-neumorphic-raised-sm)` |
+| `intent.container.radius`          | `--kz-intent-container-radius`          | `var(--kz-radius-md)`            | _(inherited)_                           |
 
 ---
 
@@ -308,20 +308,20 @@ Intent tokens provide a semantic abstraction between primitive tokens and compon
 
 ## Component — Checkbox
 
-| Token key                                 | CSS variable                                   | Default (Standard light)                 |
-| ----------------------------------------- | ---------------------------------------------- | ---------------------------------------- |
-| `component.checkbox.size.sm`              | `--kz-component-checkbox-size-sm`              | `16px`                                   |
-| `component.checkbox.size.md`              | `--kz-component-checkbox-size-md`              | `20px`                                   |
-| `component.checkbox.size.lg`              | `--kz-component-checkbox-size-lg`              | `24px`                                   |
-| `component.checkbox.radius`               | `--kz-component-checkbox-radius`               | `4px`                                    |
-| `component.checkbox.off.bg`               | `--kz-component-checkbox-off-bg`               | `#fff`                                   |
-| `component.checkbox.off.border`           | `--kz-component-checkbox-off-border`           | `2px solid #d1d5dc`                      |
-| `component.checkbox.off.shadow`           | `--kz-component-checkbox-off-shadow`           | `none`                                   |
-| `component.checkbox.on.bg`                | `--kz-component-checkbox-on-bg`                | `var(--kz-color-brand-accent)`           |
-| `component.checkbox.on.border`            | `--kz-component-checkbox-on-border`            | `2px solid var(--kz-color-brand-accent)` |
-| `component.checkbox.on.shadow`            | `--kz-component-checkbox-on-shadow`            | `none`                                   |
-| `component.checkbox.icon.color`           | `--kz-component-checkbox-icon-color`           | `#fff`                                   |
-| `component.checkbox.disabled.opacity`     | `--kz-component-checkbox-disabled-opacity`     | `0.5`                                    |
+| Token key                             | CSS variable                               | Default (Standard light)                 |
+| ------------------------------------- | ------------------------------------------ | ---------------------------------------- |
+| `component.checkbox.size.sm`          | `--kz-component-checkbox-size-sm`          | `16px`                                   |
+| `component.checkbox.size.md`          | `--kz-component-checkbox-size-md`          | `20px`                                   |
+| `component.checkbox.size.lg`          | `--kz-component-checkbox-size-lg`          | `24px`                                   |
+| `component.checkbox.radius`           | `--kz-component-checkbox-radius`           | `4px`                                    |
+| `component.checkbox.off.bg`           | `--kz-component-checkbox-off-bg`           | `#fff`                                   |
+| `component.checkbox.off.border`       | `--kz-component-checkbox-off-border`       | `2px solid #d1d5dc`                      |
+| `component.checkbox.off.shadow`       | `--kz-component-checkbox-off-shadow`       | `none`                                   |
+| `component.checkbox.on.bg`            | `--kz-component-checkbox-on-bg`            | `var(--kz-color-brand-accent)`           |
+| `component.checkbox.on.border`        | `--kz-component-checkbox-on-border`        | `2px solid var(--kz-color-brand-accent)` |
+| `component.checkbox.on.shadow`        | `--kz-component-checkbox-on-shadow`        | `none`                                   |
+| `component.checkbox.icon.color`       | `--kz-component-checkbox-icon-color`       | `#fff`                                   |
+| `component.checkbox.disabled.opacity` | `--kz-component-checkbox-disabled-opacity` | `0.5`                                    |
 
 ---
 
@@ -445,21 +445,21 @@ Intent tokens provide a semantic abstraction between primitive tokens and compon
 
 ## Component — Sidemenu
 
-| Token key                                    | CSS variable                                      | Default (Standard light)                           |
-| -------------------------------------------- | ------------------------------------------------- | -------------------------------------------------- |
-| `component.sidemenu.bg`                      | `--kz-component-sidemenu-bg`                      | `var(--kz-color-surface-base)`                     |
-| `component.sidemenu.border`                  | `--kz-component-sidemenu-border`                  | `var(--kz-color-border-subtle)`                    |
-| `component.sidemenu.shadow`                  | `--kz-component-sidemenu-shadow`                  | `none`                                             |
-| `component.sidemenu.section.label.text`      | `--kz-component-sidemenu-section-label-text`      | `var(--kz-color-text-muted)`                       |
-| `component.sidemenu.item.text`               | `--kz-component-sidemenu-item-text`               | `var(--kz-color-text-primary)`                     |
-| `component.sidemenu.item.bg.hover`           | `--kz-component-sidemenu-item-bg-hover`           | `rgba(0,0,0,0.05)`                                 |
-| `component.sidemenu.item.bg.active`          | `--kz-component-sidemenu-item-bg-active`          | `rgba(0,150,137,0.08)`                             |
-| `component.sidemenu.item.active.text`        | `--kz-component-sidemenu-item-active-text`        | `var(--kz-color-brand-accent-dark)`                |
-| `component.sidemenu.item.active.link.bg`     | `--kz-component-sidemenu-item-active-link-bg`     | `rgba(0,150,137,0.08)`                             |
-| `component.sidemenu.item.active.link.shadow` | `--kz-component-sidemenu-item-active-link-shadow` | `none`                                             |
-| `component.sidemenu.group.indent.bg`         | `--kz-component-sidemenu-group-indent-bg`         | `rgba(0,0,0,0.02)`                                 |
-| `component.sidemenu.gap`                     | `--kz-component-sidemenu-gap`                     | `4px`                                              |
-| `component.sidemenu.icon.gap`                | `--kz-component-sidemenu-icon-gap`                | `10px`                                             |
+| Token key                                    | CSS variable                                      | Default (Standard light)            |
+| -------------------------------------------- | ------------------------------------------------- | ----------------------------------- |
+| `component.sidemenu.bg`                      | `--kz-component-sidemenu-bg`                      | `var(--kz-color-surface-base)`      |
+| `component.sidemenu.border`                  | `--kz-component-sidemenu-border`                  | `var(--kz-color-border-subtle)`     |
+| `component.sidemenu.shadow`                  | `--kz-component-sidemenu-shadow`                  | `none`                              |
+| `component.sidemenu.section.label.text`      | `--kz-component-sidemenu-section-label-text`      | `var(--kz-color-text-muted)`        |
+| `component.sidemenu.item.text`               | `--kz-component-sidemenu-item-text`               | `var(--kz-color-text-primary)`      |
+| `component.sidemenu.item.bg.hover`           | `--kz-component-sidemenu-item-bg-hover`           | `rgba(0,0,0,0.05)`                  |
+| `component.sidemenu.item.bg.active`          | `--kz-component-sidemenu-item-bg-active`          | `rgba(0,150,137,0.08)`              |
+| `component.sidemenu.item.active.text`        | `--kz-component-sidemenu-item-active-text`        | `var(--kz-color-brand-accent-dark)` |
+| `component.sidemenu.item.active.link.bg`     | `--kz-component-sidemenu-item-active-link-bg`     | `rgba(0,150,137,0.08)`              |
+| `component.sidemenu.item.active.link.shadow` | `--kz-component-sidemenu-item-active-link-shadow` | `none`                              |
+| `component.sidemenu.group.indent.bg`         | `--kz-component-sidemenu-group-indent-bg`         | `rgba(0,0,0,0.02)`                  |
+| `component.sidemenu.gap`                     | `--kz-component-sidemenu-gap`                     | `4px`                               |
+| `component.sidemenu.icon.gap`                | `--kz-component-sidemenu-icon-gap`                | `10px`                              |
 
 ---
 

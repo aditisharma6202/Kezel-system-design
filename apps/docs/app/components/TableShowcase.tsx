@@ -103,17 +103,15 @@ export default function TableShowcase() {
           onSearchChange={setTableSearchValue}
           searchPlaceholder="Search users…"
           headerRight={
-
             <div className="m-2">
-               <Button
-              variant={ButtonVariant.Primary}
-              size={ButtonSize.Sm}
-              onClick={() => {}}
-            >
-              Add user
-            </Button>
+              <Button
+                variant={ButtonVariant.Primary}
+                size={ButtonSize.Sm}
+                onClick={() => {}}
+              >
+                Add user
+              </Button>
             </div>
-           
           }
           selectableRows
           selectedRowIds={tableSelectedRowIds}

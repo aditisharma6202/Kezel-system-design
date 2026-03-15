@@ -303,7 +303,7 @@ export const ScopedOverrides: StoryObj = {
           "3px 3px 6px 0 rgba(163, 177, 198, 0.6), -3px -3px 6px 0 #fff",
       }}
       variantModeTokens={{
-        "neumorphic.dark": {
+        [`${KezelVariant.Neumorphic}.${KezelMode.Dark}`]: {
           "color.surface.background": "#1e2530",
         },
       }}
