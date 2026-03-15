@@ -224,6 +224,15 @@ export type {
   LoaderSize,
   LoaderVariant,
 } from "./components/loader";
+export { Skeleton, TableSkeleton, CardSkeleton } from "./components/skeleton";
+export type {
+  SkeletonProps,
+  SkeletonVariant,
+  TableSkeletonProps,
+  TableSkeletonSize,
+  CardSkeletonProps,
+  CardSkeletonLayout,
+} from "./components/skeleton";
 export { TOKEN_KEYS } from "./tokens/contract/token-keys";
 export { tokenToCssVar } from "./tokens/contract/css-var-maps";
 export type { TokenKey } from "./tokens/contract/token-keys";

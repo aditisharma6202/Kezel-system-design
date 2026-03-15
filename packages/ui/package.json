@@ -204,6 +204,12 @@
       "require": "./dist/loader.js",
       "default": "./dist/loader.mjs"
     },
+    "./skeleton": {
+      "types": "./dist/skeleton.d.ts",
+      "import": "./dist/skeleton.mjs",
+      "require": "./dist/skeleton.js",
+      "default": "./dist/skeleton.mjs"
+    },
     "./styles.css": "./dist/styles.css"
   },
   "files": [

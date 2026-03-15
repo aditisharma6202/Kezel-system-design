@@ -33,6 +33,7 @@
 @import "./styles/sql-editor.css";
 @import "./styles/qr-renderer.css";
 @import "./styles/loader.css";
+@import "./styles/skeleton.css";
 
 @tailwind base;
 @tailwind components;

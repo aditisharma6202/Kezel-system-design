@@ -1,0 +1,207 @@
+/* ── Base skeleton ── */
+.kz-skeleton {
+  background: var(--kz-color-surface-sunken, rgba(0, 0, 0, 0.06));
+  animation: kz-skeleton-shimmer 1.5s ease-in-out infinite;
+  border-radius: var(--kz-radius-sm);
+}
+
+.kz-skeleton--static {
+  animation: none;
+}
+
+@keyframes kz-skeleton-shimmer {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ── Variants ── */
+.kz-skeleton--text {
+  height: 12px;
+  width: 100%;
+  border-radius: var(--kz-radius-sm);
+}
+
+.kz-skeleton--text.kz-skeleton--last-line {
+  width: 70%;
+}
+
+.kz-skeleton--circular {
+  border-radius: var(--kz-radius-full);
+}
+
+.kz-skeleton--rectangular {
+  border-radius: var(--kz-radius-sm);
+}
+
+/* ── Multi-line wrapper ── */
+.kz-skeleton-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── TableSkeleton ── */
+.kz-table-skeleton {
+  display: flex;
+  flex-direction: column;
+  background: var(--kz-component-card-bg, var(--kz-color-surface-base));
+  border: 1px solid var(--kz-component-card-border, var(--kz-color-border-subtle));
+  border-radius: var(--kz-component-card-radius, var(--kz-radius-md));
+  overflow: hidden;
+}
+
+[data-variant="neumorphic"] .kz-table-skeleton {
+  border-color: transparent;
+  box-shadow: var(--kz-shadow-neumorphic-raised-sm);
+}
+
+/* Header bar */
+.kz-table-skeleton-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--kz-space-3) var(--kz-space-4);
+  border-bottom: 1px solid var(--kz-color-border-subtle);
+}
+
+[data-variant="neumorphic"] .kz-table-skeleton-header {
+  border-bottom-color: transparent;
+}
+
+/* Table body */
+.kz-table-skeleton-table {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Rows */
+.kz-table-skeleton-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--kz-color-border-subtle);
+}
+
+.kz-table-skeleton-row:last-child {
+  border-bottom: none;
+}
+
+.kz-table-skeleton-row--head {
+  background: var(--kz-color-surface-sunken, rgba(0, 0, 0, 0.02));
+}
+
+[data-variant="neumorphic"] .kz-table-skeleton-row {
+  border-bottom-color: transparent;
+}
+
+/* Cells */
+.kz-table-skeleton-cell {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.kz-table-skeleton-cell--checkbox {
+  flex: 0 0 48px;
+  justify-content: center;
+}
+
+.kz-table-skeleton-cell--actions {
+  flex: 0 0 64px;
+  justify-content: center;
+}
+
+/* Size variants */
+.kz-table-skeleton--sm .kz-table-skeleton-cell {
+  padding: var(--kz-space-1) var(--kz-space-2);
+}
+
+.kz-table-skeleton--md .kz-table-skeleton-cell {
+  padding: var(--kz-space-2) var(--kz-space-3);
+}
+
+.kz-table-skeleton--lg .kz-table-skeleton-cell {
+  padding: var(--kz-space-3) var(--kz-space-4);
+}
+
+/* Footer */
+.kz-table-skeleton-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--kz-space-2) var(--kz-space-4);
+  border-top: 1px solid var(--kz-color-border-subtle);
+}
+
+[data-variant="neumorphic"] .kz-table-skeleton-footer {
+  border-top-color: transparent;
+}
+
+.kz-table-skeleton-footer-right {
+  display: flex;
+  align-items: center;
+  gap: var(--kz-space-2);
+}
+
+/* ── CardSkeleton ── */
+.kz-card-skeleton {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--kz-component-card-bg, var(--kz-color-surface-base));
+  border: 1px solid var(--kz-component-card-border, var(--kz-color-border-subtle));
+  border-radius: var(--kz-component-card-radius, var(--kz-radius-md));
+  box-shadow: var(--kz-component-card-shadow-sm);
+}
+
+[data-variant="neumorphic"] .kz-card-skeleton {
+  border-color: transparent;
+  box-shadow: var(--kz-shadow-neumorphic-raised-sm);
+}
+
+.kz-card-skeleton--horizontal {
+  flex-direction: row;
+}
+
+/* Cover */
+.kz-card-skeleton-cover {
+  width: 100%;
+  height: 160px;
+  border-radius: 0;
+}
+
+.kz-card-skeleton-cover--tall {
+  height: 200px;
+}
+
+.kz-card-skeleton--horizontal .kz-card-skeleton-cover--side {
+  width: 140px;
+  height: auto;
+  min-height: 120px;
+  flex-shrink: 0;
+}
+
+/* Content */
+.kz-card-skeleton-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kz-space-2);
+  padding: var(--kz-space-4);
+  flex: 1;
+  min-width: 0;
+}
+
+/* Footer */
+.kz-card-skeleton-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--kz-space-2);
+  margin-top: var(--kz-space-2);
+}
