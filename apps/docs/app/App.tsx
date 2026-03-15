@@ -48,6 +48,7 @@ import ToastShowcase from "./components/ToastShowcase";
 import CardShowcase from "./components/CardShowcase";
 import SqlEditorShowcase from "./components/SqlEditorShowcase";
 import QrRendererShowcase from "./components/QrRendererShowcase";
+import SkeletonShowcase from "./components/SkeletonShowcase";
 
 type SectionId =
   | "typography"
@@ -75,7 +76,8 @@ type SectionId =
   | "toast"
   | "card"
   | "sql-editor"
-  | "qr-renderer";
+  | "qr-renderer"
+  | "skeleton";
 
 const docsMenuData: SideMenuNode[] = [
   {
@@ -300,6 +302,13 @@ const docsMenuData: SideMenuNode[] = [
         icon: IconName.Search,
         href: "#",
       },
+      {
+        type: "link",
+        id: "skeleton",
+        label: "Skeleton",
+        icon: IconName.LayoutGrid,
+        href: "#",
+      },
     ],
   },
 ];
@@ -458,6 +467,7 @@ export default function App() {
               {activeSection === "card" && <CardShowcase />}
               {activeSection === "sql-editor" && <SqlEditorShowcase />}
               {activeSection === "qr-renderer" && <QrRendererShowcase />}
+              {activeSection === "skeleton" && <SkeletonShowcase />}
             </main>
           </div>
         </div>

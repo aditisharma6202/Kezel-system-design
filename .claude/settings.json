@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Users/dbtez/Projects/kezel-platform/packages/shell/src -type f \\\\\\(-name *tab* -o -name *Tab* \\\\\\))",
+      "Bash(ls tsconfig*.json packages/ui/tsconfig*.json)",
+      "Bash(export PATH=\"/usr/local/bin:/usr/bin:/bin:$HOME/.nvm/versions/node/*/bin:$PATH\")",
+      "Read(//Users/dbtez/**)",
+      "Bash(source ~/.zshrc)",
+      "Bash(grep -r \"overflow.*hidden\\\\|scroll-behavior\\\\|body.*scroll\" /Users/dbtez/Projects/Kezel-system-design/packages/ui/src/styles --include=*.css)",
+      "Bash(npm run:*)",
+      "Bash(pnpm build:*)",
+      "Bash(yarn build:*)"
+    ]
+  }
+}

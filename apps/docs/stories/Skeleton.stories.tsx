@@ -51,6 +51,26 @@ export const MultipleLines: Story = {
   ),
 };
 
+export const Static: Story = {
+  render: () => (
+    <div
+      style={{ display: "flex", flexDirection: "column", gap: 8, width: 320 }}
+    >
+      <Skeleton variant="text" width="80%" static />
+      <Skeleton variant="rectangular" width={120} height={48} static />
+      <Skeleton variant="circular" width={48} height={48} static />
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "With **static** prop, the shimmer animation is disabled. Useful for reduced-motion contexts or when you want a static placeholder.",
+      },
+    },
+  },
+};
+
 export const Shapes: Story = {
   render: () => (
     <div style={{ display: "flex", alignItems: "center", gap: 16 }}>

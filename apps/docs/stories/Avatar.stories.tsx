@@ -7,6 +7,14 @@ import {
   Icon,
   IconName,
 } from "kz-design-system";
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownContent,
+  DropdownItem,
+  DropdownSeparator,
+  DropdownLabel,
+} from "kz-design-system/dropdown";
 
 const meta: Meta<typeof Avatar> = {
   title: "Design System/Avatar",
@@ -184,6 +192,48 @@ export const StatusVariants: Story = {
       description: {
         story:
           "Only **online** shows the green indicator dot. Busy, away, and offline show no indicator.",
+      },
+    },
+  },
+};
+
+export const AsDropdownTrigger: Story = {
+  render: () => (
+    <Dropdown>
+      <DropdownTrigger asChild showChevron={false}>
+        <button
+          type="button"
+          style={{
+            borderRadius: "50%",
+            cursor: "pointer",
+            background: "transparent",
+            border: "none",
+            padding: 0,
+          }}
+        >
+          <Avatar
+            src="https://i.pravatar.cc/128?u=alice"
+            alt="Alice"
+            size={AvatarSize.Md}
+            status={AvatarStatus.Online}
+          />
+        </button>
+      </DropdownTrigger>
+      <DropdownContent align="end" sideOffset={6}>
+        <DropdownLabel>Alice Johnson</DropdownLabel>
+        <DropdownSeparator />
+        <DropdownItem onSelect={() => {}}>Profile</DropdownItem>
+        <DropdownItem onSelect={() => {}}>Settings</DropdownItem>
+        <DropdownSeparator />
+        <DropdownItem onSelect={() => {}}>Sign out</DropdownItem>
+      </DropdownContent>
+    </Dropdown>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Avatar used as a dropdown trigger for user menus. Wrap the Avatar in a DropdownTrigger with `asChild` and `showChevron={false}`.",
       },
     },
   },

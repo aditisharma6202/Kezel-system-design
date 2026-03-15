@@ -9,6 +9,9 @@ import {
   TypographyVariantEnum,
   Icon,
   IconName,
+  TextInput,
+  TextInputSize,
+  Select,
 } from "kz-design-system";
 
 const LONG_CONTENT = Array.from({ length: 20 }, (_, i) => (
@@ -447,6 +450,116 @@ export const HiddenCloseButton: Story = {
       description: {
         story:
           "Use hideCloseButton to remove the built-in X button and provide your own close mechanism in the header or footer.",
+      },
+    },
+  },
+};
+
+export const WithFormControls: Story = {
+  render: function FormControlsStory() {
+    const [open, setOpen] = React.useState(false);
+    const [name, setName] = React.useState("");
+    const [email, setEmail] = React.useState("");
+    const [notes, setNotes] = React.useState("");
+    return (
+      <>
+        <Button
+          variant={ButtonVariant.Primary}
+          size={ButtonSize.Md}
+          onClick={() => setOpen(true)}
+        >
+          Open Form Panel
+        </Button>
+        <SidePanel
+          open={open}
+          onOpenChange={setOpen}
+          width="420px"
+          header={
+            <Typography variant={TypographyVariantEnum.Label}>
+              Create Record
+            </Typography>
+          }
+          footer={
+            <div
+              style={{
+                display: "flex",
+                gap: 8,
+                justifyContent: "flex-end",
+                width: "100%",
+              }}
+            >
+              <Button
+                variant={ButtonVariant.Outline}
+                size={ButtonSize.Sm}
+                onClick={() => setOpen(false)}
+              >
+                Cancel
+              </Button>
+              <Button
+                variant={ButtonVariant.Primary}
+                size={ButtonSize.Sm}
+                onClick={() => setOpen(false)}
+              >
+                Save
+              </Button>
+            </div>
+          }
+        >
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            <TextInput
+              label="Name"
+              placeHolder="Enter name"
+              value={name}
+              onValueChange={setName}
+              size={TextInputSize.Md}
+            />
+            <Select
+              label="Country"
+              multiple
+              triggerLabel="Countries"
+              placeholder="Select countries…"
+              options={[
+                { value: "us", label: "United States" },
+                { value: "uk", label: "United Kingdom" },
+                { value: "ca", label: "Canada" },
+                { value: "de", label: "Germany" },
+                { value: "fr", label: "France" },
+                { value: "jp", label: "Japan" },
+              ]}
+            />
+            <TextInput
+              label="Email"
+              placeHolder="Enter email"
+              value={email}
+              onValueChange={setEmail}
+              size={TextInputSize.Md}
+            />
+            <Select
+              label="Role"
+              placeholder="Select role…"
+              options={[
+                { value: "admin", label: "Admin" },
+                { value: "editor", label: "Editor" },
+                { value: "viewer", label: "Viewer" },
+              ]}
+            />
+            <TextInput
+              label="Notes"
+              placeHolder="Additional notes"
+              value={notes}
+              onValueChange={setNotes}
+              size={TextInputSize.Md}
+            />
+          </div>
+        </SidePanel>
+      </>
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "SidePanel with form controls including TextInputs and Select dropdowns. Tests scroll behavior and focus management within panels.",
       },
     },
   },

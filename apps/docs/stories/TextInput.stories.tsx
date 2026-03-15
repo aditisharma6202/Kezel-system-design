@@ -5,6 +5,7 @@ import {
   TextInputVariant,
   TextInputSize,
   TextInputState,
+  TextInputType,
 } from "kz-design-system";
 
 function Controlled(
@@ -302,6 +303,244 @@ export const WithCharacterCount: Story = {
       />
     </div>
   ),
+};
+
+export const Password: Story = {
+  render: function PasswordStory() {
+    const [value, setValue] = React.useState("");
+    return (
+      <div style={{ width: 320 }}>
+        <TextInput
+          label="Password"
+          type={TextInputType.Password}
+          value={value}
+          onValueChange={setValue}
+          placeHolder="Enter your password"
+          helperText="Click the eye icon to toggle visibility."
+        />
+      </div>
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Password input with built-in visibility toggle. The eye icon lets users reveal or hide the password.",
+      },
+    },
+  },
+};
+
+export const EmailNormalized: Story = {
+  render: function EmailStory() {
+    const [value, setValue] = React.useState("");
+    const [error, setError] = React.useState(false);
+    return (
+      <div style={{ width: 320 }}>
+        <TextInput
+          label="Email (normalized)"
+          type={TextInputType.Email}
+          value={value}
+          placeHolder="user@example.com"
+          onValueChange={(v) => {
+            setValue(v);
+            if (error) setError(false);
+          }}
+          onBlur={() => {
+            if (value.length > 0 && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+              setError(true);
+            }
+          }}
+          normalizeEmail
+          state={error ? TextInputState.Error : undefined}
+          errorText="Please enter a valid email address."
+          helperText="Auto-trims and lowercases as you type."
+        />
+      </div>
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Email input with **normalizeEmail** — automatically trims whitespace and lowercases the value. Validates on blur.",
+      },
+    },
+  },
+};
+
+export const NumberInteger: Story = {
+  render: function NumberIntegerStory() {
+    const [value, setValue] = React.useState("");
+    return (
+      <div style={{ width: 320 }}>
+        <TextInput
+          label="Number (integers only)"
+          type={TextInputType.Number}
+          value={value}
+          placeHolder="0"
+          onValueChange={setValue}
+          helperText="Only digits allowed."
+        />
+      </div>
+    );
+  },
+};
+
+export const NumberDecimal: Story = {
+  render: function NumberDecimalStory() {
+    const [value, setValue] = React.useState("");
+    return (
+      <div style={{ width: 320 }}>
+        <TextInput
+          label="Number (decimal + negative)"
+          type={TextInputType.Number}
+          value={value}
+          placeHolder="-12.50"
+          onValueChange={setValue}
+          allowDecimal
+          allowNegative
+          helperText="Allows negative values and decimals."
+        />
+      </div>
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Number input with **allowDecimal** and **allowNegative** for floating-point and negative values.",
+      },
+    },
+  },
+};
+
+export const Search: Story = {
+  render: function SearchStory() {
+    const [value, setValue] = React.useState("");
+    return (
+      <div style={{ width: 320 }}>
+        <TextInput
+          label="Search"
+          type={TextInputType.Search}
+          value={value}
+          placeHolder="Search..."
+          onValueChange={setValue}
+          clearable
+        />
+      </div>
+    );
+  },
+};
+
+export const Telephone: Story = {
+  render: function TelStory() {
+    const [value, setValue] = React.useState("");
+    return (
+      <div style={{ width: 320 }}>
+        <TextInput
+          label="Telephone"
+          type={TextInputType.Tel}
+          value={value}
+          placeHolder="+1 (555) 000-0000"
+          onValueChange={setValue}
+        />
+      </div>
+    );
+  },
+};
+
+export const Url: Story = {
+  render: function UrlStory() {
+    const [value, setValue] = React.useState("");
+    return (
+      <div style={{ width: 320 }}>
+        <TextInput
+          label="URL"
+          type={TextInputType.Url}
+          value={value}
+          placeHolder="https://example.com"
+          onValueChange={setValue}
+        />
+      </div>
+    );
+  },
+};
+
+export const AllInputTypes: Story = {
+  render: function AllInputTypesStory() {
+    const [password, setPassword] = React.useState("");
+    const [email, setEmail] = React.useState("");
+    const [number, setNumber] = React.useState("");
+    const [search, setSearch] = React.useState("");
+    const [tel, setTel] = React.useState("");
+    const [url, setUrl] = React.useState("");
+    return (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 16,
+          width: 320,
+        }}
+      >
+        <TextInput
+          label="Password"
+          type={TextInputType.Password}
+          value={password}
+          placeHolder="Enter password"
+          onValueChange={setPassword}
+        />
+        <TextInput
+          label="Email"
+          type={TextInputType.Email}
+          value={email}
+          placeHolder="user@example.com"
+          onValueChange={setEmail}
+          normalizeEmail
+        />
+        <TextInput
+          label="Number"
+          type={TextInputType.Number}
+          value={number}
+          placeHolder="0"
+          onValueChange={setNumber}
+          allowDecimal
+          allowNegative
+        />
+        <TextInput
+          label="Search"
+          type={TextInputType.Search}
+          value={search}
+          placeHolder="Search..."
+          onValueChange={setSearch}
+          clearable
+        />
+        <TextInput
+          label="Telephone"
+          type={TextInputType.Tel}
+          value={tel}
+          placeHolder="+1 (555) 000-0000"
+          onValueChange={setTel}
+        />
+        <TextInput
+          label="URL"
+          type={TextInputType.Url}
+          value={url}
+          placeHolder="https://example.com"
+          onValueChange={setUrl}
+        />
+      </div>
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "All specialized input types: Password (with visibility toggle), Email (with normalization), Number (with decimal/negative support), Search (with clearable), Telephone, and URL.",
+      },
+    },
+  },
 };
 
 export const AllVariants: Story = {
