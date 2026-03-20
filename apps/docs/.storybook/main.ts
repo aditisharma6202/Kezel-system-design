@@ -12,6 +12,7 @@ const config: StorybookConfig = {
   },
   webpackFinal: async (config) => {
     config.module = config.module || { rules: [] };
+
     config.module.rules.unshift({
       test: /\.(ts|tsx)$/,
       include: [
@@ -63,7 +64,7 @@ const config: StorybookConfig = {
       ),
       "kz-design-system/styles.css": path.join(
         designSystemRoot,
-        "src/styles.css"
+        "dist/styles.css"
       ),
       "kz-design-system": path.join(designSystemRoot, "src/index.ts"),
     };
