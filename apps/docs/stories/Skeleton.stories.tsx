@@ -7,6 +7,7 @@ import {
   Table,
   Button,
   ButtonVariant,
+  ButtonStatus,
   ButtonSize,
   Card,
 } from "kz-design-system";
@@ -181,7 +182,7 @@ function TableLoadingDemo() {
       style={{ display: "flex", flexDirection: "column", gap: 12, width: 640 }}
     >
       <Button
-        variant={ButtonVariant.Outline}
+        variant={ButtonVariant.Primary}
         size={ButtonSize.Sm}
         onClick={handleLoad}
       >
@@ -287,7 +288,7 @@ function CardLoadingDemo() {
       style={{ display: "flex", flexDirection: "column", gap: 12, width: 300 }}
     >
       <Button
-        variant={ButtonVariant.Outline}
+        variant={ButtonVariant.Primary}
         size={ButtonSize.Sm}
         onClick={handleLoad}
       >
@@ -300,10 +301,14 @@ function CardLoadingDemo() {
           header={<span style={{ fontWeight: 600 }}>Project Alpha</span>}
           footer={
             <div style={{ display: "flex", gap: 8 }}>
-              <Button variant={ButtonVariant.Primary} size={ButtonSize.Sm}>
+              <Button
+                variant={ButtonVariant.Primary}
+                status={ButtonStatus.Brand}
+                size={ButtonSize.Sm}
+              >
                 View
               </Button>
-              <Button variant={ButtonVariant.Outline} size={ButtonSize.Sm}>
+              <Button variant={ButtonVariant.Primary} size={ButtonSize.Sm}>
                 Edit
               </Button>
             </div>

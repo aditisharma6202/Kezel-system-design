@@ -7,6 +7,7 @@ export {
 export {
   ButtonVariant,
   ButtonSize,
+  ButtonStatus,
   ButtonType,
   ButtonAspectRatio,
 } from "../../constants/enum";

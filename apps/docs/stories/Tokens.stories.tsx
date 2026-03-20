@@ -8,6 +8,7 @@ import {
   Button,
   ButtonVariant,
   ButtonSize,
+  ButtonStatus,
   Checkbox,
 } from "kz-design-system";
 import React from "react";
@@ -198,13 +199,14 @@ export const ExampleOverride: StoryObj = {
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
           <Button
             variant={ButtonVariant.Primary}
+            status={ButtonStatus.Brand}
             size={ButtonSize.Md}
             onClick={() => {}}
           >
             Primary
           </Button>
           <Button
-            variant={ButtonVariant.Secondary}
+            variant={ButtonVariant.Primary}
             size={ButtonSize.Md}
             onClick={() => {}}
           >
@@ -259,13 +261,14 @@ export const NeumorphicShadowOverride: StoryObj = {
         >
           <Button
             variant={ButtonVariant.Primary}
+            status={ButtonStatus.Brand}
             size={ButtonSize.Md}
             onClick={() => {}}
           >
             Primary
           </Button>
           <Button
-            variant={ButtonVariant.Secondary}
+            variant={ButtonVariant.Primary}
             size={ButtonSize.Md}
             onClick={() => {}}
           >
@@ -324,13 +327,14 @@ export const ScopedOverrides: StoryObj = {
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
           <Button
             variant={ButtonVariant.Primary}
+            status={ButtonStatus.Brand}
             size={ButtonSize.Md}
             onClick={() => {}}
           >
             Primary
           </Button>
           <Button
-            variant={ButtonVariant.Secondary}
+            variant={ButtonVariant.Primary}
             size={ButtonSize.Md}
             onClick={() => {}}
           >

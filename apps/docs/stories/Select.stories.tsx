@@ -101,6 +101,20 @@ const meta: Meta<typeof Select> = {
     },
     errorText: { control: "text", description: "Error message." },
     disabled: { control: "boolean", description: "Disables the select." },
+    panelHeight: {
+      control: "number",
+      description: "Max height of the options panel in px. Default: 200.",
+    },
+    onSelectAll: {
+      action: "selectAll",
+      description:
+        "Called when Select All is clicked. Providing this shows the Select All button in the footer.",
+    },
+    onRemoveAll: {
+      action: "removeAll",
+      description:
+        "Called when Remove All is clicked. Providing this shows the Remove All button in the footer.",
+    },
   },
 };
 
@@ -216,6 +230,63 @@ export const TriggerLabel: Story = {
       description: {
         story:
           'Use **triggerLabel** to show a fixed label in the trigger instead of tag chips. In multi mode it appends the count, e.g. "Fruits (3)".',
+      },
+    },
+  },
+};
+
+export const MultiWithSelectActions: Story = {
+  render: function MultiWithSelectActionsStory() {
+    const [value, setValue] = React.useState<string[]>([]);
+    return (
+      <div style={{ width: 320 }}>
+        <Select
+          label="Select All / Remove All"
+          options={FRUIT_OPTIONS}
+          multiple
+          value={value}
+          onChange={(v) => setValue(v as string[])}
+          onSelectAll={() => setValue(FRUIT_OPTIONS.map((o) => o.value))}
+          onRemoveAll={() => setValue([])}
+          description="Pass onSelectAll / onRemoveAll to show footer actions"
+        />
+      </div>
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Pass **onSelectAll** and/or **onRemoveAll** callbacks to show action buttons in a fixed footer below the scrollable options list.",
+      },
+    },
+  },
+};
+
+export const CustomPanelHeight: Story = {
+  render: function CustomPanelHeightStory() {
+    const [value, setValue] = React.useState<string[]>([]);
+    return (
+      <div style={{ width: 320 }}>
+        <Select
+          label="Tall Panel (300px)"
+          options={FRUIT_OPTIONS}
+          multiple
+          value={value}
+          onChange={(v) => setValue(v as string[])}
+          panelHeight={300}
+          onSelectAll={() => setValue(FRUIT_OPTIONS.map((o) => o.value))}
+          onRemoveAll={() => setValue([])}
+          description="panelHeight={300} with onSelectAll / onRemoveAll"
+        />
+      </div>
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Use **panelHeight** to adjust the max height of the options panel. Default is 200px.",
       },
     },
   },

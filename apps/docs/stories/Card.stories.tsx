@@ -6,6 +6,7 @@ import {
   Button,
   ButtonVariant,
   ButtonSize,
+  ButtonStatus,
   Typography,
   TypographyVariantEnum,
 } from "kz-design-system";
@@ -196,7 +197,11 @@ export const HeaderAndFooter: Story = {
           <Button variant={ButtonVariant.Ghost} size={ButtonSize.Sm}>
             Cancel
           </Button>
-          <Button variant={ButtonVariant.Primary} size={ButtonSize.Sm}>
+          <Button
+            variant={ButtonVariant.Primary}
+            status={ButtonStatus.Brand}
+            size={ButtonSize.Sm}
+          >
             Save
           </Button>
         </div>

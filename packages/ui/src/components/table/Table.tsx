@@ -716,7 +716,7 @@ function TableInner<TData, TEditValue = string>(
                 ))) && (
               <>
                 <Button
-                  variant={ButtonVariant.Outline}
+                  variant={ButtonVariant.Primary}
                   size={ButtonSize.Sm}
                   onClick={handleCellCancel}
                 >

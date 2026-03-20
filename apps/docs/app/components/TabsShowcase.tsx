@@ -32,15 +32,26 @@ export default function TabsShowcase() {
           <Typography variant={TypographyVariantEnum.H3} className="mb-2">
             Horizontal Pill
           </Typography>
-          <Tabs variant="pill" orientation="horizontal" size="md" defaultValue="hp1">
+          <Tabs
+            variant="pill"
+            orientation="horizontal"
+            size="md"
+            defaultValue="hp1"
+          >
             <TabsList>
               <TabsTrigger value="hp1">Tab 1</TabsTrigger>
               <TabsTrigger value="hp2">Tab 2</TabsTrigger>
               <TabsTrigger value="hp3">Tab 3</TabsTrigger>
             </TabsList>
-            <TabsContent value="hp1">Horizontal pill tab 1 content.</TabsContent>
-            <TabsContent value="hp2">Horizontal pill tab 2 content.</TabsContent>
-            <TabsContent value="hp3">Horizontal pill tab 3 content.</TabsContent>
+            <TabsContent value="hp1">
+              Horizontal pill tab 1 content.
+            </TabsContent>
+            <TabsContent value="hp2">
+              Horizontal pill tab 2 content.
+            </TabsContent>
+            <TabsContent value="hp3">
+              Horizontal pill tab 3 content.
+            </TabsContent>
           </Tabs>
         </div>
 
@@ -49,15 +60,26 @@ export default function TabsShowcase() {
           <Typography variant={TypographyVariantEnum.H3} className="mb-2">
             Horizontal Underline
           </Typography>
-          <Tabs variant="underline" orientation="horizontal" size="md" defaultValue="hu1">
+          <Tabs
+            variant="underline"
+            orientation="horizontal"
+            size="md"
+            defaultValue="hu1"
+          >
             <TabsList>
               <TabsTrigger value="hu1">Tab 1</TabsTrigger>
               <TabsTrigger value="hu2">Tab 2</TabsTrigger>
               <TabsTrigger value="hu3">Tab 3</TabsTrigger>
             </TabsList>
-            <TabsContent value="hu1">Horizontal underline tab 1 content.</TabsContent>
-            <TabsContent value="hu2">Horizontal underline tab 2 content.</TabsContent>
-            <TabsContent value="hu3">Horizontal underline tab 3 content.</TabsContent>
+            <TabsContent value="hu1">
+              Horizontal underline tab 1 content.
+            </TabsContent>
+            <TabsContent value="hu2">
+              Horizontal underline tab 2 content.
+            </TabsContent>
+            <TabsContent value="hu3">
+              Horizontal underline tab 3 content.
+            </TabsContent>
           </Tabs>
         </div>
 
@@ -67,15 +89,26 @@ export default function TabsShowcase() {
             <Typography variant={TypographyVariantEnum.H3} className="mb-2">
               Vertical Pill
             </Typography>
-            <Tabs variant="pill" orientation="vertical" size="md" defaultValue="vp1">
+            <Tabs
+              variant="pill"
+              orientation="vertical"
+              size="md"
+              defaultValue="vp1"
+            >
               <TabsList>
                 <TabsTrigger value="vp1">Tab 1</TabsTrigger>
                 <TabsTrigger value="vp2">Tab 2</TabsTrigger>
                 <TabsTrigger value="vp3">Tab 3</TabsTrigger>
               </TabsList>
-              <TabsContent value="vp1">Vertical pill tab 1 content.</TabsContent>
-              <TabsContent value="vp2">Vertical pill tab 2 content.</TabsContent>
-              <TabsContent value="vp3">Vertical pill tab 3 content.</TabsContent>
+              <TabsContent value="vp1">
+                Vertical pill tab 1 content.
+              </TabsContent>
+              <TabsContent value="vp2">
+                Vertical pill tab 2 content.
+              </TabsContent>
+              <TabsContent value="vp3">
+                Vertical pill tab 3 content.
+              </TabsContent>
             </Tabs>
           </div>
 
@@ -84,15 +117,26 @@ export default function TabsShowcase() {
             <Typography variant={TypographyVariantEnum.H3} className="mb-2">
               Vertical Underline
             </Typography>
-            <Tabs variant="underline" orientation="vertical" size="md" defaultValue="vu1">
+            <Tabs
+              variant="underline"
+              orientation="vertical"
+              size="md"
+              defaultValue="vu1"
+            >
               <TabsList>
                 <TabsTrigger value="vu1">Tab 1</TabsTrigger>
                 <TabsTrigger value="vu2">Tab 2</TabsTrigger>
                 <TabsTrigger value="vu3">Tab 3</TabsTrigger>
               </TabsList>
-              <TabsContent value="vu1">Vertical underline tab 1 content.</TabsContent>
-              <TabsContent value="vu2">Vertical underline tab 2 content.</TabsContent>
-              <TabsContent value="vu3">Vertical underline tab 3 content.</TabsContent>
+              <TabsContent value="vu1">
+                Vertical underline tab 1 content.
+              </TabsContent>
+              <TabsContent value="vu2">
+                Vertical underline tab 2 content.
+              </TabsContent>
+              <TabsContent value="vu3">
+                Vertical underline tab 3 content.
+              </TabsContent>
             </Tabs>
           </div>
 

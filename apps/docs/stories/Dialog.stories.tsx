@@ -12,6 +12,7 @@ import {
   Button,
   ButtonVariant,
   ButtonSize,
+  ButtonStatus,
 } from "kz-design-system";
 
 const meta: Meta<typeof Dialog> = {
@@ -44,7 +45,11 @@ export const Default: Story = {
   render: () => (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant={ButtonVariant.Primary} size={ButtonSize.Md}>
+        <Button
+          variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
+          size={ButtonSize.Md}
+        >
           Open dialog
         </Button>
       </DialogTrigger>
@@ -60,11 +65,15 @@ export const Default: Story = {
         </div>
         <DialogFooter>
           <DialogClose asChild>
-            <Button variant={ButtonVariant.Secondary} size={ButtonSize.Md}>
+            <Button variant={ButtonVariant.Primary} size={ButtonSize.Md}>
               Cancel
             </Button>
           </DialogClose>
-          <Button variant={ButtonVariant.Primary} size={ButtonSize.Md}>
+          <Button
+            variant={ButtonVariant.Primary}
+            status={ButtonStatus.Brand}
+            size={ButtonSize.Md}
+          >
             Confirm
           </Button>
         </DialogFooter>
@@ -77,7 +86,7 @@ export const WithForm: Story = {
   render: () => (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant={ButtonVariant.Outline} size={ButtonSize.Md}>
+        <Button variant={ButtonVariant.Primary} size={ButtonSize.Md}>
           Edit profile
         </Button>
       </DialogTrigger>
@@ -131,11 +140,15 @@ export const WithForm: Story = {
         </form>
         <DialogFooter>
           <DialogClose asChild>
-            <Button variant={ButtonVariant.Secondary} size={ButtonSize.Md}>
+            <Button variant={ButtonVariant.Primary} size={ButtonSize.Md}>
               Cancel
             </Button>
           </DialogClose>
-          <Button variant={ButtonVariant.Primary} size={ButtonSize.Md}>
+          <Button
+            variant={ButtonVariant.Primary}
+            status={ButtonStatus.Brand}
+            size={ButtonSize.Md}
+          >
             Save
           </Button>
         </DialogFooter>

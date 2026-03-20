@@ -13,15 +13,6 @@ export const buttonVariants = cva(base, {
   variants: {
     variant: {
       primary: [
-        "bg-[var(--kz-component-button-primary-bg)]",
-        "text-[var(--kz-component-button-primary-text)]",
-        "rounded-[var(--kz-component-button-radius,8px)]",
-        "[box-shadow:var(--kz-component-button-primary-shadow,none)]",
-        "hover:bg-[var(--kz-component-button-primary-bg-hover)]",
-        "hover:[box-shadow:var(--kz-component-button-primary-shadow-hover,var(--kz-component-button-primary-shadow,none))]",
-        "active:bg-[var(--kz-component-button-primary-bg-active)]",
-      ].join(" "),
-      secondary: [
         "bg-[var(--kz-component-button-secondary-bg)]",
         "text-[var(--kz-component-button-secondary-text)]",
         "rounded-[var(--kz-component-button-radius,8px)]",
@@ -29,15 +20,6 @@ export const buttonVariants = cva(base, {
         "hover:bg-[var(--kz-component-button-secondary-bg-hover)]",
         "hover:[box-shadow:var(--kz-component-button-secondary-shadow-hover,var(--kz-component-button-secondary-shadow,none))]",
         "active:bg-[var(--kz-component-button-secondary-bg-active)]",
-      ].join(" "),
-      outline: [
-        "bg-[var(--kz-component-button-outline-bg)]",
-        "text-[var(--kz-component-button-outline-text)]",
-        "border border-[var(--kz-component-button-outline-border)]",
-        "rounded-[var(--kz-component-button-radius,8px)]",
-        "[box-shadow:var(--kz-component-button-outline-shadow,none)]",
-        "hover:bg-[var(--kz-component-button-outline-bg-hover,var(--kz-component-button-outline-bg))]",
-        "hover:[box-shadow:var(--kz-component-button-outline-shadow-hover,var(--kz-component-button-outline-shadow,none))]",
       ].join(" "),
       ghost: [
         "bg-[var(--kz-component-button-ghost-bg)]",
@@ -48,29 +30,56 @@ export const buttonVariants = cva(base, {
         "hover:bg-[var(--kz-component-button-ghost-bg-hover,transparent)]",
         "active:opacity-80",
       ].join(" "),
+      container: [
+        "bg-[var(--kz-component-button-container-bg)]",
+        "text-[var(--kz-component-button-container-text)]",
+        "border border-[var(--kz-component-button-container-border)]",
+        "rounded-[var(--kz-component-button-radius,8px)]",
+        "[box-shadow:var(--kz-component-button-container-shadow)]",
+        "hover:bg-[var(--kz-component-button-ghost-bg-hover,transparent)]",
+        "hover:[box-shadow:var(--kz-component-button-container-shadow-hover)]",
+      ].join(" "),
+    },
+    status: {
+      brand: [
+        "bg-[var(--kz-component-button-brand-bg)]",
+        "text-[var(--kz-component-button-brand-text)]",
+        "[box-shadow:var(--kz-component-button-brand-shadow,none)]",
+        "hover:bg-[var(--kz-component-button-brand-bg-hover,var(--kz-component-button-brand-bg))]",
+        "hover:[box-shadow:var(--kz-component-button-brand-shadow-hover,var(--kz-component-button-brand-shadow,none))]",
+        "active:!bg-[var(--kz-component-button-brand-bg-hover,var(--kz-component-button-brand-bg))]",
+      ].join(" "),
       success: [
         "bg-[var(--kz-component-button-success-bg)]",
         "text-[var(--kz-component-button-success-text)]",
-        "rounded-[var(--kz-component-button-radius,8px)]",
         "[box-shadow:var(--kz-component-button-success-shadow,none)]",
         "hover:bg-[var(--kz-component-button-success-bg-hover,var(--kz-component-button-success-bg))]",
         "hover:[box-shadow:var(--kz-component-button-success-shadow-hover,var(--kz-component-button-success-shadow,none))]",
+        "active:!bg-[var(--kz-component-button-success-bg-hover,var(--kz-component-button-success-bg))]",
       ].join(" "),
       warning: [
         "bg-[var(--kz-component-button-warning-bg)]",
         "text-[var(--kz-component-button-warning-text)]",
-        "rounded-[var(--kz-component-button-radius,8px)]",
         "[box-shadow:var(--kz-component-button-warning-shadow,none)]",
         "hover:bg-[var(--kz-component-button-warning-bg-hover,var(--kz-component-button-warning-bg))]",
         "hover:[box-shadow:var(--kz-component-button-warning-shadow-hover,var(--kz-component-button-warning-shadow,none))]",
+        "active:!bg-[var(--kz-component-button-warning-bg-hover,var(--kz-component-button-warning-bg))]",
       ].join(" "),
       error: [
         "bg-[var(--kz-component-button-error-bg)]",
         "text-[var(--kz-component-button-error-text)]",
-        "rounded-[var(--kz-component-button-radius,8px)]",
         "[box-shadow:var(--kz-component-button-error-shadow,none)]",
         "hover:bg-[var(--kz-component-button-error-bg-hover,var(--kz-component-button-error-bg))]",
         "hover:[box-shadow:var(--kz-component-button-error-shadow-hover,var(--kz-component-button-error-shadow,none))]",
+        "active:!bg-[var(--kz-component-button-error-bg-hover,var(--kz-component-button-error-bg))]",
+      ].join(" "),
+      info: [
+        "bg-[var(--kz-component-button-info-bg)]",
+        "text-[var(--kz-component-button-info-text)]",
+        "[box-shadow:var(--kz-component-button-info-shadow,none)]",
+        "hover:bg-[var(--kz-component-button-info-bg-hover,var(--kz-component-button-info-bg))]",
+        "hover:[box-shadow:var(--kz-component-button-info-shadow-hover,var(--kz-component-button-info-shadow,none))]",
+        "active:!bg-[var(--kz-component-button-info-bg-hover,var(--kz-component-button-info-bg))]",
       ].join(" "),
     },
     size: {
@@ -94,6 +103,112 @@ export const buttonVariants = cva(base, {
       ].join(" "),
     },
   },
+  compoundVariants: [
+    // Ghost + brand: brand text, transparent bg, brand-tinted hover
+    {
+      variant: "ghost",
+      status: "brand",
+      className: [
+        "!bg-transparent text-[var(--kz-color-brand-accent)]",
+        "hover:!bg-[var(--kz-component-button-ghost-brand-bg-hover,rgba(0,150,137,0.1))]",
+        "[box-shadow:none] hover:[box-shadow:none]",
+      ].join(" "),
+    },
+    // Ghost + status: text color = status, bg transparent, hover = light tint
+    {
+      variant: "ghost",
+      status: "success",
+      className: [
+        "!bg-transparent text-[var(--kz-color-status-success)]",
+        "hover:!bg-[var(--kz-component-button-ghost-success-bg-hover,rgba(0,201,80,0.1))]",
+        "[box-shadow:none] hover:[box-shadow:none]",
+      ].join(" "),
+    },
+    {
+      variant: "ghost",
+      status: "warning",
+      className: [
+        "!bg-transparent text-[var(--kz-color-status-warning)]",
+        "hover:!bg-[var(--kz-component-button-ghost-warning-bg-hover,rgba(245,158,11,0.1))]",
+        "[box-shadow:none] hover:[box-shadow:none]",
+      ].join(" "),
+    },
+    {
+      variant: "ghost",
+      status: "error",
+      className: [
+        "!bg-transparent text-[var(--kz-color-status-error)]",
+        "hover:!bg-[var(--kz-component-button-ghost-error-bg-hover,rgba(251,44,54,0.1))]",
+        "[box-shadow:none] hover:[box-shadow:none]",
+      ].join(" "),
+    },
+    {
+      variant: "ghost",
+      status: "info",
+      className: [
+        "!bg-transparent text-[var(--kz-color-status-info)]",
+        "hover:!bg-[var(--kz-component-button-ghost-info-bg-hover,rgba(37,99,235,0.1))]",
+        "[box-shadow:none] hover:[box-shadow:none]",
+      ].join(" "),
+    },
+    // Container + brand: brand text, brand border, no shadow, brand-tinted hover
+    {
+      variant: "container",
+      status: "brand",
+      className: [
+        "!bg-transparent",
+        "!text-[var(--kz-component-button-container-brand-text,var(--kz-color-brand-accent))]",
+        "!border-[var(--kz-component-button-container-brand-border,var(--kz-color-brand-accent))]",
+        "[box-shadow:none] hover:[box-shadow:none]",
+        "hover:!bg-[var(--kz-component-button-container-brand-bg-hover,rgba(0,150,137,0.08))]",
+      ].join(" "),
+    },
+    // Container + status: keep container shape/shadow, override bg/text with status colors
+    {
+      variant: "container",
+      status: "success",
+      className: [
+        "!bg-transparent",
+        "!text-[var(--kz-color-status-success)]",
+        "!border-[var(--kz-color-status-success)]",
+        "[box-shadow:none] hover:[box-shadow:none]",
+        "hover:!bg-[var(--kz-component-button-ghost-success-bg-hover,rgba(0,201,80,0.1))]",
+      ].join(" "),
+    },
+    {
+      variant: "container",
+      status: "warning",
+      className: [
+        "!bg-transparent",
+        "!text-[var(--kz-color-status-warning)]",
+        "!border-[var(--kz-color-status-warning)]",
+        "[box-shadow:none] hover:[box-shadow:none]",
+        "hover:!bg-[var(--kz-component-button-ghost-warning-bg-hover,rgba(245,158,11,0.1))]",
+      ].join(" "),
+    },
+    {
+      variant: "container",
+      status: "error",
+      className: [
+        "!bg-transparent",
+        "!text-[var(--kz-color-status-error)]",
+        "!border-[var(--kz-color-status-error)]",
+        "[box-shadow:none] hover:[box-shadow:none]",
+        "hover:!bg-[var(--kz-component-button-ghost-error-bg-hover,rgba(251,44,54,0.1))]",
+      ].join(" "),
+    },
+    {
+      variant: "container",
+      status: "info",
+      className: [
+        "!bg-transparent",
+        "!text-[var(--kz-color-status-info)]",
+        "!border-[var(--kz-color-status-info)]",
+        "[box-shadow:none] hover:[box-shadow:none]",
+        "hover:!bg-[var(--kz-component-button-ghost-info-bg-hover,rgba(37,99,235,0.1))]",
+      ].join(" "),
+    },
+  ],
   defaultVariants: {
     variant: ButtonVariant.Primary,
     size: ButtonSize.Md,

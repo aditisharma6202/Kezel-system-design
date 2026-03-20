@@ -57,15 +57,22 @@
   --kz-intent-container-shadow: var(--kz-shadow-elevation-1);
 
   /* ── BUTTON ── */
-  --kz-component-button-secondary-bg: #1e2939;
-  --kz-component-button-secondary-bg-hover: #263244;
-  --kz-component-button-secondary-bg-active: #2d3a4d;
-  --kz-component-button-secondary-text: #f9fafb;
+  --kz-component-button-brand-bg: var(--kz-color-brand-accent);
+  --kz-component-button-brand-bg-hover: var(--kz-color-brand-accent-hover);
+  --kz-component-button-brand-text: #fff;
+  --kz-component-button-ghost-brand-bg-hover: rgba(24, 171, 159, 0.15);
+  --kz-component-button-container-brand-text: var(--kz-color-brand-accent-dark);
+  --kz-component-button-container-brand-border: var(--kz-color-brand-accent-dark);
+  --kz-component-button-container-brand-bg-hover: rgba(24, 171, 159, 0.12);
   --kz-component-button-ghost-bg-hover: #1e2939;
-  --kz-component-button-outline-bg: #101828;
-  --kz-component-button-outline-bg-hover: #1a2332;
-  --kz-component-button-outline-border: #364153;
-  --kz-component-button-outline-text: #f9fafb;
+  --kz-component-button-ghost-success-bg-hover: rgba(0, 201, 80, 0.15);
+  --kz-component-button-ghost-warning-bg-hover: rgba(245, 158, 11, 0.15);
+  --kz-component-button-ghost-error-bg-hover: rgba(251, 44, 54, 0.15);
+  --kz-component-button-ghost-info-bg-hover: rgba(37, 99, 235, 0.15);
+  --kz-component-button-container-bg: #101828;
+  --kz-component-button-container-text: #f9fafb;
+  --kz-component-button-container-border: #364153;
+  --kz-component-button-container-bg-hover: #1a2332;
 
   /* ── TOGGLE BUTTON ── */
   --kz-component-toggle-button-track-off-bg: #4a5565;
@@ -149,8 +156,8 @@
   --kz-component-tooltip-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
   --kz-component-tooltip-inverse-bg: #1f2933;
   --kz-component-tooltip-inverse-text: #f9fafb;
-  --kz-component-tooltip-success-bg: #00c950;
-  --kz-component-tooltip-error-bg: #fb2c36;
+  --kz-component-tooltip-success-bg: var(--kz-color-status-success);
+  --kz-component-tooltip-error-bg: var(--kz-color-status-error);
 
   /* ── CARD ── */
   --kz-component-card-bg: var(--kz-color-surface-raised);

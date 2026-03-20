@@ -7,6 +7,7 @@ import {
   SidePanel,
   Button,
   ButtonVariant,
+  ButtonStatus,
   ButtonSize,
   Icon,
   IconName,
@@ -44,6 +45,7 @@ export default function SidePanelShowcase() {
         </Typography>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setRightOpen(true)}
         >
@@ -60,7 +62,7 @@ export default function SidePanelShowcase() {
           footer={
             <div className="flex gap-2 justify-end w-full">
               <Button
-                variant={ButtonVariant.Outline}
+                variant={ButtonVariant.Primary}
                 size={ButtonSize.Sm}
                 onClick={() => setRightOpen(false)}
               >
@@ -68,6 +70,7 @@ export default function SidePanelShowcase() {
               </Button>
               <Button
                 variant={ButtonVariant.Primary}
+                status={ButtonStatus.Brand}
                 size={ButtonSize.Sm}
                 onClick={() => setRightOpen(false)}
               >
@@ -84,6 +87,7 @@ export default function SidePanelShowcase() {
         <Typography variant={TypographyVariantEnum.H3}>Left side</Typography>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setLeftOpen(true)}
         >
@@ -107,6 +111,7 @@ export default function SidePanelShowcase() {
         <Typography variant={TypographyVariantEnum.H3}>50% width</Typography>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setWideOpen(true)}
         >
@@ -130,6 +135,7 @@ export default function SidePanelShowcase() {
         <Typography variant={TypographyVariantEnum.H3}>No overlay</Typography>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setNoOverlayOpen(true)}
         >
@@ -157,6 +163,7 @@ export default function SidePanelShowcase() {
         </Typography>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setCustomHeaderOpen(true)}
         >
@@ -203,7 +210,7 @@ export default function SidePanelShowcase() {
               </Typography>
               <div className="flex gap-2">
                 <Button
-                  variant={ButtonVariant.Outline}
+                  variant={ButtonVariant.Primary}
                   size={ButtonSize.Sm}
                   onClick={() => setCustomHeaderOpen(false)}
                 >
@@ -211,6 +218,7 @@ export default function SidePanelShowcase() {
                 </Button>
                 <Button
                   variant={ButtonVariant.Primary}
+                  status={ButtonStatus.Brand}
                   size={ButtonSize.Sm}
                   onClick={() => setCustomHeaderOpen(false)}
                 >
@@ -229,6 +237,7 @@ export default function SidePanelShowcase() {
         </Typography>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setScrollableOpen(true)}
         >
@@ -247,7 +256,7 @@ export default function SidePanelShowcase() {
           footer={
             <div className="flex gap-2 justify-end w-full">
               <Button
-                variant={ButtonVariant.Outline}
+                variant={ButtonVariant.Primary}
                 size={ButtonSize.Sm}
                 onClick={() => setScrollableOpen(false)}
               >
@@ -255,6 +264,7 @@ export default function SidePanelShowcase() {
               </Button>
               <Button
                 variant={ButtonVariant.Primary}
+                status={ButtonStatus.Brand}
                 size={ButtonSize.Sm}
                 onClick={() => setScrollableOpen(false)}
               >
@@ -272,6 +282,7 @@ export default function SidePanelShowcase() {
         </Typography>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setFormOpen(true)}
         >
@@ -289,7 +300,7 @@ export default function SidePanelShowcase() {
           footer={
             <div className="flex gap-2 justify-end w-full">
               <Button
-                variant={ButtonVariant.Outline}
+                variant={ButtonVariant.Primary}
                 size={ButtonSize.Sm}
                 onClick={() => setFormOpen(false)}
               >
@@ -297,6 +308,7 @@ export default function SidePanelShowcase() {
               </Button>
               <Button
                 variant={ButtonVariant.Primary}
+                status={ButtonStatus.Brand}
                 size={ButtonSize.Sm}
                 onClick={() => setFormOpen(false)}
               >

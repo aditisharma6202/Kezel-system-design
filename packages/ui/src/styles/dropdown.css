@@ -179,7 +179,7 @@
   padding-left: 24px;
 }
 .kz-dropdown-item-destructive {
-  color: var(--kz-typography-error-color, #ef4444);
+  color: var(--kz-typography-error-color, #a91e2c);
 }
 .kz-dropdown-item-destructive[data-highlighted] {
   background: rgba(239, 68, 68, 0.1);

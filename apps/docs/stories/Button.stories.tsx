@@ -4,11 +4,26 @@ import {
   Button,
   ButtonVariant,
   ButtonSize,
+  ButtonStatus,
   ButtonType,
   ButtonAspectRatio,
   Icon,
   IconName,
 } from "kz-design-system";
+
+const VARIANTS = [
+  ButtonVariant.Primary,
+  ButtonVariant.Ghost,
+  ButtonVariant.Container,
+] as const;
+
+const STATUSES = [
+  ButtonStatus.Brand,
+  ButtonStatus.Success,
+  ButtonStatus.Warning,
+  ButtonStatus.Error,
+  ButtonStatus.Info,
+] as const;
 
 const meta: Meta<typeof Button> = {
   title: "Design System/Button",
@@ -18,7 +33,7 @@ const meta: Meta<typeof Button> = {
     docs: {
       description: {
         component:
-          "Button variants: Primary, Secondary, Outline, Ghost, Success, Warning, Error. Use the **Variant** (Standard / Neumorphic) and **Mode** (Light / Dark) toolbar to see theme-specific styles (e.g. Standard dark outline/secondary backgrounds, Neumorphic shadows).",
+          "Button with 3 variants (Primary, Ghost, Container) and 5 statuses (Brand, Success, Warning, Error, Info). Status overrides the color; variant controls the shape/style. Use the **Variant** (Standard / Neumorphic) and **Mode** (Light / Dark) toolbar to see theme-specific styles.",
       },
     },
   },
@@ -27,6 +42,7 @@ const meta: Meta<typeof Button> = {
     children: "Button",
     onClick: () => {},
     variant: ButtonVariant.Primary,
+    status: ButtonStatus.Brand,
     size: ButtonSize.Md,
     type: ButtonType.Button,
     loading: false,
@@ -38,8 +54,13 @@ const meta: Meta<typeof Button> = {
     variant: {
       control: "select",
       options: Object.values(ButtonVariant),
+      description: "Visual variant: Primary, Ghost, or Container.",
+    },
+    status: {
+      control: "select",
+      options: [undefined, ...Object.values(ButtonStatus)],
       description:
-        "Visual variant: Primary, Secondary, Outline, Ghost, Success, Warning, or Error.",
+        "Optional status: Brand, Success, Warning, Error, or Info. Overrides colors on any variant.",
     },
     size: {
       control: "select",
@@ -95,27 +116,22 @@ export default meta;
 
 type Story = StoryObj<typeof Button>;
 
+/* ── Individual variant stories ── */
+
+export const BrandPrimary: Story = {
+  args: {
+    variant: ButtonVariant.Primary,
+    status: ButtonStatus.Brand,
+    size: ButtonSize.Md,
+    children: "Brand",
+  },
+};
+
 export const Primary: Story = {
   args: {
     variant: ButtonVariant.Primary,
     size: ButtonSize.Md,
     children: "Primary",
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    variant: ButtonVariant.Secondary,
-    size: ButtonSize.Md,
-    children: "Secondary",
-  },
-};
-
-export const Outline: Story = {
-  args: {
-    variant: ButtonVariant.Outline,
-    size: ButtonSize.Md,
-    children: "Outline",
   },
 };
 
@@ -127,9 +143,20 @@ export const Ghost: Story = {
   },
 };
 
+export const Container: Story = {
+  args: {
+    variant: ButtonVariant.Container,
+    size: ButtonSize.Md,
+    children: "Container",
+  },
+};
+
+/* ── Status stories ── */
+
 export const Success: Story = {
   args: {
-    variant: ButtonVariant.Success,
+    variant: ButtonVariant.Primary,
+    status: ButtonStatus.Success,
     size: ButtonSize.Md,
     children: "Success",
   },
@@ -137,7 +164,8 @@ export const Success: Story = {
 
 export const Warning: Story = {
   args: {
-    variant: ButtonVariant.Warning,
+    variant: ButtonVariant.Primary,
+    status: ButtonStatus.Warning,
     size: ButtonSize.Md,
     children: "Warning",
   },
@@ -145,15 +173,28 @@ export const Warning: Story = {
 
 export const Error: Story = {
   args: {
-    variant: ButtonVariant.Error,
+    variant: ButtonVariant.Primary,
+    status: ButtonStatus.Error,
     size: ButtonSize.Md,
     children: "Error",
   },
 };
 
+export const Info: Story = {
+  args: {
+    variant: ButtonVariant.Primary,
+    status: ButtonStatus.Info,
+    size: ButtonSize.Md,
+    children: "Info",
+  },
+};
+
+/* ── State stories ── */
+
 export const Disabled: Story = {
   args: {
     variant: ButtonVariant.Primary,
+    status: ButtonStatus.Brand,
     size: ButtonSize.Md,
     children: "Disabled",
     disabled: true,
@@ -163,11 +204,14 @@ export const Disabled: Story = {
 export const Loading: Story = {
   args: {
     variant: ButtonVariant.Primary,
+    status: ButtonStatus.Brand,
     size: ButtonSize.Md,
     children: "Loading",
     loading: true,
   },
 };
+
+/* ── Sizes ── */
 
 export const Sizes: Story = {
   render: () => (
@@ -181,6 +225,7 @@ export const Sizes: Story = {
     >
       <Button
         variant={ButtonVariant.Primary}
+        status={ButtonStatus.Brand}
         size={ButtonSize.Sm}
         onClick={() => {}}
       >
@@ -188,6 +233,7 @@ export const Sizes: Story = {
       </Button>
       <Button
         variant={ButtonVariant.Primary}
+        status={ButtonStatus.Brand}
         size={ButtonSize.Md}
         onClick={() => {}}
       >
@@ -195,6 +241,7 @@ export const Sizes: Story = {
       </Button>
       <Button
         variant={ButtonVariant.Primary}
+        status={ButtonStatus.Brand}
         size={ButtonSize.Lg}
         onClick={() => {}}
       >
@@ -203,6 +250,8 @@ export const Sizes: Story = {
     </div>
   ),
 };
+
+/* ── All variants ── */
 
 export const AllVariants: Story = {
   render: () => (
@@ -216,24 +265,18 @@ export const AllVariants: Story = {
     >
       <Button
         variant={ButtonVariant.Primary}
+        status={ButtonStatus.Brand}
+        size={ButtonSize.Md}
+        onClick={() => {}}
+      >
+        Brand
+      </Button>
+      <Button
+        variant={ButtonVariant.Primary}
         size={ButtonSize.Md}
         onClick={() => {}}
       >
         Primary
-      </Button>
-      <Button
-        variant={ButtonVariant.Secondary}
-        size={ButtonSize.Md}
-        onClick={() => {}}
-      >
-        Secondary
-      </Button>
-      <Button
-        variant={ButtonVariant.Outline}
-        size={ButtonSize.Md}
-        onClick={() => {}}
-      >
-        Outline
       </Button>
       <Button
         variant={ButtonVariant.Ghost}
@@ -243,28 +286,15 @@ export const AllVariants: Story = {
         Ghost
       </Button>
       <Button
-        variant={ButtonVariant.Success}
+        variant={ButtonVariant.Container}
         size={ButtonSize.Md}
         onClick={() => {}}
       >
-        Success
-      </Button>
-      <Button
-        variant={ButtonVariant.Warning}
-        size={ButtonSize.Md}
-        onClick={() => {}}
-      >
-        Warning
-      </Button>
-      <Button
-        variant={ButtonVariant.Error}
-        size={ButtonSize.Md}
-        onClick={() => {}}
-      >
-        Error
+        Container
       </Button>
       <Button
         variant={ButtonVariant.Primary}
+        status={ButtonStatus.Brand}
         size={ButtonSize.Md}
         disabled
         onClick={() => {}}
@@ -273,6 +303,7 @@ export const AllVariants: Story = {
       </Button>
       <Button
         variant={ButtonVariant.Primary}
+        status={ButtonStatus.Brand}
         size={ButtonSize.Md}
         loading
         onClick={() => {}}
@@ -285,11 +316,53 @@ export const AllVariants: Story = {
     docs: {
       description: {
         story:
-          "All button variants in one view. Use the toolbar to switch **Variant** (Standard / Neumorphic) and **Mode** (Light / Dark) to compare outline, secondary, and neumorphic shadow styles.",
+          "All button variants in one view. Use the toolbar to switch **Variant** (Standard / Neumorphic) and **Mode** (Light / Dark).",
       },
     },
   },
 };
+
+/* ── Status × Variant matrix ── */
+
+export const StatusWithVariants: Story = {
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+      {STATUSES.map((st) => (
+        <div
+          key={st}
+          style={{
+            display: "flex",
+            gap: 8,
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          {VARIANTS.map((v) => (
+            <Button
+              key={`${st}-${v}`}
+              variant={v}
+              status={st}
+              size={ButtonSize.Md}
+              onClick={() => {}}
+            >
+              {st} {v}
+            </Button>
+          ))}
+        </div>
+      ))}
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Each status (Brand, Success, Warning, Error, Info) combined with every variant (Primary, Ghost, Container). Ghost + status shows colored text on transparent background. Container + status shows colored text with colored border.",
+      },
+    },
+  },
+};
+
+/* ── asChild ── */
 
 export const AsChild: Story = {
   args: {
@@ -312,6 +385,8 @@ export const AsChild: Story = {
   },
 };
 
+/* ── Aspect ratio 1:1 ── */
+
 export const AspectRatio1x1: Story = {
   render: () => (
     <div
@@ -324,6 +399,7 @@ export const AspectRatio1x1: Story = {
     >
       <Button
         variant={ButtonVariant.Primary}
+        status={ButtonStatus.Brand}
         size={ButtonSize.Sm}
         aspectRatio={ButtonAspectRatio.Square}
         onClick={() => {}}
@@ -332,6 +408,7 @@ export const AspectRatio1x1: Story = {
       </Button>
       <Button
         variant={ButtonVariant.Primary}
+        status={ButtonStatus.Brand}
         size={ButtonSize.Md}
         aspectRatio={ButtonAspectRatio.Square}
         onClick={() => {}}
@@ -340,6 +417,7 @@ export const AspectRatio1x1: Story = {
       </Button>
       <Button
         variant={ButtonVariant.Primary}
+        status={ButtonStatus.Brand}
         size={ButtonSize.Lg}
         aspectRatio={ButtonAspectRatio.Square}
         onClick={() => {}}
@@ -347,7 +425,7 @@ export const AspectRatio1x1: Story = {
         <Icon name={IconName.ArrowLeft} size="sm" color="currentColor" />
       </Button>
       <Button
-        variant={ButtonVariant.Outline}
+        variant={ButtonVariant.Primary}
         size={ButtonSize.Md}
         aspectRatio={ButtonAspectRatio.Square}
         onClick={() => {}}

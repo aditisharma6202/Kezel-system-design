@@ -25,6 +25,8 @@ const FRUIT_OPTIONS: SelectOption[] = [
 export default function SelectShowcase() {
   const [single, setSingle] = React.useState<string>("");
   const [multi, setMulti] = React.useState<string[]>([]);
+  const [multiActions, setMultiActions] = React.useState<string[]>([]);
+  const [multiTall, setMultiTall] = React.useState<string[]>([]);
 
   return (
     <section className="flex flex-col items-center gap-4 w-full max-w-lg">
@@ -48,6 +50,36 @@ export default function SelectShowcase() {
           value={multi}
           onChange={(v) => setMulti(v as string[])}
           description="Pick multiple fruits"
+        />
+
+        <Typography variant={TypographyVariantEnum.H3}>
+          Multi with Select All / Remove All
+        </Typography>
+        <Select
+          label="Fruits (with actions)"
+          options={FRUIT_OPTIONS}
+          multiple
+          value={multiActions}
+          onChange={(v) => setMultiActions(v as string[])}
+          onSelectAll={() => setMultiActions(FRUIT_OPTIONS.map((o) => o.value))}
+          onRemoveAll={() => setMultiActions([])}
+          description="Use the footer buttons to select or remove all options"
+          helperText="Pass onSelectAll / onRemoveAll to show footer actions."
+        />
+
+        <Typography variant={TypographyVariantEnum.H3}>
+          Custom Panel Height
+        </Typography>
+        <Select
+          label="Tall panel (400px)"
+          options={FRUIT_OPTIONS}
+          multiple
+          value={multiTall}
+          onChange={(v) => setMultiTall(v as string[])}
+          panelHeight={400}
+          onSelectAll={() => setMultiTall(FRUIT_OPTIONS.map((o) => o.value))}
+          onRemoveAll={() => setMultiTall([])}
+          description="panelHeight={400} with onSelectAll / onRemoveAll"
         />
 
         <Typography variant={TypographyVariantEnum.H3}>Searchable</Typography>

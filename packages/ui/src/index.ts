@@ -3,6 +3,7 @@ export {
   buttonVariants,
   ButtonVariant,
   ButtonSize,
+  ButtonStatus,
   ButtonType,
   ButtonAspectRatio,
 } from "./components/button";
@@ -210,13 +211,12 @@ export type {
   SqlEditorQueryResult,
   SqlEditorSize,
 } from "./components/sql-editor";
-export { QrRenderer } from "./components/qr-renderer";
+export { QrRenderer, QrPattern } from "./components/qr-renderer";
 export type {
   QrRendererProps,
   QrRendererImageProps,
   QrRendererDataProps,
   QrRendererDebugInfo,
-  QrPatternStyle,
   QrErrorCorrectionLevel,
 } from "./components/qr-renderer";
 export { Loader } from "./components/loader";

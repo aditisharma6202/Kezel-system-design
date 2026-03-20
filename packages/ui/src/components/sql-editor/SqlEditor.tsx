@@ -1,6 +1,6 @@
 import * as React from "react";
 import { cn } from "../../utils/cn";
-import { Button, ButtonVariant, ButtonSize } from "../button";
+import { Button, ButtonVariant, ButtonSize, ButtonStatus } from "../button";
 import { Icon, IconName } from "../../icon";
 import type { SqlEditorProps } from "./SqlEditor.types";
 
@@ -92,6 +92,7 @@ function SqlEditorInner(
           {toolbarRight}
           <Button
             variant={ButtonVariant.Primary}
+            status={ButtonStatus.Brand}
             size={size === "lg" ? ButtonSize.Md : ButtonSize.Sm}
             onClick={handleRun}
             disabled={disabled || loading}

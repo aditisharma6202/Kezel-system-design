@@ -503,7 +503,7 @@ const DateTimePicker = React.forwardRef<HTMLInputElement, DateTimePickerProps>(
                   )}
                   {showClearButton && (
                     <Button
-                      variant={ButtonVariant.Outline}
+                      variant={ButtonVariant.Primary}
                       size={ButtonSize.Sm}
                       onClick={handleClear}
                     >

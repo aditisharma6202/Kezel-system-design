@@ -4,6 +4,7 @@ import {
   Table,
   Button,
   ButtonVariant,
+  ButtonStatus,
   ButtonSize,
   Select,
 } from "kz-design-system";
@@ -141,6 +142,7 @@ function TableWithState() {
       headerRight={
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Sm}
           onClick={() => {}}
         >
@@ -320,6 +322,7 @@ export const Empty: Story = {
       headerRight={
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Sm}
           onClick={() => {}}
         >

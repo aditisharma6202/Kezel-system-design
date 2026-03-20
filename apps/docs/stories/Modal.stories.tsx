@@ -6,6 +6,7 @@ import {
   Button,
   ButtonVariant,
   ButtonSize,
+  ButtonStatus,
   TextInput,
   Typography,
   TypographyVariantEnum,
@@ -50,6 +51,7 @@ export const Default: Story = {
       <>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setOpen(true)}
         >
@@ -73,7 +75,7 @@ export const Default: Story = {
               }}
             >
               <Button
-                variant={ButtonVariant.Outline}
+                variant={ButtonVariant.Primary}
                 size={ButtonSize.Sm}
                 onClick={() => setOpen(false)}
               >
@@ -81,6 +83,7 @@ export const Default: Story = {
               </Button>
               <Button
                 variant={ButtonVariant.Primary}
+                status={ButtonStatus.Brand}
                 size={ButtonSize.Sm}
                 onClick={() => setOpen(false)}
               >
@@ -105,6 +108,7 @@ export const Small: Story = {
       <>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setOpen(true)}
         >
@@ -132,7 +136,7 @@ export const Small: Story = {
             }}
           >
             <Button
-              variant={ButtonVariant.Outline}
+              variant={ButtonVariant.Primary}
               size={ButtonSize.Sm}
               onClick={() => setOpen(false)}
             >
@@ -140,6 +144,7 @@ export const Small: Story = {
             </Button>
             <Button
               variant={ButtonVariant.Primary}
+              status={ButtonStatus.Brand}
               size={ButtonSize.Sm}
               onClick={() => setOpen(false)}
             >
@@ -159,6 +164,7 @@ export const Large: Story = {
       <>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setOpen(true)}
         >
@@ -183,7 +189,7 @@ export const Large: Story = {
               }}
             >
               <Button
-                variant={ButtonVariant.Outline}
+                variant={ButtonVariant.Primary}
                 size={ButtonSize.Sm}
                 onClick={() => setOpen(false)}
               >
@@ -209,6 +215,7 @@ export const ExtraLarge: Story = {
       <>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setOpen(true)}
         >
@@ -241,6 +248,7 @@ export const NoOverlay: Story = {
       <>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setOpen(true)}
         >
@@ -275,6 +283,7 @@ export const WithForm: Story = {
       <>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setOpen(true)}
         >
@@ -298,7 +307,7 @@ export const WithForm: Story = {
               }}
             >
               <Button
-                variant={ButtonVariant.Outline}
+                variant={ButtonVariant.Primary}
                 size={ButtonSize.Sm}
                 onClick={() => setOpen(false)}
               >
@@ -306,6 +315,7 @@ export const WithForm: Story = {
               </Button>
               <Button
                 variant={ButtonVariant.Primary}
+                status={ButtonStatus.Brand}
                 size={ButtonSize.Sm}
                 onClick={() => setOpen(false)}
               >

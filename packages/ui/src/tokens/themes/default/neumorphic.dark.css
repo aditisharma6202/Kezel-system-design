@@ -27,8 +27,8 @@
   /* ── TYPOGRAPHY ── */
   --kz-typography-color-primary: #e8ecf0;
   --kz-typography-color-secondary: #8a94a6;
-  --kz-typography-error-color: #ef4444;
-  --kz-typography-success-color: #22c55e;
+  --kz-typography-error-color: var(--kz-color-status-error);
+  --kz-typography-success-color: var(--kz-color-status-success);
 
   /* Typography per-heading colors */
   --kz-typography-h1-color: #e8ecf0;
@@ -61,22 +61,76 @@
     2px 2px 4px 0 rgba(20, 24, 32, 0.8) inset,
     -2px -2px 4px 0 rgba(72, 82, 98, 0.4) inset;
 
+  /* ── STATUS ── */
+  --kz-color-status-success: #00c950;
+  --kz-color-status-success-bg: #e6f4ea;
+  --kz-color-status-success-border: #00c950;
+  --kz-color-status-warning: #f59e0b;
+  --kz-color-status-warning-bg: #fef3c7;
+  --kz-color-status-warning-border: #f59e0b;
+  --kz-color-status-error: #fb2c36;
+  --kz-color-status-error-bg: #fdecec;
+  --kz-color-status-error-border: #fb2c36;
+  --kz-color-status-info: #2563eb;
+  --kz-color-status-info-bg: #e8f1fd;
+  --kz-color-status-info-border: #b6d4fe;
+
   /* ── BUTTON ── */
-  --kz-component-button-primary-bg: var(--kz-color-brand-accent-dark);
-  --kz-component-button-primary-shadow:
-    2px 2px 4px 0 rgba(0, 0, 0, 0.4),
-    -2px -2px 4px 0 rgba(255, 255, 255, 0.08);
-  --kz-component-button-primary-shadow-hover:
-    2px 2px 4px 0 rgba(0, 0, 0, 0.4) inset,
-    -2px -2px 4px 0 rgba(255, 255, 255, 0.06) inset;
   --kz-component-button-secondary-bg: var(--kz-color-surface-base);
   --kz-component-button-secondary-text: #e8ecf0;
   --kz-component-button-secondary-bg-hover: #3e4453;
   --kz-component-button-secondary-bg-active: #3e4453;
-  --kz-component-button-outline-bg: var(--kz-color-surface-base);
-  --kz-component-button-outline-bg-hover: #3e4453;
-  --kz-component-button-outline-text: #e8ecf0;
+  --kz-component-button-secondary-shadow:
+    2px 2px 4px 0 rgba(0, 0, 0, 0.4),
+    -2px -2px 4px 0 rgba(255, 255, 255, 0.08);
+  --kz-component-button-secondary-shadow-hover: var(--kz-shadow-neumorphic-inset-sm);
+
+  --kz-component-button-brand-bg: var(--kz-color-brand-accent-dark);
+  --kz-component-button-brand-bg-hover: var(--kz-color-brand-accent);
+  --kz-component-button-brand-text: #fff;
+  --kz-component-button-brand-shadow:
+    2px 2px 4px 0 rgba(0, 0, 0, 0.4),
+    -2px -2px 4px 0 rgba(255, 255, 255, 0.08);
+  --kz-component-button-brand-shadow-hover:
+    2px 2px 4px 0 rgba(0, 0, 0, 0.4) inset,
+    -2px -2px 4px 0 rgba(255, 255, 255, 0.06) inset;
+  --kz-component-button-ghost-brand-bg-hover: rgba(0, 187, 167, 0.15);
+  --kz-component-button-container-brand-text: var(--kz-color-brand-accent-dark);
+  --kz-component-button-container-brand-border: var(--kz-color-brand-accent-dark);
+  --kz-component-button-container-brand-bg-hover: rgba(0, 187, 167, 0.12);
   --kz-component-button-ghost-bg-hover: #ffffff0d;
+  --kz-component-button-ghost-success-bg-hover: rgba(0, 201, 80, 0.15);
+  --kz-component-button-ghost-warning-bg-hover: rgba(245, 158, 11, 0.15);
+  --kz-component-button-ghost-error-bg-hover: rgba(239, 68, 68, 0.15);
+  --kz-component-button-ghost-info-bg-hover: rgba(37, 99, 235, 0.15);
+
+  --kz-component-button-container-bg: var(--kz-color-surface-base);
+  --kz-component-button-container-text: #e8ecf0;
+  --kz-component-button-container-border: rgba(255, 255, 255, 0.06);
+  --kz-component-button-container-bg-hover: var(--kz-color-surface-base);
+  --kz-component-button-container-shadow:
+    2px 2px 4px 0 rgba(0, 0, 0, 0.4),
+    -2px -2px 4px 0 rgba(255, 255, 255, 0.08);
+  --kz-component-button-container-shadow-hover:
+    2px 2px 4px 0 rgba(0, 0, 0, 0.4) inset,
+    -2px -2px 4px 0 rgba(255, 255, 255, 0.06) inset;
+
+  --kz-component-button-error-shadow:
+    2px 2px 4px 0 rgba(0, 0, 0, 0.4),
+    -2px -2px 4px 0 rgba(255, 255, 255, 0.08);
+  --kz-component-button-error-shadow-hover: var(--kz-component-button-brand-shadow-hover);
+  --kz-component-button-success-bg-hover: #16A34A;
+  --kz-component-button-success-shadow:
+    2px 2px 4px 0 rgba(0, 0, 0, 0.4),
+    -2px -2px 4px 0 rgba(255, 255, 255, 0.08);
+  --kz-component-button-success-shadow-hover: var(--kz-component-button-brand-shadow-hover);
+  --kz-component-button-info-bg: var(--kz-color-status-info);
+  --kz-component-button-info-bg-hover: #1d4ed8;
+  --kz-component-button-info-text: #fff;
+  --kz-component-button-info-shadow:
+    2px 2px 4px 0 rgba(0, 0, 0, 0.4),
+    -2px -2px 4px 0 rgba(255, 255, 255, 0.08);
+  --kz-component-button-info-shadow-hover: var(--kz-component-button-brand-shadow-hover);
 
   /* ── INPUT ── */
   --kz-component-input-border: rgba(255, 255, 255, 0.06);
@@ -119,8 +173,8 @@
     -2px -2px 6px 0 rgba(72, 82, 98, 0.3);
   --kz-component-tooltip-inverse-bg: #e8ecf0;
   --kz-component-tooltip-inverse-text: #2c3440;
-  --kz-component-tooltip-success-bg: #22c55e;
-  --kz-component-tooltip-error-bg: #ef4444;
+  --kz-component-tooltip-success-bg: var(--kz-color-status-success);
+  --kz-component-tooltip-error-bg: var(--kz-color-status-error);
 
   /* ── TABLE ── */
   --kz-component-table-header-bg: var(--kz-color-surface-raised);

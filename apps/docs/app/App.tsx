@@ -4,6 +4,7 @@ import * as React from "react";
 import {
   Button,
   ButtonVariant,
+  ButtonStatus,
   ButtonSize,
   Typography,
   TypographyVariantEnum,
@@ -354,6 +355,7 @@ export default function App() {
             <div className="flex flex-wrap gap-2 justify-center">
               <Button
                 variant={ButtonVariant.Primary}
+                status={ButtonStatus.Brand}
                 size={ButtonSize.Sm}
                 onClick={() => setVariant(KezelVariant.Standard)}
               >
@@ -361,13 +363,14 @@ export default function App() {
               </Button>
               <Button
                 variant={ButtonVariant.Primary}
+                status={ButtonStatus.Brand}
                 size={ButtonSize.Sm}
                 onClick={() => setVariant(KezelVariant.Neumorphic)}
               >
                 Neumorphic
               </Button>
               <Button
-                variant={ButtonVariant.Outline}
+                variant={ButtonVariant.Primary}
                 size={ButtonSize.Sm}
                 onClick={() =>
                   setMode(

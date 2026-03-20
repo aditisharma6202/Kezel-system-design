@@ -3,6 +3,7 @@ import { Slot } from "@radix-ui/react-slot";
 import {
   ButtonVariant,
   ButtonSize,
+  ButtonStatus,
   ButtonType,
   ButtonAspectRatio,
 } from "../../constants/enum";
@@ -17,6 +18,7 @@ export interface ButtonProps extends Omit<
 > {
   variant: ButtonVariant;
   size: ButtonSize;
+  status?: ButtonStatus;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   asChild?: boolean;
   children: React.ReactNode;
@@ -31,6 +33,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       className,
       variant,
       size,
+      status,
       onClick,
       asChild = false,
       children,
@@ -46,7 +49,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const isDisabled = disabled || loading;
 
     const buttonClassName = cn(
-      buttonVariants({ variant, size }),
+      buttonVariants({ variant, size, status }),
       loading && "opacity-[var(--kz-component-button-loading-opacity,0.8)]",
       aspectRatio === ButtonAspectRatio.Square && "kz-button--aspect-1-1",
       className

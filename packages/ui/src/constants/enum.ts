@@ -22,12 +22,16 @@ export enum KezelMode {
 
 export enum ButtonVariant {
   Primary = "primary",
-  Secondary = "secondary",
-  Outline = "outline",
   Ghost = "ghost",
+  Container = "container",
+}
+
+export enum ButtonStatus {
+  Brand = "brand",
   Success = "success",
   Warning = "warning",
   Error = "error",
+  Info = "info",
 }
 
 export enum ButtonSize {
@@ -224,4 +228,10 @@ export enum ToastPosition {
   TopLeft = "top-left",
   BottomRight = "bottom-right",
   BottomLeft = "bottom-left",
+}
+
+export enum QrPattern {
+  Square = "square",
+  Circle = "circle",
+  Diamond = "diamond",
 }

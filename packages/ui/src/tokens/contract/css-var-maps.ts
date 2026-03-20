@@ -143,14 +143,7 @@ export const tokenToCssVar: Record<TokenKey, `--kz-${string}`> = {
   "component.header.border": "--kz-component-header-border",
   "component.header.text": "--kz-component-header-text",
 
-  "component.button.primary.bg": "--kz-component-button-primary-bg",
-  "component.button.primary.bg.hover": "--kz-component-button-primary-bg-hover",
-  "component.button.primary.bg.active":
-    "--kz-component-button-primary-bg-active",
-  "component.button.primary.text": "--kz-component-button-primary-text",
-  "component.button.primary.shadow": "--kz-component-button-primary-shadow",
-  "component.button.primary.shadow.hover":
-    "--kz-component-button-primary-shadow-hover",
+  // Primary variant (reads secondary CSS tokens)
   "component.button.secondary.bg": "--kz-component-button-secondary-bg",
   "component.button.secondary.bg.hover":
     "--kz-component-button-secondary-bg-hover",
@@ -160,34 +153,96 @@ export const tokenToCssVar: Record<TokenKey, `--kz-${string}`> = {
   "component.button.secondary.shadow": "--kz-component-button-secondary-shadow",
   "component.button.secondary.shadow.hover":
     "--kz-component-button-secondary-shadow-hover",
-  "component.button.outline.bg": "--kz-component-button-outline-bg",
-  "component.button.outline.bg.hover": "--kz-component-button-outline-bg-hover",
-  "component.button.outline.border": "--kz-component-button-outline-border",
-  "component.button.outline.text": "--kz-component-button-outline-text",
-  "component.button.outline.shadow": "--kz-component-button-outline-shadow",
-  "component.button.outline.shadow.hover":
-    "--kz-component-button-outline-shadow-hover",
+
+  // Ghost variant
   "component.button.ghost.bg": "--kz-component-button-ghost-bg",
   "component.button.ghost.bg.hover": "--kz-component-button-ghost-bg-hover",
   "component.button.ghost.text": "--kz-component-button-ghost-text",
+
+  // Container variant
+  "component.button.container.bg": "--kz-component-button-container-bg",
+  "component.button.container.bg.hover":
+    "--kz-component-button-container-bg-hover",
+  "component.button.container.text": "--kz-component-button-container-text",
+  "component.button.container.border": "--kz-component-button-container-border",
+  "component.button.container.shadow": "--kz-component-button-container-shadow",
+  "component.button.container.shadow.hover":
+    "--kz-component-button-container-shadow-hover",
+
+  // Brand status
+  "component.button.brand.bg": "--kz-component-button-brand-bg",
+  "component.button.brand.bg.hover": "--kz-component-button-brand-bg-hover",
+  "component.button.brand.text": "--kz-component-button-brand-text",
+  "component.button.brand.shadow": "--kz-component-button-brand-shadow",
+  "component.button.brand.shadow.hover":
+    "--kz-component-button-brand-shadow-hover",
+
+  // Ghost + status hover backgrounds
+  "component.button.ghost.brand.bg.hover":
+    "--kz-component-button-ghost-brand-bg-hover",
+  "component.button.ghost.success.bg.hover":
+    "--kz-component-button-ghost-success-bg-hover",
+  "component.button.ghost.warning.bg.hover":
+    "--kz-component-button-ghost-warning-bg-hover",
+  "component.button.ghost.error.bg.hover":
+    "--kz-component-button-ghost-error-bg-hover",
+  "component.button.ghost.info.bg.hover":
+    "--kz-component-button-ghost-info-bg-hover",
+
+  // Container + brand overrides
+  "component.button.container.brand.text":
+    "--kz-component-button-container-brand-text",
+  "component.button.container.brand.border":
+    "--kz-component-button-container-brand-border",
+  "component.button.container.brand.bg.hover":
+    "--kz-component-button-container-brand-bg-hover",
+
+  // Success status
   "component.button.success.bg": "--kz-component-button-success-bg",
   "component.button.success.bg.hover": "--kz-component-button-success-bg-hover",
   "component.button.success.text": "--kz-component-button-success-text",
   "component.button.success.shadow": "--kz-component-button-success-shadow",
   "component.button.success.shadow.hover":
     "--kz-component-button-success-shadow-hover",
+
+  // Warning status
   "component.button.warning.bg": "--kz-component-button-warning-bg",
   "component.button.warning.bg.hover": "--kz-component-button-warning-bg-hover",
   "component.button.warning.text": "--kz-component-button-warning-text",
   "component.button.warning.shadow": "--kz-component-button-warning-shadow",
   "component.button.warning.shadow.hover":
     "--kz-component-button-warning-shadow-hover",
+
+  // Error status
   "component.button.error.bg": "--kz-component-button-error-bg",
   "component.button.error.bg.hover": "--kz-component-button-error-bg-hover",
   "component.button.error.text": "--kz-component-button-error-text",
   "component.button.error.shadow": "--kz-component-button-error-shadow",
   "component.button.error.shadow.hover":
     "--kz-component-button-error-shadow-hover",
+
+  // Info status
+  "component.button.info.bg": "--kz-component-button-info-bg",
+  "component.button.info.bg.hover": "--kz-component-button-info-bg-hover",
+  "component.button.info.text": "--kz-component-button-info-text",
+  "component.button.info.shadow": "--kz-component-button-info-shadow",
+  "component.button.info.shadow.hover":
+    "--kz-component-button-info-shadow-hover",
+
+  // Sizes
+  "component.button.height.sm": "--kz-component-button-height-sm",
+  "component.button.px.sm": "--kz-component-button-px-sm",
+  "component.button.text.sm": "--kz-component-button-text-sm",
+  "component.button.icon.sm": "--kz-component-button-icon-sm",
+  "component.button.height.md": "--kz-component-button-height-md",
+  "component.button.px.md": "--kz-component-button-px-md",
+  "component.button.text.md": "--kz-component-button-text-md",
+  "component.button.icon.md": "--kz-component-button-icon-md",
+  "component.button.height.lg": "--kz-component-button-height-lg",
+  "component.button.px.lg": "--kz-component-button-px-lg",
+  "component.button.text.lg": "--kz-component-button-text-lg",
+  "component.button.icon.lg": "--kz-component-button-icon-lg",
+  // Common
   "component.button.radius": "--kz-component-button-radius",
   "component.button.disabled.opacity": "--kz-component-button-disabled-opacity",
   "component.button.loading.opacity": "--kz-component-button-loading-opacity",

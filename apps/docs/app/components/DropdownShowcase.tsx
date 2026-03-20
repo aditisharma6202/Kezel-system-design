@@ -84,7 +84,7 @@ export default function DropdownShowcase({
           sideOffset={6}
         />
         <Button
-          variant={ButtonVariant.Outline}
+          variant={ButtonVariant.Primary}
           size={ButtonSize.Sm}
           onClick={() =>
             onTokenOverridesChange(

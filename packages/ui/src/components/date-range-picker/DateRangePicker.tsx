@@ -424,7 +424,7 @@ const DateRangePicker = React.forwardRef<
                   )}
                   {showClearButton && (
                     <Button
-                      variant={ButtonVariant.Outline}
+                      variant={ButtonVariant.Primary}
                       size={ButtonSize.Sm}
                       onClick={handleClear}
                     >

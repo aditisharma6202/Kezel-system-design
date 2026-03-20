@@ -7,6 +7,7 @@ import {
   Table,
   Button,
   ButtonVariant,
+  ButtonStatus,
   ButtonSize,
 } from "kz-design-system";
 import { DropdownButton } from "kz-design-system/dropdown";
@@ -183,6 +184,7 @@ export default function TableFullShowcase() {
           headerRight={
             <Button
               variant={ButtonVariant.Primary}
+              status={ButtonStatus.Brand}
               size={ButtonSize.Sm}
               onClick={() => {}}
             >

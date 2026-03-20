@@ -1,13 +1,12 @@
 import type * as React from "react";
-
-export type QrPatternStyle = "square" | "circle" | "rounded";
+import type { QrPattern } from "../../constants/enum";
 
 export interface QrRendererDebugInfo {
   qr_size_modules?: number;
   module_size_px?: number;
   native_img_px?: number;
   out_size_px?: number;
-  pattern_style?: QrPatternStyle;
+  pattern?: QrPattern;
   border_modules?: number;
   org?: string;
   has_logo?: boolean;
@@ -21,10 +20,12 @@ interface QrRendererBaseProps {
   size?: number;
   /** Alt text for the QR image (defaults to "QR Code") */
   alt?: string;
-  /** Optional logo to overlay in the center of the QR code */
+  /** Optional logo to overlay in the center of the QR code (URL, data URI, or base64) */
   logo?: string;
   /** Logo size as a fraction of the QR size (defaults to 0.2 = 20%) */
   logoScale?: number;
+  /** Pattern style for QR modules (defaults to Square) */
+  pattern?: QrPattern;
   /** Optional label text shown below the QR code */
   label?: React.ReactNode;
   /** Optional caption/description below the label */
@@ -56,7 +57,7 @@ export interface QrRendererDataProps extends QrRendererBaseProps {
   /** Text/URL to encode as a QR code (generated via qrcode library) */
   data: string;
   image?: never;
-  /** Error correction level (defaults to "M") */
+  /** Error correction level (defaults to "H" when logo is present, "M" otherwise) */
   errorCorrectionLevel?: QrErrorCorrectionLevel;
 }
 

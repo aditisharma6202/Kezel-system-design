@@ -1,9 +1,9 @@
 export { QrRenderer } from "./QrRenderer";
+export { QrPattern } from "../../constants/enum";
 export type {
   QrRendererProps,
   QrRendererImageProps,
   QrRendererDataProps,
   QrRendererDebugInfo,
-  QrPatternStyle,
   QrErrorCorrectionLevel,
 } from "./QrRenderer.types";

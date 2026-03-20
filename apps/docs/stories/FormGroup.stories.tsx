@@ -9,6 +9,7 @@ import {
   Button,
   ButtonVariant,
   ButtonSize,
+  ButtonStatus,
 } from "kz-design-system";
 
 const meta: Meta<typeof FormGroup> = {
@@ -108,10 +109,14 @@ export const Horizontal: Story = {
   render: () => (
     <div style={{ width: 400 }}>
       <FormGroup label="Actions" direction={FormGroupDirection.Horizontal}>
-        <Button variant={ButtonVariant.Primary} size={ButtonSize.Sm}>
+        <Button
+          variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
+          size={ButtonSize.Sm}
+        >
           Save
         </Button>
-        <Button variant={ButtonVariant.Outline} size={ButtonSize.Sm}>
+        <Button variant={ButtonVariant.Primary} size={ButtonSize.Sm}>
           Cancel
         </Button>
         <Button variant={ButtonVariant.Ghost} size={ButtonSize.Sm}>
@@ -193,16 +198,16 @@ export const CustomGap: Story = {
         gap={16}
         direction={FormGroupDirection.Horizontal}
       >
-        <Button variant={ButtonVariant.Outline} size={ButtonSize.Sm}>
+        <Button variant={ButtonVariant.Primary} size={ButtonSize.Sm}>
           Music
         </Button>
-        <Button variant={ButtonVariant.Outline} size={ButtonSize.Sm}>
+        <Button variant={ButtonVariant.Primary} size={ButtonSize.Sm}>
           Sports
         </Button>
-        <Button variant={ButtonVariant.Outline} size={ButtonSize.Sm}>
+        <Button variant={ButtonVariant.Primary} size={ButtonSize.Sm}>
           Tech
         </Button>
-        <Button variant={ButtonVariant.Outline} size={ButtonSize.Sm}>
+        <Button variant={ButtonVariant.Primary} size={ButtonSize.Sm}>
           Art
         </Button>
       </FormGroup>

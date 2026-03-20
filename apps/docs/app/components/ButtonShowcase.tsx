@@ -4,12 +4,27 @@ import {
   Button,
   ButtonVariant,
   ButtonSize,
+  ButtonStatus,
   ButtonAspectRatio,
   Typography,
   TypographyVariantEnum,
   Icon,
   IconName,
 } from "kz-design-system";
+
+const VARIANTS = [
+  ButtonVariant.Primary,
+  ButtonVariant.Ghost,
+  ButtonVariant.Container,
+] as const;
+
+const STATUSES = [
+  ButtonStatus.Brand,
+  ButtonStatus.Success,
+  ButtonStatus.Warning,
+  ButtonStatus.Error,
+  ButtonStatus.Info,
+] as const;
 
 export default function ButtonShowcase() {
   return (
@@ -20,62 +35,19 @@ export default function ButtonShowcase() {
         </Typography>
       </section>
 
+      {/* ── Variants ── */}
       <section className="flex flex-col items-center gap-4">
         <Typography variant={TypographyVariantEnum.H3}>Variants</Typography>
         <Typography variant={TypographyVariantEnum.Caption}>
-          Primary, Secondary, Outline, Ghost, Success, Warning, Error. Disabled
-          uses 0.5 opacity; Loading shows spinner.
+          Primary, Ghost, Container. Disabled uses reduced opacity; Loading
+          shows spinner.
         </Typography>
         <div className="flex flex-wrap gap-3 justify-center">
-          <Button
-            variant={ButtonVariant.Primary}
-            size={ButtonSize.Md}
-            onClick={() => {}}
-          >
-            Primary
-          </Button>
-          <Button
-            variant={ButtonVariant.Secondary}
-            size={ButtonSize.Md}
-            onClick={() => {}}
-          >
-            Secondary
-          </Button>
-          <Button
-            variant={ButtonVariant.Outline}
-            size={ButtonSize.Md}
-            onClick={() => {}}
-          >
-            Outline
-          </Button>
-          <Button
-            variant={ButtonVariant.Ghost}
-            size={ButtonSize.Md}
-            onClick={() => {}}
-          >
-            Ghost
-          </Button>
-          <Button
-            variant={ButtonVariant.Success}
-            size={ButtonSize.Md}
-            onClick={() => {}}
-          >
-            Success
-          </Button>
-          <Button
-            variant={ButtonVariant.Warning}
-            size={ButtonSize.Md}
-            onClick={() => {}}
-          >
-            Warning
-          </Button>
-          <Button
-            variant={ButtonVariant.Error}
-            size={ButtonSize.Md}
-            onClick={() => {}}
-          >
-            Error
-          </Button>
+          {VARIANTS.map((v) => (
+            <Button key={v} variant={v} size={ButtonSize.Md} onClick={() => {}}>
+              {v}
+            </Button>
+          ))}
           <Button
             variant={ButtonVariant.Primary}
             size={ButtonSize.Md}
@@ -95,11 +67,13 @@ export default function ButtonShowcase() {
         </div>
       </section>
 
+      {/* ── Sizes ── */}
       <section className="flex flex-col items-center gap-4">
         <Typography variant={TypographyVariantEnum.H3}>Sizes</Typography>
         <div className="flex flex-wrap items-center gap-3 justify-center">
           <Button
             variant={ButtonVariant.Primary}
+            status={ButtonStatus.Brand}
             size={ButtonSize.Sm}
             aspectRatio={ButtonAspectRatio.Square}
             onClick={() => {}}
@@ -108,6 +82,7 @@ export default function ButtonShowcase() {
           </Button>
           <Button
             variant={ButtonVariant.Primary}
+            status={ButtonStatus.Brand}
             size={ButtonSize.Md}
             onClick={() => {}}
           >
@@ -115,6 +90,7 @@ export default function ButtonShowcase() {
           </Button>
           <Button
             variant={ButtonVariant.Primary}
+            status={ButtonStatus.Brand}
             size={ButtonSize.Lg}
             onClick={() => {}}
           >
@@ -123,22 +99,42 @@ export default function ButtonShowcase() {
         </div>
       </section>
 
+      {/* ── Status × Variant matrix ── */}
       <section className="flex flex-col items-center gap-4">
         <Typography variant={TypographyVariantEnum.H3}>
-          All combinations
+          Status &times; Variant
+        </Typography>
+        <Typography variant={TypographyVariantEnum.Caption}>
+          Each status (Brand, Success, Warning, Error, Info) combined with every
+          variant. Ghost + status shows colored text; Container + Brand shows
+          brand border.
+        </Typography>
+        <div className="flex flex-col gap-4 items-center max-w-4xl">
+          {STATUSES.map((st) => (
+            <div key={st} className="flex flex-wrap gap-2 justify-center">
+              {VARIANTS.map((v) => (
+                <Button
+                  key={`${st}-${v}`}
+                  variant={v}
+                  status={st}
+                  size={ButtonSize.Md}
+                  onClick={() => {}}
+                >
+                  {st} {v}
+                </Button>
+              ))}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── All variant × size ── */}
+      <section className="flex flex-col items-center gap-4">
+        <Typography variant={TypographyVariantEnum.H3}>
+          All variant &times; size combinations
         </Typography>
         <div className="flex flex-wrap gap-2 justify-center max-w-2xl">
-          {(
-            [
-              ButtonVariant.Primary,
-              ButtonVariant.Secondary,
-              ButtonVariant.Outline,
-              ButtonVariant.Ghost,
-              ButtonVariant.Success,
-              ButtonVariant.Warning,
-              ButtonVariant.Error,
-            ] as const
-          ).map((v) =>
+          {VARIANTS.map((v) =>
             ([ButtonSize.Sm, ButtonSize.Md, ButtonSize.Lg] as const).map(
               (s) => (
                 <Button
@@ -155,6 +151,7 @@ export default function ButtonShowcase() {
         </div>
       </section>
 
+      {/* ── asChild ── */}
       <section className="flex flex-col items-center gap-4">
         <Typography variant={TypographyVariantEnum.H3}>asChild</Typography>
         <Button

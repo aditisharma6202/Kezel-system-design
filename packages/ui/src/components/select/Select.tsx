@@ -58,6 +58,15 @@ export interface SelectProps {
     options: SelectOption[]
   ) => React.ReactNode;
 
+  /** Max height of the options panel in px. Default: 200 */
+  panelHeight?: number;
+
+  /** Called when "Select All" is clicked. When provided, shows the Select All button in the footer. */
+  onSelectAll?: () => void;
+
+  /** Called when "Remove All" is clicked. When provided, shows the Remove All button in the footer. */
+  onRemoveAll?: () => void;
+
   className?: string;
 }
 
@@ -96,6 +105,9 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
       description,
       triggerLabel,
       renderValue,
+      panelHeight = 200,
+      onSelectAll,
+      onRemoveAll,
       className,
     },
     ref
@@ -299,7 +311,15 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
               className="kz-select-popover"
               sideOffset={4}
               align="start"
-              style={{ width: "var(--radix-popover-trigger-width)" }}
+              style={
+                {
+                  width: "var(--radix-popover-trigger-width)",
+                  height: "auto",
+                  "--kz-select-popover-height": panelHeight
+                    ? `${panelHeight}px`
+                    : "auto",
+                } as React.CSSProperties
+              }
               onOpenAutoFocus={(e) => {
                 if (searchable) {
                   e.preventDefault();
@@ -325,7 +345,11 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
                 </div>
               )}
 
-              <ul className="kz-select-list" role="listbox">
+              <ul
+                className="kz-select-list"
+                role="listbox"
+                style={{ maxHeight: panelHeight }}
+              >
                 {filteredOptions.length === 0 && (
                   <li className="kz-select-empty">No options</li>
                 )}
@@ -362,6 +386,30 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
                   );
                 })}
               </ul>
+
+              {(onSelectAll || onRemoveAll) && (
+                <div className="kz-select-footer">
+                  {onSelectAll && (
+                    <button
+                      type="button"
+                      className="kz-select-footer-action"
+                      onClick={onSelectAll}
+                    >
+                      Select All
+                    </button>
+                  )}
+                  {onRemoveAll && (
+                    <button
+                      type="button"
+                      className="kz-select-footer-action kz-select-footer-action--remove"
+                      onClick={onRemoveAll}
+                      aria-label="Remove All"
+                    >
+                      <Icon name={IconName.Trash2} size={14} />
+                    </button>
+                  )}
+                </div>
+              )}
             </Popover.Content>
           </Popover.Portal>
         </Popover.Root>

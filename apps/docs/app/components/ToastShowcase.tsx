@@ -5,6 +5,7 @@ import {
   Button,
   ButtonVariant,
   ButtonSize,
+  ButtonStatus,
   Typography,
   TypographyVariantEnum,
   useToast,
@@ -41,7 +42,8 @@ export default function ToastShowcase() {
       <Typography variant={TypographyVariantEnum.H3}>Variants</Typography>
       <div className="flex flex-wrap gap-3 justify-center">
         <Button
-          variant={ButtonVariant.Success}
+          variant={ButtonVariant.Primary}
+          status={ButtonStatus.Success}
           size={ButtonSize.Sm}
           onClick={() =>
             toast({
@@ -54,7 +56,8 @@ export default function ToastShowcase() {
           Success
         </Button>
         <Button
-          variant={ButtonVariant.Error}
+          variant={ButtonVariant.Primary}
+          status={ButtonStatus.Error}
           size={ButtonSize.Sm}
           onClick={() =>
             toast({
@@ -67,7 +70,8 @@ export default function ToastShowcase() {
           Error
         </Button>
         <Button
-          variant={ButtonVariant.Warning}
+          variant={ButtonVariant.Primary}
+          status={ButtonStatus.Warning}
           size={ButtonSize.Sm}
           onClick={() =>
             toast({
@@ -81,6 +85,7 @@ export default function ToastShowcase() {
         </Button>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Sm}
           onClick={() =>
             toast({
@@ -98,7 +103,7 @@ export default function ToastShowcase() {
       <Typography variant={TypographyVariantEnum.H3}>Title only</Typography>
       <div className="flex flex-wrap gap-3 justify-center">
         <Button
-          variant={ButtonVariant.Outline}
+          variant={ButtonVariant.Primary}
           size={ButtonSize.Sm}
           onClick={() =>
             toast({
@@ -117,7 +122,7 @@ export default function ToastShowcase() {
       </Typography>
       <div className="flex flex-wrap gap-3 justify-center">
         <Button
-          variant={ButtonVariant.Outline}
+          variant={ButtonVariant.Primary}
           size={ButtonSize.Sm}
           onClick={() =>
             toast({
@@ -131,7 +136,7 @@ export default function ToastShowcase() {
           No auto-dismiss
         </Button>
         <Button
-          variant={ButtonVariant.Outline}
+          variant={ButtonVariant.Primary}
           size={ButtonSize.Sm}
           onClick={() =>
             toast({

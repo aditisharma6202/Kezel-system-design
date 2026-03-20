@@ -84,7 +84,7 @@ export const Default: Story = {
     content: "Hover to see tooltip",
     children: (
       <Button
-        variant={ButtonVariant.Outline}
+        variant={ButtonVariant.Primary}
         size={ButtonSize.Md}
         onClick={() => {}}
       >

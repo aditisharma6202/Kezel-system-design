@@ -4,6 +4,7 @@ import * as React from "react";
 import {
   Button,
   ButtonVariant,
+  ButtonStatus,
   ButtonSize,
   Typography,
   TypographyVariantEnum,
@@ -106,6 +107,7 @@ export default function TableShowcase() {
             <div className="m-2">
               <Button
                 variant={ButtonVariant.Primary}
+                status={ButtonStatus.Brand}
                 size={ButtonSize.Sm}
                 onClick={() => {}}
               >

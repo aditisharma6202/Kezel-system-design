@@ -5,6 +5,7 @@ import {
   Button,
   ButtonVariant,
   ButtonSize,
+  ButtonStatus,
   Typography,
   TypographyVariantEnum,
   Card,
@@ -152,7 +153,11 @@ export default function CardShowcase() {
             <Button variant={ButtonVariant.Ghost} size={ButtonSize.Sm}>
               Cancel
             </Button>
-            <Button variant={ButtonVariant.Primary} size={ButtonSize.Sm}>
+            <Button
+              variant={ButtonVariant.Primary}
+              status={ButtonStatus.Brand}
+              size={ButtonSize.Sm}
+            >
               Save
             </Button>
           </div>

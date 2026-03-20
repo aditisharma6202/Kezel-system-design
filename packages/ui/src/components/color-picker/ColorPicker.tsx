@@ -375,7 +375,7 @@ const ColorPicker = React.forwardRef<HTMLInputElement, ColorPickerProps>(
 
               <div className="kz-color-picker-footer">
                 <Button
-                  variant={ButtonVariant.Outline}
+                  variant={ButtonVariant.Primary}
                   size={ButtonSize.Sm}
                   onClick={handleClear}
                 >

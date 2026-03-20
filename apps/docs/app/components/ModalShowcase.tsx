@@ -9,6 +9,7 @@ import {
   Button,
   ButtonVariant,
   ButtonSize,
+  ButtonStatus,
   TextInput,
 } from "kz-design-system";
 
@@ -31,6 +32,7 @@ export default function ModalShowcase() {
         <Typography variant={TypographyVariantEnum.H3}>Default (md)</Typography>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setDefaultOpen(true)}
         >
@@ -47,7 +49,7 @@ export default function ModalShowcase() {
           footer={
             <div className="flex gap-2 justify-end w-full">
               <Button
-                variant={ButtonVariant.Outline}
+                variant={ButtonVariant.Primary}
                 size={ButtonSize.Sm}
                 onClick={() => setDefaultOpen(false)}
               >
@@ -55,6 +57,7 @@ export default function ModalShowcase() {
               </Button>
               <Button
                 variant={ButtonVariant.Primary}
+                status={ButtonStatus.Brand}
                 size={ButtonSize.Sm}
                 onClick={() => setDefaultOpen(false)}
               >
@@ -72,6 +75,7 @@ export default function ModalShowcase() {
         <Typography variant={TypographyVariantEnum.H3}>Small</Typography>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setSmOpen(true)}
         >
@@ -92,7 +96,7 @@ export default function ModalShowcase() {
           </Typography>
           <div className="flex gap-2 justify-end mt-4">
             <Button
-              variant={ButtonVariant.Outline}
+              variant={ButtonVariant.Primary}
               size={ButtonSize.Sm}
               onClick={() => setSmOpen(false)}
             >
@@ -100,6 +104,7 @@ export default function ModalShowcase() {
             </Button>
             <Button
               variant={ButtonVariant.Primary}
+              status={ButtonStatus.Brand}
               size={ButtonSize.Sm}
               onClick={() => setSmOpen(false)}
             >
@@ -112,6 +117,7 @@ export default function ModalShowcase() {
         <Typography variant={TypographyVariantEnum.H3}>Large</Typography>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setLgOpen(true)}
         >
@@ -129,7 +135,7 @@ export default function ModalShowcase() {
           footer={
             <div className="flex gap-2 justify-end w-full">
               <Button
-                variant={ButtonVariant.Outline}
+                variant={ButtonVariant.Primary}
                 size={ButtonSize.Sm}
                 onClick={() => setLgOpen(false)}
               >
@@ -148,6 +154,7 @@ export default function ModalShowcase() {
         <Typography variant={TypographyVariantEnum.H3}>Extra Large</Typography>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setXlOpen(true)}
         >
@@ -173,6 +180,7 @@ export default function ModalShowcase() {
         <Typography variant={TypographyVariantEnum.H3}>No overlay</Typography>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setNoOverlayOpen(true)}
         >
@@ -198,6 +206,7 @@ export default function ModalShowcase() {
         <Typography variant={TypographyVariantEnum.H3}>Form modal</Typography>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setFormOpen(true)}
         >
@@ -214,7 +223,7 @@ export default function ModalShowcase() {
           footer={
             <div className="flex gap-2 justify-end w-full">
               <Button
-                variant={ButtonVariant.Outline}
+                variant={ButtonVariant.Primary}
                 size={ButtonSize.Sm}
                 onClick={() => setFormOpen(false)}
               >
@@ -222,6 +231,7 @@ export default function ModalShowcase() {
               </Button>
               <Button
                 variant={ButtonVariant.Primary}
+                status={ButtonStatus.Brand}
                 size={ButtonSize.Sm}
                 onClick={() => setFormOpen(false)}
               >

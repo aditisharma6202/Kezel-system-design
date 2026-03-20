@@ -4,6 +4,7 @@ import {
   Button,
   ButtonVariant,
   ButtonSize,
+  ButtonStatus,
   ToastProvider,
   useToast,
   Toaster,
@@ -26,7 +27,8 @@ function ToastDemo({ position }: { position?: ToastPosition }) {
       >
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
           <Button
-            variant={ButtonVariant.Success}
+            variant={ButtonVariant.Primary}
+            status={ButtonStatus.Success}
             size={ButtonSize.Sm}
             onClick={() =>
               toast({
@@ -39,7 +41,8 @@ function ToastDemo({ position }: { position?: ToastPosition }) {
             Success
           </Button>
           <Button
-            variant={ButtonVariant.Error}
+            variant={ButtonVariant.Primary}
+            status={ButtonStatus.Error}
             size={ButtonSize.Sm}
             onClick={() =>
               toast({
@@ -52,7 +55,8 @@ function ToastDemo({ position }: { position?: ToastPosition }) {
             Error
           </Button>
           <Button
-            variant={ButtonVariant.Warning}
+            variant={ButtonVariant.Primary}
+            status={ButtonStatus.Warning}
             size={ButtonSize.Sm}
             onClick={() =>
               toast({
@@ -66,6 +70,7 @@ function ToastDemo({ position }: { position?: ToastPosition }) {
           </Button>
           <Button
             variant={ButtonVariant.Primary}
+            status={ButtonStatus.Brand}
             size={ButtonSize.Sm}
             onClick={() =>
               toast({
@@ -124,7 +129,7 @@ export const TitleOnly: Story = {
     const { toast } = useToast();
     return (
       <Button
-        variant={ButtonVariant.Outline}
+        variant={ButtonVariant.Primary}
         size={ButtonSize.Sm}
         onClick={() =>
           toast({ variant: ToastVariant.Success, title: "Saved successfully" })
@@ -142,7 +147,7 @@ export const CustomDuration: Story = {
     return (
       <div style={{ display: "flex", gap: 8 }}>
         <Button
-          variant={ButtonVariant.Outline}
+          variant={ButtonVariant.Primary}
           size={ButtonSize.Sm}
           onClick={() =>
             toast({
@@ -156,7 +161,7 @@ export const CustomDuration: Story = {
           No auto-dismiss
         </Button>
         <Button
-          variant={ButtonVariant.Outline}
+          variant={ButtonVariant.Primary}
           size={ButtonSize.Sm}
           onClick={() =>
             toast({

@@ -4,6 +4,7 @@ import {
   SidePanel,
   Button,
   ButtonVariant,
+  ButtonStatus,
   ButtonSize,
   Typography,
   TypographyVariantEnum,
@@ -57,6 +58,7 @@ export const Default: Story = {
       <>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setOpen(true)}
         >
@@ -80,7 +82,7 @@ export const Default: Story = {
               }}
             >
               <Button
-                variant={ButtonVariant.Outline}
+                variant={ButtonVariant.Primary}
                 size={ButtonSize.Sm}
                 onClick={() => setOpen(false)}
               >
@@ -88,6 +90,7 @@ export const Default: Story = {
               </Button>
               <Button
                 variant={ButtonVariant.Primary}
+                status={ButtonStatus.Brand}
                 size={ButtonSize.Sm}
                 onClick={() => setOpen(false)}
               >
@@ -112,6 +115,7 @@ export const LeftSide: Story = {
       <>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setOpen(true)}
         >
@@ -143,6 +147,7 @@ export const HalfWidth: Story = {
       <>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setOpen(true)}
         >
@@ -174,6 +179,7 @@ export const NoOverlay: Story = {
       <>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setOpen(true)}
         >
@@ -199,7 +205,7 @@ export const NoOverlay: Story = {
               }}
             >
               <Button
-                variant={ButtonVariant.Outline}
+                variant={ButtonVariant.Primary}
                 size={ButtonSize.Sm}
                 onClick={() => setOpen(false)}
               >
@@ -234,6 +240,7 @@ export const CustomHeader: Story = {
       <>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setOpen(true)}
         >
@@ -300,7 +307,7 @@ export const CustomHeader: Story = {
               </Typography>
               <div style={{ display: "flex", gap: 8 }}>
                 <Button
-                  variant={ButtonVariant.Outline}
+                  variant={ButtonVariant.Primary}
                   size={ButtonSize.Sm}
                   onClick={() => setOpen(false)}
                 >
@@ -308,6 +315,7 @@ export const CustomHeader: Story = {
                 </Button>
                 <Button
                   variant={ButtonVariant.Primary}
+                  status={ButtonStatus.Brand}
                   size={ButtonSize.Sm}
                   onClick={() => setOpen(false)}
                 >
@@ -341,6 +349,7 @@ export const ScrollableHeaderFooter: Story = {
       <>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setOpen(true)}
         >
@@ -366,7 +375,7 @@ export const ScrollableHeaderFooter: Story = {
               }}
             >
               <Button
-                variant={ButtonVariant.Outline}
+                variant={ButtonVariant.Primary}
                 size={ButtonSize.Sm}
                 onClick={() => setOpen(false)}
               >
@@ -374,6 +383,7 @@ export const ScrollableHeaderFooter: Story = {
               </Button>
               <Button
                 variant={ButtonVariant.Primary}
+                status={ButtonStatus.Brand}
                 size={ButtonSize.Sm}
                 onClick={() => setOpen(false)}
               >
@@ -406,6 +416,7 @@ export const HiddenCloseButton: Story = {
       <>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setOpen(true)}
         >
@@ -465,6 +476,7 @@ export const WithFormControls: Story = {
       <>
         <Button
           variant={ButtonVariant.Primary}
+          status={ButtonStatus.Brand}
           size={ButtonSize.Md}
           onClick={() => setOpen(true)}
         >
@@ -489,7 +501,7 @@ export const WithFormControls: Story = {
               }}
             >
               <Button
-                variant={ButtonVariant.Outline}
+                variant={ButtonVariant.Primary}
                 size={ButtonSize.Sm}
                 onClick={() => setOpen(false)}
               >
@@ -497,6 +509,7 @@ export const WithFormControls: Story = {
               </Button>
               <Button
                 variant={ButtonVariant.Primary}
+                status={ButtonStatus.Brand}
                 size={ButtonSize.Sm}
                 onClick={() => setOpen(false)}
               >

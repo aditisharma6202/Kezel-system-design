@@ -213,6 +213,11 @@
   opacity: var(--kz-component-button-disabled-opacity);
 }
 
+/* ── Popper wrapper (Radix internal) ── */
+[data-radix-popper-content-wrapper]:has(> .kz-select-popover) {
+  height: var(--kz-select-popover-height, auto) !important;
+}
+
 /* ── Popover ── */
 .kz-select-popover {
   z-index: 51;
@@ -224,6 +229,7 @@
   padding: var(--kz-space-1);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .kz-select-popover[data-state="open"] {
@@ -295,10 +301,44 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  max-height: 200px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+}
+
+/* ── Footer (Select All / Remove All) ── */
+.kz-select-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--kz-space-2);
+  padding: var(--kz-space-2) var(--kz-space-3);
+  border-top: 1px solid var(--kz-color-border-subtle);
+  margin-top: var(--kz-space-1);
+  flex-shrink: 0;
+}
+
+.kz-select-footer-action {
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--kz-typography-font-family);
+  font-size: var(--kz-font-size-xs);
+  font-weight: var(--kz-font-weight-medium);
+  line-height: 16px;
+  color: var(--kz-color-brand-accent);
+  padding: var(--kz-space-1) 0;
+  transition: opacity 0.15s;
+}
+
+.kz-select-footer-action:hover {
+  opacity: 0.8;
+}
+
+.kz-select-footer-action--remove {
+  color: var(--kz-color-status-error-border);
 }
 
 /* ── Option item ── */

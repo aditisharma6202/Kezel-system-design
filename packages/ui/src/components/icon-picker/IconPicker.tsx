@@ -248,7 +248,7 @@ const IconPicker = React.forwardRef<HTMLInputElement, IconPickerProps>(
               {/* Footer */}
               <div className="kz-icon-picker-footer">
                 <Button
-                  variant={ButtonVariant.Outline}
+                  variant={ButtonVariant.Primary}
                   size={ButtonSize.Sm}
                   onClick={handleClear}
                 >
