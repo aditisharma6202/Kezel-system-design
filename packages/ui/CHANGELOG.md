@@ -1,5 +1,11 @@
 # kz-design-system
 
+## 0.1.0
+
+### Minor Changes
+
+- 1e660bf: button, qr etc
+
 ## 0.0.19
 
 ### Patch Changes
