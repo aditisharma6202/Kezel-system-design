@@ -1,0 +1,6 @@
+{
+  "buildCommand": "pnpm --filter kz-design-system build && pnpm --filter docs build",
+  "installCommand": "pnpm install",
+  "framework": "nextjs",
+  "outputDirectory": "apps/docs/.next"
+}
