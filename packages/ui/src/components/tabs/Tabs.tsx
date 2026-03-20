@@ -4,11 +4,13 @@ import * as TabsPrimitive from "@radix-ui/react-tabs";
 import { cn } from "../../utils/cn";
 import { Icon, IconName } from "../../icon";
 
-export type TabsVariant = "pill" | "underline" | "vertical";
+export type TabsVariant = "pill" | "underline";
+export type TabsOrientation = "horizontal" | "vertical";
 export type TabsSize = "sm" | "md" | "lg";
 
 interface TabsContextValue {
   variant: TabsVariant;
+  orientation: TabsOrientation;
   size: TabsSize;
   fullWidth: boolean;
   onValueChange?: (value: string) => void;
@@ -16,6 +18,7 @@ interface TabsContextValue {
 
 const TabsContext = React.createContext<TabsContextValue>({
   variant: "pill",
+  orientation: "horizontal",
   size: "md",
   fullWidth: false,
 });
@@ -28,6 +31,7 @@ export interface TabsProps extends React.ComponentPropsWithoutRef<
   typeof TabsPrimitive.Root
 > {
   variant?: TabsVariant;
+  orientation?: TabsOrientation;
   size?: TabsSize;
   fullWidth?: boolean;
   className?: string;
@@ -40,6 +44,7 @@ const Tabs = React.forwardRef<
   (
     {
       variant = "pill",
+      orientation = "horizontal",
       size = "md",
       fullWidth = false,
       className,
@@ -49,8 +54,8 @@ const Tabs = React.forwardRef<
     ref
   ) => {
     const ctx: TabsContextValue = React.useMemo(
-      () => ({ variant, size, fullWidth, onValueChange }),
-      [variant, size, fullWidth, onValueChange]
+      () => ({ variant, orientation, size, fullWidth, onValueChange }),
+      [variant, orientation, size, fullWidth, onValueChange]
     );
     return (
       <TabsContext.Provider value={ctx}>
@@ -58,6 +63,7 @@ const Tabs = React.forwardRef<
           ref={ref}
           activationMode="manual"
           data-tabs-variant={variant}
+          data-tabs-orientation={orientation}
           data-tabs-size={size}
           data-tabs-full-width={fullWidth ? "" : undefined}
           className={cn("kz-tabs", className)}
@@ -80,7 +86,7 @@ const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
   TabsListProps
 >(({ className, ...props }, ref) => {
-  const { variant, size, fullWidth } = useTabsContext();
+  const { variant, orientation, size, fullWidth } = useTabsContext();
   const listRef = React.useRef<HTMLDivElement>(null);
 
   // Override Radix's roving tabindex so Tab key moves between triggers.
@@ -119,6 +125,7 @@ const TabsList = React.forwardRef<
           (ref as React.MutableRefObject<HTMLDivElement | null>).current = node;
       }}
       data-tabs-variant={variant}
+      data-tabs-orientation={orientation}
       data-tabs-size={size}
       data-tabs-full-width={fullWidth ? "" : undefined}
       className={cn("kz-tabs-list", className)}
@@ -139,11 +146,12 @@ const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
   TabsTriggerProps
 >(({ className, icon, children, ...props }, ref) => {
-  const { variant, size } = useTabsContext();
+  const { variant, orientation, size } = useTabsContext();
   return (
     <TabsPrimitive.Trigger
       ref={ref}
       data-tabs-variant={variant}
+      data-tabs-orientation={orientation}
       data-tabs-size={size}
       className={cn("kz-tabs-trigger", className)}
       {...props}
@@ -194,7 +202,7 @@ export interface SubTabsTriggerProps {
 
 const SubTabsTrigger = React.forwardRef<HTMLButtonElement, SubTabsTriggerProps>(
   ({ label, subTabs, activeValue, className }, ref) => {
-    const { variant, size, onValueChange } = useTabsContext();
+    const { variant, orientation, size, onValueChange } = useTabsContext();
     const isActive = subTabs.some((st) => st.value === activeValue);
 
     const [open, setOpen] = React.useState(false);
@@ -327,6 +335,7 @@ const SubTabsTrigger = React.forwardRef<HTMLButtonElement, SubTabsTriggerProps>(
           type="button"
           className={cn("kz-tabs-subtrigger-group", className)}
           data-tabs-variant={variant}
+          data-tabs-orientation={orientation}
           data-tabs-size={size}
           data-state={isActive ? "active" : "inactive"}
           aria-haspopup="listbox"

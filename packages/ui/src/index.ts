@@ -94,6 +94,7 @@ export {
 } from "./components/tabs";
 export type {
   TabsVariant,
+  TabsOrientation,
   TabsSize,
   TabsProps,
   TabsListProps,

@@ -410,6 +410,7 @@ export default function App() {
               <div className="w-full max-w-2xl">
                 <Tabs
                   variant="underline"
+                  orientation="horizontal"
                   size="md"
                   value={subTabDemo}
                   onValueChange={setSubTabDemo}

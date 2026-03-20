@@ -22,59 +22,81 @@ export default function TabsShowcase() {
     <section className="flex flex-col items-center gap-8 w-full max-w-2xl">
       <Typography variant={TypographyVariantEnum.H2}>Tabs</Typography>
       <Typography variant={TypographyVariantEnum.Caption}>
-        Pill, underline, and vertical variants in sm, md, lg. Switch theme and
-        mode to see styles.
+        Horizontal and vertical orientations, each with pill and underline
+        variants. Sizes: sm, md, lg. Switch theme and mode to see styles.
       </Typography>
 
       <div className="flex flex-col gap-6 w-full">
+        {/* ── Horizontal Pill ── */}
         <div>
           <Typography variant={TypographyVariantEnum.H3} className="mb-2">
-            Pill
+            Horizontal Pill
           </Typography>
-          <Tabs variant="pill" size="md" defaultValue="p1">
+          <Tabs variant="pill" orientation="horizontal" size="md" defaultValue="hp1">
             <TabsList>
-              <TabsTrigger value="p1">Tab 1</TabsTrigger>
-              <TabsTrigger value="p2">Tab 2</TabsTrigger>
-              <TabsTrigger value="p3">Tab 3</TabsTrigger>
+              <TabsTrigger value="hp1">Tab 1</TabsTrigger>
+              <TabsTrigger value="hp2">Tab 2</TabsTrigger>
+              <TabsTrigger value="hp3">Tab 3</TabsTrigger>
             </TabsList>
-            <TabsContent value="p1">Pill tab 1 content.</TabsContent>
-            <TabsContent value="p2">Pill tab 2 content.</TabsContent>
-            <TabsContent value="p3">Pill tab 3 content.</TabsContent>
+            <TabsContent value="hp1">Horizontal pill tab 1 content.</TabsContent>
+            <TabsContent value="hp2">Horizontal pill tab 2 content.</TabsContent>
+            <TabsContent value="hp3">Horizontal pill tab 3 content.</TabsContent>
           </Tabs>
         </div>
 
+        {/* ── Horizontal Underline ── */}
         <div>
           <Typography variant={TypographyVariantEnum.H3} className="mb-2">
-            Underline
+            Horizontal Underline
           </Typography>
-          <Tabs variant="underline" size="md" defaultValue="u1">
+          <Tabs variant="underline" orientation="horizontal" size="md" defaultValue="hu1">
             <TabsList>
-              <TabsTrigger value="u1">Tab 1</TabsTrigger>
-              <TabsTrigger value="u2">Tab 2</TabsTrigger>
-              <TabsTrigger value="u3">Tab 3</TabsTrigger>
+              <TabsTrigger value="hu1">Tab 1</TabsTrigger>
+              <TabsTrigger value="hu2">Tab 2</TabsTrigger>
+              <TabsTrigger value="hu3">Tab 3</TabsTrigger>
             </TabsList>
-            <TabsContent value="u1">Underline tab 1 content.</TabsContent>
-            <TabsContent value="u2">Underline tab 2 content.</TabsContent>
-            <TabsContent value="u3">Underline tab 3 content.</TabsContent>
+            <TabsContent value="hu1">Horizontal underline tab 1 content.</TabsContent>
+            <TabsContent value="hu2">Horizontal underline tab 2 content.</TabsContent>
+            <TabsContent value="hu3">Horizontal underline tab 3 content.</TabsContent>
           </Tabs>
         </div>
 
         <div className="flex gap-12 flex-wrap">
+          {/* ── Vertical Pill ── */}
           <div>
             <Typography variant={TypographyVariantEnum.H3} className="mb-2">
-              Vertical
+              Vertical Pill
             </Typography>
-            <Tabs variant="vertical" size="md" defaultValue="v1">
+            <Tabs variant="pill" orientation="vertical" size="md" defaultValue="vp1">
               <TabsList>
-                <TabsTrigger value="v1">Tab 1</TabsTrigger>
-                <TabsTrigger value="v2">Tab 2</TabsTrigger>
-                <TabsTrigger value="v3">Tab 3</TabsTrigger>
+                <TabsTrigger value="vp1">Tab 1</TabsTrigger>
+                <TabsTrigger value="vp2">Tab 2</TabsTrigger>
+                <TabsTrigger value="vp3">Tab 3</TabsTrigger>
               </TabsList>
-              <TabsContent value="v1">Vertical tab 1 content.</TabsContent>
-              <TabsContent value="v2">Vertical tab 2 content.</TabsContent>
-              <TabsContent value="v3">Vertical tab 3 content.</TabsContent>
+              <TabsContent value="vp1">Vertical pill tab 1 content.</TabsContent>
+              <TabsContent value="vp2">Vertical pill tab 2 content.</TabsContent>
+              <TabsContent value="vp3">Vertical pill tab 3 content.</TabsContent>
             </Tabs>
           </div>
+
+          {/* ── Vertical Underline ── */}
+          <div>
+            <Typography variant={TypographyVariantEnum.H3} className="mb-2">
+              Vertical Underline
+            </Typography>
+            <Tabs variant="underline" orientation="vertical" size="md" defaultValue="vu1">
+              <TabsList>
+                <TabsTrigger value="vu1">Tab 1</TabsTrigger>
+                <TabsTrigger value="vu2">Tab 2</TabsTrigger>
+                <TabsTrigger value="vu3">Tab 3</TabsTrigger>
+              </TabsList>
+              <TabsContent value="vu1">Vertical underline tab 1 content.</TabsContent>
+              <TabsContent value="vu2">Vertical underline tab 2 content.</TabsContent>
+              <TabsContent value="vu3">Vertical underline tab 3 content.</TabsContent>
+            </Tabs>
+          </div>
+
+          {/* ── Sizes ── */}
           <div>
             <Typography variant={TypographyVariantEnum.H3} className="mb-2">
               Sizes
@@ -106,6 +128,8 @@ export default function TabsShowcase() {
               </Tabs>
             </div>
           </div>
+
+          {/* ── With icon ── */}
           <div>
             <Typography variant={TypographyVariantEnum.H3} className="mb-2">
               With icon
@@ -156,6 +180,7 @@ export default function TabsShowcase() {
           </div>
         </div>
 
+        {/* ── Full width ── */}
         <div className="w-full max-w-md">
           <Typography variant={TypographyVariantEnum.H3} className="mb-2">
             Full width
@@ -172,6 +197,7 @@ export default function TabsShowcase() {
           </Tabs>
         </div>
 
+        {/* ── With Sub Tabs (Pill) ── */}
         <div>
           <Typography variant={TypographyVariantEnum.H3} className="mb-2">
             With Sub Tabs (Pill)
@@ -209,6 +235,7 @@ export default function TabsShowcase() {
           </Tabs>
         </div>
 
+        {/* ── With Sub Tabs (Underline) ── */}
         <div>
           <Typography variant={TypographyVariantEnum.H3} className="mb-2">
             With Sub Tabs (Underline)

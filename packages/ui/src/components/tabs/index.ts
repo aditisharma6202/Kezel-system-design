@@ -7,6 +7,7 @@ export {
 } from "./Tabs";
 export type {
   TabsVariant,
+  TabsOrientation,
   TabsSize,
   TabsProps,
   TabsListProps,

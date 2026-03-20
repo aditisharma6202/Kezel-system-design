@@ -18,13 +18,14 @@ const meta: Meta<typeof Tabs> = {
     docs: {
       description: {
         component:
-          "Tabs built with Radix Tabs. Variants: **pill**, **underline**, **vertical**. Sizes: **sm**, **md**, **lg**. Use the **Variant** (Standard / Neumorphic) and **Mode** (Light / Dark) toolbar to see theme-specific styles.",
+          "Tabs built with Radix Tabs. Variants: **pill**, **underline**. Orientations: **horizontal**, **vertical**. Sizes: **sm**, **md**, **lg**. Use the **Variant** (Standard / Neumorphic) and **Mode** (Light / Dark) toolbar to see theme-specific styles.",
       },
     },
   },
   tags: ["autodocs"],
   args: {
     variant: "pill",
+    orientation: "horizontal",
     size: "md",
     fullWidth: false,
     defaultValue: "tab1",
@@ -32,8 +33,13 @@ const meta: Meta<typeof Tabs> = {
   argTypes: {
     variant: {
       control: "select",
-      options: ["pill", "underline", "vertical"],
-      description: "Visual variant: pill, underline, or vertical.",
+      options: ["pill", "underline"],
+      description: "Visual variant: pill or underline.",
+    },
+    orientation: {
+      control: "select",
+      options: ["horizontal", "vertical"],
+      description: "Layout orientation: horizontal or vertical.",
     },
     size: {
       control: "select",
@@ -67,9 +73,10 @@ export default meta;
 
 type Story = StoryObj<typeof Tabs>;
 
-export const Pill: Story = {
+export const HorizontalPill: Story = {
   args: {
     variant: "pill",
+    orientation: "horizontal",
     size: "md",
     defaultValue: "tab1",
   },
@@ -87,9 +94,10 @@ export const Pill: Story = {
   ),
 };
 
-export const Underline: Story = {
+export const HorizontalUnderline: Story = {
   args: {
     variant: "underline",
+    orientation: "horizontal",
     size: "md",
     defaultValue: "tab1",
   },
@@ -107,9 +115,31 @@ export const Underline: Story = {
   ),
 };
 
-export const Vertical: Story = {
+export const VerticalPill: Story = {
   args: {
-    variant: "vertical",
+    variant: "pill",
+    orientation: "vertical",
+    size: "md",
+    defaultValue: "tab1",
+  },
+  render: (args) => (
+    <Tabs {...args}>
+      <TabsList>
+        <TabsTrigger value="tab1">Tab 1</TabsTrigger>
+        <TabsTrigger value="tab2">Tab 2</TabsTrigger>
+        <TabsTrigger value="tab3">Tab 3</TabsTrigger>
+      </TabsList>
+      <TabsContent value="tab1">Content for Tab 1.</TabsContent>
+      <TabsContent value="tab2">Content for Tab 2.</TabsContent>
+      <TabsContent value="tab3">Content for Tab 3.</TabsContent>
+    </Tabs>
+  ),
+};
+
+export const VerticalUnderline: Story = {
+  args: {
+    variant: "underline",
+    orientation: "vertical",
     size: "md",
     defaultValue: "tab1",
   },
