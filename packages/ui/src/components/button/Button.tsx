@@ -11,6 +11,7 @@ import { buttonVariants, type ButtonVariants } from "./button.variants";
 import { Loader2 } from "lucide-react";
 import { iconSize } from "../../icon/icon-sizes";
 import { cn } from "../../utils/cn";
+import { Icon, type IconProps } from "../../icon/Icon";
 
 export interface ButtonProps extends Omit<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -25,6 +26,8 @@ export interface ButtonProps extends Omit<
   type?: ButtonType;
   loading?: boolean;
   aspectRatio?: ButtonAspectRatio;
+  leftIcon?: IconProps;
+  rightIcon?: IconProps;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -41,6 +44,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       loading = false,
       aspectRatio = ButtonAspectRatio.Auto,
       disabled,
+      leftIcon,
+      rightIcon,
       ...props
     },
     ref
@@ -88,7 +93,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             color="currentColor"
           />
         )}
+        {leftIcon && <Icon {...leftIcon} />}
         {children}
+        {rightIcon && <Icon {...rightIcon} />}
       </Comp>
     );
   }
