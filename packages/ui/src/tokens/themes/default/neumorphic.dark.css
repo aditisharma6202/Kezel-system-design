@@ -83,6 +83,7 @@
   --kz-component-button-secondary-shadow:
     2px 2px 4px 0 rgba(0, 0, 0, 0.4),
     -2px -2px 4px 0 rgba(255, 255, 255, 0.08);
+  --kz-component-button-secondary-border: 1px solid var(--kz-component-input-border);
   --kz-component-button-secondary-shadow-hover: var(--kz-shadow-neumorphic-inset-sm);
 
   --kz-component-button-brand-bg: var(--kz-color-brand-accent-dark);
@@ -131,6 +132,21 @@
     2px 2px 4px 0 rgba(0, 0, 0, 0.4),
     -2px -2px 4px 0 rgba(255, 255, 255, 0.08);
   --kz-component-button-info-shadow-hover: var(--kz-component-button-brand-shadow-hover);
+
+  /* ── TOGGLE BUTTON ── */
+  --kz-component-toggle-button-track-border: 1px solid var(--kz-component-input-border);
+  --kz-component-toggle-button-track-off-bg: var(--kz-color-surface-base);
+  --kz-component-toggle-button-track-off-shadow:
+    2px 2px 4px 0 rgba(20, 24, 32, 0.8) inset,
+    -2px -2px 4px 0 rgba(72, 82, 98, 0.4) inset;
+  --kz-component-toggle-button-track-on-bg: var(--kz-color-brand-accent);
+  --kz-component-toggle-button-track-on-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.3) inset;
+  --kz-component-toggle-button-thumb-bg: var(--kz-color-surface-base);
+  --kz-component-toggle-button-thumb-shadow:
+    2px 2px 4px 0 rgba(20, 24, 32, 0.8),
+    -2px -2px 4px 0 rgba(72, 82, 98, 0.4);
+  --kz-component-toggle-button-thumb-on-bg: #fff;
+  --kz-component-toggle-button-thumb-on-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2);
 
   /* ── INPUT ── */
   --kz-component-input-border: rgba(255, 255, 255, 0.06);
@@ -195,6 +211,12 @@
   --kz-component-pagination-page-selected-text: var(--kz-color-brand-accent);
   --kz-component-pagination-page-selected-shadow: var(--kz-shadow-neumorphic-inset-sm);
 
-  /* ── RADIO (dark dot shadow) ── */
+  /* ── CHECKBOX ── */
+  --kz-component-checkbox-off-border: 1px solid var(--kz-component-input-border);
+  --kz-component-checkbox-on-border: 1px solid var(--kz-component-input-border);
+
+  /* ── RADIO ── */
+  --kz-component-radio-off-border: 1px solid var(--kz-component-input-border);
+  --kz-component-radio-on-border: 1px solid var(--kz-component-input-border);
   --kz-component-radio-dot-shadow: 1px 1px 2px 0 rgba(20, 24, 32, 0.8);
 }

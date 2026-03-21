@@ -12,14 +12,15 @@
   --kz-color-brand-inverse: #ffffff;
 
   /* ── SURFACE ── */
-  --kz-color-surface-background: #f5f7fa;
-  --kz-color-surface-base: #ffffff;
+  --kz-color-surface-background: #fffafd;
+  --kz-color-surface-base: #fffafd;
   --kz-color-surface-raised: #ffffff;
-  --kz-color-surface-sunken: #f0f2f5;
+  --kz-color-surface-sunken: #F5F2F4;
   --kz-color-surface-overlay: rgba(0, 0, 0, 0.5);
   --kz-color-surface-glass: rgba(255, 255, 255, 0.7);
-  --kz-color-surface-muted: #e9edf2;
+  --kz-color-surface-muted: #f1e9e985;
   --kz-color-surface-inverse: #1f2933;
+    --kz-color-surface-secondary: #F5F2F4;
 
   /* ── TEXT ── */
   --kz-color-text-primary: #1f2933;
@@ -49,18 +50,18 @@
   --kz-color-border-inverse: rgba(255, 255, 255, 0.3);
 
   /* ── STATUS ── */
-  --kz-color-status-success: #00c950;
-  --kz-color-status-success-bg: #e6f4ea;
-  --kz-color-status-success-border: #00c950;
-  --kz-color-status-warning: #f59e0b;
+  --kz-color-status-success: #145020;
+  --kz-color-status-success-bg: #EEF7EE;
+  --kz-color-status-success-border: rgba(61, 162, 77, 0.45);
+  --kz-color-status-warning: #6B4503;
   --kz-color-status-warning-bg: #fef3c7;
-  --kz-color-status-warning-border: #f59e0b;
-  --kz-color-status-error: #fb2c36;
-  --kz-color-status-error-bg: #fdecec;
-  --kz-color-status-error-border: #fb2c36;
-  --kz-color-status-info: #2563eb;
+  --kz-color-status-warning-border: rgba(217, 119, 6, 0.45);
+  --kz-color-status-error: #8B1A18;
+  --kz-color-status-error-bg: #FDF0EF;
+  --kz-color-status-error-border: rgba(217, 83, 79, 0.45);
+  --kz-color-status-info: #0056b3;
   --kz-color-status-info-bg: #e8f1fd;
-  --kz-color-status-info-border: #b6d4fe;
+  --kz-color-status-info-border: rgba(37, 99, 235, 0.35);
 
   /* ── SHADOW ── */
   --kz-shadow-elevation-0: none;
@@ -89,6 +90,12 @@
   --kz-component-button-radius: 8px;
   --kz-component-button-disabled-opacity: 0.5;
 
+    --kz-component-button-secondary-bg: #fffafd;
+  --kz-component-button-secondary-text: var(--kz-color-text-primary);
+  --kz-component-button-secondary-border: 1px solid rgba(45,42,46,0.18);
+  --kz-component-button-secondary-bg-hover: 	rgba(45,42,46,0.04);
+  --kz-component-button-secondary-bg-active: #fffafd;
+
   --kz-component-button-brand-bg: var(--kz-color-brand-accent);
   --kz-component-button-brand-bg-hover: var(--kz-color-brand-accent-hover);
   --kz-component-button-brand-text: #fff;
@@ -107,9 +114,9 @@
   --kz-component-button-ghost-error-bg-hover: rgba(251, 44, 54, 0.1);
   --kz-component-button-ghost-info-bg-hover: rgba(37, 99, 235, 0.1);
 
-  --kz-component-button-container-bg: #ffffff;
+  --kz-component-button-container-bg: #fffafd;
   --kz-component-button-container-text: #364153;
-  --kz-component-button-container-border: #d1d5dc;
+  --kz-component-button-container-border: 1.5px solid rgba(45,42,46,0.18);
   --kz-component-button-container-bg-hover: #f3f4f6;
   --kz-component-button-container-shadow: var(--kz-intent-interactive-shadow);
   --kz-component-button-container-shadow-hover: var(--kz-intent-interactive-shadow-active);
@@ -161,18 +168,18 @@
 
   /* ── CHECKBOX ── */
   --kz-component-checkbox-off-bg: #fff;
-  --kz-component-checkbox-off-border: 2px solid #d1d5dc;
+  --kz-component-checkbox-off-border: 1px solid #d1d5dc;
   --kz-component-checkbox-off-shadow: none;
   --kz-component-checkbox-on-bg: var(--kz-color-brand-accent);
-  --kz-component-checkbox-on-border: 2px solid var(--kz-color-brand-accent);
+  --kz-component-checkbox-on-border: 1px solid var(--kz-color-brand-accent);
   --kz-component-checkbox-on-shadow: none;
 
   /* ── RADIO ── */
   --kz-component-radio-off-bg: #fff;
-  --kz-component-radio-off-border: 2px solid #d1d5dc;
+  --kz-component-radio-off-border: 1px solid #d1d5dc;
   --kz-component-radio-off-shadow: none;
   --kz-component-radio-on-bg: #fff;
-  --kz-component-radio-on-border: 2px solid var(--kz-color-brand-accent);
+  --kz-component-radio-on-border: 1px solid var(--kz-color-brand-accent);
   --kz-component-radio-on-shadow: none;
   --kz-component-radio-dot-bg: var(--kz-color-brand-accent);
   --kz-component-radio-dot-shadow: none;
@@ -188,31 +195,34 @@
   --kz-component-tabs-trigger-selected-shadow: none;
 
   /* ── INPUT ── */
-  --kz-component-input-bg: #f9fafb;
-  --kz-component-input-border: #e5e7eb;
-  --kz-component-input-border-focus: #0066cc;
-  --kz-component-input-border-disabled: #d1d5dc;
+  --kz-component-input-bg: #F8F4F6;
+  --kz-component-input-border: rgba(45, 42, 46, 0.12);
+  --kz-component-input-border-focus: #00A99D;
+  --kz-component-input-border-focus-width: 1.5px;
+  --kz-component-input-focus-ring: 0 0 0 3px rgba(0, 169, 157, 0.10);
+  --kz-component-input-border-disabled: rgba(45, 42, 46, 0.08);
   --kz-component-input-text: #1f2933;
-  --kz-component-input-placeholder: #99a1af;
-  --kz-component-input-icon: #99a1af;
+  --kz-component-input-placeholder: #9B8F94;
+  --kz-component-input-icon: #9B8F94;
   --kz-component-input-shadow: none;
   --kz-component-input-radius: 10px;
   --kz-component-input-container-radius: 8px;
-  --kz-component-input-container-border: #d1d5dc;
+  --kz-component-input-container-border: rgba(45, 42, 46, 0.15);
+  --kz-component-input-ghost-border: 1px solid rgba(45, 42, 46, 0.10);
 
   /* ── DROPDOWN ── */
-  --kz-component-dropdown-trigger-bg: #ffffff;
-  --kz-component-dropdown-trigger-border: #d1d5dc;
-  --kz-component-dropdown-trigger-border-open: #d1d5dc;
+  --kz-component-dropdown-trigger-bg: #F8F4F6;
+  --kz-component-dropdown-trigger-border: rgba(45, 42, 46, 0.12);
+  --kz-component-dropdown-trigger-border-open: #00A99D;
   --kz-component-dropdown-trigger-text: #364153;
   --kz-component-dropdown-trigger-text-selected: var(--kz-color-brand-accent-dark);
   --kz-component-dropdown-trigger-shadow: var(--kz-intent-interactive-shadow);
   --kz-component-dropdown-trigger-shadow-open: var(--kz-intent-interactive-shadow-active);
   --kz-component-dropdown-trigger-radius: 8px;
-  --kz-component-dropdown-trigger-focus-ring: 0 0 0 2px rgba(0, 150, 137, 0.25);
-  --kz-component-dropdown-content-bg: #ffffff;
-  --kz-component-dropdown-content-border: #d1d5dc;
-  --kz-component-dropdown-content-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --kz-component-dropdown-trigger-focus-ring: 0 0 0 3px rgba(0, 169, 157, 0.10);
+  --kz-component-dropdown-content-bg: #fffafd;
+  --kz-component-dropdown-content-border: rgba(45, 42, 46, 0.12);
+  --kz-component-dropdown-content-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   --kz-component-dropdown-content-radius: 8px;
   --kz-component-dropdown-item-text: #364153;
   --kz-component-dropdown-item-text-selected: var(--kz-color-brand-accent-dark);
@@ -249,6 +259,7 @@
   --kz-component-sidemenu-item-active-text: var(--kz-color-brand-accent-dark);
   --kz-component-sidemenu-item-active-link-bg: rgba(0, 150, 137, 0.08);
   --kz-component-sidemenu-item-active-link-shadow: none;
+  --kz-component-sidemenu-item-active-link-border: none;
   --kz-component-sidemenu-group-indent-bg: rgba(0, 0, 0, 0.02);
 
   /* ── TOOLTIP ── */
@@ -282,6 +293,7 @@
   --kz-component-table-row-border: var(--kz-color-border-default);
   --kz-component-table-row-hover-bg: var(--kz-color-surface-sunken);
   --kz-component-table-pagination-active-bg: var(--kz-color-surface-muted);
+  
   --kz-component-table-pagination-active-shadow: none;
   --kz-component-table-pagination-hover-shadow: none;
 

@@ -380,19 +380,34 @@ export const WithRightIcon: Story = {
     status: ButtonStatus.Brand,
     size: ButtonSize.Md,
     children: "Continue",
-    rightIcon: { name: IconName.ChevronRight, size: "sm", color: "currentColor" },
+    rightIcon: {
+      name: IconName.ChevronRight,
+      size: "sm",
+      color: "currentColor",
+    },
   },
 };
 
 export const WithBothIcons: Story = {
   render: () => (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center" }}>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: 12,
+        alignItems: "center",
+      }}
+    >
       <Button
         variant={ButtonVariant.Primary}
         status={ButtonStatus.Brand}
         size={ButtonSize.Md}
         leftIcon={{ name: IconName.Plus, size: "sm", color: "currentColor" }}
-        rightIcon={{ name: IconName.ChevronRight, size: "sm", color: "currentColor" }}
+        rightIcon={{
+          name: IconName.ChevronRight,
+          size: "sm",
+          color: "currentColor",
+        }}
         onClick={() => {}}
       >
         Both Icons
@@ -400,7 +415,11 @@ export const WithBothIcons: Story = {
       <Button
         variant={ButtonVariant.Ghost}
         size={ButtonSize.Md}
-        leftIcon={{ name: IconName.ArrowLeft, size: "sm", color: "currentColor" }}
+        leftIcon={{
+          name: IconName.ArrowLeft,
+          size: "sm",
+          color: "currentColor",
+        }}
         onClick={() => {}}
       >
         Back
@@ -418,7 +437,11 @@ export const WithBothIcons: Story = {
         variant={ButtonVariant.Primary}
         status={ButtonStatus.Success}
         size={ButtonSize.Md}
-        leftIcon={{ name: IconName.CheckCircle, size: "sm", color: "currentColor" }}
+        leftIcon={{
+          name: IconName.CheckCircle,
+          size: "sm",
+          color: "currentColor",
+        }}
         onClick={() => {}}
       >
         Approve

@@ -19,6 +19,8 @@
 
 .kz-number-input-wrapper:focus-within {
   border-color: var(--kz-component-input-border-focus);
+  border-width: var(--kz-component-input-border-focus-width, 1px);
+  box-shadow: var(--kz-component-input-focus-ring, none);
   outline: none;
 }
 
@@ -33,6 +35,7 @@
   background: transparent;
   box-shadow: none;
   border: none;
+  border-bottom: var(--kz-component-input-ghost-border, 1px solid var(--kz-component-input-border));
   border-radius: 0;
 }
 

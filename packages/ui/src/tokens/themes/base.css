@@ -67,56 +67,56 @@
   --kz-typography-status-line-height: 16px;
 
   /* ── TYPOGRAPHY per-heading (defaults; themes override as needed) ── */
-  --kz-typography-h1-color: #101828;
+  --kz-typography-h1-color: #1A1518;
   --kz-typography-h1-font-size: 30px;
   --kz-typography-h1-font-weight: 700;
   --kz-typography-h1-line-height: 36px;
   --kz-typography-h1-letter-spacing: 0.396px;
 
-  --kz-typography-h2-color: #101828;
+  --kz-typography-h2-color: #1A1518;
   --kz-typography-h2-font-size: 24px;
   --kz-typography-h2-font-weight: 600;
   --kz-typography-h2-line-height: 32px;
   --kz-typography-h2-letter-spacing: 0.07px;
 
-  --kz-typography-h3-color: #101828;
+  --kz-typography-h3-color: #1A1518;
   --kz-typography-h3-font-size: 20px;
   --kz-typography-h3-font-weight: 600;
   --kz-typography-h3-line-height: 28px;
   --kz-typography-h3-letter-spacing: -0.449px;
 
-  --kz-typography-h4-color: #101828;
+  --kz-typography-h4-color: #1A1518;
   --kz-typography-h4-font-size: 18px;
   --kz-typography-h4-font-weight: 600;
   --kz-typography-h4-line-height: 24px;
   --kz-typography-h4-letter-spacing: -0.252px;
 
-  --kz-typography-h5-color: #101828;
+  --kz-typography-h5-color: #1A1518;
   --kz-typography-h5-font-size: 16px;
   --kz-typography-h5-font-weight: 600;
   --kz-typography-h5-line-height: 22px;
   --kz-typography-h5-letter-spacing: -0.176px;
 
-  --kz-typography-body-color: #364153;
+  --kz-typography-body-color: #6B5F65;
   --kz-typography-body-font-size: 16px;
   --kz-typography-body-font-weight: 400;
   --kz-typography-body-line-height: 24px;
   --kz-typography-body-letter-spacing: -0.312px;
 
-  --kz-typography-small-color: #4a5565;
+  --kz-typography-small-color: #6B5F65;
   --kz-typography-small-font-size: 14px;
   --kz-typography-small-font-weight: 400;
   --kz-typography-small-line-height: 20px;
   --kz-typography-small-letter-spacing: -0.15px;
 
-  --kz-typography-caption-color: #6a7282;
+  --kz-typography-caption-color: #9B8F94;
   --kz-typography-caption-font-size: 12px;
   --kz-typography-caption-font-weight: 400;
   --kz-typography-caption-line-height: 16px;
   --kz-typography-caption-letter-spacing: 0.6px;
   --kz-typography-caption-text-transform: uppercase;
 
-  --kz-typography-label-color: #364153;
+  --kz-typography-label-color: #2D2A2E;
   --kz-typography-label-font-size: 14px;
   --kz-typography-label-font-weight: 500;
   --kz-typography-label-line-height: 20px;
@@ -196,6 +196,6 @@
 
   /* Table structural */
   --kz-component-table-sticky-row-top: 40px;
-  --kz-component-table-footer-bg: #0000001a;
+  --kz-component-table-footer-bg: #948b8b21;
   --kz-component-table-pagination-bg: #0000001a;
 }

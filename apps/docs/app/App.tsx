@@ -16,11 +16,6 @@ import {
   type TokenKey,
   type SideMenuNode,
   ToastProvider,
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
-  SubTabsTrigger,
 } from "kz-design-system";
 
 import TypographyShowcase from "./components/TypographyShowcase";
@@ -50,6 +45,8 @@ import CardShowcase from "./components/CardShowcase";
 import SqlEditorShowcase from "./components/SqlEditorShowcase";
 import QrRendererShowcase from "./components/QrRendererShowcase";
 import SkeletonShowcase from "./components/SkeletonShowcase";
+import ScreenLoaderShowcase from "./components/ScreenLoaderShowcase";
+import ErrorPageShowcase from "./components/ErrorPageShowcase";
 import TableFullShowcase from "./components/TableFullShowcase";
 
 type SectionId =
@@ -80,6 +77,8 @@ type SectionId =
   | "sql-editor"
   | "qr-renderer"
   | "skeleton"
+  | "screen-loader"
+  | "error-page"
   | "table-full";
 
 const docsMenuData: SideMenuNode[] = [
@@ -263,6 +262,13 @@ const docsMenuData: SideMenuNode[] = [
         icon: IconName.CircleAlert,
         href: "#",
       },
+      {
+        type: "link",
+        id: "error-page",
+        label: "ErrorPage",
+        icon: IconName.CircleAlert,
+        href: "#",
+      },
     ],
   },
   {
@@ -314,6 +320,13 @@ const docsMenuData: SideMenuNode[] = [
       },
       {
         type: "link",
+        id: "screen-loader",
+        label: "ScreenLoader",
+        icon: IconName.Loader2,
+        href: "#",
+      },
+      {
+        type: "link",
         id: "table-full",
         label: "Table (50 rows)",
         icon: IconName.BarChart2,
@@ -334,8 +347,6 @@ export default function App() {
   const [dropdownTokenOverrides, setDropdownTokenOverrides] = React.useState<
     Partial<Record<TokenKey, string>> | undefined
   >(undefined);
-  const [subTabDemo, setSubTabDemo] = React.useState("overview");
-
   return (
     <KezelThemeProvider
       variant={variant}
@@ -408,43 +419,7 @@ export default function App() {
             />
 
             {/* Main content */}
-            <main className="flex-1 overflow-auto flex flex-col items-center gap-12 p-8">
-              {/* Sub Tabs demo */}
-              <div className="w-full max-w-2xl">
-                <Tabs
-                  variant="underline"
-                  orientation="horizontal"
-                  size="md"
-                  value={subTabDemo}
-                  onValueChange={setSubTabDemo}
-                >
-                  <TabsList>
-                    <TabsTrigger value="overview">Overview</TabsTrigger>
-                    <SubTabsTrigger
-                      label="Reports"
-                      activeValue={subTabDemo}
-                      subTabs={[
-                        { value: "report-daily", label: "Daily" },
-                        { value: "report-weekly", label: "Weekly" },
-                        { value: "report-monthly", label: "Monthly" },
-                      ]}
-                    />
-                    <TabsTrigger value="settings">Settings</TabsTrigger>
-                  </TabsList>
-                  <TabsContent value="overview">Overview content.</TabsContent>
-                  <TabsContent value="report-daily">
-                    Daily report content.
-                  </TabsContent>
-                  <TabsContent value="report-weekly">
-                    Weekly report content.
-                  </TabsContent>
-                  <TabsContent value="report-monthly">
-                    Monthly report content.
-                  </TabsContent>
-                  <TabsContent value="settings">Settings content.</TabsContent>
-                </Tabs>
-              </div>
-
+            <main className="flex-1 overflow-auto flex flex-col items-center gap-12 p-8 bg-[var( --kz-color-surface-secondary)]">
               {activeSection === "typography" && <TypographyShowcase />}
               {activeSection === "button" && <ButtonShowcase />}
               {activeSection === "toggle-button" && <ToggleButtonShowcase />}
@@ -481,6 +456,8 @@ export default function App() {
               {activeSection === "sql-editor" && <SqlEditorShowcase />}
               {activeSection === "qr-renderer" && <QrRendererShowcase />}
               {activeSection === "skeleton" && <SkeletonShowcase />}
+              {activeSection === "screen-loader" && <ScreenLoaderShowcase />}
+              {activeSection === "error-page" && <ErrorPageShowcase />}
               {activeSection === "table-full" && <TableFullShowcase />}
             </main>
           </div>

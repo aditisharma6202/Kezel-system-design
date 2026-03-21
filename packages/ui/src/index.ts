@@ -225,6 +225,10 @@ export type {
   LoaderSize,
   LoaderVariant,
 } from "./components/loader";
+export { ScreenLoader } from "./components/screen-loader";
+export type { ScreenLoaderProps } from "./components/screen-loader";
+export { ErrorPage } from "./components/error-page";
+export type { ErrorPageProps, ErrorPageStatus } from "./components/error-page";
 export { Skeleton, TableSkeleton, CardSkeleton } from "./components/skeleton";
 export type {
   SkeletonProps,

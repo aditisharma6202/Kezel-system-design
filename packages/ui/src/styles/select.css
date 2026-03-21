@@ -33,6 +33,8 @@
 .kz-select-wrapper:focus-within,
 .kz-select-wrapper:focus-visible {
   border-color: var(--kz-component-input-border-focus);
+  border-width: var(--kz-component-input-border-focus-width, 1px);
+  box-shadow: var(--kz-component-input-focus-ring, none);
   outline: none;
 }
 
@@ -397,7 +399,7 @@
 
 /* ── Neumorphic overrides ── */
 [data-variant="neumorphic"] .kz-select-wrapper {
-  border-color: transparent;
+  border-color: var(--kz-component-input-border);
   box-shadow: var(--kz-shadow-neumorphic-inset-sm);
 }
 

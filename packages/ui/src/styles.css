@@ -33,6 +33,8 @@
 @import "./styles/sql-editor.css";
 @import "./styles/qr-renderer.css";
 @import "./styles/loader.css";
+@import "./styles/screen-loader.css";
+@import "./styles/error-page.css";
 @import "./styles/skeleton.css";
 
 @tailwind base;
@@ -92,5 +94,45 @@
     font-size: var(--text-base);
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
+  }
+
+  /* ── Global scrollbar ── */
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+
+  *:hover {
+    scrollbar-color: var(--kz-color-border-default) transparent;
+  }
+
+  /* WebKit (Chrome, Safari, Edge) */
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: var(--kz-radius-full, 9999px);
+    transition: background 0.2s;
+  }
+
+  *:hover::-webkit-scrollbar-thumb {
+    background: var(--kz-color-border-default);
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: var(--kz-color-border-strong, var(--kz-color-border-default));
+  }
+
+  *::-webkit-scrollbar-corner {
+    background: transparent;
   }
 }

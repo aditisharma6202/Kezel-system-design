@@ -27,6 +27,7 @@ export enum ButtonVariant {
 }
 
 export enum ButtonStatus {
+  Default = "default",
   Brand = "brand",
   Success = "success",
   Warning = "warning",

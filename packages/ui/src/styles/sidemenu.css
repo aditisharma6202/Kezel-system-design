@@ -181,6 +181,7 @@
 /* Link (non-dropdown) selected only: border-radius 5px, optional neumorphic inset; dropdown/group options get only color change above */
 .kz-sidemenu-item--link.kz-sidemenu-item--active {
   border-radius: 5px;
+  border: var(--kz-component-sidemenu-item-active-link-border, none);
   background: var(--kz-component-sidemenu-item-active-link-bg, var(--kz-component-sidemenu-item-bg-active));
   box-shadow: var(--kz-component-sidemenu-item-active-link-shadow, none);
 }
@@ -261,11 +262,13 @@
 
 /* When a group/dropdown has a selected option: same bg + inset shadow as link buttons */
 .kz-sidemenu-group-trigger.kz-sidemenu-item--active {
+  border: var(--kz-component-sidemenu-item-active-link-border, none);
   background: var(--kz-component-sidemenu-item-active-link-bg, var(--kz-component-sidemenu-item-bg-active));
   box-shadow: var(--kz-component-sidemenu-item-active-link-shadow, none);
 }
 
 .kz-sidemenu-flyout-trigger .kz-sidemenu-item--active {
+  border: var(--kz-component-sidemenu-item-active-link-border, none);
   background: var(--kz-component-sidemenu-item-active-link-bg, var(--kz-component-sidemenu-item-bg-active));
   box-shadow: var(--kz-component-sidemenu-item-active-link-shadow, none);
 }
@@ -283,6 +286,7 @@
 
 /* Selected option inside a group/dropdown: bg + inset shadow to match link buttons */
 .kz-sidemenu-group-content .kz-sidemenu-item--active {
+  border: var(--kz-component-sidemenu-item-active-link-border, none);
   background: var(--kz-component-sidemenu-item-active-link-bg, var(--kz-component-sidemenu-item-bg-active));
   border-radius: 5px;
   box-shadow: var(--kz-component-sidemenu-item-active-link-shadow, none);

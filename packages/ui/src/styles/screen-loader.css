@@ -1,0 +1,74 @@
+/* ── ScreenLoader ── */
+
+.kz-screen-loader {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Overlay ── */
+.kz-screen-loader__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: kz-screen-loader-fade-in var(--kz-motion-duration-normal, 200ms) ease-out;
+}
+
+/* ── Centered content stack ── */
+.kz-screen-loader__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--kz-space-3, 12px);
+}
+
+/* ── Logo slot ── */
+.kz-screen-loader__logo {
+  margin-bottom: var(--kz-space-2, 8px);
+}
+
+/* ── Progress track ── */
+.kz-screen-loader__progress-track {
+  width: 200px;
+  max-width: 80%;
+  height: 4px;
+  border-radius: var(--kz-radius-md, 8px);
+  background: var(--kz-color-border-subtle, rgba(0, 0, 0, 0.1));
+  overflow: hidden;
+}
+
+/* ── Progress bar (determinate) ── */
+.kz-screen-loader__progress-bar {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--kz-color-brand-accent);
+  transition: width var(--kz-motion-duration-normal, 200ms) ease-out;
+}
+
+/* ── Progress bar (indeterminate) ── */
+.kz-screen-loader__progress-bar--indeterminate {
+  width: 40%;
+  animation: kz-screen-loader-indeterminate 1.4s ease-in-out infinite;
+}
+
+/* ── Label ── */
+.kz-screen-loader__label {
+  font-family: var(--kz-typography-font-family);
+  font-size: var(--kz-font-size-sm);
+  font-weight: var(--kz-font-weight-regular);
+  color: var(--kz-color-text-secondary);
+  line-height: 1.4;
+}
+
+/* ── Animations ── */
+@keyframes kz-screen-loader-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes kz-screen-loader-indeterminate {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(350%); }
+}

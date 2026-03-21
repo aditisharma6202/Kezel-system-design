@@ -16,6 +16,7 @@ export const buttonVariants = cva(base, {
         "bg-[var(--kz-component-button-secondary-bg)]",
         "text-[var(--kz-component-button-secondary-text)]",
         "rounded-[var(--kz-component-button-radius,8px)]",
+        "[border:var(--kz-component-button-secondary-border,none)]",
         "[box-shadow:var(--kz-component-button-secondary-shadow,none)]",
         "hover:bg-[var(--kz-component-button-secondary-bg-hover)]",
         "hover:[box-shadow:var(--kz-component-button-secondary-shadow-hover,var(--kz-component-button-secondary-shadow,none))]",
@@ -41,6 +42,7 @@ export const buttonVariants = cva(base, {
       ].join(" "),
     },
     status: {
+      default: "",
       brand: [
         "bg-[var(--kz-component-button-brand-bg)]",
         "text-[var(--kz-component-button-brand-text)]",

@@ -19,6 +19,7 @@ const VARIANTS = [
 ] as const;
 
 const STATUSES = [
+  ButtonStatus.Default,
   ButtonStatus.Brand,
   ButtonStatus.Success,
   ButtonStatus.Warning,
@@ -153,9 +154,7 @@ export default function ButtonShowcase() {
 
       {/* ── With Icons ── */}
       <section className="flex flex-col items-center gap-4">
-        <Typography variant={TypographyVariantEnum.H3}>
-          With Icons
-        </Typography>
+        <Typography variant={TypographyVariantEnum.H3}>With Icons</Typography>
         <Typography variant={TypographyVariantEnum.Caption}>
           Use leftIcon and rightIcon props to add icons before/after the label.
         </Typography>
@@ -164,7 +163,11 @@ export default function ButtonShowcase() {
             variant={ButtonVariant.Primary}
             status={ButtonStatus.Brand}
             size={ButtonSize.Md}
-            leftIcon={{ name: IconName.Plus, size: "sm", color: "currentColor" }}
+            leftIcon={{
+              name: IconName.Plus,
+              size: "sm",
+              color: "currentColor",
+            }}
             onClick={() => {}}
           >
             Add Item
@@ -173,7 +176,11 @@ export default function ButtonShowcase() {
             variant={ButtonVariant.Primary}
             status={ButtonStatus.Brand}
             size={ButtonSize.Md}
-            rightIcon={{ name: IconName.ChevronRight, size: "sm", color: "currentColor" }}
+            rightIcon={{
+              name: IconName.ChevronRight,
+              size: "sm",
+              color: "currentColor",
+            }}
             onClick={() => {}}
           >
             Continue
@@ -182,8 +189,16 @@ export default function ButtonShowcase() {
             variant={ButtonVariant.Primary}
             status={ButtonStatus.Brand}
             size={ButtonSize.Md}
-            leftIcon={{ name: IconName.Plus, size: "sm", color: "currentColor" }}
-            rightIcon={{ name: IconName.ChevronRight, size: "sm", color: "currentColor" }}
+            leftIcon={{
+              name: IconName.Plus,
+              size: "sm",
+              color: "currentColor",
+            }}
+            rightIcon={{
+              name: IconName.ChevronRight,
+              size: "sm",
+              color: "currentColor",
+            }}
             onClick={() => {}}
           >
             Both Icons
@@ -191,7 +206,11 @@ export default function ButtonShowcase() {
           <Button
             variant={ButtonVariant.Ghost}
             size={ButtonSize.Md}
-            leftIcon={{ name: IconName.ArrowLeft, size: "sm", color: "currentColor" }}
+            leftIcon={{
+              name: IconName.ArrowLeft,
+              size: "sm",
+              color: "currentColor",
+            }}
             onClick={() => {}}
           >
             Back
@@ -200,7 +219,11 @@ export default function ButtonShowcase() {
             variant={ButtonVariant.Container}
             status={ButtonStatus.Brand}
             size={ButtonSize.Md}
-            leftIcon={{ name: IconName.Plus, size: "sm", color: "currentColor" }}
+            leftIcon={{
+              name: IconName.Plus,
+              size: "sm",
+              color: "currentColor",
+            }}
             onClick={() => {}}
           >
             Create

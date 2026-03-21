@@ -216,6 +216,18 @@
       "require": "./dist/skeleton.js",
       "default": "./dist/skeleton.mjs"
     },
+    "./screen-loader": {
+      "types": "./dist/screen-loader.d.ts",
+      "import": "./dist/screen-loader.mjs",
+      "require": "./dist/screen-loader.js",
+      "default": "./dist/screen-loader.mjs"
+    },
+    "./error-page": {
+      "types": "./dist/error-page.d.ts",
+      "import": "./dist/error-page.mjs",
+      "require": "./dist/error-page.js",
+      "default": "./dist/error-page.mjs"
+    },
     "./styles.css": "./dist/styles.css"
   },
   "files": [
