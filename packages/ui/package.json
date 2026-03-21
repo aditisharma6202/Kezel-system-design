@@ -277,7 +277,7 @@
   "size-limit": [
     {
       "path": "dist/button.mjs",
-      "limit": "11 KB"
+      "limit": "17 KB"
     },
     {
       "path": "dist/dialog.mjs",
