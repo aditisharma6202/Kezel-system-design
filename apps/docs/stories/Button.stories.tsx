@@ -362,6 +362,88 @@ export const StatusWithVariants: Story = {
   },
 };
 
+/* ── With Icons ── */
+
+export const WithLeftIcon: Story = {
+  args: {
+    variant: ButtonVariant.Primary,
+    status: ButtonStatus.Brand,
+    size: ButtonSize.Md,
+    children: "Add Item",
+    leftIcon: { name: IconName.Plus, size: "sm", color: "currentColor" },
+  },
+};
+
+export const WithRightIcon: Story = {
+  args: {
+    variant: ButtonVariant.Primary,
+    status: ButtonStatus.Brand,
+    size: ButtonSize.Md,
+    children: "Continue",
+    rightIcon: { name: IconName.ChevronRight, size: "sm", color: "currentColor" },
+  },
+};
+
+export const WithBothIcons: Story = {
+  render: () => (
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center" }}>
+      <Button
+        variant={ButtonVariant.Primary}
+        status={ButtonStatus.Brand}
+        size={ButtonSize.Md}
+        leftIcon={{ name: IconName.Plus, size: "sm", color: "currentColor" }}
+        rightIcon={{ name: IconName.ChevronRight, size: "sm", color: "currentColor" }}
+        onClick={() => {}}
+      >
+        Both Icons
+      </Button>
+      <Button
+        variant={ButtonVariant.Ghost}
+        size={ButtonSize.Md}
+        leftIcon={{ name: IconName.ArrowLeft, size: "sm", color: "currentColor" }}
+        onClick={() => {}}
+      >
+        Back
+      </Button>
+      <Button
+        variant={ButtonVariant.Container}
+        status={ButtonStatus.Brand}
+        size={ButtonSize.Md}
+        leftIcon={{ name: IconName.Plus, size: "sm", color: "currentColor" }}
+        onClick={() => {}}
+      >
+        Create
+      </Button>
+      <Button
+        variant={ButtonVariant.Primary}
+        status={ButtonStatus.Success}
+        size={ButtonSize.Md}
+        leftIcon={{ name: IconName.CheckCircle, size: "sm", color: "currentColor" }}
+        onClick={() => {}}
+      >
+        Approve
+      </Button>
+      <Button
+        variant={ButtonVariant.Primary}
+        status={ButtonStatus.Error}
+        size={ButtonSize.Md}
+        leftIcon={{ name: IconName.Trash2, size: "sm", color: "currentColor" }}
+        onClick={() => {}}
+      >
+        Delete
+      </Button>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Buttons with leftIcon, rightIcon, or both. Icons inherit `currentColor` from the button text.",
+      },
+    },
+  },
+};
+
 /* ── asChild ── */
 
 export const AsChild: Story = {
