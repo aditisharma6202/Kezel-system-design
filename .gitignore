@@ -1,6 +1,7 @@
 node_modules
 dist
 .next
+out
 .turbo
 .pnpm-store
 *.tsbuildinfo
@@ -9,3 +10,4 @@ dist
 pnpm-debug.log
 figma.env
 apps/docs/storybook-static
+.claude/settings.json
