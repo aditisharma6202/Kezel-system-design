@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm --filter kz-design-system build && pnpm --filter docs build",
+  "buildCommand": "pnpm --filter kz-design-system build && pnpm --filter docs build-storybook",
   "installCommand": "pnpm install",
-  "outputDirectory": "apps/docs/out"
+  "outputDirectory": "apps/docs/storybook-static"
 }
