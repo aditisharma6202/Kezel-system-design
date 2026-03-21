@@ -37,6 +37,8 @@ export default defineConfig({
     loader: "src/components/loader/index.ts",
     pagination: "src/components/pagination/index.ts",
     skeleton: "src/components/skeleton/index.ts",
+    "screen-loader": "src/components/screen-loader/index.ts",
+    "error-page": "src/components/error-page/index.ts",
   },
   format: ["esm", "cjs"],
   dts: true,
