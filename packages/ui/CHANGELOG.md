@@ -1,5 +1,11 @@
 # kz-design-system
 
+## 0.3.1
+
+### Patch Changes
+
+- 2dd2d25: table
+
 ## 0.3.0
 
 ### Minor Changes
