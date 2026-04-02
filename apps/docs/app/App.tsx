@@ -28,6 +28,7 @@ import TableShowcase from "./components/TableShowcase";
 import TextInputShowcase from "./components/TextInputShowcase";
 import TextAreaShowcase from "./components/TextAreaShowcase";
 import NumberInputShowcase from "./components/NumberInputShowcase";
+import RangeSliderShowcase from "./components/RangeSliderShowcase";
 import DateTimePickerShowcase from "./components/DateTimePickerShowcase";
 import DateRangePickerShowcase from "./components/DateRangePickerShowcase";
 import ColorPickerShowcase from "./components/ColorPickerShowcase";
@@ -60,6 +61,7 @@ type SectionId =
   | "text-input"
   | "text-area"
   | "number-input"
+  | "range-slider"
   | "date-time-picker"
   | "date-range-picker"
   | "color-picker"
@@ -154,6 +156,13 @@ const docsMenuData: SideMenuNode[] = [
         type: "link",
         id: "number-input",
         label: "NumberInput",
+        icon: IconName.Search,
+        href: "#",
+      },
+      {
+        type: "link",
+        id: "range-slider",
+        label: "RangeSlider",
         icon: IconName.Search,
         href: "#",
       },
@@ -430,6 +439,7 @@ export default function App() {
               {activeSection === "text-input" && <TextInputShowcase />}
               {activeSection === "text-area" && <TextAreaShowcase />}
               {activeSection === "number-input" && <NumberInputShowcase />}
+              {activeSection === "range-slider" && <RangeSliderShowcase />}
               {activeSection === "date-time-picker" && (
                 <DateTimePickerShowcase />
               )}

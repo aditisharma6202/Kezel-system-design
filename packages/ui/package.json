@@ -60,6 +60,12 @@
       "require": "./dist/number-input.js",
       "default": "./dist/number-input.mjs"
     },
+    "./range-slider": {
+      "types": "./dist/range-slider.d.ts",
+      "import": "./dist/range-slider.mjs",
+      "require": "./dist/range-slider.js",
+      "default": "./dist/range-slider.mjs"
+    },
     "./dropdown": {
       "types": "./dist/dropdown.d.ts",
       "import": "./dist/dropdown.mjs",

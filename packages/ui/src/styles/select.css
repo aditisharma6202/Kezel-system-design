@@ -94,6 +94,11 @@
 /* ── Disabled ── */
 .kz-select-wrapper--disabled {
   border-color: var(--kz-component-input-border-disabled);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.kz-select-wrapper--disabled * {
   cursor: not-allowed;
 }
 

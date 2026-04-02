@@ -106,32 +106,92 @@ export default function TableFullShowcase() {
   const columns = [
     {
       key: "name",
-      header: "Name",
-      accessor: (r: Row) => r.name,
+      header: "USER",
       sortable: true,
+      width: "40%",
+      // Composite cell: name + email in one column (like the dashboard screenshot)
+      cell: (r: Row) => (
+        <div>
+          <div
+            style={{ color: "var(--kz-color-brand-accent)", fontWeight: 600 }}
+          >
+            {r.name}
+          </div>
+          <div
+            style={{
+              color: "var(--kz-color-text-secondary)",
+              fontSize: 12,
+              marginTop: 2,
+            }}
+          >
+            {r.email}
+          </div>
+        </div>
+      ),
+      headerStyle: { fontWeight: 700 },
+      cellStyle: { padding: "12px 16px" },
     },
     {
       key: "email",
       header: "Email",
       accessor: (r: Row) => r.email,
-      sortable: true,
+      // Hidden — email is already shown inside the "name" composite cell
+      hidden: true,
     },
     {
       key: "role",
-      header: "Role",
+      header: "ROLE",
       accessor: (r: Row) => r.role,
       sortable: true,
+      width: "120px",
+      headerStyle: {
+        textTransform: "uppercase" as const,
+        letterSpacing: "0.05em",
+        fontSize: 11,
+      },
+      cellClassName: "font-medium",
     },
     {
       key: "department",
-      header: "Department",
+      header: "Dept",
       accessor: (r: Row) => r.department,
       sortable: true,
+      width: "120px",
+      cellStyle: {
+        color: "var(--kz-color-text-secondary)",
+        fontSize: 12,
+      },
     },
     {
       key: "status",
       header: "Status",
-      accessor: (r: Row) => r.status,
+      width: "100px",
+      align: "center" as const,
+      cell: (r: Row) => (
+        <span
+          style={{
+            display: "inline-block",
+            padding: "2px 10px",
+            borderRadius: 9999,
+            fontSize: 12,
+            fontWeight: 600,
+            background:
+              r.status === "Active"
+                ? "var(--kz-color-status-success-subtle)"
+                : r.status === "Pending"
+                  ? "var(--kz-color-status-warning-subtle)"
+                  : "var(--kz-color-surface-muted)",
+            color:
+              r.status === "Active"
+                ? "var(--kz-color-status-success)"
+                : r.status === "Pending"
+                  ? "var(--kz-color-status-warning)"
+                  : "var(--kz-color-text-secondary)",
+          }}
+        >
+          {r.status}
+        </span>
+      ),
     },
   ];
 
@@ -205,6 +265,16 @@ export default function TableFullShowcase() {
             />
           )}
           actionsHeader="Actions"
+          getRowStyle={(row) =>
+            row.status === "Inactive"
+              ? { opacity: 0.5, fontStyle: "italic" }
+              : undefined
+          }
+          getRowClassName={(row) =>
+            row.status === "Pending"
+              ? "bg-[var(--kz-color-status-warning-subtle)]"
+              : undefined
+          }
           sort={sort}
           onSortChange={setSort}
           pagination={paginationState}

@@ -64,7 +64,7 @@ const ToggleButton = React.forwardRef<HTMLButtonElement, ToggleButtonProps>(
     const wrapperClassName = cn(
       "group relative inline-flex items-center gap-2",
       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--kz-color-border-focus)]",
-      "disabled:pointer-events-none disabled:opacity-[var(--kz-component-toggle-button-disabled-opacity,0.5)]",
+      "disabled:cursor-not-allowed disabled:opacity-[var(--kz-component-toggle-button-disabled-opacity,0.5)]",
       fullWidth && "w-full",
       loading &&
         "opacity-[var(--kz-component-toggle-button-loading-opacity,0.8)]",

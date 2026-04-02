@@ -65,6 +65,12 @@
 
 .kz-textarea-wrapper:has(textarea:disabled) {
   border-color: var(--kz-component-input-border-disabled);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.kz-textarea-wrapper:has(textarea:disabled) * {
+  cursor: not-allowed;
 }
 
 [data-variant="standard"] .kz-textarea-state-icon {

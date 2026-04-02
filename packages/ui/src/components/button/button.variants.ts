@@ -5,7 +5,7 @@ const base = [
   "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium",
   "transition-all duration-150 ease-out",
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--kz-color-border-focus)]",
-  "disabled:pointer-events-none disabled:opacity-[var(--kz-component-button-disabled-opacity,0.5)]",
+  "disabled:cursor-not-allowed disabled:opacity-[var(--kz-component-button-disabled-opacity,0.5)]",
   "[&_svg]:pointer-events-none [&_svg]:shrink-0",
 ].join(" ");
 

@@ -2,7 +2,7 @@ import * as React from "react";
 import { cn } from "../../utils/cn";
 import { Checkbox, CheckboxSize, CheckboxVariant } from "../checkbox";
 import { TextInput, TextInputSize, TextInputVariant } from "../text-input";
-import { Button, ButtonVariant, ButtonSize } from "../button";
+import { Button, ButtonVariant, ButtonSize, ButtonStatus } from "../button";
 import { Icon, IconName } from "../../icon";
 import { Pagination } from "../pagination";
 import type {
@@ -37,6 +37,8 @@ function TableInner<TData, TEditValue = string>(
     stickyHeader = false,
     maxHeight,
     getRowSticky,
+    getRowClassName,
+    getRowStyle,
     caption,
     header: headerProp,
     title,
@@ -84,6 +86,11 @@ function TableInner<TData, TEditValue = string>(
   const allRowIds = React.useMemo(
     () => data.map((row, i) => getRowId(row, i)),
     [data, getRowId]
+  );
+
+  const visibleColumns = React.useMemo(
+    () => columns.filter((col) => !col.hidden),
+    [columns]
   );
 
   const selectedCount = React.useMemo(
@@ -391,11 +398,13 @@ function TableInner<TData, TEditValue = string>(
                   />
                 </th>
               )}
-              {columns.map((col) => {
-                const style: React.CSSProperties = {};
-                if (col.width) style.width = col.width;
-                if (col.minWidth) style.minWidth = col.minWidth;
-                if (col.maxWidth) style.maxWidth = col.maxWidth;
+              {visibleColumns.map((col) => {
+                const thStyle: React.CSSProperties = {
+                  ...col.headerStyle,
+                };
+                if (col.width) thStyle.width = col.width;
+                if (col.minWidth) thStyle.minWidth = col.minWidth;
+                if (col.maxWidth) thStyle.maxWidth = col.maxWidth;
                 const align = col.align ?? "left";
                 const isSortable = col.sortable && onSortChange != null;
                 const isActive = sort?.key === col.key;
@@ -415,9 +424,10 @@ function TableInner<TData, TEditValue = string>(
                       sizeClass,
                       alignClasses[align],
                       stickyHeader &&
-                        "sticky top-0 z-10 bg-[var(--kz-component-table-header-bg)]"
+                        "sticky top-0 z-10 bg-[var(--kz-component-table-header-bg)]",
+                      col.headerClassName
                     )}
-                    style={style}
+                    style={thStyle}
                   >
                     {isSortable ? (
                       <button
@@ -482,7 +492,7 @@ function TableInner<TData, TEditValue = string>(
               <tr>
                 <td
                   colSpan={
-                    columns.length +
+                    visibleColumns.length +
                     (selectableRows ? 1 : 0) +
                     (actions ? 1 : 0)
                   }
@@ -498,7 +508,7 @@ function TableInner<TData, TEditValue = string>(
               <tr>
                 <td
                   colSpan={
-                    columns.length +
+                    visibleColumns.length +
                     (selectableRows ? 1 : 0) +
                     (actions ? 1 : 0)
                   }
@@ -527,8 +537,10 @@ function TableInner<TData, TEditValue = string>(
                     className={cn(
                       "kz-table-tr border-b border-[var(--kz-component-table-row-border)] last:border-b-0 hover:bg-[var(--kz-component-table-row-hover-bg)] transition-colors duration-[var(--kz-motion-duration-normal)]",
                       isSticky && "kz-table-tr--sticky",
-                      hasEditingCell && "kz-table-tr--editing"
+                      hasEditingCell && "kz-table-tr--editing",
+                      getRowClassName?.(row, index)
                     )}
+                    style={getRowStyle?.(row, index)}
                   >
                     {selectableRows && (
                       <td
@@ -551,11 +563,13 @@ function TableInner<TData, TEditValue = string>(
                         />
                       </td>
                     )}
-                    {columns.map((col) => {
-                      const style: React.CSSProperties = {};
-                      if (col.width) style.width = col.width;
-                      if (col.minWidth) style.minWidth = col.minWidth;
-                      if (col.maxWidth) style.maxWidth = col.maxWidth;
+                    {visibleColumns.map((col) => {
+                      const tdStyle: React.CSSProperties = {
+                        ...col.cellStyle,
+                      };
+                      if (col.width) tdStyle.width = col.width;
+                      if (col.minWidth) tdStyle.minWidth = col.minWidth;
+                      if (col.maxWidth) tdStyle.maxWidth = col.maxWidth;
                       const align = col.align ?? "left";
                       const isCellEditing = isMultiCellMode
                         ? !!editingCells[rowId]?.[col.key]
@@ -588,9 +602,10 @@ function TableInner<TData, TEditValue = string>(
                             className={cn(
                               "kz-table-td text-[var(--kz-color-text-primary)]",
                               sizeClass,
-                              alignClasses[align]
+                              alignClasses[align],
+                              col.cellClassName
                             )}
-                            style={style}
+                            style={tdStyle}
                           >
                             {col.editCell ? (
                               col.editCell(row, cellDraft, onChange)
@@ -615,9 +630,10 @@ function TableInner<TData, TEditValue = string>(
                             "kz-table-td text-[var(--kz-color-text-primary)]",
                             sizeClass,
                             alignClasses[align],
-                            col.editable && "kz-table-td--editable"
+                            col.editable && "kz-table-td--editable",
+                            col.cellClassName
                           )}
-                          style={style}
+                          style={tdStyle}
                         >
                           {getCellContent(row, col)}
                           {col.editable && (
@@ -724,6 +740,7 @@ function TableInner<TData, TEditValue = string>(
                 </Button>
                 <Button
                   variant={ButtonVariant.Primary}
+                  status={ButtonStatus.Success}
                   size={ButtonSize.Sm}
                   onClick={handleCellSave}
                 >

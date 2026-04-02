@@ -7,6 +7,7 @@
 @import "./styles/text-input.css";
 @import "./styles/textarea.css";
 @import "./styles/number-input.css";
+@import "./styles/range-slider.css";
 @import "./styles/button.css";
 @import "./styles/dropdown.css";
 @import "./styles/nav-button.css";

@@ -1,0 +1,259 @@
+.kz-range-slider-root {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.kz-range-slider-label {
+  display: block;
+}
+
+/* ── Wrapper (provides the outer container styling per variant) ── */
+
+.kz-range-slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: var(--kz-component-input-radius);
+  border: 1px solid var(--kz-component-input-border);
+  background: var(--kz-component-input-bg);
+  box-shadow: var(--kz-component-input-shadow);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.kz-range-slider-wrapper:focus-within {
+  border-color: var(--kz-component-input-border-focus);
+  border-width: var(--kz-component-input-border-focus-width, 1px);
+  box-shadow: var(--kz-component-input-focus-ring, none);
+}
+
+.kz-range-slider-wrapper--container {
+  background: transparent;
+  box-shadow: none;
+  border-radius: var(--kz-component-input-container-radius);
+  border: 1px solid var(--kz-component-input-container-border);
+}
+
+.kz-range-slider-wrapper--ghost {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+}
+
+.kz-range-slider-wrapper--error {
+  border-color: var(--kz-color-status-error-border);
+}
+
+.kz-range-slider-wrapper--success {
+  border-color: var(--kz-color-status-success-border);
+}
+
+.kz-range-slider-wrapper--warning {
+  border-color: var(--kz-color-status-warning-border);
+}
+
+.kz-range-slider-wrapper--disabled {
+  border-color: var(--kz-component-input-border-disabled);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.kz-range-slider-wrapper--disabled * {
+  cursor: not-allowed;
+}
+
+/* ── Size variants ── */
+
+.kz-range-slider-wrapper--sm {
+  min-height: 32px;
+  padding: 4px 14px;
+}
+
+.kz-range-slider-wrapper--md {
+  min-height: 40px;
+  padding: 8px 16px;
+}
+
+.kz-range-slider-wrapper--lg {
+  min-height: 48px;
+  padding: 10px 18px;
+}
+
+/* ── Track ── */
+
+.kz-range-slider-track {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--kz-component-input-border);
+  cursor: pointer;
+}
+
+.kz-range-slider-wrapper--sm .kz-range-slider-track {
+  height: 3px;
+  border-radius: 1.5px;
+}
+
+.kz-range-slider-wrapper--lg .kz-range-slider-track {
+  height: 6px;
+  border-radius: 3px;
+}
+
+/* ── Fill (active portion) ── */
+
+.kz-range-slider-fill {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--kz-color-brand-accent);
+  transition: none;
+}
+
+/* ── Thumb ── */
+
+.kz-range-slider-thumb {
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--kz-color-brand-accent);
+  border: 2px solid var(--kz-color-brand-accent);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  touch-action: none;
+  outline: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.kz-range-slider-thumb:focus-visible {
+  box-shadow: 0 0 0 3px rgba(0, 169, 157, 0.25);
+}
+
+.kz-range-slider-thumb:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+}
+
+.kz-range-slider-thumb--active {
+  cursor: grabbing;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.kz-range-slider-thumb--sm {
+  width: 12px;
+  height: 12px;
+}
+
+.kz-range-slider-thumb--lg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ── Value tooltip ── */
+
+.kz-range-slider-value-tooltip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: var(--kz-typography-font-family);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 16px;
+  white-space: nowrap;
+  color: var(--kz-color-brand-inverse, #fff);
+  background: var(--kz-color-brand-accent);
+  pointer-events: none;
+}
+
+/* ── Manual inputs ── */
+
+.kz-range-slider-inputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.kz-range-slider-input {
+  flex: 1;
+  min-width: 0;
+  border-radius: var(--kz-component-input-radius);
+  border: 1px solid var(--kz-component-input-border);
+  background: var(--kz-component-input-bg);
+  box-shadow: var(--kz-component-input-shadow);
+  font-family: var(--kz-typography-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--kz-component-input-text);
+  padding: 8px 12px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  outline: none;
+}
+
+.kz-range-slider-input::placeholder {
+  color: var(--kz-component-input-placeholder);
+}
+
+.kz-range-slider-input:focus {
+  border-color: var(--kz-component-input-border-focus);
+  border-width: var(--kz-component-input-border-focus-width, 1px);
+  box-shadow: var(--kz-component-input-focus-ring, none);
+}
+
+.kz-range-slider-input:disabled {
+  border-color: var(--kz-component-input-border-disabled);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.kz-range-slider-input--sm {
+  font-size: 12px;
+  line-height: 16px;
+  padding: 4px 10px;
+}
+
+.kz-range-slider-input--lg {
+  font-size: 16px;
+  line-height: 24px;
+  padding: 10px 14px;
+}
+
+/* Input variant: container */
+.kz-range-slider-input--container {
+  background: transparent;
+  box-shadow: none;
+  border-radius: var(--kz-component-input-container-radius);
+  border: 1px solid var(--kz-component-input-container-border);
+}
+
+/* Input variant: ghost */
+.kz-range-slider-input--ghost {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  border-bottom: 1px solid var(--kz-component-input-border);
+  border-radius: 0;
+}
+
+.kz-range-slider-input--ghost:focus {
+  border-color: var(--kz-component-input-border-focus);
+  box-shadow: none;
+}
+
+/* ── Min/Max labels ── */
+
+.kz-range-slider-minmax {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

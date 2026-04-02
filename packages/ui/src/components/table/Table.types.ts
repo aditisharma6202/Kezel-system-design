@@ -13,6 +13,16 @@ export interface TableColumn<TData, TEditValue = string> {
   minWidth?: string;
   maxWidth?: string;
   align?: TableAlign;
+  /** Custom CSS class for this column's header cell (<th>). */
+  headerClassName?: string;
+  /** Custom inline styles for this column's header cell (<th>). */
+  headerStyle?: React.CSSProperties;
+  /** Custom CSS class for this column's body cells (<td>). */
+  cellClassName?: string;
+  /** Custom inline styles for this column's body cells (<td>). */
+  cellStyle?: React.CSSProperties;
+  /** Hide this column from rendering. */
+  hidden?: boolean;
   sortable?: boolean;
   /** Whether this column's cells are editable. Enables the pencil icon on hover. */
   editable?: boolean;
@@ -64,6 +74,10 @@ export interface TableProps<TData, TEditValue = string> {
   /** Max height of the scrollable area (CSS value, e.g. "60vh", "400px"). Only applies when stickyHeader is true. Default: none (fills parent). */
   maxHeight?: string;
   getRowSticky?: (row: TData, index: number) => boolean;
+  /** Return a custom CSS class for a row's <tr> element. */
+  getRowClassName?: (row: TData, index: number) => string | undefined;
+  /** Return custom inline styles for a row's <tr> element. */
+  getRowStyle?: (row: TData, index: number) => React.CSSProperties | undefined;
   caption?: string;
   header?: React.ReactNode;
   title?: React.ReactNode;

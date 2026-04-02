@@ -47,5 +47,9 @@ legend.kz-form-group-legend {
 /* ── Disabled ── */
 .kz-form-group--disabled .kz-form-group-content {
   opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.kz-form-group--disabled .kz-form-group-content * {
   pointer-events: none;
 }

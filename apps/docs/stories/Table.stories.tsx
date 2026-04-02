@@ -855,3 +855,164 @@ export const StickyColumns: Story = {
     ),
   ],
 };
+
+export const CustomHeaderStyles: Story = {
+  render: () => (
+    <Table<Row>
+      data={sampleData.slice(0, 5)}
+      columns={[
+        {
+          key: "name",
+          header: "Name",
+          accessor: (row) => row.name,
+          headerClassName: "italic",
+          headerStyle: {
+            color: "var(--kz-color-brand-accent)",
+            fontSize: 16,
+            fontWeight: 700,
+          },
+        },
+        {
+          key: "role",
+          header: "Role",
+          accessor: (row) => row.role,
+          headerStyle: {
+            color: "var(--kz-color-status-warning)",
+            fontWeight: 600,
+            textTransform: "uppercase",
+            letterSpacing: "0.05em",
+          },
+        },
+        {
+          key: "status",
+          header: "Status",
+          accessor: (row) => row.status,
+          headerClassName: "underline",
+          headerStyle: {
+            color: "var(--kz-color-status-success)",
+          },
+        },
+      ]}
+      getRowId={(row) => row.id}
+      size="md"
+    />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Use `headerClassName` and `headerStyle` on each column to customise the header cell text style — color, font weight, size, text-transform, etc.",
+      },
+    },
+  },
+};
+
+export const CustomRowStyles: Story = {
+  render: () => (
+    <Table<Row>
+      data={sampleData}
+      columns={columns}
+      getRowId={(row) => row.id}
+      size="md"
+      getRowStyle={(row) =>
+        row.status === "Inactive"
+          ? { opacity: 0.5, fontStyle: "italic" }
+          : undefined
+      }
+      getRowClassName={(row) =>
+        row.role === "Admin"
+          ? "bg-[var(--kz-color-status-success-subtle)]"
+          : undefined
+      }
+    />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Use `getRowStyle` and `getRowClassName` to conditionally style each row. Here, Inactive rows are faded + italic, and Admin rows have a success background.",
+      },
+    },
+  },
+};
+
+export const ColumnCellStyles: Story = {
+  render: () => (
+    <Table<Row>
+      data={sampleData.slice(0, 5)}
+      columns={[
+        {
+          key: "user",
+          header: "USER",
+          width: "50%",
+          cell: (row) => (
+            <div>
+              <div
+                style={{
+                  color: "var(--kz-color-brand-accent)",
+                  fontWeight: 600,
+                }}
+              >
+                {row.name}
+              </div>
+              <div
+                style={{
+                  color: "var(--kz-color-text-secondary)",
+                  fontSize: 12,
+                  marginTop: 2,
+                }}
+              >
+                {row.role}
+              </div>
+            </div>
+          ),
+          cellStyle: { padding: "12px 16px" },
+          headerStyle: { fontWeight: 700 },
+        },
+        {
+          key: "status",
+          header: "Status",
+          width: "100px",
+          align: "center",
+          cell: (row) => (
+            <span
+              style={{
+                display: "inline-block",
+                padding: "2px 10px",
+                borderRadius: 9999,
+                fontSize: 12,
+                fontWeight: 600,
+                background:
+                  row.status === "Active"
+                    ? "var(--kz-color-status-success-subtle)"
+                    : "var(--kz-color-surface-muted)",
+                color:
+                  row.status === "Active"
+                    ? "var(--kz-color-status-success)"
+                    : "var(--kz-color-text-secondary)",
+              }}
+            >
+              {row.status}
+            </span>
+          ),
+        },
+        {
+          key: "role",
+          header: "Role (hidden)",
+          accessor: (row) => row.role,
+          hidden: true,
+        },
+      ]}
+      getRowId={(row) => row.id}
+      size="md"
+    />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Per-column customisation: `cellStyle` for padding/color, `cellClassName` for classes, `cell` for composite rendering (name + role in one cell), `width` for spacing, `hidden` to omit columns, and `align` for positioning.",
+      },
+    },
+  },
+};

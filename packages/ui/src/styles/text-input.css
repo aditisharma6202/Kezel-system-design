@@ -70,6 +70,13 @@
 .kz-text-input-wrapper:has(input:disabled),
 .kz-text-input-wrapper--disabled {
   border-color: var(--kz-component-input-border-disabled);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.kz-text-input-wrapper:has(input:disabled) *,
+.kz-text-input-wrapper--disabled * {
+  cursor: not-allowed;
 }
 
 [data-variant="standard"] .kz-text-input-state-icon {

@@ -299,6 +299,54 @@ export const General: Story = {
   },
 };
 
+const actionIcons: IconName[] = [
+  IconName.Pin,
+  IconName.PinOff,
+  IconName.Save,
+  IconName.RotateCcw,
+];
+
+export const Actions: Story = {
+  render: () => (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))",
+        gap: 16,
+        alignItems: "center",
+      }}
+    >
+      {actionIcons.map((name) => (
+        <div
+          key={name}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 8,
+            padding: 12,
+            background: "var(--kz-color-surface-raised)",
+            borderRadius: 8,
+          }}
+        >
+          <Icon name={name} size="md" color="currentColor" aria-hidden />
+          <span style={{ fontSize: 11, color: "var(--kz-color-text-muted)" }}>
+            {name}
+          </span>
+        </div>
+      ))}
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Action icons: pin, pin-off (unpin), save, and rotate-ccw (reset).",
+      },
+    },
+  },
+};
+
 export const WithColor: Story = {
   render: () => (
     <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>

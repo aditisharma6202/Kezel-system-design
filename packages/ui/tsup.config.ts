@@ -11,6 +11,7 @@ export default defineConfig({
     "text-input": "src/components/text-input/index.ts",
     "text-area": "src/components/text-area/index.ts",
     "number-input": "src/components/number-input/index.ts",
+    "range-slider": "src/components/range-slider/index.ts",
     dropdown: "src/components/dropdown/index.ts",
     dialog: "src/components/dialog/index.ts",
     icon: "src/icon/index.ts",

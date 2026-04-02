@@ -103,6 +103,10 @@ import {
   Trash2,
   Eye,
   EyeOff,
+  Pin,
+  PinOff,
+  Save,
+  RotateCcw,
 } from "lucide-react";
 
 /** Use IconName.* so users discover available icons. Values match registry keys. */
@@ -210,6 +214,10 @@ export enum IconName {
   Trash2 = "trash-2",
   Eye = "eye",
   EyeOff = "eye-off",
+  Pin = "pin",
+  PinOff = "pin-off",
+  Save = "save",
+  RotateCcw = "rotate-ccw",
 }
 
 export const iconRegistry: Record<IconName, LucideIcon> = {
@@ -316,4 +324,8 @@ export const iconRegistry: Record<IconName, LucideIcon> = {
   [IconName.Trash2]: Trash2,
   [IconName.Eye]: Eye,
   [IconName.EyeOff]: EyeOff,
+  [IconName.Pin]: Pin,
+  [IconName.PinOff]: PinOff,
+  [IconName.Save]: Save,
+  [IconName.RotateCcw]: RotateCcw,
 };

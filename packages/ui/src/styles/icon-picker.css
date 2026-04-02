@@ -69,6 +69,11 @@
 
 .kz-icon-picker-wrapper:has(input:disabled) {
   border-color: var(--kz-component-input-border-disabled);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.kz-icon-picker-wrapper:has(input:disabled) * {
   cursor: not-allowed;
 }
 

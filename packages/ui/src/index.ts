@@ -64,6 +64,8 @@ export { TextArea } from "./components/text-area";
 export type { TextAreaProps } from "./components/text-area";
 export { NumberInput } from "./components/number-input";
 export type { NumberInputProps } from "./components/number-input";
+export { RangeSlider } from "./components/range-slider";
+export type { RangeSliderProps } from "./components/range-slider";
 export { Sidesheet } from "./components/sidesheet";
 export type { SidesheetProps } from "./components/sidesheet";
 export { SideMenu } from "./components/sidemenu";

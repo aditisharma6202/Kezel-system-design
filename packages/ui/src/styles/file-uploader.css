@@ -89,7 +89,13 @@
 /* ── Disabled ── */
 .kz-file-uploader-wrapper--disabled {
   border-color: var(--kz-component-input-border-disabled);
+  opacity: 0.5;
   cursor: not-allowed;
+}
+
+.kz-file-uploader-wrapper--disabled * {
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 /* ── Dragover ── */
