@@ -740,7 +740,7 @@ function TableInner<TData, TEditValue = string>(
                 </Button>
                 <Button
                   variant={ButtonVariant.Primary}
-                  status={ButtonStatus.Success}
+                  status={ButtonStatus.Brand}
                   size={ButtonSize.Sm}
                   onClick={handleCellSave}
                 >
