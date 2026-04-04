@@ -112,6 +112,35 @@
   min-width: 0;
   overflow-y: auto;
   overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(
+      --kz-component-sidemenu-scrollbar-thumb,
+      rgba(255, 255, 255, 0.15)
+    )
+    transparent;
+}
+
+.kz-sidemenu-nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.kz-sidemenu-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.kz-sidemenu-nav::-webkit-scrollbar-thumb {
+  background: var(
+    --kz-component-sidemenu-scrollbar-thumb,
+    rgba(255, 255, 255, 0.15)
+  );
+  border-radius: 3px;
+}
+
+.kz-sidemenu-nav::-webkit-scrollbar-thumb:hover {
+  background: var(
+    --kz-component-sidemenu-scrollbar-thumb-hover,
+    rgba(255, 255, 255, 0.25)
+  );
 }
 
 .kz-sidemenu-footer {
@@ -149,7 +178,7 @@
   width: 100%;
   min-height: 36px;
   padding: 8px 12px;
-  border: none;
+  border: 1px solid transparent;
   border-radius: var(--kz-component-nav-button-radius, 5px);
   background: transparent;
   color: var(--kz-component-sidemenu-item-text);
@@ -161,34 +190,60 @@
   text-decoration: none;
   cursor: pointer;
   outline: none;
-  transition: background 0.15s, color 0.15s;
+  transition:
+    background 0.15s,
+    color 0.15s;
   box-sizing: border-box;
 }
 
-.kz-sidemenu-item:hover:not(.kz-sidemenu-item--disabled) {
+.kz-sidemenu-item:hover:not(.kz-sidemenu-item--disabled):not(
+    .kz-sidemenu-item--active
+  ) {
   background: var(--kz-component-sidemenu-item-bg-hover);
+  border: 1px solid var(--kz-component-sidemenu-item-border-hover, transparent);
+}
+
+.kz-sidemenu-item:hover:not(.kz-sidemenu-item--disabled):not(
+    .kz-sidemenu-item--active
+  )
+  .kz-sidemenu-item-label,
+.kz-sidemenu-item:hover:not(.kz-sidemenu-item--disabled):not(
+    .kz-sidemenu-item--active
+  )
+  .kz-sidemenu-item-icon,
+.kz-sidemenu-item:hover:not(.kz-sidemenu-item--disabled):not(
+    .kz-sidemenu-item--active
+  )
+  .kz-sidemenu-group-chevron {
+  color: var(
+    --kz-component-sidemenu-item-text-hover,
+    var(--kz-component-sidemenu-item-text)
+  );
 }
 
 .kz-sidemenu-item--active {
   background: var(--kz-component-sidemenu-item-bg-active);
-  color: var(--kz-component-sidemenu-item-active-text, #18AB9F);
+  color: var(--kz-component-sidemenu-item-active-text, #18ab9f);
 }
 
 .kz-sidemenu-item--active .kz-sidemenu-item-icon {
-  color: var(--kz-component-sidemenu-item-active-text, #18AB9F);
+  color: var(--kz-component-sidemenu-item-active-text, #18ab9f);
 }
 
 /* Link (non-dropdown) selected only: border-radius 5px, optional neumorphic inset; dropdown/group options get only color change above */
 .kz-sidemenu-item--link.kz-sidemenu-item--active {
   border-radius: 5px;
   border: var(--kz-component-sidemenu-item-active-link-border, none);
-  background: var(--kz-component-sidemenu-item-active-link-bg, var(--kz-component-sidemenu-item-bg-active));
+  background: var(
+    --kz-component-sidemenu-item-active-link-bg,
+    var(--kz-component-sidemenu-item-bg-active)
+  );
   box-shadow: var(--kz-component-sidemenu-item-active-link-shadow, none);
 }
 
 .kz-sidemenu-item--link.kz-sidemenu-item--active .kz-sidemenu-item-icon,
 .kz-sidemenu-item--link.kz-sidemenu-item--active .kz-sidemenu-item-label {
-  color: var(--kz-component-sidemenu-item-active-text, #18AB9F);
+  color: var(--kz-component-sidemenu-item-active-text, #18ab9f);
 }
 
 .kz-sidemenu-item--disabled {
@@ -211,17 +266,21 @@
 /* Collapsed sidebar: hover bg and icon color */
 .kz-sidemenu--collapsed .kz-sidemenu-item--collapsed:hover,
 .kz-sidemenu--collapsed .kz-sidemenu-flyout-trigger:hover {
-  background: #18AB9F0F;
+  background: #18ab9f0f;
 }
 
-.kz-sidemenu--collapsed .kz-sidemenu-item--collapsed:hover .kz-sidemenu-item-icon,
-.kz-sidemenu--collapsed .kz-sidemenu-flyout-trigger:hover .kz-sidemenu-item-icon {
-  color: #18AB9F;
+.kz-sidemenu--collapsed
+  .kz-sidemenu-item--collapsed:hover
+  .kz-sidemenu-item-icon,
+.kz-sidemenu--collapsed
+  .kz-sidemenu-flyout-trigger:hover
+  .kz-sidemenu-item-icon {
+  color: #18ab9f;
 }
 
 /* When flyout is open, show icon in active color so user knows which menu is open */
 .kz-sidemenu-flyout-trigger[data-state="open"] .kz-sidemenu-item-icon {
-  color: var(--kz-component-sidemenu-item-active-text, #18AB9F);
+  color: var(--kz-component-sidemenu-item-active-text, #18ab9f);
 }
 
 .kz-sidemenu-item-row {
@@ -263,38 +322,47 @@
 /* When a group/dropdown has a selected option: same bg + inset shadow as link buttons */
 .kz-sidemenu-group-trigger.kz-sidemenu-item--active {
   border: var(--kz-component-sidemenu-item-active-link-border, none);
-  background: var(--kz-component-sidemenu-item-active-link-bg, var(--kz-component-sidemenu-item-bg-active));
+  background: var(
+    --kz-component-sidemenu-item-active-link-bg,
+    var(--kz-component-sidemenu-item-bg-active)
+  );
   box-shadow: var(--kz-component-sidemenu-item-active-link-shadow, none);
 }
 
 .kz-sidemenu-flyout-trigger .kz-sidemenu-item--active {
   border: var(--kz-component-sidemenu-item-active-link-border, none);
-  background: var(--kz-component-sidemenu-item-active-link-bg, var(--kz-component-sidemenu-item-bg-active));
+  background: var(
+    --kz-component-sidemenu-item-active-link-bg,
+    var(--kz-component-sidemenu-item-bg-active)
+  );
   box-shadow: var(--kz-component-sidemenu-item-active-link-shadow, none);
 }
 
 .kz-sidemenu-group-trigger.kz-sidemenu-item--active .kz-sidemenu-item-icon,
 .kz-sidemenu-group-trigger.kz-sidemenu-item--active .kz-sidemenu-item-label,
 .kz-sidemenu-group-trigger.kz-sidemenu-item--active .kz-sidemenu-group-chevron {
-  color: var(--kz-component-sidemenu-item-active-text, #18AB9F);
+  color: var(--kz-component-sidemenu-item-active-text, #18ab9f);
 }
 
 /* Collapsed: when a group has a selected option, icon uses active color (no bg) */
 .kz-sidemenu-flyout-trigger .kz-sidemenu-item--active .kz-sidemenu-item-icon {
-  color: var(--kz-component-sidemenu-item-active-text, #18AB9F);
+  color: var(--kz-component-sidemenu-item-active-text, #18ab9f);
 }
 
 /* Selected option inside a group/dropdown: bg + inset shadow to match link buttons */
 .kz-sidemenu-group-content .kz-sidemenu-item--active {
   border: var(--kz-component-sidemenu-item-active-link-border, none);
-  background: var(--kz-component-sidemenu-item-active-link-bg, var(--kz-component-sidemenu-item-bg-active));
+  background: var(
+    --kz-component-sidemenu-item-active-link-bg,
+    var(--kz-component-sidemenu-item-bg-active)
+  );
   border-radius: 5px;
   box-shadow: var(--kz-component-sidemenu-item-active-link-shadow, none);
 }
 
 .kz-sidemenu-group-content .kz-sidemenu-item--active .kz-sidemenu-item-icon,
 .kz-sidemenu-group-content .kz-sidemenu-item--active .kz-sidemenu-item-label {
-  color: var(--kz-component-sidemenu-item-active-text, #18AB9F);
+  color: var(--kz-component-sidemenu-item-active-text, #18ab9f);
 }
 
 .kz-sidemenu-group-content {
@@ -353,7 +421,10 @@
   min-width: 180px;
   padding: 4px;
   border-radius: var(--kz-component-nav-dropdown-menu-radius, 4px);
-  background: var(--kz-component-sidemenu-bg, var(--kz-component-nav-dropdown-menu-bg, #f5f6f8));
+  background: var(
+    --kz-component-sidemenu-bg,
+    var(--kz-component-nav-dropdown-menu-bg, #f5f6f8)
+  );
   box-shadow:
     var(--kz-component-nav-dropdown-menu-shadow),
     1px 1px 2px 0 rgba(0, 0, 0, 0.06) inset;

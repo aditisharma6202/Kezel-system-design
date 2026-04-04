@@ -8,8 +8,8 @@
   --kz-color-surface-secondary: #fffafd;
 
   /* ── TEXT ── */
-  --kz-color-text-primary: #1A1518;
-  --kz-color-text-muted: #2D2A2E;
+  --kz-color-text-primary: #1a1518;
+  --kz-color-text-muted: #2d2a2e;
 
   /* ── BORDER ── */
   --kz-color-border-default: rgba(0, 0, 0, 0.1);
@@ -26,8 +26,8 @@
   --kz-color-icon-default: #5c6675;
 
   /* ── TYPOGRAPHY ── */
-  --kz-typography-color-primary: #1A1518;
-  --kz-typography-color-secondary: #2D2A2E;
+  --kz-typography-color-primary: #1a1518;
+  --kz-typography-color-secondary: #2d2a2e;
   --kz-typography-error-color: var(--kz-color-status-error);
   --kz-typography-success-color: var(--kz-color-status-success);
 
@@ -38,27 +38,19 @@
   --kz-typography-label-font-size: 16px;
 
   /* ── SHADOW ── */
-  --kz-shadow-elevation-1:   8px 8px 16px  #ede4df,
-             -8px -8px 16px #ffffff;
-  --kz-shadow-elevation-2:
-    10px 10px 20px #ede4df,
-    -10px -10px 20px #ffffff;
-  --kz-shadow-inset-1:
-   inset 8px 8px 16px #ede4df,
-            inset -8px -8px 16px #ffffff;
+  --kz-shadow-elevation-1: 8px 8px 16px #ede4df, -8px -8px 16px #ffffff;
+  --kz-shadow-elevation-2: 10px 10px 20px #ede4df, -10px -10px 20px #ffffff;
+  --kz-shadow-inset-1: inset 8px 8px 16px #ede4df, inset -8px -8px 16px #ffffff;
   --kz-shadow-overlay-panel: 0 8px 24px rgba(0, 0, 0, 0.5);
 
   /* Neumorphic component shadows */
   --kz-shadow-neumorphic-raised-sm: 2px 2px 4px 0 #d9d5d7, -2px -2px 4px 0 #fff;
   --kz-shadow-neumorphic-raised-md:
-    4px 4px 8px 0 rgba(163, 177, 198, 0.5),
-    -4px -4px 8px 0 #fff;
+    4px 4px 8px 0 rgba(163, 177, 198, 0.5), -4px -4px 8px 0 #fff;
   --kz-shadow-neumorphic-raised-lg:
-    4px 4px 12px 0 rgba(163, 177, 198, 0.5),
-    -4px -4px 12px 0 #fff;
+    4px 4px 12px 0 rgba(163, 177, 198, 0.5), -4px -4px 12px 0 #fff;
   --kz-shadow-neumorphic-inset-sm:
-    2px 2px 4px 0 #f3ebea inset,
-    -2px -2px 4px 0 #fff inset;
+    2px 2px 4px 0 #f3ebea inset, -2px -2px 4px 0 #fff inset;
 
   /* ── RADIUS ── */
   --kz-radius-md: 10px;
@@ -70,14 +62,14 @@
 
   /* ── STATUS ── */
   --kz-color-status-success: #145020;
-  --kz-color-status-success-bg: #EEF7EE;
-  --kz-color-status-success-border: #3DA24D;
+  --kz-color-status-success-bg: #eef7ee;
+  --kz-color-status-success-border: #3da24d;
   --kz-color-status-warning: #f59e0b;
   --kz-color-status-warning-bg: #fef3c7;
   --kz-color-status-warning-border: #d97706;
-  --kz-color-status-error: #8B1A18;
-  --kz-color-status-error-bg: #FDF0EF;
-  --kz-color-status-error-border: #D9534F;
+  --kz-color-status-error: #8b1a18;
+  --kz-color-status-error-bg: #fdf0ef;
+  --kz-color-status-error-border: #d9534f;
   --kz-color-status-info: #0056b3;
   --kz-color-status-info-bg: #e8f1fd;
   --kz-color-status-info-border: #b6d4fe;
@@ -90,9 +82,12 @@
   --kz-component-button-secondary-text: var(--kz-color-text-primary);
   --kz-component-button-secondary-bg-hover: #fffafd;
   --kz-component-button-secondary-bg-active: #fffafd;
-  --kz-component-button-secondary-border: 1px solid var(--kz-component-input-border);
+  --kz-component-button-secondary-border: 1px solid
+    var(--kz-component-input-border);
   --kz-component-button-secondary-shadow: var(--kz-shadow-neumorphic-raised-sm);
-  --kz-component-button-secondary-shadow-hover: var(--kz-shadow-neumorphic-inset-sm);
+  --kz-component-button-secondary-shadow-hover: var(
+    --kz-shadow-neumorphic-inset-sm
+  );
 
   --kz-component-button-brand-bg: var(--kz-color-brand-accent);
   --kz-component-button-brand-bg-hover: var(--kz-color-brand-accent-dark);
@@ -117,40 +112,47 @@
   --kz-component-button-container-text: #2e3a59;
   --kz-component-button-container-border: rgba(0, 0, 0, 0.06);
   --kz-component-button-container-bg-hover: var(--kz-color-surface-base);
-  --kz-component-button-container-shadow:none;
-  --kz-component-button-container-shadow-hover:
-  none;
+  --kz-component-button-container-shadow: none;
+  --kz-component-button-container-shadow-hover: none;
 
   --kz-component-button-success-bg: var(--kz-color-status-success);
-  --kz-component-button-success-bg-hover: #13503D;
+  --kz-component-button-success-bg-hover: #13503d;
   --kz-component-button-success-shadow: var(--kz-shadow-neumorphic-raised-sm);
-  --kz-component-button-success-shadow-hover: var(--kz-component-button-brand-shadow-hover);
+  --kz-component-button-success-shadow-hover: var(
+    --kz-component-button-brand-shadow-hover
+  );
   --kz-component-button-warning-bg: #f59e0b;
   --kz-component-button-warning-bg-hover: #d97706;
   --kz-component-button-warning-shadow: var(--kz-shadow-neumorphic-raised-sm);
-  --kz-component-button-warning-shadow-hover: var(--kz-component-button-brand-shadow-hover);
+  --kz-component-button-warning-shadow-hover: var(
+    --kz-component-button-brand-shadow-hover
+  );
   --kz-component-button-error-bg: var(--kz-color-status-error);
-  --kz-component-button-error-bg-hover: #8E1824;
+  --kz-component-button-error-bg-hover: #8e1824;
   --kz-component-button-error-shadow: var(--kz-shadow-neumorphic-raised-sm);
-  --kz-component-button-error-shadow-hover: var(--kz-component-button-brand-shadow-hover);
+  --kz-component-button-error-shadow-hover: var(
+    --kz-component-button-brand-shadow-hover
+  );
   --kz-component-button-info-bg: var(--kz-color-status-info);
   --kz-component-button-info-bg-hover: #004494;
   --kz-component-button-info-text: #fff;
   --kz-component-button-info-shadow: var(--kz-shadow-neumorphic-raised-sm);
-  --kz-component-button-info-shadow-hover: var(--kz-component-button-brand-shadow-hover);
+  --kz-component-button-info-shadow-hover: var(
+    --kz-component-button-brand-shadow-hover
+  );
 
   /* ── TOGGLE BUTTON ── */
-  --kz-component-toggle-button-track-border: 1px solid var(--kz-component-input-border);
+  --kz-component-toggle-button-track-border: 1px solid
+    var(--kz-component-input-border);
   --kz-component-toggle-button-track-off-bg: var(--kz-color-surface-base);
   --kz-component-toggle-button-track-off-shadow:
-    2px 2px 4px 0 rgba(163, 177, 198, 0.5) inset,
-    -2px -2px 4px 0 #fff inset;
+    2px 2px 4px 0 rgba(163, 177, 198, 0.5) inset, -2px -2px 4px 0 #fff inset;
   --kz-component-toggle-button-track-on-bg: var(--kz-color-brand-accent);
-  --kz-component-toggle-button-track-on-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.3) inset;
+  --kz-component-toggle-button-track-on-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.3)
+    inset;
   --kz-component-toggle-button-thumb-bg: var(--kz-color-surface-base);
   --kz-component-toggle-button-thumb-shadow:
-    2px 2px 4px 0 rgba(163, 177, 198, 0.5),
-    -2px -2px 4px 0 #fff;
+    2px 2px 4px 0 rgba(163, 177, 198, 0.5), -2px -2px 4px 0 #fff;
   --kz-component-toggle-button-thumb-on-bg: #fff;
   --kz-component-toggle-button-thumb-on-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2);
 
@@ -174,7 +176,8 @@
   --kz-component-tabs-list-bg: var(--kz-color-surface-base);
   --kz-component-tabs-list-shadow: var(--kz-shadow-neumorphic-raised-lg);
   --kz-component-tabs-trigger-text: var(--kz-color-text-primary);
-  --kz-component-tabs-trigger-selected-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2) inset;
+  --kz-component-tabs-trigger-selected-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2)
+    inset;
 
   /* ── INPUT ── */
   --kz-component-input-bg: var(--kz-color-surface-base);
@@ -214,11 +217,13 @@
 
   /* ── NAV DROPDOWN MENU ── */
   --kz-component-nav-dropdown-menu-bg: #eef1f5;
-  --kz-component-nav-dropdown-menu-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.04) inset;
+  --kz-component-nav-dropdown-menu-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.04)
+    inset;
   --kz-component-nav-dropdown-option-text: rgba(44, 52, 64, 0.55);
   --kz-component-nav-dropdown-option-hover-bg: rgba(44, 52, 64, 0.08);
 
   /* ── SIDESHEET ── */
+  --kz-component-sidesheet-bg: var(--kz-color-surface-base);
   --kz-component-sidesheet-border: transparent;
 
   /* ── SIDEMENU ── */
@@ -228,19 +233,23 @@
   --kz-component-sidemenu-section-label-text: var(--kz-color-text-muted);
   --kz-component-sidemenu-item-text: var(--kz-color-text-primary);
   --kz-component-sidemenu-item-bg-hover: rgba(0, 0, 0, 0.04);
+  --kz-component-sidemenu-item-text-hover: inherit;
+  --kz-component-sidemenu-item-border-hover: transparent;
   --kz-component-sidemenu-item-bg-active: rgba(24, 171, 159, 0.1);
   --kz-component-sidemenu-item-active-text: var(--kz-color-brand-accent);
   --kz-component-sidemenu-item-active-link-bg: rgba(255, 255, 255, 0);
-  --kz-component-sidemenu-item-active-link-shadow: var(--kz-shadow-neumorphic-inset-sm);
-  --kz-component-sidemenu-item-active-link-border: 1px solid var(--kz-component-input-border);
+  --kz-component-sidemenu-item-active-link-shadow: var(
+    --kz-shadow-neumorphic-inset-sm
+  );
+  --kz-component-sidemenu-item-active-link-border: 1px solid
+    var(--kz-component-input-border);
   --kz-component-sidemenu-group-indent-bg: rgba(0, 0, 0, 0.02);
 
   /* ── TOOLTIP ── */
   --kz-component-tooltip-bg: var(--kz-color-surface-base);
   --kz-component-tooltip-text: #2c3440;
   --kz-component-tooltip-shadow:
-    4px 4px 8px 0 rgba(163, 177, 198, 0.5),
-    -2px -2px 6px 0 #fff;
+    4px 4px 8px 0 rgba(163, 177, 198, 0.5), -2px -2px 6px 0 #fff;
   --kz-component-tooltip-radius: 10px;
   --kz-component-tooltip-inverse-bg: #2c3440;
   --kz-component-tooltip-inverse-text: #e4e9f0;
@@ -273,13 +282,19 @@
   --kz-component-pagination-nav-hover-bg: transparent;
   --kz-component-pagination-nav-hover-shadow: none;
   --kz-component-pagination-nav-active-bg: transparent;
-  --kz-component-pagination-nav-active-shadow: var(--kz-shadow-neumorphic-inset-sm);
+  --kz-component-pagination-nav-active-shadow: var(
+    --kz-shadow-neumorphic-inset-sm
+  );
   --kz-component-pagination-page-hover-bg: transparent;
   --kz-component-pagination-page-hover-shadow: none;
   --kz-component-pagination-page-active-bg: transparent;
-  --kz-component-pagination-page-active-shadow: var(--kz-shadow-neumorphic-inset-sm);
+  --kz-component-pagination-page-active-shadow: var(
+    --kz-shadow-neumorphic-inset-sm
+  );
   --kz-component-pagination-page-selected-bg: transparent;
   --kz-component-pagination-page-selected-text: var(--kz-color-brand-accent);
-  --kz-component-pagination-page-selected-shadow: var(--kz-shadow-neumorphic-inset-sm);
+  --kz-component-pagination-page-selected-shadow: var(
+    --kz-shadow-neumorphic-inset-sm
+  );
   --kz-component-pagination-page-selected-border: transparent;
 }
