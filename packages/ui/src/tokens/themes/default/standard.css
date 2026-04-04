@@ -33,7 +33,7 @@
   --kz-color-text-link-hover: #004c99;
 
   /* ── ICON ── */
-  --kz-color-icon-default: #000000;
+  --kz-color-icon-default: #52606d;
 
   /* ── TYPOGRAPHY (colors) ── */
   --kz-typography-color-primary: var(--kz-color-text-primary);
@@ -196,7 +196,7 @@
 
   /* ── INPUT ── */
   --kz-component-input-bg: #F8F4F6;
-  --kz-component-input-border: rgba(45, 42, 46, 0.12);
+  --kz-component-input-border: transparent;
   --kz-component-input-border-focus: #00A99D;
   --kz-component-input-border-focus-width: 1.5px;
   --kz-component-input-focus-ring: 0 0 0 3px rgba(0, 169, 157, 0.10);
@@ -212,7 +212,7 @@
 
   /* ── DROPDOWN ── */
   --kz-component-dropdown-trigger-bg: #F8F4F6;
-  --kz-component-dropdown-trigger-border: rgba(45, 42, 46, 0.12);
+  --kz-component-dropdown-trigger-border: transparent;
   --kz-component-dropdown-trigger-border-open: #00A99D;
   --kz-component-dropdown-trigger-text: #364153;
   --kz-component-dropdown-trigger-text-selected: var(--kz-color-brand-accent-dark);
@@ -245,11 +245,11 @@
   --kz-component-nav-dropdown-option-hover-bg: rgba(0, 150, 137, 0.08);
 
   /* ── SIDESHEET ── */
-  --kz-component-sidesheet-bg: var(--kz-color-surface-base);
+  --kz-component-sidesheet-bg: var(--kz--surface-base);
   --kz-component-sidesheet-border: var(--kz-color-border-subtle);
 
   /* ── SIDEMENU ── */
-  --kz-component-sidemenu-bg: var(--kz-color-surface-base);
+  --kz-component-sidemenu-bg: #1C1917;
   --kz-component-sidemenu-border: var(--kz-color-border-subtle);
   --kz-component-sidemenu-shadow: none;
   --kz-component-sidemenu-section-label-text: var(--kz-color-text-muted);
@@ -279,7 +279,7 @@
 
   /* ── CARD ── */
   --kz-component-card-bg: #ffffff;
-  --kz-component-card-border: #e4e7eb;
+  --kz-component-card-border: transparent;
   --kz-component-card-shadow-sm: var(--kz-shadow-elevation-1);
   --kz-component-card-shadow-md: var(--kz-shadow-elevation-2);
   --kz-component-card-shadow-lg: var(--kz-shadow-elevation-3);

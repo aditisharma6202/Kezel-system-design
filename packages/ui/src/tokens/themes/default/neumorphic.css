@@ -222,13 +222,18 @@
   --kz-component-sidesheet-border: transparent;
 
   /* ── SIDEMENU ── */
+  --kz-component-sidemenu-bg: var(--kz-color-surface-base);
   --kz-component-sidemenu-border: rgba(0, 0, 0, 0.08);
   --kz-component-sidemenu-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.04);
+  --kz-component-sidemenu-section-label-text: var(--kz-color-text-muted);
+  --kz-component-sidemenu-item-text: var(--kz-color-text-primary);
+  --kz-component-sidemenu-item-bg-hover: rgba(0, 0, 0, 0.04);
   --kz-component-sidemenu-item-bg-active: rgba(24, 171, 159, 0.1);
   --kz-component-sidemenu-item-active-text: var(--kz-color-brand-accent);
   --kz-component-sidemenu-item-active-link-bg: rgba(255, 255, 255, 0);
   --kz-component-sidemenu-item-active-link-shadow: var(--kz-shadow-neumorphic-inset-sm);
   --kz-component-sidemenu-item-active-link-border: 1px solid var(--kz-component-input-border);
+  --kz-component-sidemenu-group-indent-bg: rgba(0, 0, 0, 0.02);
 
   /* ── TOOLTIP ── */
   --kz-component-tooltip-bg: var(--kz-color-surface-base);
