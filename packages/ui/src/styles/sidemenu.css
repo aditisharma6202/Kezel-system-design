@@ -10,6 +10,7 @@
   box-shadow: var(--kz-component-sidemenu-shadow, none);
   gap: var(--kz-component-sidemenu-gap, 4px);
   overflow: hidden;
+  color-scheme: var(--kz-component-sidemenu-color-scheme, dark);
 }
 
 .kz-sidemenu--collapsed {
@@ -112,35 +113,13 @@
   min-width: 0;
   overflow-y: auto;
   overflow-x: hidden;
+  color-scheme: var(--kz-component-sidemenu-color-scheme, dark);
   scrollbar-width: thin;
   scrollbar-color: var(
       --kz-component-sidemenu-scrollbar-thumb,
-      rgba(255, 255, 255, 0.15)
+      rgba(255, 255, 255, 0.2)
     )
     transparent;
-}
-
-.kz-sidemenu-nav::-webkit-scrollbar {
-  width: 6px;
-}
-
-.kz-sidemenu-nav::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.kz-sidemenu-nav::-webkit-scrollbar-thumb {
-  background: var(
-    --kz-component-sidemenu-scrollbar-thumb,
-    rgba(255, 255, 255, 0.15)
-  );
-  border-radius: 3px;
-}
-
-.kz-sidemenu-nav::-webkit-scrollbar-thumb:hover {
-  background: var(
-    --kz-component-sidemenu-scrollbar-thumb-hover,
-    rgba(255, 255, 255, 0.25)
-  );
 }
 
 .kz-sidemenu-footer {
@@ -224,6 +203,7 @@
 .kz-sidemenu-item--active {
   background: var(--kz-component-sidemenu-item-bg-active);
   color: var(--kz-component-sidemenu-item-active-text, #18ab9f);
+  box-shadow: var(--kz-component-sidemenu-item-active-shadow, none);
 }
 
 .kz-sidemenu-item--active .kz-sidemenu-item-icon {
@@ -290,6 +270,10 @@
 .kz-sidemenu-item-icon {
   display: inline-flex;
   flex-shrink: 0;
+}
+
+.kz-sidemenu-group-trigger .kz-sidemenu-item-icon {
+  color: var(--kz-component-sidemenu-item-icon, var(--kz-color-brand-accent));
 }
 
 .kz-sidemenu-item-label {

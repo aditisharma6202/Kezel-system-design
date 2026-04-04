@@ -277,11 +277,12 @@
   --kz-component-sidemenu-shadow: none;
   --kz-component-sidemenu-section-label-text: #57534e;
   --kz-component-sidemenu-item-text: #a8a29e;
-  --kz-component-sidemenu-item-bg-hover: rgba(0, 150, 137, 0.08);
+  --kz-component-sidemenu-item-bg-hover: rgba(0, 150, 137, 0.25);
   --kz-component-sidemenu-item-text-hover: var(--kz-color-brand-accent);
   --kz-component-sidemenu-item-border-hover: transparent;
   --kz-component-sidemenu-item-bg-active: #009689;
   --kz-component-sidemenu-item-active-text: #ffffff;
+  --kz-component-sidemenu-item-active-shadow: 0 2px 6px rgba(0, 150, 137, 0.3);
   --kz-component-sidemenu-item-active-link-bg: #009689;
   --kz-component-sidemenu-item-active-link-shadow: none;
   --kz-component-sidemenu-item-active-link-border: none;

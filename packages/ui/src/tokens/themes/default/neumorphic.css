@@ -228,6 +228,9 @@
 
   /* ── SIDEMENU ── */
   --kz-component-sidemenu-bg: var(--kz-color-surface-base);
+  --kz-component-sidemenu-color-scheme: light;
+  --kz-component-sidemenu-scrollbar-thumb: rgba(0, 0, 0, 0.15);
+  --kz-component-sidemenu-scrollbar-thumb-hover: rgba(0, 0, 0, 0.25);
   --kz-component-sidemenu-border: rgba(0, 0, 0, 0.08);
   --kz-component-sidemenu-shadow: 2px 0 6px 0 rgba(0, 0, 0, 0.04);
   --kz-component-sidemenu-section-label-text: var(--kz-color-text-muted);
