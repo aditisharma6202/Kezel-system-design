@@ -1,5 +1,5 @@
 ---
-"@kezel/ui": patch
+"kz-design-system": patch
 ---
 
 fix: theme token corrections for sidemenu, sidepanel, and form controls
