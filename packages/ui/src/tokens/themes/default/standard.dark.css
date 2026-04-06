@@ -27,7 +27,7 @@
   /* ── TEXT ── */
   /* Warm-tinted grays, never cool, never pure */
   --kz-color-text-primary: #f0ecee;
-  --kz-color-text-secondary: #9b8f94;
+  --kz-color-text-secondary: #a4a5a7;
   --kz-color-text-tertiary: #6b5f65;
   --kz-color-text-muted: #6b5f65;
   --kz-color-text-disabled: #4a4248;
@@ -144,17 +144,18 @@
 
   /* ── TABS ── */
   --kz-component-tabs-list-bg: #252229;
-  --kz-component-tabs-list-pill-bg: rgba(0, 0, 0, 0.25);
   --kz-component-tabs-trigger-text: #9b8f94;
   --kz-component-tabs-trigger-selected-text: #5dcaa5;
   --kz-component-tabs-trigger-selected-bg: #1c191f;
   --kz-component-tabs-trigger-selected-underline: #5dcaa5;
+  --kz-component-tabs-list-pill-bg: rgba(0, 0, 0, 0.8);
 
   /* ── INPUT ── */
   --kz-component-input-bg: #1c191f;
   --kz-component-input-border: rgba(255, 255, 255, 0.06);
   --kz-component-input-border-focus: #5dcaa5;
   --kz-component-input-border-disabled: rgba(255, 255, 255, 0.04);
+  --kz-component-input-ghost-border: 1px solid rgba(255, 255, 255, 0.12);
   --kz-component-input-text: #f0ecee;
   --kz-component-input-placeholder: #6b5f65;
   --kz-component-input-icon: #6b5f65;

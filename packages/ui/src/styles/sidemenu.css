@@ -273,7 +273,7 @@
 }
 
 .kz-sidemenu-group-trigger .kz-sidemenu-item-icon {
-  color: var(--kz-component-sidemenu-item-icon, var(--kz-color-brand-accent));
+  color: var(--kz-component-sidemenu-item-icon, currentColor);
 }
 
 .kz-sidemenu-item-label {

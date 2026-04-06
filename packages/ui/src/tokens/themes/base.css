@@ -196,6 +196,6 @@
 
   /* Table structural */
   --kz-component-table-sticky-row-top: 40px;
-  --kz-component-table-footer-bg: #948b8b21;
+  --kz-component-table-footer-bg: var(--kz-component-table-header-bg);
   --kz-component-table-pagination-bg: #0000001a;
 }

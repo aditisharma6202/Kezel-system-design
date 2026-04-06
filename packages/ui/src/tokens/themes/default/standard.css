@@ -319,7 +319,7 @@
   --kz-component-table-header-bg: var(--kz-color-surface-muted);
   --kz-component-table-header-border: #e7e5e4;
   --kz-component-table-row-border: #f5f2f4;
-  --kz-component-table-row-hover-bg: rgba(0, 150, 137, 0.015);
+  --kz-component-table-row-hover-bg: rgba(0, 150, 137, 0.127);
   --kz-component-table-pagination-active-bg: var(--kz-color-surface-muted);
   --kz-component-table-pagination-active-shadow: none;
   --kz-component-table-pagination-hover-shadow: none;
