@@ -198,6 +198,7 @@
   --kz-component-dropdown-trigger-text: #2e3a59;
   --kz-component-dropdown-trigger-text-selected: var(--kz-color-brand-accent);
   --kz-component-dropdown-trigger-radius: 10px;
+  --kz-component-dropdown-trigger-shadow: var(--kz-shadow-neumorphic-raised-sm);
   --kz-component-dropdown-trigger-focus-ring: 0 0 0 2px rgba(24, 171, 159, 0.2);
   --kz-component-dropdown-content-bg: var(--kz-color-surface-base);
   --kz-component-dropdown-content-border: transparent;
