@@ -405,7 +405,11 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
                       onClick={onRemoveAll}
                       aria-label="Remove All"
                     >
-                      <Icon name={IconName.Trash2} size={14} color="kz-color-status-error" />
+                      <Icon
+                        name={IconName.Trash2}
+                        size={14}
+                        color="kz-color-status-error"
+                      />
                     </button>
                   )}
                 </div>
